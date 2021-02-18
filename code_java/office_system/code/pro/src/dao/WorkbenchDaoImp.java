@@ -268,6 +268,29 @@ public class WorkbenchDaoImp implements WorkbenchDao{
         return workbenchYGList;
     }
 
+    /**
+     * 批量修改工作台数据
+     * @param id 修改数据的id
+     * @param value 修改的值
+     * @param column 修改的列
+     * @return true
+     */
+    @Override
+    public boolean updateWorkbench(String id, String value, String column) {
+        try {
+            DBCoon.init();
+            sql = "update baitaoquanxian set value=? where id=? and column=?";
+            Object[] args = {id,value,column};
+            int i = DBCoon.addUpdDel(sql,args);
+            if (i>0){
+                flag = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
     @Override
     public boolean updateA(int id, String A) {
         try {

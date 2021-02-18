@@ -52,12 +52,10 @@
         let firsttd = tr.firstElementChild;
         let firstinput = firsttd.firstElementChild
         let id = firstinput.value;
-        let column = this.name;
 
         arr.push({
             id: id,
             newvalue: newvalue,
-            column: column
         })
 
         $.ajax({

@@ -44,6 +44,30 @@ public class DBCoon {
         return rs;
     }
 
+
+    /*查询数据库返回String类型*/
+    public static String selectRank(String sql,String colum)  {
+        System.out.println(colum);
+        String result = "";
+        int recive = 0;
+        try {
+            ps = conn.prepareStatement(sql);
+            System.out.println("ps的值是:"+ps);
+            rs = ps.executeQuery();
+            System.out.println("ps的值是:"+rs);
+            //结果集没有当前行的解决方法：在执行excuteQuery方法得到结果集之后，在后面添加rs.next()方法，指向下一个
+            rs.next();
+            result = rs.getString(colum);
+            System.out.println("查询成功result:"+result);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            System.out.println("查询列的权限失败");
+        }
+        System.out.println("返回的是:"+result);
+        return result;
+    }
+
+
     /*增删改查数据(传递参数)*/
     public static int addUpdDel(String sql,Object[] args){
         int i = 0;

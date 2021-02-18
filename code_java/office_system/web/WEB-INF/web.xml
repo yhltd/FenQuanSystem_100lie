@@ -140,6 +140,26 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>WorkbenchInputPower</servlet-name>
+        <servlet-class>servlet.WorkbenchPowerInputServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WorkbenchInputPower</servlet-name>
+        <url-pattern>/WorkbenchInputPower</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>WorkbenchManyUpdate</servlet-name>
+        <servlet-class>servlet.WorkbenchManyUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WorkbenchManyUpdate</servlet-name>
+        <url-pattern>/WorkbenchManyUpdate</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>workbenchYG</servlet-name>
         <servlet-class>servlet.WorkBenchYGServlet</servlet-class>
     </servlet>

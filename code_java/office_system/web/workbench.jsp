@@ -28,6 +28,12 @@
     <div style="float: right;margin-right: 100px;margin-bottom: 0px;padding-bottom: 0px">
         <a href="renYuan" style="text-align: right;font-size: medium;color: black">用户:${userName}</a><br>
         <span style="font-size: medium">公司:${GongSi}</span>
+
+        <div style="margin-bottom: 20px;user-select: none">
+            <input id="isLot" type="checkbox"/>
+            <label for="isLot">是否即时保存</label>
+            <button id="save">保存</button>
+        </div>
     </div>
     <img src="img/20201124113000.jpg" style="width: 80px;height: 70px;float: left;margin-left: 50px;margin-bottom: 0px"/>
     <h2 style="margin-top: 25px;padding-left: 30px">公司管理系统</h2>
@@ -81,15 +87,18 @@
                 </div>
                 <div title="公司规定" data-options="href:'gongSi'" style="padding:10px"></div>
                 <div title="公司添加" data-options="href:'gongSiRegister.jsp'" style="padding:10px"></div>
-                <div title="公司柱状图" data-options="href:'barChart.jsp'" style="padding:10px"></div>
+<%--                <div title="公司柱状图" data-options="href:'barChart.jsp'" style="padding:10px"></div>--%>
                 <div title="人员添加" data-options="href:'renYuanRegister.jsp'" style="padding:10px"></div>
-                <div title="人员管理" data-options="href:'renYuan'" style="padding:10px"></div>
-                <div title="人员规定" data-options="href:'copy'" style="padding:10px"></div>
+<%--                <div title="人员管理" data-options="href:'renYuan'" style="padding:10px"></div>--%>
+<%--                <div title="人员规定" data-options="href:'copy'" style="padding:10px"></div>--%>
+
             </div>
         </div>
     </div>
 </body>
 <script>
+    //所有修改的值
+    let changeList = [];
     $(document).ready(function () {
         var time = new Date();
         var day = ("0" + time.getDate()).slice(-2);
@@ -100,8 +109,9 @@
     })
 
     arr=[]
-
-    $('input').on('input',function(){
+    pushInput = []
+    //修改单条数据
+    let inputChange = function(){
         let newvalue = this.value;
         let td = this.parentElement;
         let tr = td.parentElement;
@@ -109,7 +119,6 @@
         let firstinput = firsttd.firstElementChild
         let id = firstinput.value;
         let column = this.name;
-
         arr.push({
             id: id,
             newvalue: newvalue,
@@ -123,14 +132,153 @@
                 jsonData: JSON.stringify(arr)
             },
             dataType: 'json',
-            sucecss: function(data){
+            success: function(data){
                 console.log(data)
             },
             error: function(err){
                 console.log(err)
             }
         })
+    }
+    //判断用户对列的权限并对单条数据进行修改
+    let Immediately = function (){
+           let colum = this.name//当前修改的列
+
+            $.ajax({
+                type: 'post',
+                url:'WorkbenchInputPower',
+                data:{
+                    colum:colum
+                },
+               dataType: "text",
+                success:function (result){
+                    // alert(result);
+                    if (result == "√"){
+                       $('input').removeAttr('readOnly')
+                        // $('input').on('blur',inputChange)
+                        $('input[type=text]').change(inputChange);
+                    }else{
+                        $('input').attr('readOnly','readOnly')
+                        // alert("您没有修改"+colum+"列的权限!")
+                        // $('input').blur()
+                    }
+                }
+            })
+    }
+    //内容改变，获取焦点时触发
+    $('input').focus(function (){
+        //即时修改
+        let isLot = $('#isLot').is(':checked');
+
+        //判断是否是即时修改
+        if (isLot){
+            /*判断修改列的权限，对input进行修改*/
+            $('input').on('focus',Immediately);
+        }else{
+            // alert("即时修改没执行!")
+            // $('input').blur()
+        }
     })
+
+
+    //内容发生改变，失去焦点时触发
+    $('input[type=text]').change(function (){
+        let newvalue = this.value;
+        let td = this.parentElement;
+        let tr = td.parentElement;
+        let firsttd = tr.firstElementChild;
+        let firstinput = firsttd.firstElementChild
+        let id = firstinput.value;
+        let column = this.name;
+
+        push({
+            column:column,
+            value:newvalue,
+            id:id
+        })
+    })
+
+    function push(changeItem){
+
+        changeList.push(changeItem)
+
+        if(changeList.length == 0){
+            changeList.push(changeItem)
+        }else {
+            //循环搜索是否已经修改过
+            for(let i = 0;i< changeList.length;i++){
+                //如果已经修改过就直接改变值
+                if(changeList[i].id == changeItem.id && changeList[i].column == changeItem.column){
+                    changeList[i].value = changeItem.value;
+                    //跳出方法
+                    return;
+                }
+            }
+           //如果程序走到这一行，说明用户没有修改过input
+           changeList.push(changeItem)
+        }
+    }
+
+
+
+$('input').focus(function (){
+        let colum = this.name//当前修改的列
+
+        $.ajax({
+            type: 'post',
+            url:'WorkbenchInputPower',
+            data:{
+                colum:colum
+            },
+            dataType: "text",
+            success:function (result){
+                // alert(result);
+                if (result == "√"){
+                    $('input').removeAttr('readOnly')
+                    $('button').click(function (){
+                        let tId;
+                        let tColumn;
+                        let tValue;
+                        for (let a = 0;a< changeList.length;a++){
+                            tId = changeList[a].id;
+                            tColumn = changeList[a].column;
+                            tValue = changeList[a].value
+                            pushInput.push({
+                                id:tId,
+                                column:tColumn,
+                                newvalue:tValue
+                            })
+
+                        }
+                        $.ajax({
+                            type:'post',
+                            url:'WorkbenchManyUpdate',
+                            // url: 'workbenchUpdate',
+                            data:{
+                                jsonData:JSON.stringify(pushInput)
+
+                            },
+                            dataType:'json',
+                            success:function (data){
+                                console.log(data)
+                                alert("修改成功")
+                            },
+                            error:function (err){
+                                console.log(err)
+                            }
+                        })
+
+                    })
+                }else{
+                    $('input').attr('readOnly','readOnly')
+                    var aa = 0;
+                }
+            }
+        })
+    })
+
+
+
 
 </script>
 </html>

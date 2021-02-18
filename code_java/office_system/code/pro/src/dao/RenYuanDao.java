@@ -11,6 +11,14 @@ public interface  RenYuanDao {
     /*获取登录时是否为管理员 */
     public String QuanXian(String B,String D, String E);
 
+    /*查询登录人员的权限*/
+    public String getPower(String B,String D);
+
+
+    /*查询当前登录人员对列修改的权限*/
+    public String selectRankPower(String colum,String power);
+
+
     /*显示人员表信息*/
     public List<RenYuan> renyuanInfo();
 

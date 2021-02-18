@@ -10,7 +10,8 @@ public interface WorkbenchDao {
 
     //显示工作台信息(员工)
     public List<Workbench> workbenchYGInfo(String GongSi);
-
+    //批量修改工作台信息
+    public boolean updateWorkbench(String id,String value,String column);
     //修改工作台信息
     public boolean updateA(int id,String A);
     public boolean updateB(int id,String B);

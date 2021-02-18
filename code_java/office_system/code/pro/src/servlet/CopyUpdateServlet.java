@@ -22,6 +22,7 @@ public class CopyUpdateServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String jsonData = req.getParameter("jsonData");
+        System.out.println("集合jsonData:"+jsonData);
         Gson gson = new Gson();
         JsonParser jsonParser = new JsonParser();
         //获取JsonArray对象
@@ -32,7 +33,7 @@ public class CopyUpdateServlet extends HttpServlet {
             JsonReader jr = gson.fromJson(je, JsonReader.class);
             jrlist.add(jr);
         }
-
+        System.out.println("集合jrlist:"+jrlist);
         String id=jrlist.get(jrlist.size()-1).getId();
         int ryId = Integer.parseInt(id);
         String column=jrlist.get(jrlist.size()-1).getColumn();

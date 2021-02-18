@@ -61,6 +61,47 @@ public class RenYuanDaoImp implements RenYuanDao{
     }
 
     @Override
+    /*获取当前登录用户的权限*/
+    public String getPower(String B, String D) {
+        String power="";
+        try {
+            DBCoon.init();
+            sql = "select * from baitaoquanxian_renyun where B=? and D= ? ";
+            /*使用预编译SQL传递参数*/
+            Object[] args = {B,D};
+            ResultSet rs = DBCoon.searchSql(sql, args);
+            /*获取权限*/
+            while (rs.next()) {
+                power=rs.getString("C");
+                System.out.println("权限是"+power);
+            }
+        }catch (Exception e) {
+            System.out.println("查询用户权限失败");
+            e.printStackTrace();
+        } finally {
+            DBCoon.close();
+        }
+        return power;
+    }
+
+    @Override
+    /*查询当前登录人员对工作台中某一列进行修改的权限*/
+    public String selectRankPower(String colum, String power)  {
+        String resultPower = null;
+        try {
+            int result;
+            DBCoon.init();
+            sql = "select "+colum+" from baitaoquanxian_copy1 where B = '"+power+"'";
+            resultPower = DBCoon.selectRank(sql,colum);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBCoon.close();
+        }
+        return resultPower;
+    }
+
+    @Override
     public List<RenYuan> renyuanInfo() {
         List<RenYuan>renyuanList=new ArrayList<>();
         try {
