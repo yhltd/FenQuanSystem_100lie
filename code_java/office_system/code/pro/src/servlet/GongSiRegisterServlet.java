@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GongSiRegisterServlet extends HttpServlet {
     @Override
@@ -23,9 +25,23 @@ public class GongSiRegisterServlet extends HttpServlet {
         GongSi gs=new GongSi();
         gs.setB(B);
 
+
         GongSiDao gsd=new GongSiDaoImp();
-        if (gsd.register(gs)){
-            req.getRequestDispatcher("gongSi").forward(req, resp);
+        List<GongSi> gsName= gsd.GongSiName();
+        int gongSiNum = 0;
+        for(int i = 0 ; i< gsName.size(); i++){
+            System.out.println(gsName.get(i).getC());
+            String name = gsName.get(i).getB();
+            if(B.equals(name)){
+                gongSiNum = 1;
+            }
+        }
+        if(gongSiNum != 0){
+            req.getRequestDispatcher("/gongSiRegister.jsp").forward(req, resp);
+        }else{
+            if (gsd.register(gs)){
+                req.getRequestDispatcher("gongSi").forward(req, resp);
+            }
         }
     }
 }

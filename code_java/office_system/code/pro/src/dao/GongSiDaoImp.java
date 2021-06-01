@@ -14,6 +14,25 @@ public class GongSiDaoImp implements GongSiDao {
     static String sql = null;
 
     @Override
+    public Integer getRowCount(String column, String B) {
+        int resultCount =0;
+        try {
+
+            DBCoon.init();
+            sql = "SELECT count("+column+") as count FROM baitaoquanxian where 公司 = '" + B + "' and "+column+" !=''";
+            resultCount = DBCoon.selectReturnInt(sql);
+            System.out.println("执行了sql,resultCount:"+resultCount);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBCoon.close();
+        }
+        System.out.println("返回的结果resultCount等于"+resultCount);
+        return resultCount;
+    }
+
+    @Override
     public List<GongSi> GongSiName() {
         List<GongSi>GongSiNameList=new ArrayList<>();
         try {
@@ -36,13 +55,14 @@ public class GongSiDaoImp implements GongSiDao {
     }
 
     @Override
-    public List<GongSi> gongsiInfo() {
+    public List<GongSi> gongsiInfo( String gognsi) {
         List<GongSi>gongsiList=new ArrayList<>();
         try {
             DBCoon.init();
-            String sql="select*from baitaoquanxian_gongsi";
+            String sql="select*from baitaoquanxian_gongsi where B = '" + gognsi + "'";
             ResultSet rs=DBCoon.getInfo(sql);
             System.out.println("获取公司信息成功");
+            System.out.println("rs的值是："+rs);
             while (rs.next()) {
                 GongSi gs = new GongSi();
                 gs.setId(rs.getInt("id"));
@@ -152,7 +172,9 @@ public class GongSiDaoImp implements GongSiDao {
                 gs.setCX(rs.getString("CX"));
 
                 gongsiList.add(gs);
+//                System.out.println("输出gongsiList的值"+gongsiList);
             }
+            System.out.println("输出返回给servlet的参数:"+gongsiList);
         }catch (Exception e){
             System.out.println("获取公司信息失败");
             e.printStackTrace();
@@ -2130,5 +2152,24 @@ public class GongSiDaoImp implements GongSiDao {
         return flag;
     }
 
-    
+    @Override
+    public Integer gognSiName(String B) {
+        int resultCount =0;
+        try {
+
+            DBCoon.init();
+            sql = "select count(B) from baitaoquanxian_gongsi where B = '" + B + "'";
+            resultCount = DBCoon.selectGongsiInt(sql);
+            System.out.println("执行了sql,resultCount:"+resultCount);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBCoon.close();
+        }
+        System.out.println("返回的结果resultCount等于"+resultCount);
+        return resultCount;
+    }
+
+
 }

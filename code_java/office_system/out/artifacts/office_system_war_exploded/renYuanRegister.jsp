@@ -15,7 +15,8 @@
 <head>
     <title>人员注册</title>
 </head>
-<body background="img/9465fee2dc55cfd019c45a9858076f25.jpg">
+<%--<body background="img/9465fee2dc55cfd019c45a9858076f25.jpg">--%>
+<body style="background-color: #99CCFF">
     <div class="div">
         <h3>人员添加</h3>
         <form action="register" method="post">
@@ -37,7 +38,7 @@
                 </tr>
             </table>
         </form>
-        <a href="workbench" style="color: black;font-size: 18px">返回</a>
+        <a href="workbench.jsp" style="color: black;font-size: 18px">返回</a>
     </div>
 </body>
 </html>

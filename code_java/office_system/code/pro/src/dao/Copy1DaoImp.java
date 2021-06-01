@@ -14,11 +14,11 @@ public class Copy1DaoImp implements Copy1Dao{
     static String sql = null;
 
     @Override
-    public List<Copy1> copy1Info() {
+    public List<Copy1> copy1Info(String gognsi) {
         List<Copy1>copy1List=new ArrayList<>();
         try {
             DBCoon.init();
-            String sql="select*from baitaoquanxian_copy1";
+            String sql="select*from baitaoquanxian_copy1 where quanxian = '" + gognsi + "'";
             ResultSet rs=DBCoon.getInfo(sql);
             System.out.println("获取copy1信息成功");
             while(rs.next()){
@@ -2165,34 +2165,131 @@ public class Copy1DaoImp implements Copy1Dao{
         return cpList;
     }
 
-//    @Override
-//    public boolean update(int id, String quanXian,String B,String C, String D, String E, String F, String G, String H, String I, String J, String K, String L, String M, String N, String O, String P, String Q, String R, String S, String T, String U, String V, String W, String X, String Y, String Z,
-//                          String AA, String AB, String AC, String AD, String AE, String AF, String AG, String AH, String AI, String AJ, String AK, String AL, String AM, String AN, String AO, String AP, String AQ, String AR, String ASS, String AT, String AU, String AV, String AW, String AX, String AY, String AZ,
-//                          String BA, String BB, String BC, String BD, String BE, String BF, String BG, String BH, String BI, String BJ, String BK, String BL, String BM, String BN, String BO, String BP, String BQ, String BR, String BS, String BT, String BU, String BV, String BW, String BX, String BYY, String BZ,
-//                          String CA, String CB, String CC, String CD, String CE, String CF, String CG, String CH, String CI, String CJ, String CK, String CL, String CM, String CN, String CO, String CP, String CQ, String CR, String CS, String CT, String CU, String CV, String CW, String CX) {
-//        try {
-//            DBCoon.init();
-//            sql = "update baitaoquanxian_copy1 set quanxian=?,B=?,C=?,D=?,E=?,F=?,G=?,H=?,I=?,J=?,K=?,L=?,M=?,N=?,O=?,P=?,Q=?,R=?,S=?,T=?,U=?,V=?,W=?,X=?,Y=?,Z=?," +
-//                    "AA=?,AB=?,AC=?,AD=?,AE=?,AF=?,AG=?,AH=?,AI=?,AJ=?,AK=?,AL=?,AM=?,AN=?,AO=?,AP=?,AQ=?,AR=?,ASS=?,AT=?,AU=?,AV=?,AW=?,AX=?,AY=?,AZ=?," +
-//                    "BA=?,BB=?,BC=?,BD=?,BE=?,BF=?,BG=?,BH=?,BI=?,BJ=?,BK=?,BL=?,BM=?,BN=?,BO=?,BP=?,BQ=?,BR=?,BS=?,BT=?,BU=?,BV=?,BW=?,BX=?,BYY=?,BZ=?," +
-//                    "CA=?,CB=?,CC=?,CD=?,CE=?,CF=?,CG=?,CH=?,CI=?,CJ=?,CK=?,CL=?,CM=?,CN=?,CO=?,CP=?,CQ=?,CR=?,CS=?,CT=?,CU=?,CV=?,CW=?,CX=? where id=?";
-//            Object[] args={quanXian,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
-//                    AA,AB,AC,AD,AE,AF,AG,AH,AI,AJ,AK,AL,AM,AN,AO,AP,AQ,AR,ASS,AT,AU,AV,AW,AX,AY,AZ,
-//                    BA,BB,BC,BD,BE,BF,BG,BH,BI,BJ,BK,BL,BM,BN,BO,BP,BQ,BR,BS,BT,BU,BV,BW,BX,BYY,BZ,
-//                    CA,CB,CC,CD,CE,CF,CG,CH,CI,CJ,CK,CL,CM,CN,CO,CP,CQ,CR,CS,CT,CU,CV,CW,CX,id};
-//            int i = DBCoon.addUpdDel(sql,args);
-//            if (i>0){
-//                flag=true;
-//                System.out.println("数据更新成功");
-//            }
-//        }catch (Exception e) {
-//            System.out.println("数据更新失败");
-//            e.printStackTrace();
-//        }finally {
-//            DBCoon.close();
-//        }
-//        return flag;
-//    }
+    @Override
+    public List<Copy1> getRenYuanInfo(String gognsi, String user) {
+        List<Copy1>copy1List=new ArrayList<>();
+        try {
+            DBCoon.init();
+            String sql="select*from baitaoquanxian_copy1 where quanxian = '" + gognsi + "'and B = '" + user + "'";
+            ResultSet rs=DBCoon.getInfo(sql);
+            System.out.println("获取copy1信息成功");
+            while(rs.next()){
+                Copy1 copy=new Copy1();
+                copy.setId(rs.getInt("id"));
+                copy.setC(rs.getString("C"));
+                copy.setD(rs.getString("D"));
+                copy.setE(rs.getString("E"));
+                copy.setF(rs.getString("F"));
+                copy.setG(rs.getString("G"));
+                copy.setH(rs.getString("H"));
+                copy.setI(rs.getString("I"));
+                copy.setJ(rs.getString("J"));
+                copy.setK(rs.getString("K"));
+                copy.setL(rs.getString("L"));
+                copy.setM(rs.getString("M"));
+                copy.setN(rs.getString("N"));
+                copy.setO(rs.getString("O"));
+                copy.setP(rs.getString("P"));
+                copy.setQ(rs.getString("Q"));
+                copy.setR(rs.getString("R"));
+                copy.setS(rs.getString("S"));
+                copy.setT(rs.getString("T"));
+                copy.setU(rs.getString("U"));
+                copy.setV(rs.getString("V"));
+                copy.setW(rs.getString("W"));
+                copy.setX(rs.getString("X"));
+                copy.setY(rs.getString("Y"));
+                copy.setZ(rs.getString("Z"));
 
+                copy.setAA(rs.getString("AA"));
+                copy.setAB(rs.getString("AB"));
+                copy.setAC(rs.getString("AC"));
+                copy.setAD(rs.getString("AD"));
+                copy.setAE(rs.getString("AE"));
+                copy.setAF(rs.getString("AF"));
+                copy.setAG(rs.getString("AG"));
+                copy.setAH(rs.getString("AH"));
+                copy.setAI(rs.getString("AI"));
+                copy.setAJ(rs.getString("AJ"));
+                copy.setAK(rs.getString("AK"));
+                copy.setAL(rs.getString("AL"));
+                copy.setAM(rs.getString("AM"));
+                copy.setAN(rs.getString("AN"));
+                copy.setAO(rs.getString("AO"));
+                copy.setAP(rs.getString("AP"));
+                copy.setAQ(rs.getString("AQ"));
+                copy.setAR(rs.getString("AR"));
+                copy.setASS(rs.getString("ASS"));
+                copy.setAT(rs.getString("AT"));
+                copy.setAU(rs.getString("AU"));
+                copy.setAV(rs.getString("AV"));
+                copy.setAW(rs.getString("AW"));
+                copy.setAX(rs.getString("AX"));
+                copy.setAY(rs.getString("AY"));
+                copy.setAZ(rs.getString("AZ"));
+
+                copy.setBA(rs.getString("BA"));
+                copy.setBB(rs.getString("BB"));
+                copy.setBC(rs.getString("BC"));
+                copy.setBD(rs.getString("BD"));
+                copy.setBE(rs.getString("BE"));
+                copy.setBF(rs.getString("BF"));
+                copy.setBG(rs.getString("BG"));
+                copy.setBH(rs.getString("BH"));
+                copy.setBI(rs.getString("BI"));
+                copy.setBJ(rs.getString("BJ"));
+                copy.setBK(rs.getString("BK"));
+                copy.setBL(rs.getString("BL"));
+                copy.setBM(rs.getString("BM"));
+                copy.setBN(rs.getString("BN"));
+                copy.setBO(rs.getString("BO"));
+                copy.setBP(rs.getString("BP"));
+                copy.setBQ(rs.getString("BQ"));
+                copy.setBR(rs.getString("BR"));
+                copy.setBS(rs.getString("BS"));
+                copy.setBT(rs.getString("BT"));
+                copy.setBU(rs.getString("BU"));
+                copy.setBV(rs.getString("BV"));
+                copy.setBW(rs.getString("BW"));
+                copy.setBX(rs.getString("BX"));
+                copy.setBYY(rs.getString("BYY"));
+                copy.setBZ(rs.getString("BZ"));
+
+                copy.setCA(rs.getString("CA"));
+                copy.setCB(rs.getString("CB"));
+                copy.setCC(rs.getString("CC"));
+                copy.setCD(rs.getString("CD"));
+                copy.setCE(rs.getString("CE"));
+                copy.setCF(rs.getString("CF"));
+                copy.setCG(rs.getString("CG"));
+                copy.setCH(rs.getString("CH"));
+                copy.setCI(rs.getString("CI"));
+                copy.setCJ(rs.getString("CJ"));
+                copy.setCK(rs.getString("CK"));
+                copy.setCL(rs.getString("CL"));
+                copy.setCM(rs.getString("CM"));
+                copy.setCN(rs.getString("CN"));
+                copy.setCO(rs.getString("CO"));
+                copy.setCP(rs.getString("CP"));
+                copy.setCQ(rs.getString("CQ"));
+                copy.setCR(rs.getString("CR"));
+                copy.setCS(rs.getString("CS"));
+                copy.setCT(rs.getString("CT"));
+                copy.setCU(rs.getString("CU"));
+                copy.setCV(rs.getString("CV"));
+                copy.setCW(rs.getString("CW"));
+                copy.setCX(rs.getString("CX"));
+
+                copy.setQuanXian(rs.getString("quanxian"));
+
+                copy.setB(rs.getString("B"));
+
+                copy1List.add(copy);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return copy1List;
+    }
 
 }

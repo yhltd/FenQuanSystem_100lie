@@ -5,11 +5,14 @@ import javaBean.GongSi;
 import java.util.List;
 
 public interface GongSiDao {
+    /*获取当前公司使用了的列的行数*/
+    public Integer getRowCount(String column,String B);
+
     /*获取公司*/
     public List<GongSi> GongSiName();
 
     /*显示公司表信息*/
-    public List<GongSi> gongsiInfo();
+    public List<GongSi> gongsiInfo(String gognsi);
 
     /*根据获取到的内容修改信息*/
 //    public boolean update(int id,  String B,String C,String D, String E, String F,String G, String H, String I,String J, String K, String L,String M, String N, String O,String P, String Q, String R,String S, String T, String U,String V, String W, String X,String Y, String Z,
@@ -127,5 +130,8 @@ public interface GongSiDao {
     public boolean updateCV(int id,String CV);
     public boolean updateCW(int id,String CW);
     public boolean updateCX(int id,String CX);
+    /*判断公司姓名*/
+    /*获取当前公司使用了的列的行数*/
+    public Integer gognSiName(String B);
 
 }

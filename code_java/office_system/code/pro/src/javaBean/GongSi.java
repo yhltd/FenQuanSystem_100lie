@@ -923,6 +923,114 @@ public class GongSi {
         this.CX = CX;
     }
 
+    @Override
+    public String toString() {
+        return "GongSi{" +
+                "id=" + id +
+                ", B='" + B + '\'' +
+                ", C='" + C + '\'' +
+                ", D='" + D + '\'' +
+                ", E='" + E + '\'' +
+                ", F='" + F + '\'' +
+                ", G='" + G + '\'' +
+                ", H='" + H + '\'' +
+                ", I='" + I + '\'' +
+                ", J='" + J + '\'' +
+                ", K='" + K + '\'' +
+                ", L='" + L + '\'' +
+                ", M='" + M + '\'' +
+                ", N='" + N + '\'' +
+                ", O='" + O + '\'' +
+                ", P='" + P + '\'' +
+                ", Q='" + Q + '\'' +
+                ", R='" + R + '\'' +
+                ", S='" + S + '\'' +
+                ", T='" + T + '\'' +
+                ", U='" + U + '\'' +
+                ", V='" + V + '\'' +
+                ", W='" + W + '\'' +
+                ", X='" + X + '\'' +
+                ", Y='" + Y + '\'' +
+                ", Z='" + Z + '\'' +
+                ", AA='" + AA + '\'' +
+                ", AB='" + AB + '\'' +
+                ", AC='" + AC + '\'' +
+                ", AD='" + AD + '\'' +
+                ", AE='" + AE + '\'' +
+                ", AF='" + AF + '\'' +
+                ", AG='" + AG + '\'' +
+                ", AH='" + AH + '\'' +
+                ", AI='" + AI + '\'' +
+                ", AJ='" + AJ + '\'' +
+                ", AK='" + AK + '\'' +
+                ", AL='" + AL + '\'' +
+                ", AM='" + AM + '\'' +
+                ", AN='" + AN + '\'' +
+                ", AO='" + AO + '\'' +
+                ", AP='" + AP + '\'' +
+                ", AQ='" + AQ + '\'' +
+                ", AR='" + AR + '\'' +
+                ", ASS='" + ASS + '\'' +
+                ", AT='" + AT + '\'' +
+                ", AU='" + AU + '\'' +
+                ", AV='" + AV + '\'' +
+                ", AW='" + AW + '\'' +
+                ", AX='" + AX + '\'' +
+                ", AY='" + AY + '\'' +
+                ", AZ='" + AZ + '\'' +
+                ", BA='" + BA + '\'' +
+                ", BB='" + BB + '\'' +
+                ", BC='" + BC + '\'' +
+                ", BD='" + BD + '\'' +
+                ", BE='" + BE + '\'' +
+                ", BF='" + BF + '\'' +
+                ", BG='" + BG + '\'' +
+                ", BH='" + BH + '\'' +
+                ", BI='" + BI + '\'' +
+                ", BJ='" + BJ + '\'' +
+                ", BK='" + BK + '\'' +
+                ", BL='" + BL + '\'' +
+                ", BM='" + BM + '\'' +
+                ", BN='" + BN + '\'' +
+                ", BO='" + BO + '\'' +
+                ", BP='" + BP + '\'' +
+                ", BQ='" + BQ + '\'' +
+                ", BR='" + BR + '\'' +
+                ", BS='" + BS + '\'' +
+                ", BT='" + BT + '\'' +
+                ", BU='" + BU + '\'' +
+                ", BV='" + BV + '\'' +
+                ", BW='" + BW + '\'' +
+                ", BX='" + BX + '\'' +
+                ", BYY='" + BYY + '\'' +
+                ", BZ='" + BZ + '\'' +
+                ", CA='" + CA + '\'' +
+                ", CB='" + CB + '\'' +
+                ", CC='" + CC + '\'' +
+                ", CD='" + CD + '\'' +
+                ", CE='" + CE + '\'' +
+                ", CF='" + CF + '\'' +
+                ", CG='" + CG + '\'' +
+                ", CH='" + CH + '\'' +
+                ", CI='" + CI + '\'' +
+                ", CJ='" + CJ + '\'' +
+                ", CK='" + CK + '\'' +
+                ", CL='" + CL + '\'' +
+                ", CM='" + CM + '\'' +
+                ", CN='" + CN + '\'' +
+                ", CO='" + CO + '\'' +
+                ", CP='" + CP + '\'' +
+                ", CQ='" + CQ + '\'' +
+                ", CR='" + CR + '\'' +
+                ", CS='" + CS + '\'' +
+                ", CT='" + CT + '\'' +
+                ", CU='" + CU + '\'' +
+                ", CV='" + CV + '\'' +
+                ", CW='" + CW + '\'' +
+                ", CX='" + CX + '\'' +
+                '}';
+    }
+
     public GongSi(){}
     public GongSi(int id, String b, String c, String d, String e, String f, String g, String h, String i, String j, String k, String l, String m, String n, String o, String p, String q, String r, String s, String t, String u, String v, String w, String x, String y, String z,
                   String AA, String AB, String AC, String AD, String AE, String AF, String AG, String AH, String AI, String AJ, String AK, String AL, String AM, String AN, String AO, String AP, String AQ, String AR, String ASS, String AT, String AU, String AV, String AW, String AX, String AY, String AZ,
@@ -1033,4 +1141,6 @@ public class GongSi {
 
 
     }
+
+
 }

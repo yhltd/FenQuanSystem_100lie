@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("GongSi",B);
             //取得权限判断是不是管理员
             String qx=ryd.QuanXian(B,D,E);
+            session.setAttribute("quanxian",qx);
             if(ryd.QuanXian(B,D,E).equals("管理员")){
                 System.out.println(qx+"登录成功");
                 req.getRequestDispatcher("workbenchGLY").forward(req, resp);

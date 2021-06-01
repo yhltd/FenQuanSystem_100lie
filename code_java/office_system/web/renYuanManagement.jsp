@@ -16,7 +16,8 @@
 <head>
     <title>人员管理</title>
 </head>
-<body background="img/1f48c75e2db216327a7681d59da0726f.jpg">
+<%--<body background="img/1f48c75e2db216327a7681d59da0726f.jpg">--%>
+<body style="background-color: #99CCFF">
     <div style="text-align: center">
         <h2 style="text-align: center;color: white">人员管理</h2>
         <table border="1" class="table-condensed"  style="margin-left: auto;margin-right: auto;">
@@ -40,7 +41,7 @@
                 </form>
             </c:forEach>
         </table>
-        <a href="workbench" style="color: black;font-size: 18px">返回主页</a>
+        <a href="workbench.jsp" style="color: black;font-size: 18px">返回主页</a>
     </div>
 </body>
 </html>

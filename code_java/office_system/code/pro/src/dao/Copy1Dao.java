@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Copy1Dao {
     /*显示公司表信息*/
-    public List<Copy1> copy1Info();
+    public List<Copy1> copy1Info(String gognsi);
 
 //    /*根据获取到的内容修改Copy1信息*/
 //    public boolean update(int id, String quanXian,String B,String C,String D, String E, String F,String G, String H, String I,String J, String K, String L,String M, String N, String O,String P, String Q, String R,String S, String T, String U,String V, String W, String X,String Y, String Z,
@@ -123,4 +123,6 @@ public interface Copy1Dao {
     /*工作台获取人员信息*/
     public List<Copy1> cpInfo(String B);
 
+    /*显示公司表信息*/
+    public List<Copy1> getRenYuanInfo(String gognsi,String user);
 }

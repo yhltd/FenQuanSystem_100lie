@@ -28,12 +28,6 @@
     <div style="float: right;margin-right: 100px;margin-bottom: 0px;padding-bottom: 0px">
         <a href="renYuan" style="text-align: right;font-size: medium;color: black">用户:${userName}</a><br>
         <span style="font-size: medium">公司:${GongSi}</span>
-
-        <div style="margin-bottom: 20px;user-select: none">
-            <input id="isLot" type="checkbox"/>
-            <label for="isLot">是否即时保存</label>
-            <button id="save">保存</button>
-        </div>
     </div>
     <img src="img/20201124113000.jpg" style="width: 80px;height: 70px;float: left;margin-left: 50px;margin-bottom: 0px"/>
     <h2 style="margin-top: 25px;padding-left: 30px">公司管理系统</h2>
@@ -43,21 +37,35 @@
                 <div title="公司" data-options="iconCls:'icon-reload',selected:true" style="padding:10px">
                     <a href="gongSiRegister.jsp" style="color: black">公司添加</a><br>
                     <a href="gongSi" style="color: black">公司规定</a><br>
+<%--                    <a href="javascript:openGongSi();" style="color: black">公司规定</a><br>--%>
                     <a href="barChart.jsp" style="color: black">公司柱状图</a><br>
                 </div>
                 <div title="人员" data-options="iconCls:'icon-reload'" style="padding:10px;">
                     <a href="renYuanRegister.jsp" style="color: black">人员添加</a><br>
                     <a href="renYuan" style="color: black">人员管理</a><br>
                     <a href="copy" style="color: black">人员规定</a><br>
+                    <a href="renYuanInit" style="color: black">人员柱状图</a><br>
                 </div>
                 <div title="操作" data-options="iconCls:'icon-reload'" style="padding:10px">
-                    <a href="login.jsp" style="color: black">退出</a>
+                    <a href="useRenYuan" style="color: black">人员使用情况</a><br>
+                    <a href="test.jsp" style="color: black">测试</a><br>
+                    <a href="login.jsp" style="color: black">退出</a><br>
                 </div>
             </div>
         </div>
         <div data-options="region:'center',title:'主页',iconCls:'icon-ok'" style="margin-right: 10px">
             <div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
                 <div title="工作台" style="border: 1px solid #5bc0de;height: 580px;width: 1000px;float: left;text-align: center">
+                    <div style="user-select: none">
+                        <input id="isLot" type="checkbox"/>
+                        <label for="isLot" style="padding-right: 5px;">是否即时保存</label>
+                        <button id="save" style="padding-right: 5px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">保存</button>
+                        开始日期：<input class="easyui-datebox" name="begindate" id="begindate" data-options="formatter:myformatter,parser:myparser"></input>
+                        结束日期：<input class="easyui-datebox" name="enddate" id="enddate" data-options="formatter:myformatter,parser:myparser"></input>
+                        <button id="selectDate" style="padding-right: 5px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">查询</button>
+                        <button id="add" style="padding-right: 5px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">添加</button>
+                        <button id="getAll" style="margin-right: -100px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">获取数据</button>
+                    </div>
                     <table border="1" class="table-condensed">
                         <tr style="text-align: center">
                             <td>A</td> <td>B</td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> <td>G</td> <td>H</td> <td>I</td> <td>J</td> <td>K</td> <td>L</td> <td>M</td> <td>N</td> <td>O</td> <td>P</td> <td>Q</td> <td>R</td> <td>S</td> <td>T</td> <td>U</td> <td>V</td> <td>W</td> <td>X</td> <td>Y</td> <td>Z</td>
@@ -74,6 +82,7 @@
                                 <td><input type="text" name="CA" value="${wk.CA}" class="input" style="background: transparent"></td> <td><input type="text" name="CB" value="${wk.CB}" class="input" style="background: transparent"></td> <td><input type="text" name="CC" value="${wk.CC}" class="input" style="background: transparent"></td> <td><input type="text" name="CD" value="${wk.CD}" class="input" style="background: transparent"></td> <td><input type="text" name="CE" value="${wk.CE}" class="input" style="background: transparent"></td> <td><input type="text" name="CF" value="${wk.CF}" class="input" style="background: transparent"></td> <td><input type="text" name="CG" value="${wk.CG}" class="input" style="background: transparent"></td> <td><input type="text" name="CH" value="${wk.CH}" class="input" style="background: transparent"></td> <td><input type="text" name="CI" value="${wk.CI}" class="input" style="background: transparent"></td> <td><input type="text" name="CJ" value="${wk.CJ}" class="input" style="background: transparent"></td> <td><input type="text" name="CK" value="${wk.CK}" class="input" style="background: transparent"></td> <td><input type="text" name="CL" value="${wk.CL}" class="input" style="background: transparent"></td> <td><input type="text" name="CM" value="${wk.CM}" class="input" style="background: transparent"></td> <td><input type="text" name="CN" value="${wk.CN}" class="input" style="background: transparent"></td> <td><input name="CO" type="text" value="${wk.CO}" class="input" style="background: transparent"></td> <td><input type="text" name="CP" value="${wk.CP}" class="input" style="background: transparent"></td> <td><input type="text" name="CQ" value="${wk.CQ}" class="input" style="background: transparent"></td> <td><input type="text" name="CR" value="${wk.CR}" class="input" style="background: transparent"></td> <td><input type="text" name="CS" value="${wk.CS}" class="input" style="background: transparent"></td> <td><input type="text" name="CT" value="${wk.CT}" class="input" style="background: transparent"></td> <td><input type="text" name="CU" value="${wk.CU}" class="input" style="background: transparent"></td> <td><input type="text" name="CV" value="${wk.CV}" class="input" style="background: transparent"></td> <td><input type="text" name="renYuan" value="${wk.renYuan}" class="input" style="background: transparent" readonly="readonly"></td> <td><input type="text" name="gongSi" value="${wk.gongSi}" class="input" style="background: transparent" readonly="readonly"></td>
                             </tr>
                         </c:forEach>
+<%--                        <%=request.getAttribute("wkYGInfo")%>--%>
                         <c:forEach items="${wkYGInfo}" var="wkyg">
                             <tr>
                                 <td hidden="hidden"><input type="text" name="id" value="${wkyg.id}"></td>
@@ -89,8 +98,10 @@
                 <div title="公司添加" data-options="href:'gongSiRegister.jsp'" style="padding:10px"></div>
 <%--                <div title="公司柱状图" data-options="href:'barChart.jsp'" style="padding:10px"></div>--%>
                 <div title="人员添加" data-options="href:'renYuanRegister.jsp'" style="padding:10px"></div>
+                <div title="人员柱状图" data-options="href:'renYuanInit'" style="padding:10px"></div>
 <%--                <div title="人员管理" data-options="href:'renYuan'" style="padding:10px"></div>--%>
 <%--                <div title="人员规定" data-options="href:'copy'" style="padding:10px"></div>--%>
+
 
             </div>
         </div>
@@ -157,6 +168,26 @@
                        $('input').removeAttr('readOnly')
                         // $('input').on('blur',inputChange)
                         $('input[type=text]').change(inputChange);
+                        /*取消用户对当前列的编辑*/
+                        let cancelUse = function(){
+                            let column = this.name;
+
+
+                            $.ajax({
+                                type: 'post',
+                                url: 'WorkbenchCancel',
+                                data: {
+                                    column:column
+                                },
+                                dataType: 'text',
+                                success: function(data){
+                                    console.log(data)
+                                },
+                                error: function(err){
+                                    console.log(err)
+                                }
+                            })
+                        }
                     }else{
                         $('input').attr('readOnly','readOnly')
                         // alert("您没有修改"+colum+"列的权限!")
@@ -235,40 +266,6 @@ $('input').focus(function (){
                 // alert(result);
                 if (result == "√"){
                     $('input').removeAttr('readOnly')
-                    $('button').click(function (){
-                        let tId;
-                        let tColumn;
-                        let tValue;
-                        for (let a = 0;a< changeList.length;a++){
-                            tId = changeList[a].id;
-                            tColumn = changeList[a].column;
-                            tValue = changeList[a].value
-                            pushInput.push({
-                                id:tId,
-                                column:tColumn,
-                                newvalue:tValue
-                            })
-
-                        }
-                        $.ajax({
-                            type:'post',
-                            url:'WorkbenchManyUpdate',
-                            // url: 'workbenchUpdate',
-                            data:{
-                                jsonData:JSON.stringify(pushInput)
-
-                            },
-                            dataType:'json',
-                            success:function (data){
-                                console.log(data)
-                                alert("修改成功")
-                            },
-                            error:function (err){
-                                console.log(err)
-                            }
-                        })
-
-                    })
                 }else{
                     $('input').attr('readOnly','readOnly')
                     var aa = 0;
@@ -277,8 +274,210 @@ $('input').focus(function (){
         })
     })
 
+/*判断修改公司权限*/
+    function openGongSi(){
+        $.ajax({
+            type: 'post',
+            url:'gongSi',
+            data:{
+                // colum:colum
+            },
+            dataType: "text",
+            success:function (result){
+                console.log(result)
+                // alert(result);
+                if (result == 1){
+                    // $('input').removeAttr('readOnly')
+                    // $('input').on('blur',inputChange)
+                    // $('input[type=text]').change(inputChange);
+                    alert("当前用户无权限!!!")
+                }else{
+                    // $('input').attr('readOnly','readOnly')
+                    // alert("您没有修改"+colum+"列的权限!")
+                    // $('input').blur()
+                }
+            }
+        })
+    }
+    $('#save').click(function (){
+        let tId;
+        let tColumn;
+        let tValue;
+
+        for (let a = 0;a< changeList.length;a++){
+            tId = changeList[a].id;
+            tColumn = changeList[a].column;
+            tValue = changeList[a].value
+            pushInput.push({
+                id:tId,
+                column:tColumn,
+                newvalue:tValue
+            })
+
+        }
+        $.ajax({
+            type:'post',
+            url:'WorkbenchManyUpdate',
+            data:{
+                jsonData:JSON.stringify(pushInput)
+
+            },
+            dataType:'json',
+            success:function (data){
+                console.log(data)
+                alert("修改成功")
+                JOptionPane.showMessageDialog(null, "消息提示");
+            },
+            error:function (err){
+                console.log(err)
+            }
+        })
+        //JOptionPane.showMessageDialog(null, "消息提示");
+    })
+
+/*easyUI日期组件*/
+    function myformatter(date) {
+
+        var y = date.getFullYear();
+
+        var m = date.getMonth() + 1;
+
+        var d = date.getDate();
+
+        return y + '-' + (m < 10 ? ('0' + m) : m) + '-'
+
+            + (d < 10 ? ('0' + d) : d);
+
+    }
+
+    function myparser(s) {
+
+        if (!s)
+
+            return new Date();
+
+        var ss = (s.split('-'));
+
+        var y = parseInt(ss[0], 10);
+
+        var m = parseInt(ss[1], 10);
+
+        var d = parseInt(ss[2], 10);
+
+        if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+
+            return new Date(y, m - 1, d);
+
+        } else {
+
+            return new Date();
+
+        }
+
+    }
+/*日期组件汉化*/
+    $('#begindate').datebox({
+        // required:true,
+        okText: '确定',
+        closeText: '关闭',
+        currentText: '今天',
+    });
+    var c = $('#begindate').datebox('calendar');
+    c.calendar({
+        weeks: ['日', '一', '二', '三', '四', '五', '六'],
+        months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+    });
+
+    $('#enddate').datebox({
+        // required:true,
+        okText: '确定',
+        closeText: '关闭',
+        currentText: '今天',
+    });
+    var c = $('#enddate').datebox('calendar');
+    c.calendar({
+        weeks: ['日', '一', '二', '三', '四', '五', '六'],
+        months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+    });
 
 
+
+
+
+    function getDate(){
+        var begindate=$('#begindate').datebox('getValue');  //注意.datebox('getValue')是EasyUI固定的写法。
+        var enddate=$('#enddate').datebox('getValue');
+    }
+    function setDate(){
+        $("#begindate").datebox('setValue',begindate);
+
+        $("#enddate").datebox('setValue',enddate);
+    }   //setValue是EasyUI固定的写法。
+
+/*根据日期查询数据*/
+    $('#selectDate').click(function (){
+        let startTime = new Date($('#begindate').val())
+        let endTime = new Date($('#enddate').val())
+        if (startTime.getTime()>endTime.getTime()){
+            alert("开始时间不能大于结束时间")
+        }else{
+            $.ajax({
+                type:'post',
+                url:'workbenchTime',
+                data:{
+                    startTime:$('#begindate').val(),
+                    endTime:$('#enddate').val(),
+                },
+                dataType:'text',
+                success:function (data){
+                    console.log(data)
+                    alert("查询成功")
+                },
+                error:function (err){
+                    console.log(err)
+                }
+            })
+        }
+    });
+
+    /*添加一行*/
+    $('#add').click(function (){
+
+            $.ajax({
+                type:'post',
+                url:'addWorkbench',
+                data:{
+
+                },
+                dataType:'text',
+                success:function (data){
+                    console.log(data)
+                    alert("添加成功")
+                },
+                error:function (err){
+                    console.log(err)
+                }
+            })
+    });
+
+    /*查询数据*/
+    $('#getAll').click(function (){
+
+        $.ajax({
+            type:'post',
+            url:'workbenchGetData',
+            data:{
+
+            },
+            dataType:'text',
+            success:function (data){
+                console.log(data)
+            },
+            error:function (err){
+                console.log(err)
+            }
+        })
+    });
 
 </script>
 </html>

@@ -41,12 +41,49 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>renYuanInit</servlet-name>
+        <servlet-class>servlet.RenYuanInitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>renYuanInit</servlet-name>
+        <url-pattern>/renYuanInit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>useRenYuan</servlet-name>
+        <servlet-class>servlet.RenYuanUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>useRenYuan</servlet-name>
+        <url-pattern>/useRenYuan</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>delteRenYuan</servlet-name>
+        <servlet-class>servlet.RenYuanUseDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delteRenYuan</servlet-name>
+        <url-pattern>/delteRenYuan</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>copy</servlet-name>
         <servlet-class>servlet.CopyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>copy</servlet-name>
         <url-pattern>/copy</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>chooseUserName</servlet-name>
+        <servlet-class>servlet.ChooseRenYuanServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>chooseUserName</servlet-name>
+        <url-pattern>/chooseUserName</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -122,12 +159,40 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>RenYuanChart</servlet-name>
+        <servlet-class>servlet.RenYuanChartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RenYuanChart</servlet-name>
+        <url-pattern>/RenYuanChart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RenYuanAllChart</servlet-name>
+        <servlet-class>servlet.RenYuanAllChartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RenYuanAllChart</servlet-name>
+        <url-pattern>/RenYuanAllChart</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>workbenchGLY</servlet-name>
         <servlet-class>servlet.WorkbenchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>workbenchGLY</servlet-name>
         <url-pattern>/workbenchGLY</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>workbenchGetData</servlet-name>
+        <servlet-class>servlet.WorkbenchToDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workbenchGetData</servlet-name>
+        <url-pattern>/workbenchGetData</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -138,6 +203,16 @@
         <servlet-name>workbenchUpdate</servlet-name>
         <url-pattern>/workbenchUpdate</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WorkbenchCancel</servlet-name>
+        <servlet-class>servlet.WorkbenchCancelUseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WorkbenchCancel</servlet-name>
+        <url-pattern>/WorkbenchCancel</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>WorkbenchInputPower</servlet-name>
@@ -167,14 +242,35 @@
         <servlet-name>workbenchYG</servlet-name>
         <url-pattern>/workbenchYG</url-pattern>
     </servlet-mapping>
+<!--    WorkbenchForTime-->
+    <servlet>
+        <servlet-name>workbenchTime</servlet-name>
+        <servlet-class>servlet.WorkbenchForTimeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workbenchTime</servlet-name>
+        <url-pattern>/workbenchTime</url-pattern>
+    </servlet-mapping>
 
     <servlet>
-        <servlet-name>GSName</servlet-name>
+        <servlet-name>addWorkbench</servlet-name>
+        <servlet-class>servlet.WorkbenchAddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addWorkbench</servlet-name>
+        <url-pattern>/addWorkbench</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getGongsSiName</servlet-name>
         <servlet-class>servlet.LoginGSNameServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>GSName</servlet-name>
-        <url-pattern>/GSName</url-pattern>
+        <servlet-name>getGongsSiName</servlet-name>
+        <url-pattern>/getGongsSiName</url-pattern>
     </servlet-mapping>
+
+
+
 
 </web-app>

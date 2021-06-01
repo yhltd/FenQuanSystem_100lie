@@ -14,7 +14,8 @@
 <head>
     <title>添加公司</title>
 </head>
-<body background="img/ca4bf2a0431a3bb635d539f3e8f3ebe0.jpg">
+<%--<body background="img/ca4bf2a0431a3bb635d539f3e8f3ebe0.jpg">--%>
+<body style="background-color: #99CCFF">
     <div class="div">
         <form action="gongSiRegister" method="post">
             <h3 style="text-align: center;color: white">公司添加</h3>
@@ -27,7 +28,7 @@
                 </tr>
             </table>
         </form>
-        <h4><a href="workbench" style="color: white">返回</a></h4>
+        <h4><a href="workbench.jsp" style="color: white">返回</a></h4>
     </div>
 </body>
 </html>

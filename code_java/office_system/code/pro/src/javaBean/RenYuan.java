@@ -47,12 +47,14 @@ public class RenYuan {
         E = e;
     }
 
-    public RenYuan(){};
-    public RenYuan(int id, String b, String c, String d, String e) {
-        this.id = id;
-        B = b;
-        C = c;
-        D = d;
-        E = e;
+    @Override
+    public String toString() {
+        return "RenYuan{" +
+                "id=" + id +
+                ", B='" + B + '\'' +
+                ", C='" + C + '\'' +
+                ", D='" + D + '\'' +
+                ", E='" + E + '\'' +
+                '}';
     }
 }

@@ -29,18 +29,29 @@ public class WorkbenchPowerInputServlet extends HttpServlet {
 
 
         String D =(String) session.getAttribute("userName");
-        System.out.println("输出从session中获取的uerName:"+D);
+//        System.out.println("输出从session中获取的uerName:"+D);
         String B =(String) session.getAttribute("GongSi");
-        System.out.println("输出从session中获取的GongSi:"+B);
+//        System.out.println("输出从session中获取的GongSi:"+B);
         String power = renYuanDao.getPower(B,D);
-        System.out.println("输出查询到的当前登录人员的权限power:"+power);
+//        System.out.println("输出查询到的当前登录人员的权限power:"+power);
         String alphabet = req.getParameter("colum");
-        System.out.println("输出前端传来的testAlpanbet:"+alphabet);
+//        System.out.println("输出前端传来的testAlpanbet:"+alphabet);
         String colum = alpan.getAlphabet(alphabet);
-        System.out.println("经过处理之后的列column:"+colum);
-        String result = renYuanDao.selectRankPower(colum,power);
-        System.out.println("servlet返回结果:"+result);
-
-        resp.getWriter().write(result);
+//        System.out.println("经过处理之后的列column:"+colum);
+        String result = renYuanDao.selectRankPower(colum,power,B);
+//        System.out.println("servlet返回结果:"+result);
+        if (result.equals("√")){
+            String renYuanUse = renYuanDao.getRenYuanUse(alphabet,B);
+            if (renYuanUse.equals("") || renYuanUse.equals(D)){
+               boolean useState = renYuanDao.addRenYuanUse(alphabet,B,D);
+               if (useState = true){
+                   resp.getWriter().write(result);
+               }
+            }else{
+                resp.getWriter().write("result");
+            }
+        }else{
+            resp.getWriter().write(result);
+        }
     }
 }

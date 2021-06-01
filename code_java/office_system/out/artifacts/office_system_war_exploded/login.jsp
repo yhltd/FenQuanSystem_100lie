@@ -27,14 +27,14 @@
 <body background="img/63f5201199ee3b6e7d6218e54a81ba86.jpg">
     <div class="div">
         <form action="login" method="post">
-            <h3 style="color: white">管理中心</h3>
-            <h4 style="color: white">System Management Center</h4>
+            <h3 style="color: black;font-size: 50px;font-weight:bold">云合未来分权在线管理系统</h3>
+            <h4 style="color: white">Control Function Online System.YHLTD</h4>
             <table class="table" style="text-align: center;width: 80%;margin: auto">
                 <tr>
                     <td>
                         <select class="easyui-combobox width" name="gongSi" id="gongSi">
                             <c:forEach items="${gsName}" var="gsName">
-                                <option>${gsName.b}</option>
+                                <option>${gsName}</option>
                             </c:forEach>
                         </select>
                     </td>
@@ -58,4 +58,23 @@
         </form>
     </div>
 </body>
+<script>
+    /*获取用户名*/
+    $('#gongSi').onclick(function (){
+        var a = 1
+        $.ajax({
+            type: 'post',
+            url:'getGongsSiName',
+            data:{
+
+            },
+            dataType: "text",
+            success:function (result){
+                 for (let i = 0;result.length;++i){
+                     $('#gongSi').val(result[i])
+                 }
+            }
+        })
+    });
+</script>
 </html>

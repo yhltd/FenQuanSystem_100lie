@@ -4,9 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import dao.JsonReader;
-import dao.WorkbenchDao;
-import dao.WorkbenchDaoImp;
+import dao.*;
 import javaBean.Workbench;
 import util.ColumUtil;
 
@@ -14,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,14 +26,16 @@ public class WorkbenchManyUpdateServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       String jsonChange = req.getParameter("jsonData");
-       System.out.println("前端接收到的值是"+jsonChange);
-       Gson gson = new Gson();
-       JsonParser jsonParser = new JsonParser();
-       ColumUtil columUtil = new ColumUtil();
-//       WorkbenchDao workbenchDao = new WorkbenchDaoImp();
-       boolean flag  = false;
-       //获取JsonArray对象
+        HttpSession session = req.getSession();
+        String gognsi = (String) session.getAttribute("GongSi");
+        String jsonChange = req.getParameter("jsonData");
+        System.out.println("前端接收到的值是"+jsonChange);
+        Gson gson = new Gson();
+        JsonParser jsonParser = new JsonParser();
+        ColumUtil columUtil = new ColumUtil();
+
+        boolean flag  = false;
+
         String id;
         String column;
         String value;
@@ -43,17 +44,11 @@ public class WorkbenchManyUpdateServlet extends HttpServlet {
         ArrayList<JsonReader> jrList = new ArrayList<>();
         for (JsonElement je:jsonElements){
             JsonReader jr = gson.fromJson(je,JsonReader.class);
-//            jrList.add(jr);
-//            System.out.println("jrList的值是:"+jrList);
+
             id = jr.getId();
             int wkId = Integer.parseInt(id);
             column = jr.getColumn();
-//            value = jr.getNewvalue();
-//            String tcolumn = jr.getColumn();
-//            column = columUtil.getAlphabet(tcolumn);
-//            System.out.println("id:"+id+"value:"+value+"column:"+column);
-//            flag = workbenchDao.updateWorkbench(id,column,value);
-//            String A = jr.getNewvalue();
+
             String A=jr.getNewvalue();
             String B=jr.getNewvalue();
             String C=jr.getNewvalue();
@@ -157,10 +152,12 @@ public class WorkbenchManyUpdateServlet extends HttpServlet {
             String CT=jr.getNewvalue();
             String CU=jr.getNewvalue();
             String CV=jr.getNewvalue();
-
+            RenYuanDao renYuanDao = new RenYuanDaoImp();
             WorkbenchDao wkd=new WorkbenchDaoImp();
             if(column.equals("A")){
                 wkd.updateA(wkId,A);
+                boolean renyuanDelete = renYuanDao.renyuanDelete(gognsi,column);
+                System.out.println(renyuanDelete);
                 req.getRequestDispatcher("workbench").forward(req, resp);
             }
             if(column.equals("B")){

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface WorkbenchDao {
     //显示工作台信息(管理员)
-    public List<Workbench> workbenchInfo();
+    public List<Workbench> workbenchInfo(String gognsi);
 
     //显示工作台信息(员工)
     public List<Workbench> workbenchYGInfo(String GongSi);
@@ -116,4 +116,10 @@ public interface WorkbenchDao {
     public boolean updateCT(int id,String CT);
     public boolean updateCU(int id,String CU);
     public boolean updateCV(int id,String CV);
+    /*根据日期查询工作台*/
+    public List<Workbench> getWorkbenchToDate(String startTime,String endTime,String gognsi);
+    /*根据日期查询工作台*/
+    public List<Workbench> getWorkbenchToDateUsername(String startTime,String endTime,String gognsi,String username);
+    /*添加列*/
+    public boolean addWorkbench (String gognsi,String username);
 }

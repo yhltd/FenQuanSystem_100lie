@@ -1,5 +1,7 @@
 package dao;
 
+import javaBean.Copy2;
+import javaBean.GongSi;
 import javaBean.RenYuan;
 
 import java.util.List;
@@ -16,11 +18,11 @@ public interface  RenYuanDao {
 
 
     /*查询当前登录人员对列修改的权限*/
-    public String selectRankPower(String colum,String power);
+    public String selectRankPower(String colum,String power,String B);
 
 
     /*显示人员表信息*/
-    public List<RenYuan> renyuanInfo();
+    public List<RenYuan> renyuanInfo(String gognsi);
 
     /*获取前台的信息，封装成renYuan对象*/
     public boolean register(RenYuan renYuan);
@@ -30,5 +32,23 @@ public interface  RenYuanDao {
 
     /*获取前台传递的id删除人员*/
     public boolean delete(int id);
+    /*获取列使用数量*/
+    public int getRowCount(String column,String B,String user);
+
+    /*显示人员使用情况*/
+    public List<Copy2> renuseInfo(String gongsi);
+
+    /*删除人员使用列*/
+    public boolean renyuanDelete(String gognsi , String column);
+
+    /*查询当前列是否有人正在修改*/
+    public String getRenYuanUse(String colum,String B);
+
+    /*添加当前列修改人员*/
+    public boolean addRenYuanUse(String colum,String B,String D);
+
+    /*查询登录公司下的人员*/
+    public List<RenYuan> getRenYuan(String gognsi);
+
 
 }

@@ -39,6 +39,7 @@
           <a href="renYuanRegister.jsp" style="color: black">人员添加</a><br>
           <a href="renYuan" style="color: black">人员管理</a><br>
           <a href="copy" style="color: black">人员规定</a><br>
+          <a href="renyuanChart.jsp" style="color: black">人员柱状图</a><br>
         </div>
         <div title="操作" style="padding:10px">
           <a href="login.jsp" style="color: black">退出</a>

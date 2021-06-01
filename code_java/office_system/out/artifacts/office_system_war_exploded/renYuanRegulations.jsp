@@ -18,9 +18,12 @@
 <head>
     <title>人员规定</title>
 </head>
-<body background="img/bed9ce9cea513a6a5c5ee082d608860a.jpg">
+<%--<body background="img/bed9ce9cea513a6a5c5ee082d608860a.jpg">--%>
+<body style="background-color: #99CCFF">
 <div style="text-align: center">
     <h2>人员规定</h2>
+    输入姓名：<input type="text" name="user" id="putUser" required>
+    <button id="selectPower" style="padding-right: 5px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">查询</button>
     <table border="1" class="table-condensed">
         <tr style="text-align: center">
             <td>公司名称</td>
@@ -339,7 +342,7 @@
             </form>
         </c:forEach>
     </table>
-    <a href="workbench" style="color: white;font-size: 18px">返回主页</a>
+    <a href="workbench.jsp" style="color: white;font-size: 18px">返回主页</a>
 </div>
 </body>
 <script>
@@ -352,8 +355,7 @@
         // $('#now2').val(today);
     })
     arr = []
-    $('input').on('input', function () {
-        alert("执行了该方法")
+    $('input').change('input', function () {
         let newvalue = this.value;
         let td = this.parentElement;
         let tr = td.parentElement;
@@ -374,6 +376,24 @@
                 jsonData: JSON.stringify(arr)
             },
             dataType: 'json',
+            success: function (data) {
+                console.log(data)
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    })
+
+    $('#selectPower').click(function(){
+
+        $.ajax({
+            type: 'post',
+            url: 'chooseUserName',
+            data: {
+                chooseName:$('#putUser').val()
+            },
+            dataType: 'text',
             success: function (data) {
                 console.log(data)
             },

@@ -22,9 +22,10 @@ public class WorkbenchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.getAttribute("userName");
+        String gognsi = (String) session.getAttribute("GongSi");
         WorkbenchDao wkd=new WorkbenchDaoImp();
-        List<Workbench> wkYGInfo= wkd.workbenchInfo();
-        req.setAttribute("wkYGInfo",wkYGInfo);
+//        List<Workbench> wkYGInfo= wkd.workbenchInfo(gognsi);
+//        req.setAttribute("wkYGInfo",wkYGInfo);
         req.getRequestDispatcher("/workbench.jsp").forward(req, resp);
 
     }

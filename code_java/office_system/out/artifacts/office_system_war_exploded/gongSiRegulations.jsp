@@ -17,10 +17,11 @@
 <head>
     <title>公司规定</title>
 </head>
-<body >
+<body style="background-color: #99CCFF">
     <%--background="img/ba668ebbf140a440821ae93daadb9089.jpg"--%>
     <div style="text-align: center">
         <h2>公司规定</h2>
+        <h4 style="margin-left: 1200px">自动保存</h4>
         <table border="1" class="table-condensed" id="gsTable" >
             <tr style="text-align: center">
                 <td>公司名称</td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> <td>G</td> <td>H</td> <td>I</td> <td>J</td> <td>K</td> <td>L</td> <td>M</td> <td>N</td> <td>O</td> <td>P</td> <td>Q</td> <td>R</td> <td>S</td> <td>T</td> <td>U</td> <td>V</td> <td>W</td> <td>X</td> <td>Y</td> <td>Z</td>
@@ -38,24 +39,25 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="workbench" style="color: black;font-size: 18px">返回主页</a>
+        <a href="workbench.jsp" style="color: black;font-size: 18px">返回主页</a>
     </div>
 
 </body>
 <script type="text/javascript">
     arr = []
 
-    $('input').on('input',function(){
+    $('input').change('input',function(){
         let newvalue = this.value;
         let td = this.parentElement;
         let tr = td.parentElement;
         let firsttd = tr.firstElementChild;
         let firstinput = firsttd.firstElementChild
         let id = firstinput.value;
-
+        let column = this.name;
         arr.push({
             id: id,
             newvalue: newvalue,
+            column: column,
         })
 
         $.ajax({
