@@ -16,14 +16,13 @@
     <script type="text/javascript" src="static/echarts/echarts.min.js"></script>
     <script type="text/javascript" src="static/jquery/jquery.min.js"></script>
 </head>
-<body style="background-color: #99CCFF">
+<body>
 <%--为echarts准备一个dom--%>
     <div style="width: 100%; height: 400px; overflow-x: scroll">
         <div id="main" style="width: 3000px;height: 100%"></div>
     </div>
 
     <a href="workbench.jsp">工作台</a>
-</body>
 <script type="text/javascript">
     // var myChart = echarts.init(document.getElementById('main'));
     // var option = {
@@ -136,4 +135,6 @@
         });
     });
 </script>
+</body>
+
 </html>

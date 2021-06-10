@@ -1,5 +1,6 @@
 package servlet;
 
+import com.google.gson.Gson;
 import dao.WorkbenchDao;
 import dao.WorkbenchDaoImp;
 import javaBean.Workbench;
@@ -27,15 +28,45 @@ public class WorkbenchForTimeServlet extends HttpServlet {
 //        String column = req.getParameter("column");
         String startTime = req.getParameter("startTime");
         String endTime = req.getParameter("endTime");
+        System.out.println(startTime);
+        System.out.println(endTime);
         WorkbenchDao wkd=new WorkbenchDaoImp();
         if(quanxian.equals("管理员")){
-            List<Workbench> wkYGInfo= wkd.getWorkbenchToDate(startTime,endTime,gognsi);
-            req.setAttribute("wkYGInfo",wkYGInfo);
-            req.getRequestDispatcher("/workbench.jsp").forward(req, resp);
+
+            if (startTime==""||endTime==""){
+                System.out.println(2);
+                List<Workbench> wkYGInfo= wkd.getWorkbench(gognsi);
+            /*req.setAttribute("wkYGInfo",wkYGInfo);
+            req.getRequestDispatcher("/workbench.jsp").forward(req, resp);*/
+                Gson gson = new Gson();
+                String result = gson.toJson(wkYGInfo);
+                resp.getWriter().write(result);
+            }else {
+                System.out.println(1);
+                List<Workbench> wkYGInfo= wkd.getWorkbenchToDate(startTime,endTime,gognsi);
+            /*req.setAttribute("wkYGInfo",wkYGInfo);
+            req.getRequestDispatcher("/workbench.jsp").forward(req, resp);*/
+                Gson gson = new Gson();
+                String result = gson.toJson(wkYGInfo);
+                resp.getWriter().write(result);
+            }
         }else{
-            List<Workbench> wkYGInfo= wkd.getWorkbenchToDateUsername(startTime,endTime,gognsi,username);
-            req.setAttribute("wkYGInfo",wkYGInfo);
-            req.getRequestDispatcher("/workbench.jsp").forward(req, resp);
+            if (startTime==""||endTime==""){
+                List<Workbench> wkYGInfo= wkd.getWorkbenchUsername(gognsi,username);
+           /* req.setAttribute("wkYGInfo",wkYGInfo);
+            req.getRequestDispatcher("/workbench.jsp").forward(req, resp);*/
+                Gson gson = new Gson();
+                String result = gson.toJson(wkYGInfo);
+                resp.getWriter().write(result);
+            }else{
+                List<Workbench> wkYGInfo= wkd.getWorkbenchToDateUsername(startTime,endTime,gognsi,username);
+           /* req.setAttribute("wkYGInfo",wkYGInfo);
+            req.getRequestDispatcher("/workbench.jsp").forward(req, resp);*/
+                Gson gson = new Gson();
+                String result = gson.toJson(wkYGInfo);
+                resp.getWriter().write(result);
+            }
+
         }
 
 

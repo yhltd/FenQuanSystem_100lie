@@ -24,6 +24,9 @@ public interface  RenYuanDao {
     /*显示人员表信息*/
     public List<RenYuan> renyuanInfo(String gognsi);
 
+    /*姓名查询显示人员信息*/
+    public List<RenYuan> renyuanSelct(String username);
+
     /*获取前台的信息，封装成renYuan对象*/
     public boolean register(RenYuan renYuan);
 

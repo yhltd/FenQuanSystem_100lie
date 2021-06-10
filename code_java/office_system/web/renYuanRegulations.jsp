@@ -5,6 +5,11 @@
   Time: 17:05
   To change this template use File | Settincopy | File Templates.
 --%>
+
+<html>
+<head>
+    <title>人员规定</title>
+</head>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -14,18 +19,14 @@
 <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 
-<html>
-<head>
-    <title>人员规定</title>
-</head>
 <%--<body background="img/bed9ce9cea513a6a5c5ee082d608860a.jpg">--%>
-<body style="background-color: #99CCFF">
+<body >
 <div style="text-align: center">
     <h2>人员规定</h2>
     输入姓名：<input type="text" name="user" id="putUser" required>
-    <button id="selectPower" style="padding-right: 5px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">查询</button>
-    <table border="1" class="table-condensed">
-        <tr style="text-align: center">
+    <button id="selectPower" style="padding-right: 5px;background-color:#9acfea;;border-radius: 7px;border-color: #9acfea">查询</button>
+    <table border="1" class="table-condensed" >
+        <thead style="text-align: center">
             <td>公司名称</td>
             <td>访问人员</td>
             <td>C</td>
@@ -96,7 +97,7 @@
             <td>BP</td>
             <td>BQ</td>
             <td>BR</td>
-            <td>BSS</td>
+            <td>BS</td>
             <td>BT</td>
             <td>BU</td>
             <td>BV</td>
@@ -128,9 +129,12 @@
             <td>CV</td>
             <td>CW</td>
             <td>CX</td>
-            <td>操作</td>
-        </tr>
-        <c:forEach items="${copy1Info}" var="copy">
+           <%-- <td>操作</td>--%>
+        </thead>
+        <tbody id="contentrenYuan">
+
+        </tbody>
+        <%--<c:forEach items="${copy1Info}" var="copy">
             <form action="copyUpdate" method="post">
                 <tr>
                     <td hidden="hidden"><input type="text" name="id" value="${copy.id}"></td>
@@ -340,11 +344,10 @@
                     </td>
                 </tr>
             </form>
-        </c:forEach>
+        </c:forEach>--%>
     </table>
     <a href="workbench.jsp" style="color: white;font-size: 18px">返回主页</a>
 </div>
-</body>
 <script>
     $(document).ready(function () {
         // var time = new Date();
@@ -368,6 +371,8 @@
             newvalue: newvalue,
             column: column
         })
+        console.log("进来了")
+        console.log(arr)
 
         $.ajax({
             type: 'post',
@@ -393,9 +398,17 @@
             data: {
                 chooseName:$('#putUser').val()
             },
-            dataType: 'text',
-            success: function (data) {
-                console.log(data)
+            success: function (result) {
+                console.log(result)
+                //转换为javascript对象
+                var user = eval('('+result+')');
+                var strcontent ="";
+
+                for(var i=0;i<user.length;i++){
+                    strcontent+="<td>"+user[i].B+"</td><td>"+user[i].quanXian+"</td><td>"+user[i].C+"</td><td>"+user[i].D+"</td><td>"+user[i].E+"</td><td>"+user[i].E+"</td><td>"+user[i].F+"</td><td>"+user[i].G+"</td><td>"+user[i].H+"</td><td>"+user[i].I+"</td><td>"+user[i].J+"</td><td>"+user[i].K+"</td><td>"+user[i].L+"</td><td>"+user[i].M+"</td><td>"+user[i].N+"</td><td>"+user[i].O+"</td><td>"+user[i].P+"</td><td>"+user[i].Q+"</td><td>"+user[i].R+"</td><td>"+user[i].S+"</td><td>"+user[i].T+"</td><td>"+user[i].U+"</td><td>"+user[i].V+"</td><td>"+user[i].W+"</td><td>"+user[i].X+"</td><td>"+user[i].Y+"</td><td>"+user[i].Z+"</td><td>"+user[i].AA+"</td><td>"+user[i].AB+"</td><td>"+user[i].AC+"</td><td>"+user[i].AD+"</td><td>"+user[i].AE+"</td><td>"+user[i].AF+"</td><td>"+user[i].AG+"</td><td>"+user[i].AH+"</td><td>"+user[i].AI+"</td><td>"+user[i].AJ+"</td><td>"+user[i].AK+"</td><td>"+user[i].AL+"</td><td>"+user[i].AM+"</td><td>"+user[i].AN+"</td><td>"+user[i].AO+"</td><td>"+user[i].AP+"</td><td>"+user[i].AQ+"</td><td>"+user[i].AR+"</td><td>"+user[i].ASS+"</td><td>"+user[i].AT+"</td><td>"+user[i].AU+"</td><td>"+user[i].AV+"</td><td>"+user[i].AW+"</td><td>"+user[i].AX+"</td><td>"+user[i].AY+"</td><td>"+user[i].AZ+"</td><td>"+user[i].BA+"</td><td>"+user[i].BB+"</td><td>"+user[i].BC+"</td><td>"+user[i].BD+"</td><td>"+user[i].BE+"</td><td>"+user[i].BF+"</td><td>"+user[i].BG+"</td><td>"+user[i].BH+"</td><td>"+user[i].BI+"</td><td>"+user[i].BJ+"</td><td>"+user[i].BK+"</td><td>"+user[i].BL+"</td><td>"+user[i].BM+"</td><td>"+user[i].BN+"</td><td>"+user[i].BO+"</td><td>"+user[i].BP+"</td><td>"+user[i].BQ+"</td><td>"+user[i].BR+"</td><td>"+user[i].BS+"</td><td>"+user[i].BT+"</td><td>"+user[i].BU+"</td><td>"+user[i].BV+"</td><td>"+user[i].BW+"</td><td>"+user[i].BX+"</td><td>"+user[i].BYY+"</td><td>"+user[i].BZ+"</td><td>"+user[i].CA+"</td><td>"+user[i].CB+"</td><td>"+user[i].CC+"</td><td>"+user[i].CD+"</td><td>"+user[i].CE+"</td><td>"+user[i].CF+"</td><td>"+user[i].CG+"</td><td>"+user[i].CH+"</td><td>"+user[i].CI+"</td><td>"+user[i].CJ+"</td><td>"+user[i].CK+"</td><td>"+user[i].CL+"</td><td>"+user[i].CM+"</td><td>"+user[i].CN+"</td><td>"+user[i].CO+"</td><td>"+user[i].CP+"</td><td>"+user[i].CQ+"</td><td>"+user[i].CR+"</td><td>"+user[i].CS+"</td><td>"+user[i].CT+"</td><td>"+user[i].CU+"</td><td>"+user[i].CV+"</td><td>"+user[i].CW+"</td><td>"+user[i].CX+"</td>"
+                }
+
+                $("#contentrenYuan").html(strcontent);
             },
             error: function (err) {
                 console.log(err)
@@ -403,4 +416,6 @@
         })
     })
 </script>
+</body>
+
 </html>

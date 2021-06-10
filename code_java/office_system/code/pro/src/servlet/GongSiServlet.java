@@ -38,7 +38,7 @@ public class GongSiServlet extends HttpServlet {
             WorkbenchDao wkd=new WorkbenchDaoImp();
             List<Workbench> wkYGInfo= wkd.workbenchInfo(gognsi);
             req.setAttribute("wkYGInfo",wkYGInfo);
-            req.getRequestDispatcher("/workbench.jsp").forward(req, resp);
+            req.getRequestDispatcher("/gongSiRegulations.jsp").forward(req, resp);
         }
 
     }

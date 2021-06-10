@@ -16,11 +16,11 @@
     <title>人员注册</title>
 </head>
 <%--<body background="img/9465fee2dc55cfd019c45a9858076f25.jpg">--%>
-<body style="background-color: #99CCFF">
+<body >
     <div class="div">
         <h3>人员添加</h3>
         <form action="register" method="post">
-            <table class="table">
+            <table class="table" >
                 <tr>
                     <td>输入公司：<input type="text" name="gongSi" required></td>
                 </tr>
@@ -34,11 +34,11 @@
                     <td>输入密码：<input type="text" name="pwd" required></td>
                 </tr>
                 <tr>
-                    <td colspan="2"> <input type="submit" value="提交" class="btn-primary" style="width: 285px"></td>
+                    <td colspan="2"> <input type="submit" value="提交" class="btn-primary" style="background-color: #9acfea;border-color:#9acfea;  width: 285px"></td>
                 </tr>
             </table>
         </form>
-        <a href="workbench.jsp" style="color: black;font-size: 18px">返回</a>
+        <a href="workbench.jsp" style="font-size: 18px">返回</a>
     </div>
 </body>
 </html>

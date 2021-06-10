@@ -5,22 +5,23 @@
   Time: 13:23
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="static/css/regulations.css"/>
-<script src="static/jquery/jquery.min.js"></script>
-<script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 <html>
 <head>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+    <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/css/regulations.css"/>
+    <script src="static/jquery/jquery.min.js"></script>
+    <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <title>公司规定</title>
 </head>
-<body style="background-color: #99CCFF">
+<body >
     <%--background="img/ba668ebbf140a440821ae93daadb9089.jpg"--%>
     <div style="text-align: center">
-        <h2>公司规定</h2>
+        <h2 >公司规定</h2>
         <h4 style="margin-left: 1200px">自动保存</h4>
         <table border="1" class="table-condensed" id="gsTable" >
             <tr style="text-align: center">
@@ -41,39 +42,39 @@
         </table>
         <a href="workbench.jsp" style="color: black;font-size: 18px">返回主页</a>
     </div>
+    <script type="text/javascript">
+        arr = []
 
+        $('input').change('input',function(){
+            let newvalue = this.value;
+            let td = this.parentElement;
+            let tr = td.parentElement;
+            let firsttd = tr.firstElementChild;
+            let firstinput = firsttd.firstElementChild
+            let id = firstinput.value;
+            let column = this.name;
+            arr.push({
+                id: id,
+                newvalue: newvalue,
+                column: column,
+            })
+
+            $.ajax({
+                type: 'post',
+                url: 'gongSiUpdate',
+                data: {
+                    jsonData: JSON.stringify(arr)
+                },
+                dataType: 'json',
+                success: function(data){
+                    console.log(data)
+                },
+                error: function(err){
+                    console.log(err)
+                }
+            })
+        })
+    </script>
 </body>
-<script type="text/javascript">
-    arr = []
 
-    $('input').change('input',function(){
-        let newvalue = this.value;
-        let td = this.parentElement;
-        let tr = td.parentElement;
-        let firsttd = tr.firstElementChild;
-        let firstinput = firsttd.firstElementChild
-        let id = firstinput.value;
-        let column = this.name;
-        arr.push({
-            id: id,
-            newvalue: newvalue,
-            column: column,
-        })
-
-        $.ajax({
-            type: 'post',
-            url: 'gongSiUpdate',
-            data: {
-                jsonData: JSON.stringify(arr)
-            },
-            dataType: 'json',
-            success: function(data){
-                console.log(data)
-            },
-            error: function(err){
-                console.log(err)
-            }
-        })
-    })
-</script>
 </html>

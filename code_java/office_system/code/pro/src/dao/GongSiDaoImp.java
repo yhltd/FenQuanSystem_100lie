@@ -47,7 +47,7 @@ public class GongSiDaoImp implements GongSiDao {
             }
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("获取所有用户信息成功");
+            System.out.println("获取所有用户信息失败");
         }finally {
             DBCoon.close();
         }

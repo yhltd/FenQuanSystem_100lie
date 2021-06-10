@@ -23,6 +23,14 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>gongSi</servlet-name>
         <servlet-class>servlet.GongSiServlet</servlet-class>
     </servlet>
@@ -38,6 +46,16 @@
     <servlet-mapping>
         <servlet-name>renYuan</servlet-name>
         <url-pattern>/renYuan</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>renYuanAjax</servlet-name>
+        <servlet-class>servlet.RenYuanInfoAjaxServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>renYuanAjax</servlet-name>
+        <url-pattern>/renYuanAjax</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -58,6 +76,14 @@
         <url-pattern>/useRenYuan</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>RenYuanSelcet</servlet-name>
+        <servlet-class>servlet.RenYuanSelcetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RenYuanSelcet</servlet-name>
+        <url-pattern>/RenYuanSelcet</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>delteRenYuan</servlet-name>
         <servlet-class>servlet.RenYuanUseDeleteServlet</servlet-class>

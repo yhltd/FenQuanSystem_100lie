@@ -1,5 +1,6 @@
 package servlet;
 
+import com.google.gson.Gson;
 import dao.*;
 import javaBean.GongSi;
 import javaBean.RenYuan;
@@ -31,11 +32,14 @@ public class RenYuanInitServlet extends HttpServlet {
             List<RenYuan> renyuanInit = renYuanDao.getRenYuan(gognsi);
             List<String> usernmame = new ArrayList<>();
             for(int i = 0 ; i< renyuanInit.size(); i++){
+                System.out.println(111);
                 System.out.println(renyuanInit.get(i).getC());
                 String name = renyuanInit.get(i).getC();
                 usernmame.add(name);
             }
-
+//            Gson gson = new Gson();
+//            String result = gson.toJson(usernmame);
+//            resp.getWriter().write(result);
             req.setAttribute("renyuanInit",usernmame);
             req.getRequestDispatcher("/renyuanChart.jsp").forward(req, resp);
         }else{

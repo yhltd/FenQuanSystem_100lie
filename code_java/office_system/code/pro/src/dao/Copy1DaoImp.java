@@ -2289,6 +2289,7 @@ public class Copy1DaoImp implements Copy1Dao{
         }catch (Exception e){
             e.printStackTrace();
         }
+        System.out.println(copy1List);
         return copy1List;
     }
 

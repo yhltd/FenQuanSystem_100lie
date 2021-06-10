@@ -22,6 +22,7 @@ public class RenYuanDaoImp implements RenYuanDao{
             /*使用预编译SQL传递参数*/
             Object[] args = {B,D,E};
             ResultSet rs = DBCoon.searchSql(sql, args);
+            System.out.println(rs);
             /*遍历数据库里的公司账号密码与从jsp传来的账号密码作对比*/
             while (rs.next()) {
                 if (rs.getString("B").equals(B)&&rs.getString("D").equals(D)&&rs.getString("E").equals(E)){
@@ -94,11 +95,13 @@ public class RenYuanDaoImp implements RenYuanDao{
             DBCoon.init();
             sql = "select " + colum + " from baitaoquanxian_copy1 where B = '" + power + "' and quanxian = '" + B + "'";
             resultPower = DBCoon.selectRank(sql,colum);
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBCoon.close();
         }
+        System.out.println(resultPower);
         return resultPower;
     }
 
@@ -126,6 +129,33 @@ public class RenYuanDaoImp implements RenYuanDao{
             DBCoon.close();
         }
         return renyuanList;
+    }
+
+    @Override
+    public List<RenYuan> renyuanSelct(String username) {
+        List<RenYuan>renyuanList=new ArrayList<>();
+        try {
+            DBCoon.init();
+            String sql="select*from baitaoquanxian_renyun where C = '" + username + "'";
+            ResultSet rs=DBCoon.getInfo(sql);
+            System.out.println("获取用户信息成功");
+            while(rs.next()){
+                RenYuan ry=new RenYuan();
+                ry.setId(rs.getInt("id"));
+                ry.setB(rs.getString("B"));
+                ry.setC(rs.getString("C"));
+                ry.setD(rs.getString("D"));
+                ry.setE(rs.getString("E"));
+                renyuanList.add(ry);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("获取用户信息成功");
+        }finally {
+            DBCoon.close();
+        }
+        return renyuanList;
+
     }
 
     @Override

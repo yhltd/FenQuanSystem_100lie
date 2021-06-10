@@ -2192,13 +2192,271 @@ public class WorkbenchDaoImp implements WorkbenchDao{
     }
 
     @Override
+    public List<Workbench> getWorkbench(String gognsi) {
+        List<Workbench>workbenchList=new ArrayList<>();
+        try{
+            DBCoon.init();
+            String sql="select * from baitaoquanxian where   公司 = '" + gognsi + "'";
+            System.out.println(sql);
+            ResultSet rs=DBCoon.getInfo(sql);
+            System.out.println("获取工作台信息成功2");
+            while(rs.next()){
+                Workbench wk=new Workbench();
+                wk.setId(rs.getInt("id"));
+                wk.setRenYuan(rs.getString("人员"));
+                wk.setGongSi(rs.getString("公司"));
+
+                wk.setA(rs.getString("A"));
+                wk.setB(rs.getString("B"));
+                wk.setC(rs.getString("C"));
+                wk.setD(rs.getString("D"));
+                wk.setE(rs.getString("E"));
+                wk.setF(rs.getString("F"));
+                wk.setG(rs.getString("G"));
+                wk.setH(rs.getString("H"));
+                wk.setI(rs.getString("I"));
+                wk.setJ(rs.getString("J"));
+                wk.setK(rs.getString("K"));
+                wk.setL(rs.getString("L"));
+                wk.setM(rs.getString("M"));
+                wk.setN(rs.getString("N"));
+                wk.setO(rs.getString("O"));
+                wk.setP(rs.getString("P"));
+                wk.setQ(rs.getString("Q"));
+                wk.setR(rs.getString("R"));
+                wk.setS(rs.getString("S"));
+                wk.setT(rs.getString("T"));
+                wk.setU(rs.getString("U"));
+                wk.setV(rs.getString("V"));
+                wk.setW(rs.getString("W"));
+                wk.setX(rs.getString("X"));
+                wk.setY(rs.getString("Y"));
+                wk.setZ(rs.getString("Z"));
+
+                wk.setAA(rs.getString("AA"));
+                wk.setAB(rs.getString("AB"));
+                wk.setAC(rs.getString("AC"));
+                wk.setAD(rs.getString("AD"));
+                wk.setAE(rs.getString("AE"));
+                wk.setAF(rs.getString("AF"));
+                wk.setAG(rs.getString("AG"));
+                wk.setAH(rs.getString("AH"));
+                wk.setAI(rs.getString("AI"));
+                wk.setAJ(rs.getString("AJ"));
+                wk.setAK(rs.getString("AK"));
+                wk.setAL(rs.getString("AL"));
+                wk.setAM(rs.getString("AM"));
+                wk.setAN(rs.getString("AN"));
+                wk.setAO(rs.getString("AO"));
+                wk.setAP(rs.getString("AP"));
+                wk.setAQ(rs.getString("AQ"));
+                wk.setAR(rs.getString("AR"));
+                wk.setASS(rs.getString("ASS"));
+                wk.setAT(rs.getString("AT"));
+                wk.setAU(rs.getString("AU"));
+                wk.setAV(rs.getString("AV"));
+                wk.setAW(rs.getString("AW"));
+                wk.setAX(rs.getString("AX"));
+                wk.setAY(rs.getString("AY"));
+                wk.setAZ(rs.getString("AZ"));
+
+                wk.setBA(rs.getString("BA"));
+                wk.setBB(rs.getString("BB"));
+                wk.setBC(rs.getString("BC"));
+                wk.setBD(rs.getString("BD"));
+                wk.setBE(rs.getString("BE"));
+                wk.setBF(rs.getString("BF"));
+                wk.setBG(rs.getString("BG"));
+                wk.setBH(rs.getString("BH"));
+                wk.setBI(rs.getString("BI"));
+                wk.setBJ(rs.getString("BJ"));
+                wk.setBK(rs.getString("BK"));
+                wk.setBL(rs.getString("BL"));
+                wk.setBM(rs.getString("BM"));
+                wk.setBN(rs.getString("BN"));
+                wk.setBO(rs.getString("BO"));
+                wk.setBP(rs.getString("BP"));
+                wk.setBQ(rs.getString("BQ"));
+                wk.setBR(rs.getString("BR"));
+                wk.setBS(rs.getString("BS"));
+                wk.setBT(rs.getString("BT"));
+                wk.setBU(rs.getString("BU"));
+                wk.setBV(rs.getString("BV"));
+                wk.setBW(rs.getString("BW"));
+                wk.setBX(rs.getString("BX"));
+                wk.setBYY(rs.getString("BYY"));
+                wk.setBZ(rs.getString("BZ"));
+
+                wk.setCA(rs.getString("CA"));
+                wk.setCB(rs.getString("CB"));
+                wk.setCC(rs.getString("CC"));
+                wk.setCD(rs.getString("CD"));
+                wk.setCE(rs.getString("CE"));
+                wk.setCF(rs.getString("CF"));
+                wk.setCG(rs.getString("CG"));
+                wk.setCH(rs.getString("CH"));
+                wk.setCI(rs.getString("CI"));
+                wk.setCJ(rs.getString("CJ"));
+                wk.setCK(rs.getString("CK"));
+                wk.setCL(rs.getString("CL"));
+                wk.setCM(rs.getString("CM"));
+                wk.setCN(rs.getString("CN"));
+                wk.setCO(rs.getString("CO"));
+                wk.setCP(rs.getString("CP"));
+                wk.setCQ(rs.getString("CQ"));
+                wk.setCR(rs.getString("CR"));
+                wk.setCS(rs.getString("CS"));
+                wk.setCT(rs.getString("CT"));
+                wk.setCU(rs.getString("CU"));
+                wk.setCV(rs.getString("CV"));
+
+                workbenchList.add(wk);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return workbenchList;
+    }
+
+    @Override
+    public List<Workbench> getWorkbenchUsername(String gognsi, String username) {
+        List<Workbench>workbenchList=new ArrayList<>();
+        try{
+            DBCoon.init();
+            String sql="select * from baitaoquanxian where   公司 = '" + gognsi + "' and 人员 = '" + username + "'";
+            ResultSet rs=DBCoon.getInfo(sql);
+            System.out.println("获取工作台信息成功");
+            while(rs.next()){
+                Workbench wk=new Workbench();
+                wk.setId(rs.getInt("id"));
+                wk.setRenYuan(rs.getString("人员"));
+                wk.setGongSi(rs.getString("公司"));
+
+                wk.setA(rs.getString("A"));
+                wk.setB(rs.getString("B"));
+                wk.setC(rs.getString("C"));
+                wk.setD(rs.getString("D"));
+                wk.setE(rs.getString("E"));
+                wk.setF(rs.getString("F"));
+                wk.setG(rs.getString("G"));
+                wk.setH(rs.getString("H"));
+                wk.setI(rs.getString("I"));
+                wk.setJ(rs.getString("J"));
+                wk.setK(rs.getString("K"));
+                wk.setL(rs.getString("L"));
+                wk.setM(rs.getString("M"));
+                wk.setN(rs.getString("N"));
+                wk.setO(rs.getString("O"));
+                wk.setP(rs.getString("P"));
+                wk.setQ(rs.getString("Q"));
+                wk.setR(rs.getString("R"));
+                wk.setS(rs.getString("S"));
+                wk.setT(rs.getString("T"));
+                wk.setU(rs.getString("U"));
+                wk.setV(rs.getString("V"));
+                wk.setW(rs.getString("W"));
+                wk.setX(rs.getString("X"));
+                wk.setY(rs.getString("Y"));
+                wk.setZ(rs.getString("Z"));
+
+                wk.setAA(rs.getString("AA"));
+                wk.setAB(rs.getString("AB"));
+                wk.setAC(rs.getString("AC"));
+                wk.setAD(rs.getString("AD"));
+                wk.setAE(rs.getString("AE"));
+                wk.setAF(rs.getString("AF"));
+                wk.setAG(rs.getString("AG"));
+                wk.setAH(rs.getString("AH"));
+                wk.setAI(rs.getString("AI"));
+                wk.setAJ(rs.getString("AJ"));
+                wk.setAK(rs.getString("AK"));
+                wk.setAL(rs.getString("AL"));
+                wk.setAM(rs.getString("AM"));
+                wk.setAN(rs.getString("AN"));
+                wk.setAO(rs.getString("AO"));
+                wk.setAP(rs.getString("AP"));
+                wk.setAQ(rs.getString("AQ"));
+                wk.setAR(rs.getString("AR"));
+                wk.setASS(rs.getString("ASS"));
+                wk.setAT(rs.getString("AT"));
+                wk.setAU(rs.getString("AU"));
+                wk.setAV(rs.getString("AV"));
+                wk.setAW(rs.getString("AW"));
+                wk.setAX(rs.getString("AX"));
+                wk.setAY(rs.getString("AY"));
+                wk.setAZ(rs.getString("AZ"));
+
+                wk.setBA(rs.getString("BA"));
+                wk.setBB(rs.getString("BB"));
+                wk.setBC(rs.getString("BC"));
+                wk.setBD(rs.getString("BD"));
+                wk.setBE(rs.getString("BE"));
+                wk.setBF(rs.getString("BF"));
+                wk.setBG(rs.getString("BG"));
+                wk.setBH(rs.getString("BH"));
+                wk.setBI(rs.getString("BI"));
+                wk.setBJ(rs.getString("BJ"));
+                wk.setBK(rs.getString("BK"));
+                wk.setBL(rs.getString("BL"));
+                wk.setBM(rs.getString("BM"));
+                wk.setBN(rs.getString("BN"));
+                wk.setBO(rs.getString("BO"));
+                wk.setBP(rs.getString("BP"));
+                wk.setBQ(rs.getString("BQ"));
+                wk.setBR(rs.getString("BR"));
+                wk.setBS(rs.getString("BS"));
+                wk.setBT(rs.getString("BT"));
+                wk.setBU(rs.getString("BU"));
+                wk.setBV(rs.getString("BV"));
+                wk.setBW(rs.getString("BW"));
+                wk.setBX(rs.getString("BX"));
+                wk.setBYY(rs.getString("BYY"));
+                wk.setBZ(rs.getString("BZ"));
+
+                wk.setCA(rs.getString("CA"));
+                wk.setCB(rs.getString("CB"));
+                wk.setCC(rs.getString("CC"));
+                wk.setCD(rs.getString("CD"));
+                wk.setCE(rs.getString("CE"));
+                wk.setCF(rs.getString("CF"));
+                wk.setCG(rs.getString("CG"));
+                wk.setCH(rs.getString("CH"));
+                wk.setCI(rs.getString("CI"));
+                wk.setCJ(rs.getString("CJ"));
+                wk.setCK(rs.getString("CK"));
+                wk.setCL(rs.getString("CL"));
+                wk.setCM(rs.getString("CM"));
+                wk.setCN(rs.getString("CN"));
+                wk.setCO(rs.getString("CO"));
+                wk.setCP(rs.getString("CP"));
+                wk.setCQ(rs.getString("CQ"));
+                wk.setCR(rs.getString("CR"));
+                wk.setCS(rs.getString("CS"));
+                wk.setCT(rs.getString("CT"));
+                wk.setCU(rs.getString("CU"));
+                wk.setCV(rs.getString("CV"));
+
+                workbenchList.add(wk);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return workbenchList;
+    }
+
+    @Override
     public List<Workbench> getWorkbenchToDate(String startTime, String endTime, String gognsi) {
         List<Workbench>workbenchList=new ArrayList<>();
         try{
             DBCoon.init();
             String sql="select * from baitaoquanxian where 日期 >= '" + startTime + "' and 日期 <= '" + endTime + "' and 公司 = '" + gognsi + "'";
+            System.out.println(sql);
             ResultSet rs=DBCoon.getInfo(sql);
-            System.out.println("获取工作台信息成功");
+            System.out.println("获取工作台信息成功1");
             while(rs.next()){
                 Workbench wk=new Workbench();
                 wk.setId(rs.getInt("id"));
@@ -2448,17 +2706,17 @@ public class WorkbenchDaoImp implements WorkbenchDao{
     }
 
     @Override
-    public boolean addWorkbench(String gognsi, String username) {
+    public boolean addWorkbench(String gongSi, String renYuan) {
         try {
             DBCoon.init();
-            sql = "insert into baitaoquanxian(公司,人员)values('" + username + "','" + gognsi + "')";
+            sql = "insert into baitaoquanxian(公司,人员)values('" + gongSi + "','" + renYuan + "')";
             int i = DBCoon.addUpdDel(sql);
             if (i>0){
                 flag=true;
-                System.out.println("删除成功");
+                System.out.println("添加成功");
             }
         }catch (Exception e) {
-            System.out.println("删除失败");
+            System.out.println("添加失败");
             e.printStackTrace();
         }finally {
             DBCoon.close();

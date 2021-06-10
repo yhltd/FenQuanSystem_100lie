@@ -1,5 +1,6 @@
 package servlet;
 
+import com.google.gson.Gson;
 import dao.Copy1Dao;
 import dao.Copy1DaoImp;
 import dao.WorkbenchDao;
@@ -30,11 +31,12 @@ public class ChooseRenYuanServlet extends HttpServlet {
         String quanxian = (String) session.getAttribute("quanxian");
         Copy1Dao copy=new Copy1DaoImp();
         List<Copy1> copy1Info= copy.getRenYuanInfo(gognsi,user);
-        System.out.println("执行了该方法");
-        req.setAttribute("copy1Info",copy1Info);
+        System.out.println("执行了该方法copeservlet");
+/*        req.setAttribute("copy1Info",copy1Info);
 //        resp.getWriter().write("copy1Info");
-        req.getRequestDispatcher("/renYuanRegulations.jsp").forward(req, resp);
-
-
+        req.getRequestDispatcher("/renYuanRegulations.jsp").forward(req, resp);*/
+        Gson gson = new Gson();
+        String result = gson.toJson(copy1Info);
+        resp.getWriter().write(result);
     }
 }

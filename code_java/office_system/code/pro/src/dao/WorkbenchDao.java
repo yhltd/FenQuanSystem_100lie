@@ -116,6 +116,11 @@ public interface WorkbenchDao {
     public boolean updateCT(int id,String CT);
     public boolean updateCU(int id,String CU);
     public boolean updateCV(int id,String CV);
+    /*根据公司查询*/
+    public List<Workbench> getWorkbench(String gognsi);
+    /*根据公司查询*/
+    public List<Workbench> getWorkbenchUsername(String gognsi,String username);
+
     /*根据日期查询工作台*/
     public List<Workbench> getWorkbenchToDate(String startTime,String endTime,String gognsi);
     /*根据日期查询工作台*/

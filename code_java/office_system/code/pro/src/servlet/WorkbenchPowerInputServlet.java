@@ -28,6 +28,7 @@ public class WorkbenchPowerInputServlet extends HttpServlet {
       HttpSession session = req.getSession();
 
 
+
         String D =(String) session.getAttribute("userName");
 //        System.out.println("输出从session中获取的uerName:"+D);
         String B =(String) session.getAttribute("GongSi");

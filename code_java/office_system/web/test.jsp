@@ -10,25 +10,28 @@
 
   To change this template use File | Settings | File Templates.
 -->
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css"/><!--这是bootstrap css文件-->
-<link rel="stylesheet" href="static/css/regulations.css"/>
-<script src="static/jquery/jquery.min.js"></script> <!--这是jquery-->
-<script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script><!--这是bootstrap js文件-->
-
-<script src="static/easyui/jquery.easyui.min.js"></script><!--这是jQuery easyUI文件-->
-<script src="static/easyui/locale/easyui-lang-zh_CN.js"></script><!--这是easyui中文包文件-->
-<link rel="stylesheet" type="text/css" href="static/easyui/themes/default/easyui.css"><!--这是easyui默认主题CSS文件-->
-<link rel="stylesheet" type="text/css" href="static/easyui/themes/icon.css"><!--这是easyui图标CSS文件-->
-<link rel="stylesheet" type="text/css" href="static/easyui/demo/demo.css"><!--这是easyui图标demo样式-->
 
 <html>
+
   <head>
     <title>Title</title>
+
   </head>
+  <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+  <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css"/><!--这是bootstrap css文件-->
+  <link rel="stylesheet" href="static/css/regulations.css"/>
+  <script src="static/jquery/jquery.min.js"></script> <!--这是jquery-->
+  <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script><!--这是bootstrap js文件-->
+
+  <script src="static/easyui/jquery.easyui.min.js"></script><!--这是jQuery easyUI文件-->
+  <script src="static/easyui/locale/easyui-lang-zh_CN.js"></script><!--这是easyui中文包文件-->
+  <link rel="stylesheet" type="text/css" href="static/easyui/themes/default/easyui.css"><!--这是easyui默认主题CSS文件-->
+  <link rel="stylesheet" type="text/css" href="static/easyui/themes/icon.css"><!--这是easyui图标CSS文件-->
+  <link rel="stylesheet" type="text/css" href="static/easyui/demo/demo.css"><!--这是easyui图标demo样式-->
   <body>
+
 
   <div style="user-select: none">
     <button id="getAll" style="margin-right: -100px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">获取数据</button>
@@ -62,32 +65,32 @@
     </c:forEach>
   </table>
   </form>
+  <script>
+    /*查询数据*/
+    // let wkYGInfo = [];
+    $('#getAll').click(function (){
+     /* $('#table').load("test.jsp",function(){*/
+        $.ajax({
+          type:'post',
+          url:'workbenchGetData',
+          data:{
+
+          },
+          dataType:'text',
+          success:function (wkYGInfo){
+            console.log(wkYGInfo)
+            // wkYGInfo.push(data)
+            for(var i=1;i<=wkYGInfo.length;i++){
+              $('#A').val(wkYGInfo[i].A)
+            }
+          },
+          error:function (err){
+            console.log(err)
+          }
+        })
+      /*});*/
+    });
+
+  </script>
   </body>
 </html>
-<script>
-  /*查询数据*/
-  // let wkYGInfo = [];
-  $('#getAll').click(function (){
-     $('#table').load("test.jsp",function(){
-       $.ajax({
-         type:'post',
-         url:'workbenchGetData',
-         data:{
-
-         },
-         dataType:'text',
-         success:function (wkYGInfo){
-           console.log(wkYGInfo)
-           // wkYGInfo.push(data)
-           for(var i=1;i<=wkYGInfo.length;i++){
-             $('#A').val(wkYGInfo[i].A)
-           }
-         },
-         error:function (err){
-           console.log(err)
-         }
-       })
-     });
-  });
-
-</script>
