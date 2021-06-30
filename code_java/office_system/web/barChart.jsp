@@ -22,7 +22,7 @@
         <div id="main" style="width: 3000px;height: 100%"></div>
     </div>
 
-    <a href="workbench.jsp">工作台</a>
+<%--    <a href="workbench.jsp">工作台</a>--%>
 <script type="text/javascript">
     // var myChart = echarts.init(document.getElementById('main'));
     // var option = {
@@ -93,6 +93,7 @@
             columns.push(col);
             values.push(data[col])
         }
+        console.log(columns)
 
 
         myChart.setOption({

@@ -37,10 +37,13 @@ public class GongSiRegisterServlet extends HttpServlet {
             }
         }
         if(gongSiNum != 0){
-            req.getRequestDispatcher("/gongSiRegister.jsp").forward(req, resp);
+//            req.getRequestDispatcher("/gongSiRegister.jsp").forward(req, resp);
+            req.getRequestDispatcher("/workbench.jsp").forward(req, resp);
+
         }else{
             if (gsd.register(gs)){
-                req.getRequestDispatcher("gongSi").forward(req, resp);
+//                req.getRequestDispatcher("gongSi").forward(req, resp);
+                req.getRequestDispatcher("/workbench.jsp").forward(req, resp);
             }
         }
     }

@@ -28,7 +28,8 @@ public class RenYuanUpdateServlet extends HttpServlet {
         RenYuanDao ryd = new RenYuanDaoImp();
 
         if(ryd.update(renYuanId, B, C, D, E)){
-            req.getRequestDispatcher("renYuan").forward(req, resp);
+            System.out.println("修改人员信息成功");
+            req.getRequestDispatcher("workbench.jsp").forward(req, resp);
         }
     }
 }

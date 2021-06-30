@@ -18,7 +18,7 @@
 <body>
     <div class="div">
         <form action="gongSiRegister" method="post">
-            <h3 style="text-align: center;">公司添加</h3>
+            <h3 style="text-align: left;">公司添加</h3>
             <table class="table">
                 <tr>
                     <td><label >输入公司：</label><input type="text" name="B" required></td>
@@ -28,7 +28,7 @@
                 </tr>
             </table>
         </form>
-        <h4><a href="workbench.jsp" >返回</a></h4>
+<%--        <h4><a href="workbench.jsp" >返回</a></h4>--%>
     </div>
 </body>
 </html>

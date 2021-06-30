@@ -22,9 +22,9 @@
 <%--<body background="img/bed9ce9cea513a6a5c5ee082d608860a.jpg">--%>
 <body >
 <div style="text-align: center">
-    <h2>人员规定</h2>
-    输入姓名：<input type="text" name="user" id="putUser" required>
-    <button id="selectPower" style="padding-right: 5px;background-color:#9acfea;;border-radius: 7px;border-color: #9acfea">查询</button>
+    <h3 style="text-align: center">人员规定</h3>
+    输入姓名：<input type="text" name="user" id="putUser" required style="text-align: left">
+    <button id="selectPower" style="padding-right: 5px;background-color:#9acfea;;border-radius: 7px;border-color: #9acfea;text-align: left" >查询</button>
     <table border="1" class="table-condensed" >
         <thead style="text-align: center">
             <td>公司名称</td>
@@ -346,7 +346,7 @@
             </form>
         </c:forEach>--%>
     </table>
-    <a href="workbench.jsp" style="color: white;font-size: 18px">返回主页</a>
+<%--    <a href="workbench.jsp" style="color: white;font-size: 18px">返回主页</a>--%>
 </div>
 <script>
     $(document).ready(function () {

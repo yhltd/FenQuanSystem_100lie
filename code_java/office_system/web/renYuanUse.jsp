@@ -27,7 +27,7 @@
         }*/
     </style>--%>
     <div style="text-align: center">
-        <h2 >使用人员</h2>
+        <h3 style="margin-right: 50px">使用人员</h3>
         <div style="margin-left: 0px">
             <%--<a href="workbench.jsp" style="color: black;font-size: 18px">返回主页</a>--%>
             <%--<a href="useRenYuan" style="color: black;font-size: 18px">刷新</a>--%>

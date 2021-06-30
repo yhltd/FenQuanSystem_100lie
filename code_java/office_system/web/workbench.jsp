@@ -37,28 +37,38 @@
         <div data-options="region:'west',split:true" title="" style="width:230px">
             <div class="easyui-accordion" data-options="fit:true,border:false">
                 <div title="公司" data-options="iconCls:'icon-reload',selected:true" style="padding:10px">
-                    <a href="gongSiRegister.jsp" style="color: black">公司添加</a><br>
-                       <%-- <a href="#gstj" id="tt2" style="color: black">公司添加</a><br>--%>
-                    <a href="gongSi" style="color: black">公司规定</a><br>
-                    <a href="barChart.jsp" style="color: black">公司柱状图</a><br>
+<%--                    <a href="gongSiRegister.jsp" style="color: black">公司添加</a><br>--%>
+<%--                       &lt;%&ndash; <a href="#gstj" id="tt2" style="color: black">公司添加</a><br>&ndash;%&gt;--%>
+<%--                    <a href="gongSi" style="color: black">公司规定</a><br>--%>
+<%--                    <a href="barChart.jsp" style="color: black">公司柱状图</a><br>--%>
+                    <a href="javascript:void(0)" onclick="showcontent('公司添加')"><p style="font-size: 17px">公司添加</p></a>
+                    <a href="javascript:void(0)" onclick="showcontent('公司规定')"><p style="font-size: 17px">公司规定</p></a>
+                    <a href="javascript:void(0)" onclick="showcontent('公司柱状图')"><p style="font-size: 17px">公司柱状图</p></a>
                 </div>
                 <div title="人员" data-options="iconCls:'icon-reload'" style="padding:10px;">
-                    <a href="renYuanRegister.jsp" style="color: black">人员添加</a><br>
-                    <a href="renYuan" style="color: black">人员管理</a><br>
-                    <a href="renYuanRegulations.jsp" style="color: black">人员规定</a><br>
-                    <a href="renYuanInit" style="color: black">人员柱状图</a><br>
-                    <%----%>
+<%--                    <a href="renYuanRegister.jsp" style="color: black">人员添加</a><br>--%>
+<%--                    <a href="renYuan" style="color: black">人员管理</a><br>--%>
+<%--                    <a href="renYuanRegulations.jsp" style="color: black">人员规定</a><br>--%>
+<%--                    <a href="renYuanInit" style="color: black">人员柱状图</a><br>--%>
+    <%----%>
+                    <a href="javascript:void(0)" onclick="showcontent('人员添加')"><p style="font-size: 17px">人员添加</p></a><br>
+                    <a href="javascript:void(0)" onclick="showcontent('人员管理')"><p style="font-size: 17px">人员管理</p></a><br>
+                    <a href="javascript:void(0)" onclick="showcontent('人员规定')"><p style="font-size: 17px">人员规定</p></a><br>
+                    <a href="javascript:void(0)" onclick="showcontent('人员柱状图')"><p style="font-size: 17px">人员柱状图</p></a><br>
+
                 </div>
                 <div title="操作" data-options="iconCls:'icon-reload'" style="padding:10px">
-                    <a href="useRenYuan" style="color: black">人员使用情况</a><br>
-                    <%--<a href="test.jsp" style="color: black">测试</a><br>--%>
-                    <a href="logout" id="logout" style="color: black">退出</a><br>
+<%--                    <a href="useRenYuan" style="color: black">人员使用情况</a><br>--%>
+<%--                    &lt;%&ndash;<a href="test.jsp" style="color: black">测试</a><br>&ndash;%&gt;--%>
+<%--                    <a href="logout" id="logout" style="color: black">退出</a><br>--%>
+                    <a href="javascript:void(0)" onclick="showcontent('人员使用情况')"><p style="font-size: 17px">人员使用情况</p></a><br>
+                    <a href="logout" id="logout"><p style="font-size: 17px">退出</p></a><br>
                 </div>
             </div>
         </div>
         <div data-options="region:'center',title:'主页',iconCls:'icon-ok'" style="margin-right: 10px">
-            <div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
-                <div title="工作台" style="border: 1px solid #5bc0de;  height: 580px;width: 1000px;float: left;text-align: center">
+            <div id="test" class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+                <div  title="工作台" style="border: 1px solid #5bc0de;  height: 580px;width: 1000px;float: left;text-align: center">
                     <div style="user-select: none; ">
                         <input id="isLot" type="checkbox"/>
                         <label for="isLot" style="padding-right: 5px;">是否即时保存</label>
@@ -112,14 +122,18 @@
 
                 </div>
 
-                <div title="公司添加" data-options="href:'gongSiRegister.jsp'" style="padding:10px; "></div>
-<%--                <div title="公司柱状图" data-options="href:'barChart.jsp'" style="padding:10px"></div>--%>
-                <div title="公司规定" data-options="href:'gongSi'" style="padding:10px; "></div>
-                <div title="公司柱状图" data-options="href:'barChart.jsp'" style="padding:10px; "></div>
-                <div title="人员添加" data-options="href:'renYuanRegister.jsp'" style="padding:10px;"></div>
-                <div title="人员管理" data-options="href:'renYuan'" style="padding:10px; "></div>
-                <div title="人员规定" data-options="href:'renYuanRegulations.jsp'" style="padding:10px; "></div>
-                <div title="人员柱状图" data-options="href:'renYuanInit'"  style="padding:10px; ">
+
+
+<%--                <div title="公司添加" data-options="href:'gongSiRegister.jsp'" style="padding:10px; "></div>--%>
+<%--&lt;%&ndash;                <div title="公司柱状图" data-options="href:'barChart.jsp'" style="padding:10px"></div>&ndash;%&gt;--%>
+<%--                <div title="公司规定" data-options="href:'gongSi'" style="padding:10px; "></div>--%>
+<%--                <div title="公司柱状图" data-options="href:'barChart.jsp'" style="padding:10px; "></div>--%>
+<%--                <div title="人员添加" data-options="href:'renYuanRegister.jsp'" style="padding:10px;"></div>--%>
+<%--                <div title="人员管理" data-options="href:'renYuan'" style="padding:10px; "></div>--%>
+<%--                <div title="人员规定" data-options="href:'renYuanRegulations.jsp'" style="padding:10px; "></div>--%>
+<%--                <div title="人员柱状图" data-options="href:'renYuanInit'"  style="padding:10px; ">--%>
+
+
 <%--                    <div id="main" style="width: 3000px;height: 100%">--%>
 
 <%--                    </div>--%>
@@ -378,6 +392,37 @@ $('tbody input').focus(function (){
         })
         //JOptionPane.showMessageDialog(null, "消息提示");
     })*/
+   function showcontent(language){
+       // $('#content').html('Introduction to ' + language + ' language');
+       var url="";
+       if(language=="公司添加"){
+            url="gongSiRegister.jsp";
+       }else if(language=="公司规定"){
+           url="gongSi";
+       }else if(language=="公司柱状图"){
+           url="barChart.jsp";
+       }else if(language=="人员添加"){
+           url="renYuanRegister.jsp";
+       }else if(language=="人员管理"){
+           url="renYuan";
+       }else if(language=="人员规定"){
+           url="renYuanRegulations.jsp";
+       }else if(language=="人员柱状图"){
+           url="renYuanInit";
+       }else if(language=="人员柱状图"){
+           url="renYuanInit";
+       }else if(language=="人员使用情况"){
+           url="useRenYuan";
+       }
+
+       $('#test').tabs('add',{
+           title:language,
+           href:url,
+           closable:true
+       })
+
+
+   }
 
 /*easyUI日期组件*/
     function myformatter(date) {

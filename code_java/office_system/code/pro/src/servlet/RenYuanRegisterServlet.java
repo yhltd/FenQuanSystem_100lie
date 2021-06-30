@@ -32,7 +32,7 @@ public class RenYuanRegisterServlet extends HttpServlet {
         RenYuanDao ryd=new RenYuanDaoImp();
         if (ryd.register(renYuan)){
             System.out.println("注册成功");
-            req.getRequestDispatcher("renYuan").forward(req, resp);
+            req.getRequestDispatcher("workbench.jsp").forward(req, resp);
         }
     }
 }

@@ -19,15 +19,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jstl-1.2" level="project" />
-    <orderEntry type="library" name="taglibs-standard-impl-1.2.5" level="project" />
-    <orderEntry type="library" name="sqljdbc4-4.0" level="project" />
-    <orderEntry type="library" name="javax.servlet-api-3.1.0" level="project" />
-    <orderEntry type="library" name="jfreechart-1.0.19" level="project" />
-    <orderEntry type="library" name="json-20160810" level="project" />
-    <orderEntry type="library" name="commons-beanutils-1.9.4" level="project" />
-    <orderEntry type="library" name="json-lib-2.4-jdk15" level="project" />
-    <orderEntry type="library" name="jackson-annotations-2.9.8" level="project" />
-    <orderEntry type="library" name="gson-2.8.5" level="project" />
+    <orderEntry type="library" exported="" name="jstl-1.2" level="project" />
+    <orderEntry type="library" exported="" name="taglibs-standard-impl-1.2.5" level="project" />
+    <orderEntry type="library" exported="" name="sqljdbc4-4.0" level="project" />
+    <orderEntry type="library" exported="" name="javax.servlet-api-3.1.0" level="project" />
+    <orderEntry type="library" exported="" name="jfreechart-1.0.19" level="project" />
+    <orderEntry type="library" exported="" name="json-20160810" level="project" />
+    <orderEntry type="library" exported="" name="commons-beanutils-1.9.4" level="project" />
+    <orderEntry type="library" exported="" name="json-lib-2.4-jdk15" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.8.5" level="project" />
+    <orderEntry type="library" exported="" name="jackson-annotations-2.9.8" level="project" />
   </component>
 </module>

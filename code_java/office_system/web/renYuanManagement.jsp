@@ -29,12 +29,12 @@
     }*/
 </style>--%>
     <div style="text-align: center">
-        <h2 style="text-align: center;">人员管理</h2>
+        <h3 style="text-align: center;margin-right: 50px">人员管理</h3>
         <span id="content234" style="width: 150px;height: 30px">
             <input id="inp" style="display: none" value="${GongSi}"/>
             请选择姓名：
         </span>
-        <input type="button"  value="查询" id="but1" style="border-color:#9acfea; background-color:#9acfea; width: 50px;height: 30px">
+        <input  type="button"  value="查询" id="but1" style="border-color:#9acfea; background-color:#9acfea; width: 50px;height: 30px">
         <table border="1" class="table-condensed"  style="margin-left: auto;margin-right: auto;">
             <thead style="text-align: center">
                 <td >公司</td>
@@ -62,7 +62,7 @@
             </tfoot>
 
         </table>
-        <a href="workbench.jsp" style="color: black;font-size: 18px">返回主页</a>
+<%--        <a href="workbench.jsp" style="color: black;font-size: 18px">返回主页</a>--%>
     </div>
     <script>
         var gongsi=$("#inp").val();
