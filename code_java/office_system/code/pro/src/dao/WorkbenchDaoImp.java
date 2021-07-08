@@ -4,7 +4,9 @@ import javaBean.Workbench;
 import util.DBCoon;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class WorkbenchDaoImp implements WorkbenchDao{
@@ -293,11 +295,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateA(int id, String A) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set A=? where id=?";
+            sql = "update baitaoquanxian set A=?,日期=? where id=?";
 
-            Object[] args={A,id};
+            Object[] args={A,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -312,11 +317,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateB(int id, String B) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set B=? where id=?";
+            sql = "update baitaoquanxian set B=?,日期=? where id=?";
 
-            Object[] args={B,id};
+            Object[] args={B,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -331,11 +339,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateC(int id, String C) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set C=? where id=?";
+            sql = "update baitaoquanxian set C=?,日期=? where id=?";
 
-            Object[] args={C,id};
+            Object[] args={C,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -350,11 +361,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateD(int id, String D) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set D=? where id=?";
+            sql = "update baitaoquanxian set D=?,日期=? where id=?";
 
-            Object[] args={D,id};
+            Object[] args={D,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -369,11 +383,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateE(int id, String E) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set E=? where id=?";
+            sql = "update baitaoquanxian set E=?,日期=? where id=?";
 
-            Object[] args={E,id};
+            Object[] args={E,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -388,11 +405,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateF(int id, String F) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set F=? where id=?";
+            sql = "update baitaoquanxian set F=?,日期=? where id=?";
 
-            Object[] args={F,id};
+            Object[] args={F,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -407,11 +427,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateG(int id, String G) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set G=? where id=?";
+            sql = "update baitaoquanxian set G=?,日期=? where id=?";
 
-            Object[] args={G,id};
+            Object[] args={G,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -426,11 +449,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateH(int id, String H) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set H=? where id=?";
+            sql = "update baitaoquanxian set H=?,日期=? where id=?";
 
-            Object[] args={H,id};
+            Object[] args={H,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -445,11 +471,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateI(int id, String I) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set I=? where id=?";
+            sql = "update baitaoquanxian set I=?,日期=? where id=?";
 
-            Object[] args={I,id};
+            Object[] args={I,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -464,11 +493,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateJ(int id, String J) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set J=? where id=?";
+            sql = "update baitaoquanxian set J=?,日期=? where id=?";
 
-            Object[] args={J,id};
+            Object[] args={J,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -483,11 +515,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateK(int id, String K) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set K=? where id=?";
+            sql = "update baitaoquanxian set K=?,日期=? where id=?";
 
-            Object[] args={K,id};
+            Object[] args={K,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -502,11 +537,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateL(int id, String L) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set L=? where id=?";
+            sql = "update baitaoquanxian set L=?,日期=? where id=?";
 
-            Object[] args={L,id};
+            Object[] args={L,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -521,11 +559,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateM(int id, String M) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set M=? where id=?";
+            sql = "update baitaoquanxian set M=?,日期=? where id=?";
 
-            Object[] args={M,id};
+            Object[] args={M,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -540,11 +581,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateN(int id, String N) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set N=? where id=?";
+            sql = "update baitaoquanxian set N=?,日期=? where id=?";
 
-            Object[] args={N,id};
+            Object[] args={N,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -559,11 +603,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateO(int id, String O) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set O=? where id=?";
+            sql = "update baitaoquanxian set O=?,日期=? where id=?";
 
-            Object[] args={O,id};
+            Object[] args={O,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -578,11 +625,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateP(int id, String P) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set P=? where id=?";
+            sql = "update baitaoquanxian set P=?,日期=? where id=?";
 
-            Object[] args={P,id};
+            Object[] args={P,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -597,11 +647,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateQ(int id, String Q) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set Q=? where id=?";
+            sql = "update baitaoquanxian set Q=?,日期=? where id=?";
 
-            Object[] args={Q,id};
+            Object[] args={Q,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -616,11 +669,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateR(int id, String R) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set R=? where id=?";
+            sql = "update baitaoquanxian set R=?,日期=? where id=?";
 
-            Object[] args={R,id};
+            Object[] args={R,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -635,11 +691,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateS(int id, String S) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set S=? where id=?";
+            sql = "update baitaoquanxian set S=?,日期=? where id=?";
 
-            Object[] args={S,id};
+            Object[] args={S,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -654,11 +713,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateT(int id, String T) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set T=? where id=?";
+            sql = "update baitaoquanxian set T=?,日期=? where id=?";
 
-            Object[] args={T,id};
+            Object[] args={T,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -673,11 +735,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateU(int id, String U) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set U=? where id=?";
+            sql = "update baitaoquanxian set U=?,日期=? where id=?";
 
-            Object[] args={U,id};
+            Object[] args={U,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -692,11 +757,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateV(int id, String V) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set V=? where id=?";
+            sql = "update baitaoquanxian set V=?,日期=? where id=?";
 
-            Object[] args={V,id};
+            Object[] args={V,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -711,11 +779,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateW(int id, String W) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set W=? where id=?";
+            sql = "update baitaoquanxian set W=?,日期=? where id=?";
 
-            Object[] args={W,id};
+            Object[] args={W,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -730,11 +801,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateX(int id, String X) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set X=? where id=?";
+            sql = "update baitaoquanxian set X=?,日期=? where id=?";
 
-            Object[] args={X,id};
+            Object[] args={X,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -749,11 +823,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateY(int id, String Y) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set Y=? where id=?";
+            sql = "update baitaoquanxian set Y=?,日期=? where id=?";
 
-            Object[] args={Y,id};
+            Object[] args={Y,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -768,11 +845,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateZ(int id, String Z) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set Z=? where id=?";
+            sql = "update baitaoquanxian set Z=?,日期=? where id=?";
 
-            Object[] args={Z,id};
+            Object[] args={Z,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -787,11 +867,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAA(int id, String AA) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AA=? where id=?";
+            sql = "update baitaoquanxian set AA=?,日期=? where id=?";
 
-            Object[] args={AA,id};
+            Object[] args={AA,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -806,11 +889,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAB(int id, String AB) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AB=? where id=?";
+            sql = "update baitaoquanxian set AB=?,日期=? where id=?";
 
-            Object[] args={AB,id};
+            Object[] args={AB,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -825,11 +911,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAC(int id, String AC) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AC=? where id=?";
+            sql = "update baitaoquanxian set AC=?,日期=? where id=?";
 
-            Object[] args={AC,id};
+            Object[] args={AC,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -844,11 +933,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAD(int id, String AD) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AD=? where id=?";
+            sql = "update baitaoquanxian set AD=?,日期=? where id=?";
 
-            Object[] args={AD,id};
+            Object[] args={AD,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -863,11 +955,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAE(int id, String AE) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AE=? where id=?";
+            sql = "update baitaoquanxian set AE=?,日期=? where id=?";
 
-            Object[] args={AE,id};
+            Object[] args={AE,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -882,11 +977,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAF(int id, String AF) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AF=? where id=?";
+            sql = "update baitaoquanxian set AF=?,日期=? where id=?";
 
-            Object[] args={AF,id};
+            Object[] args={AF,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -901,11 +999,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAG(int id, String AG) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AG=? where id=?";
+            sql = "update baitaoquanxian set AG=?,日期=? where id=?";
 
-            Object[] args={AG,id};
+            Object[] args={AG,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -920,11 +1021,15 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAH(int id, String AH) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
+
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AH=? where id=?";
+            sql = "update baitaoquanxian set AH=?,日期=? where id=?";
 
-            Object[] args={AH,id};
+            Object[] args={AH,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -939,11 +1044,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAI(int id, String AI) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AI=? where id=?";
+            sql = "update baitaoquanxian set AI=?,日期=? where id=?";
 
-            Object[] args={AI,id};
+            Object[] args={AI,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -958,11 +1066,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAJ(int id, String AJ) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AJ=? where id=?";
+            sql = "update baitaoquanxian set AJ=?,日期=? where id=?";
 
-            Object[] args={AJ,id};
+            Object[] args={AJ,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -977,11 +1088,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAK(int id, String AK) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AK=? where id=?";
+            sql = "update baitaoquanxian set AK=?,日期=? where id=?";
 
-            Object[] args={AK,id};
+            Object[] args={AK,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -996,11 +1110,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAL(int id, String AL) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AL=? where id=?";
+            sql = "update baitaoquanxian set AL=?,日期=? where id=?";
 
-            Object[] args={AL,id};
+            Object[] args={AL,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1015,11 +1132,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAM(int id, String AM) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AM=? where id=?";
+            sql = "update baitaoquanxian set AM=?,日期=? where id=?";
 
-            Object[] args={AM,id};
+            Object[] args={AM,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1034,11 +1154,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAN(int id, String AN) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AN=? where id=?";
+            sql = "update baitaoquanxian set AN=?,日期=? where id=?";
 
-            Object[] args={AN,id};
+            Object[] args={AN,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1053,11 +1176,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAO(int id, String AO) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AO=? where id=?";
+            sql = "update baitaoquanxian set AO=?,日期=? where id=?";
 
-            Object[] args={AO,id};
+            Object[] args={AO,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1072,11 +1198,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAP(int id, String AP) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AP=? where id=?";
+            sql = "update baitaoquanxian set AP=?,日期=? where id=?";
 
-            Object[] args={AP,id};
+            Object[] args={AP,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1091,11 +1220,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAQ(int id, String AQ) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AQ=? where id=?";
+            sql = "update baitaoquanxian set AQ=?,日期=? where id=?";
 
-            Object[] args={AQ,id};
+            Object[] args={AQ,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1110,11 +1242,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAR(int id, String AR) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AR=? where id=?";
+            sql = "update baitaoquanxian set AR=?,日期=? where id=?";
 
-            Object[] args={AR,id};
+            Object[] args={AR,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1129,11 +1264,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateASS(int id, String ASS) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set ASS=? where id=?";
+            sql = "update baitaoquanxian set ASS=?,日期=? where id=?";
 
-            Object[] args={ASS,id};
+            Object[] args={ASS,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1148,11 +1286,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAT(int id, String AT) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AT=? where id=?";
+            sql = "update baitaoquanxian set AT=?,日期=? where id=?";
 
-            Object[] args={AT,id};
+            Object[] args={AT,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1167,11 +1308,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAU(int id, String AU) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AU=? where id=?";
+            sql = "update baitaoquanxian set AU=?,日期=? where id=?";
 
-            Object[] args={AU,id};
+            Object[] args={AU,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1186,11 +1330,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAV(int id, String AV) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AV=? where id=?";
+            sql = "update baitaoquanxian set AV=?,日期=? where id=?";
 
-            Object[] args={AV,id};
+            Object[] args={AV,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1205,11 +1352,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAW(int id, String AW) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AW=? where id=?";
+            sql = "update baitaoquanxian set AW=?,日期=? where id=?";
 
-            Object[] args={AW,id};
+            Object[] args={AW,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1224,11 +1374,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAX(int id, String AX) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AX=? where id=?";
+            sql = "update baitaoquanxian set AX=?,日期=? where id=?";
 
-            Object[] args={AX,id};
+            Object[] args={AX,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1243,11 +1396,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAY(int id, String AY) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AY=? where id=?";
+            sql = "update baitaoquanxian set AY=?,日期=? where id=?";
 
-            Object[] args={AY,id};
+            Object[] args={AY,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1262,11 +1418,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateAZ(int id, String AZ) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set AZ=? where id=?";
+            sql = "update baitaoquanxian set AZ=?,日期=? where id=?";
 
-            Object[] args={AZ,id};
+            Object[] args={AZ,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1281,11 +1440,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBA(int id, String BA) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BA=? where id=?";
+            sql = "update baitaoquanxian set BA=?,日期=? where id=?";
 
-            Object[] args={BA,id};
+            Object[] args={BA,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1300,11 +1462,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBB(int id, String BB) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BB=? where id=?";
+            sql = "update baitaoquanxian set BB=?,日期=? where id=?";
 
-            Object[] args={BB,id};
+            Object[] args={BB,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1319,11 +1484,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBC(int id, String BC) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BC=? where id=?";
+            sql = "update baitaoquanxian set BC=?,日期=? where id=?";
 
-            Object[] args={BC,id};
+            Object[] args={BC,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1338,11 +1506,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBD(int id, String BD) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BD=? where id=?";
+            sql = "update baitaoquanxian set BD=?,日期=? where id=?";
 
-            Object[] args={BD,id};
+            Object[] args={BD,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1357,11 +1528,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBE(int id, String BE) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BE=? where id=?";
+            sql = "update baitaoquanxian set BE=?,日期=? where id=?";
 
-            Object[] args={BE,id};
+            Object[] args={BE,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1376,11 +1550,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBF(int id, String BF) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BF=? where id=?";
+            sql = "update baitaoquanxian set BF=?,日期=? where id=?";
 
-            Object[] args={BF,id};
+            Object[] args={BF,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1395,11 +1572,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBG(int id, String BG) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BG=? where id=?";
+            sql = "update baitaoquanxian set BG=?,日期=? where id=?";
 
-            Object[] args={BG,id};
+            Object[] args={BG,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1414,11 +1594,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBH(int id, String BH) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BH=? where id=?";
+            sql = "update baitaoquanxian set BH=?,日期=? where id=?";
 
-            Object[] args={BH,id};
+            Object[] args={BH,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1433,11 +1616,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBI(int id, String BI) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BI=? where id=?";
+            sql = "update baitaoquanxian set BI=?,日期=? where id=?";
 
-            Object[] args={BI,id};
+            Object[] args={BI,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1452,11 +1638,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBJ(int id, String BJ) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BJ=? where id=?";
+            sql = "update baitaoquanxian set BJ=?,日期=? where id=?";
 
-            Object[] args={BJ,id};
+            Object[] args={BJ,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1471,11 +1660,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBK(int id, String BK) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BK=? where id=?";
+            sql = "update baitaoquanxian set BK=?,日期=? where id=?";
 
-            Object[] args={BK,id};
+            Object[] args={BK,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1490,11 +1682,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBL(int id, String BL) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BL=? where id=?";
+            sql = "update baitaoquanxian set BL=?,日期=? where id=?";
 
-            Object[] args={BL,id};
+            Object[] args={BL,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1509,11 +1704,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBM(int id, String BM) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BM=? where id=?";
+            sql = "update baitaoquanxian set BM=?,日期=? where id=?";
 
-            Object[] args={BM,id};
+            Object[] args={BM,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1528,11 +1726,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBN(int id, String BN) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BN=? where id=?";
+            sql = "update baitaoquanxian set BN=?,日期=? where id=?";
 
-            Object[] args={BN,id};
+            Object[] args={BN,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1547,11 +1748,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBO(int id, String BO) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BO=? where id=?";
+            sql = "update baitaoquanxian set BO=?,日期=? where id=?";
 
-            Object[] args={BO,id};
+            Object[] args={BO,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1566,11 +1770,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBP(int id, String BP) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BP=? where id=?";
+            sql = "update baitaoquanxian set BP=?,日期=? where id=?";
 
-            Object[] args={BP,id};
+            Object[] args={BP,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1585,11 +1792,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBQ(int id, String BQ) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BQ=? where id=?";
+            sql = "update baitaoquanxian set BQ=?,日期=? where id=?";
 
-            Object[] args={BQ,id};
+            Object[] args={BQ,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1604,11 +1814,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBR(int id, String BR) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BR=? where id=?";
+            sql = "update baitaoquanxian set BR=?,日期=? where id=?";
 
-            Object[] args={BR,id};
+            Object[] args={BR,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1623,11 +1836,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBS(int id, String BS) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BS=? where id=?";
+            sql = "update baitaoquanxian set BS=?,日期=? where id=?";
 
-            Object[] args={BS,id};
+            Object[] args={BS,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1642,11 +1858,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBT(int id, String BT) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BT=? where id=?";
+            sql = "update baitaoquanxian set BT=?,日期=? where id=?";
 
-            Object[] args={BT,id};
+            Object[] args={BT,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1661,11 +1880,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBU(int id, String BU) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BU=? where id=?";
+            sql = "update baitaoquanxian set BU=?,日期=? where id=?";
 
-            Object[] args={BU,id};
+            Object[] args={BU,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1680,11 +1902,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBV(int id, String BV) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BV=? where id=?";
+            sql = "update baitaoquanxian set BV=?,日期=? where id=?";
 
-            Object[] args={BV,id};
+            Object[] args={BV,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1699,11 +1924,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBW(int id, String BW) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BW=? where id=?";
+            sql = "update baitaoquanxian set BW=?,日期=? where id=?";
 
-            Object[] args={BW,id};
+            Object[] args={BW,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1718,11 +1946,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBX(int id, String BX) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BX=? where id=?";
+            sql = "update baitaoquanxian set BX=?,日期=? where id=?";
 
-            Object[] args={BX,id};
+            Object[] args={BX,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1737,11 +1968,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBYY(int id, String BYY) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BYY=? where id=?";
+            sql = "update baitaoquanxian set BYY=?,日期=? where id=?";
 
-            Object[] args={BYY,id};
+            Object[] args={BYY,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1756,11 +1990,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateBZ(int id, String BZ) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set BZ=? where id=?";
+            sql = "update baitaoquanxian set BZ=?,日期=? where id=?";
 
-            Object[] args={BZ,id};
+            Object[] args={BZ,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1775,11 +2012,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCA(int id, String CA) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CA=? where id=?";
+            sql = "update baitaoquanxian set CA=?,日期=? where id=?";
 
-            Object[] args={CA,id};
+            Object[] args={CA,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1794,11 +2034,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCB(int id, String CB) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CB=? where id=?";
+            sql = "update baitaoquanxian set CB=?,日期=? where id=?";
 
-            Object[] args={CB,id};
+            Object[] args={CB,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1813,11 +2056,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCC(int id, String CC) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CC=? where id=?";
+            sql = "update baitaoquanxian set CC=?,日期=? where id=?";
 
-            Object[] args={CC,id};
+            Object[] args={CC,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1832,11 +2078,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCD(int id, String CD) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CD=? where id=?";
+            sql = "update baitaoquanxian set CD=?,日期=? where id=?";
 
-            Object[] args={CD,id};
+            Object[] args={CD,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1851,11 +2100,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCE(int id, String CE) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CE=? where id=?";
+            sql = "update baitaoquanxian set CE=?,日期=? where id=?";
 
-            Object[] args={CE,id};
+            Object[] args={CE,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1870,11 +2122,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCF(int id, String CF) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CF=? where id=?";
+            sql = "update baitaoquanxian set CF=?,日期=? where id=?";
 
-            Object[] args={CF,id};
+            Object[] args={CF,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1889,11 +2144,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCG(int id, String CG) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CG=? where id=?";
+            sql = "update baitaoquanxian set CG=?,日期=? where id=?";
 
-            Object[] args={CG,id};
+            Object[] args={CG,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1908,11 +2166,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCH(int id, String CH) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CH=? where id=?";
+            sql = "update baitaoquanxian set CH=?,日期=? where id=?";
 
-            Object[] args={CH,id};
+            Object[] args={CH,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1927,11 +2188,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCI(int id, String CI) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CI=? where id=?";
+            sql = "update baitaoquanxian set CI=?,日期=? where id=?";
 
-            Object[] args={CI,id};
+            Object[] args={CI,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1946,11 +2210,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCJ(int id, String CJ) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CJ=? where id=?";
+            sql = "update baitaoquanxian set CJ=?,日期=? where id=?";
 
-            Object[] args={CJ,id};
+            Object[] args={CJ,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1965,11 +2232,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCK(int id, String CK) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CK=? where id=?";
+            sql = "update baitaoquanxian set CK=?,日期=? where id=?";
 
-            Object[] args={CK,id};
+            Object[] args={CK,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -1984,11 +2254,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCL(int id, String CL) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CL=? where id=?";
+            sql = "update baitaoquanxian set CL=?,日期=? where id=?";
 
-            Object[] args={CL,id};
+            Object[] args={CL,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2003,11 +2276,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCM(int id, String CM) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CM=? where id=?";
+            sql = "update baitaoquanxian set CM=?,日期=? where id=?";
 
-            Object[] args={CM,id};
+            Object[] args={CM,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2022,11 +2298,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCN(int id, String CN) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CN=? where id=?";
+            sql = "update baitaoquanxian set CN=?,日期=? where id=?";
 
-            Object[] args={CN,id};
+            Object[] args={CN,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2041,11 +2320,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCO(int id, String CO) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CO=? where id=?";
+            sql = "update baitaoquanxian set CO=?,日期=? where id=?";
 
-            Object[] args={CO,id};
+            Object[] args={CO,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2060,11 +2342,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCP(int id, String CP) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CP=? where id=?";
+            sql = "update baitaoquanxian set CP=?,日期=? where id=?";
 
-            Object[] args={CP,id};
+            Object[] args={CP,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2079,11 +2364,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCQ(int id, String CQ) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CQ=? where id=?";
+            sql = "update baitaoquanxian set CQ=?,日期=? where id=?";
 
-            Object[] args={CQ,id};
+            Object[] args={CQ,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2098,11 +2386,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCR(int id, String CR) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CR=? where id=?";
+            sql = "update baitaoquanxian set CR=?,日期=? where id=?";
 
-            Object[] args={CR,id};
+            Object[] args={CR,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2117,11 +2408,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCS(int id, String CS) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CS=? where id=?";
+            sql = "update baitaoquanxian set CS=?,日期=? where id=?";
 
-            Object[] args={CS,id};
+            Object[] args={CS,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2136,11 +2430,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCT(int id, String CT) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CT=? where id=?";
+            sql = "update baitaoquanxian set CT=?,日期=? where id=?";
 
-            Object[] args={CT,id};
+            Object[] args={CT,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2155,11 +2452,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCU(int id, String CU) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CU=? where id=?";
+            sql = "update baitaoquanxian set CU=?,日期=? where id=?";
 
-            Object[] args={CU,id};
+            Object[] args={CU,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;
@@ -2174,11 +2474,14 @@ public class WorkbenchDaoImp implements WorkbenchDao{
 
     @Override
     public boolean updateCV(int id, String CV) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String 日期=df.format(new Date());
         try {
             DBCoon.init();
-            sql = "update baitaoquanxian set CV=? where id=?";
+            sql = "update baitaoquanxian set CV=?,日期=? where id=?";
 
-            Object[] args={CV,id};
+            Object[] args={CV,日期,id};
             int i = DBCoon.addUpdDel(sql,args);
             if (i>0){
                 flag=true;

@@ -53,5 +53,16 @@ public interface  RenYuanDao {
     /*查询登录公司下的人员*/
     public List<RenYuan> getRenYuan(String gognsi);
 
+    //修改B列
+    public boolean updateB(String B,int id);
+
+    //修改C列
+    public boolean updateC(String C,int id);
+
+    //修改D列
+    public boolean updateD(String D,int id);
+
+    //修改E列
+    public boolean updateE(String E,int id);
 
 }

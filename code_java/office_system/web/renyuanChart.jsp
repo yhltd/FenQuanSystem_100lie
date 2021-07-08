@@ -80,10 +80,10 @@
       }
     })
   })*/
-  var myChart = echarts.init(document.getElementById('main'));
-  myChart.showLoading();
+  var renyuanChart = echarts.init(document.getElementById('main'));
+  renyuanChart.showLoading();
   $.get('RenYuanChart').done(function (data) {
-    myChart.hideLoading();
+    renyuanChart.hideLoading();
     data = JSON.parse(data);
 
     var columns = []
@@ -93,19 +93,17 @@
       values.push(data[col])
     }
 
-    myChart.setOption({
+    renyuanChart.setOption({
       title: {
-        text: '人员柱状图'
-      },
-      legend: {
-        type: 'plain',
-        data:['${userName}']
-      },
-      grid: {
-        containLabel: 'true',
-        left: 10,
-        bottom: 10,
-        right: 10,
+        text: "人员柱状图",
+        textStyle:{
+          color:'#000000', //颜色
+          fontStyle:'normal', //风格
+          fontWeight:'normal', //粗细
+          fontFamily:'Microsoft yahei', //字体
+          fontSize:20, //大小
+          align:'center' //水平对齐
+        },
       },
       tooltip: {
         trigger: "axis",
@@ -113,23 +111,83 @@
           type: "shadow"
         }
       },
-      xAxis:{
+      xAxis: {
+        nameTextStyle: {
+          fontSize:15,
+          color:'#000000', //颜色
+        },
+        name: '列',
         type: 'category',
-        data: columns
+        data: columns,
+        axisLine:{
+          lineStyle:{
+            color:'#000000',
+            width:2,//这里是为了突出显示加上的
+          }
+        },
+
       },
       yAxis: {
+        nameTextStyle: {
+          fontSize:15,
+          color:'#000000', //颜色
+        },
+        axisLine:{
+          lineStyle:{
+            color:'#000000',
+            width:2,//这里是为了突出显示加上的
+          }
+        },
+        name: '数量',
         type: 'value'
       },
-      series: {
-        name: '${userName}',
+      series: [{
+        name: '${GongSi}',
+        type: 'bar',//柱状图
         data: values,
-        type: 'bar',
-        label: {
-          show: "true",
-          // position: "top"
-          position: "bottom"
-        }
-      },
+        itemStyle: {
+          normal: {
+            color: "#F4422C",//折线点的颜色
+          }
+        },
+      }],
+
+      <%--title: {--%>
+      <%--  text: '人员柱状图'--%>
+      <%--},--%>
+      <%--legend: {--%>
+      <%--  type: 'plain',--%>
+      <%--  data:['${userName}']--%>
+      <%--},--%>
+      <%--grid: {--%>
+      <%--  containLabel: 'true',--%>
+      <%--  left: 10,--%>
+      <%--  bottom: 10,--%>
+      <%--  right: 10,--%>
+      <%--},--%>
+      <%--tooltip: {--%>
+      <%--  trigger: "axis",--%>
+      <%--  axisPointer: {--%>
+      <%--    type: "shadow"--%>
+      <%--  }--%>
+      <%--},--%>
+      <%--xAxis:{--%>
+      <%--  type: 'category',--%>
+      <%--  data: columns--%>
+      <%--},--%>
+      <%--yAxis: {--%>
+      <%--  type: 'value'--%>
+      <%--},--%>
+      <%--series: {--%>
+      <%--  name: '${userName}',--%>
+      <%--  data: values,--%>
+      <%--  type: 'bar',--%>
+      <%--  label: {--%>
+      <%--    show: "true",--%>
+      <%--    // position: "top"--%>
+      <%--    position: "bottom"--%>
+      <%--  }--%>
+      <%--},--%>
     });
 
 
@@ -211,7 +269,7 @@
   <%--});--%>
   /*饼图*/
   $('#select_renyuan').click(function (){
-    myChart.showLoading();
+    renyuanChart.showLoading();
     let username = $('#username').val();
     console.log(username)
     $.ajax({
@@ -224,7 +282,7 @@
       success:function (result){
         console.log(result)
         alert("查询成功!!!")
-        myChart.hideLoading();
+        renyuanChart.hideLoading();
         data = JSON.parse(result);
         var columns = []
         var values = []
@@ -232,19 +290,18 @@
           columns.push(col);
           values.push(data[col])
         }
-        myChart.setOption({
+        renyuanChart.setOption({
+
           title: {
-            text: '人员柱状图'
-          },
-          legend: {
-            type: 'plain',
-            data:[username]
-          },
-          grid: {
-            containLabel: 'true',
-            left: 10,
-            bottom: 10,
-            right: 10,
+            text: "人员柱状图",
+            textStyle:{
+              color:'#000000', //颜色
+              fontStyle:'normal', //风格
+              fontWeight:'normal', //粗细
+              fontFamily:'Microsoft yahei', //字体
+              fontSize:20, //大小
+              align:'center' //水平对齐
+            },
           },
           tooltip: {
             trigger: "axis",
@@ -253,22 +310,83 @@
             }
           },
           xAxis: {
+            nameTextStyle: {
+              fontSize:15,
+              color:'#000000', //颜色
+            },
+            name: '列',
             type: 'category',
-            data: columns
+            data: columns,
+            axisLine:{
+              lineStyle:{
+                color:'#000000',
+                width:2,//这里是为了突出显示加上的
+              }
+            },
+
           },
           yAxis: {
+            nameTextStyle: {
+              fontSize:15,
+              color:'#000000', //颜色
+            },
+            axisLine:{
+              lineStyle:{
+                color:'#000000',
+                width:2,//这里是为了突出显示加上的
+              }
+            },
+            name: '数量',
             type: 'value'
           },
           series: [{
-            name: username,
+            name: '${GongSi}',
+            type: 'bar',//柱状图
             data: values,
-            type: 'bar',
-            label: {
-              show: "true",
-              // position: "top"
-              position: "bottom"
-            }
-          }]
+            itemStyle: {
+              normal: {
+                color: "#F4422C",//折线点的颜色
+              }
+            },
+          }],
+
+          // title: {
+          //   text: '人员柱状图'
+          // },
+          // legend: {
+          //   type: 'plain',
+          //   data:[username]
+          // },
+          // grid: {
+          //   containLabel: 'true',
+          //   left: 10,
+          //   bottom: 10,
+          //   right: 10,
+          // },
+          // tooltip: {
+          //   trigger: "axis",
+          //   axisPointer: {
+          //     type: "shadow"
+          //   }
+          // },
+          // xAxis: {
+          //   type: 'category',
+          //   data: columns
+          // },
+          // yAxis: {
+          //   type: 'value'
+          // },
+          // series: [{
+          //   name: username,
+          //   data: values,
+          //   type: 'bar',
+          //   label: {
+          //     show: "true",
+          //     // position: "top"
+          //     position: "bottom"
+          //   }
+          // }]
+
         });
       }
     })

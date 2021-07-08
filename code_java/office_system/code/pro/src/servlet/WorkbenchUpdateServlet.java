@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class WorkbenchUpdateServlet extends HttpServlet {
     @Override
@@ -144,6 +146,7 @@ public class WorkbenchUpdateServlet extends HttpServlet {
         String CT=jrlist.get(jrlist.size()-1).getNewvalue();
         String CU=jrlist.get(jrlist.size()-1).getNewvalue();
         String CV=jrlist.get(jrlist.size()-1).getNewvalue();
+
 
         RenYuanDao renYuanDao = new RenYuanDaoImp();
         WorkbenchDao wkd=new WorkbenchDaoImp();

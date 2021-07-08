@@ -1,5 +1,7 @@
 package javaBean;
 
+import java.util.Date;
+
 public class Workbench {
     private int id;
     private String renYuan;
@@ -109,12 +111,14 @@ public class Workbench {
     private String CU;
     private String CV;
 
+    private String 日期;
+
     public Workbench(){}
 
     public Workbench(int id, String renYuan, String gongSi, String a, String b, String c, String d, String e, String f, String g, String h, String i, String j, String k, String l, String m, String n, String o, String p, String q, String r, String s, String t, String u, String v, String w, String x, String y, String z,
                      String AA, String AB, String AC, String AD, String AE, String AF, String AG, String AH, String AI, String AJ, String AK, String AL, String AM, String AN, String AO, String AP, String AQ, String AR, String ASS, String AT, String AU, String AV, String AW, String AX, String AY, String AZ,
                      String BA, String BB, String BC, String BD, String BE, String BF, String BG, String BH, String BI, String BJ, String BK, String BL, String BM, String BN, String BO, String BP, String BQ, String BR, String BS, String BT, String BU, String BV, String BW, String BX, String BYY, String BZ,
-                     String CA, String CB, String CC, String CD, String CE, String CF, String CG, String CH, String CI, String CJ, String CK, String CL, String CM, String CN, String CO, String CP, String CQ, String CR, String CS, String CT, String CU, String CV) {
+                     String CA, String CB, String CC, String CD, String CE, String CF, String CG, String CH, String CI, String CJ, String CK, String CL, String CM, String CN, String CO, String CP, String CQ, String CR, String CS, String CT, String CU, String CV,String 日期) {
         this.id = id;
         this.renYuan = renYuan;
         this.gongSi = gongSi;
@@ -218,6 +222,7 @@ public class Workbench {
         this.CT = CT;
         this.CU = CU;
         this.CV = CV;
+        this.日期=日期;
     }
 
     public int getId() {
@@ -1042,6 +1047,14 @@ public class Workbench {
 
     public void setCV(String CV) {
         this.CV = CV;
+    }
+
+    public String get日期() {
+        return 日期;
+    }
+
+    public void set日期(String 日期) {
+        this.日期 = 日期;
     }
 
 

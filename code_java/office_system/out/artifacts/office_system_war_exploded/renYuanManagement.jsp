@@ -49,13 +49,16 @@
             <tfoot id="hidfoot">
                 <c:forEach  items="${renyuanInfo}" var="ry" >
                     <form action="updateRenYuan" method="post" id="myform">
-                        <tr id="trhid">
+                        <tr>
                             <td hidden="hidden"><input type="text" name="id" value="${ry.id}" class="input"></td>
                             <td ><input type="text" name="gongSi" value="${ry.b}" class="input" style="background: transparent"></td>
                             <td ><input type="text" name="user" value="${ry.c}" class="input" style="background: transparent"></td>
                             <td ><input type="text" name="name" value="${ry.d}" class="input" style="background: transparent"></td>
                             <td ><input type="text" name="pwd" value="${ry.e}" class="input" style="background: transparent"></td>
-                            <td><a href="deleteRenYuan?id=${ry.id}" >删除</a> <input style="border-color:#9acfea; background-color: #9acfea" type="submit" value="修改" class="btn-success"> </td>
+                            <td><a href="deleteRenYuan?id=${ry.id}" >删除</a>   </td>
+<%--                            <a href="updateRenYuan?id=${ry.id}&gongSi=${ry.b}&user=${ry.c}&name=${ry.d}&pwd=${ry.e}" >修改</a>--%>
+<%--                            <input style="border-color:#9acfea; background-color: #9acfea" type="submit" value="修改" class="btn-success">--%>
+<%--                            &user=--%>
                         </tr>
                     </form>
                 </c:forEach>
@@ -117,7 +120,7 @@
                         var user = eval('('+result+')');
                         var strcontent ="";
                         for(var i=0;i<user.length;i++){
-                            strcontent+="<td hidden=\"hidden\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" value= "+user[i].id+"></input></td><td style=\"color: white\"><input style=\"background: transparent\" form=\"myform\" name=\"gongSi\" class=\"input\" value="+user[i].B+"></input></td><td name=\"user\" style=\"color: white\"><input style=\"background: transparent\" form=\"myform\" name=\"user\" class=\"input\" value="+user[i].C+"></input></td><td style=\"color: white\"><input style=\"background: transparent\" form=\"myform\" name=\"name\" class=\"input\" value="+user[i].D+"></input></td><td style=\"color: white\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" name=\"pwd\" value="+user[i].E+"></input></td><td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: white\">删除</a> <input form=\"myform\" type=\"submit\" value=\"修改\" class=\"btn-success\"> </td>"
+                            strcontent+="<td hidden=\"hidden\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" value= "+user[i].id+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"gongSi\" class=\"input\" value="+user[i].B+"></input></td><td name=\"user\" style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"user\" class=\"input\" value="+user[i].C+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"name\" class=\"input\" value="+user[i].D+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" name=\"pwd\" value="+user[i].E+"></input></td><td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a> <input form=\"myform\" type=\"submit\" value=\"修改\" class=\"btn-success\"> </td>"
                         }
 
                         $("#content2").html(strcontent);
@@ -128,6 +131,39 @@
                 })
             })
 
+        })
+
+        $('input').change('input',function(){
+            arr = []
+            let newvalue = this.value;
+            let td = this.parentElement;
+            let tr = td.parentElement;
+            let firsttd = tr.firstElementChild;
+            let firstinput = firsttd.firstElementChild
+            let id = firstinput.value;
+            let column = this.name;
+            arr.push({
+                id: id,
+                newvalue:newvalue,
+                column: column,
+            })
+            console.log(arr)
+
+            $.ajax({
+                type: 'post',
+                url: 'updateRenYuan',
+                data: {
+                    jsonData: JSON.stringify(arr)
+                },
+                dataType: 'json',
+                success: function(data){
+                    console.log(data)
+                },
+                error: function(err){
+                    alert("修改成功！")
+                    console.log(err)
+                }
+            })
         })
     </script>
 </body>

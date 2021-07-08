@@ -449,5 +449,81 @@ public class RenYuanDaoImp implements RenYuanDao{
         return renyuanList;
     }
 
+    @Override
+    public boolean updateB(String B,int id) {
+        try {
+            DBCoon.init();
+            sql = "update baitaoquanxian_renyun set B=? where id=?";
+
+            Object[] args={B,id};
+            int i = DBCoon.addUpdDel(sql,args);
+            if (i>0){
+                flag=true;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBCoon.close();
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean updateC(String C,int id) {
+        try {
+            DBCoon.init();
+            sql = "update baitaoquanxian_renyun set C=? where id=?";
+
+            Object[] args={C,id};
+            int i = DBCoon.addUpdDel(sql,args);
+            if (i>0){
+                flag=true;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBCoon.close();
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean updateD(String D,int id) {
+        try {
+            DBCoon.init();
+            sql = "update baitaoquanxian_renyun set D=? where id=?";
+
+            Object[] args={D,id};
+            int i = DBCoon.addUpdDel(sql,args);
+            if (i>0){
+                flag=true;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBCoon.close();
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean updateE(String E,int id) {
+        try {
+            DBCoon.init();
+            sql = "update baitaoquanxian_renyun set E=? where id=?";
+
+            Object[] args={E,id};
+            int i = DBCoon.addUpdDel(sql,args);
+            if (i>0){
+                flag=true;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBCoon.close();
+        }
+        return flag;
+    }
+
 
 }

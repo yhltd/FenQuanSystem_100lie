@@ -87,28 +87,27 @@
         myChart.hideLoading();
         data = JSON.parse(data);
 
-        var columns = []
+        var columns = [] //["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AW","AZ","BA","BB","BC","BD","BE","BF","BG","BG","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ","CA","CB","CC","CD","CE","CF","CG","CH","CI","CJ","CK","CL","CM","CN","CO","CP","CQ","CR","CS","CT","CU","CV"]
         var values = []
         for (let col in data){
-            columns.push(col);
+             columns.push(col);
             values.push(data[col])
         }
-        console.log(columns)
+
+        //console.log(columns)
 
 
         myChart.setOption({
             title: {
-                text: '公司柱状图'
-            },
-            legend: {
-                type: 'plain',
-                data:['${GongSi}']
-            },
-            grid: {
-                containLabel: 'true',
-                left: 10,
-                bottom: 10,
-                right: 10,
+                text: "公司柱状图",
+                textStyle:{
+                    color:'#000000', //颜色
+                    fontStyle:'normal', //风格
+                    fontWeight:'normal', //粗细
+                    fontFamily:'Microsoft yahei', //字体
+                    fontSize:20, //大小
+                    align:'center' //水平对齐
+                },
             },
             tooltip: {
                 trigger: "axis",
@@ -117,22 +116,84 @@
                 }
             },
             xAxis: {
+                nameTextStyle: {
+                    fontSize:15,
+                    color:'#000000', //颜色
+                },
+                name: '列',
                 type: 'category',
-                data: columns
+                data: columns,
+                axisLine:{
+                    lineStyle:{
+                        color:'#000000',
+                        width:2,//这里是为了突出显示加上的
+                    }
+                },
+
             },
             yAxis: {
+                nameTextStyle: {
+                    fontSize:15,
+                    color:'#000000', //颜色
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#000000',
+                        width:2,//这里是为了突出显示加上的
+                    }
+                },
+                name: '数量',
                 type: 'value'
             },
             series: [{
                 name: '${GongSi}',
+                type: 'bar',//柱状图
                 data: values,
-                type: 'bar',
-                label: {
-                    show: "true",
-                    // position: "top"
-                    position: "bottom"
-                }
-            }]
+                itemStyle: {
+                    normal: {
+                        color: "#F4422C",//折线点的颜色
+                    }
+                },
+            }],
+
+            <%--title: {--%>
+            <%--    text: '公司柱状图'--%>
+            <%--},--%>
+            <%--legend: {--%>
+            <%--    type: 'plain',--%>
+            <%--    data:['${GongSi}']--%>
+            <%--},--%>
+            <%--grid: {--%>
+            <%--    containLabel: 'true',--%>
+            <%--    left: 10,--%>
+            <%--    bottom: 10,--%>
+            <%--    right: 10,--%>
+            <%--},--%>
+            <%--tooltip: {--%>
+            <%--    trigger: "axis",--%>
+            <%--    axisPointer: {--%>
+            <%--        type: "shadow"--%>
+            <%--    }--%>
+            <%--},--%>
+            <%--xAxis: {--%>
+            <%--    type: 'category',--%>
+            <%--    data: columns--%>
+            <%--},--%>
+            <%--yAxis: {--%>
+            <%--    type: 'value'--%>
+            <%--    --%>
+            <%--},--%>
+            <%--series: [{--%>
+            <%--    name: '${GongSi}',--%>
+            <%--    data: values,--%>
+            <%--    type: 'bar',--%>
+            <%--    label: {--%>
+            <%--        show: "true",--%>
+            <%--        // position: "top"--%>
+            <%--        position: "bottom"--%>
+            <%--    }--%>
+            <%--}]--%>
+
         });
     });
 </script>
