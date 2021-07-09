@@ -33,7 +33,7 @@ public class RenYuanDaoImp implements RenYuanDao{
         }catch (Exception e) {
             System.out.println("登录失败");
             e.printStackTrace();
-        } finally {
+        }finally {
             DBCoon.close();
         }
         return flag;

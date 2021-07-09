@@ -35,15 +35,15 @@ public class LoginServlet extends HttpServlet {
                     System.out.println("red");
                     Cookie c1=new Cookie("loginAct",D);
                     c1.setMaxAge(10*24*60*60);
-                     resp.addCookie(c1);
-                     Cookie c2=new Cookie("loginPwd",E);
+                    resp.addCookie(c1);
+                    Cookie c2=new Cookie("loginPwd",E);
                     c2.setMaxAge(10*24*60*60);
                     resp.addCookie(c2);
                     System.out.println(qx+"登录成功");
                     req.getRequestDispatcher("workbenchGLY").forward(req, resp);
                 }else {
-                     System.out.println("blu");
-                     Cookie c1=new Cookie("loginAct",D);
+                    System.out.println("blu");
+                    Cookie c1=new Cookie("loginAct",D);
                     c1.setMaxAge(0);
                     resp.addCookie(c1);
                     Cookie c2=new Cookie("loginPwd",E);

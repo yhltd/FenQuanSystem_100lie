@@ -145,7 +145,7 @@ public class CopyUpdateServlet extends HttpServlet {
         Copy1Dao cd = new Copy1DaoImp();
         if(column.equals("C")){
             cd.updateC(ryId,C);
-            req.getRequestDispatcher("copy").forward(req, resp);
+            //req.getRequestDispatcher("copy").forward(req, resp);
         }
         if(column.equals("D")){
             cd.updateD(ryId,D);

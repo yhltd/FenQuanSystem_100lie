@@ -35,6 +35,7 @@
             请选择姓名：
         </span>
         <input  type="button"  value="查询" id="but1" style="border-color:#9acfea; background-color:#9acfea; width: 50px;height: 30px">
+        <p>*此页面数据为实时修改，编辑后自动保存</p>
         <table border="1" class="table-condensed"  style="margin-left: auto;margin-right: auto;">
             <thead style="text-align: center">
                 <td >公司</td>
@@ -120,9 +121,9 @@
                         var user = eval('('+result+')');
                         var strcontent ="";
                         for(var i=0;i<user.length;i++){
-                            strcontent+="<td hidden=\"hidden\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" value= "+user[i].id+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"gongSi\" class=\"input\" value="+user[i].B+"></input></td><td name=\"user\" style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"user\" class=\"input\" value="+user[i].C+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"name\" class=\"input\" value="+user[i].D+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" name=\"pwd\" value="+user[i].E+"></input></td><td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a> <input form=\"myform\" type=\"submit\" value=\"修改\" class=\"btn-success\"> </td>"
+                            strcontent+="<td hidden=\"hidden\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" value= "+user[i].id+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"gongSi\" class=\"input\" value="+user[i].B+"></input></td><td name=\"user\" style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"user\" class=\"input\" value="+user[i].C+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"name\" class=\"input\" value="+user[i].D+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" name=\"pwd\" value="+user[i].E+"></input></td><td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a>  </td><br>"
                         }
-
+                        //<input form="myform" type="submit" value="修改" class="btn-success">
                         $("#content2").html(strcontent);
                         $("#hidfoot").remove();
                     },error:function () {

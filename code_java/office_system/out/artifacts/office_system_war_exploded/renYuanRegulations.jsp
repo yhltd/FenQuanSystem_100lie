@@ -25,7 +25,9 @@
     <h3 style="text-align: center">人员规定</h3>
     输入姓名：<input type="text" name="user" id="putUser" required style="text-align: left">
     <button id="selectPower" style="padding-right: 5px;background-color:#9acfea;;border-radius: 7px;border-color: #9acfea;text-align: left" >查询</button>
+
     <table border="1" class="table-condensed" >
+
         <thead style="text-align: center">
             <td>公司名称</td>
             <td>访问人员</td>
@@ -129,222 +131,228 @@
             <td>CV</td>
             <td>CW</td>
             <td>CX</td>
-           <%-- <td>操作</td>--%>
+            <td>CV</td>
+            <td>操作</td>
         </thead>
         <tbody id="contentrenYuan">
+        <tfoot id="hide">
+            <c:forEach items="${copy1Info}" var="copy">
+                <form action="copyUpdate" method="post">
+                    <tr>
+                        <td hidden="hidden"><input type="text" name="id" value="${copy.id}"></td>
+                        <td><input type="text" name="quanXian" value="${copy.quanXian}" class="input"
+                                   style="background: transparent"></td>
+                        <td><input type="text" name="B" value="${copy.b}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="C" value="${copy.c}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="D" value="${copy.d}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="E" value="${copy.e}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="F" value="${copy.f}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="G" value="${copy.g}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="H" value="${copy.h}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="I" value="${copy.i}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="J" value="${copy.j}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="K" value="${copy.k}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="L" value="${copy.l}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="M" value="${copy.m}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="N" value="${copy.n}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="O" value="${copy.o}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="P" value="${copy.p}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="Q" value="${copy.q}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="R" value="${copy.r}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="S" value="${copy.s}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="T" value="${copy.t}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="U" value="${copy.u}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="V" value="${copy.v}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="W" value="${copy.w}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="X" value="${copy.x}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="Y" value="${copy.y}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="Z" value="${copy.z}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AA" value="${copy.AA}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AB" value="${copy.AB}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AC" value="${copy.AC}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AD" value="${copy.AD}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AE" value="${copy.AE}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AF" value="${copy.AF}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AG" value="${copy.AG}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AH" value="${copy.AH}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AI" value="${copy.AI}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AJ" value="${copy.AJ}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AK" value="${copy.AK}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AL" value="${copy.AL}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AM" value="${copy.AM}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AN" value="${copy.AN}" class="input" style="background: transparent">
+                        </td>
+                        <td><input name="AO" type="text" value="${copy.AO}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AP" value="${copy.AP}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AQ" value="${copy.AQ}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AR" value="${copy.AR}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="ASS" value="${copy.ASS}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AT" value="${copy.AT}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AU" value="${copy.AU}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AV" value="${copy.AV}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AW" value="${copy.AW}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AX" value="${copy.AX}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AY" value="${copy.AY}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="AZ" value="${copy.AZ}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BA" value="${copy.BA}" class="input" style="background: transparent">
+                        </td>
+                        <td style="color: #ffffff;"><input type="text" name="BB" value="${copy.BB}" class="input"
+                                                           style="background: transparent"></td>
+                        <td><input type="text" name="BC" value="${copy.BC}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BD" value="${copy.BD}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BE" value="${copy.BE}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BF" value="${copy.BF}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BG" value="${copy.BG}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BH" value="${copy.BH}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BI" value="${copy.BI}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BJ" value="${copy.BJ}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BK" value="${copy.BK}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BL" value="${copy.BL}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BM" value="${copy.BM}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BN" value="${copy.BN}" class="input" style="background: transparent">
+                        </td>
+                        <td><input name="BO" type="text" value="${copy.BO}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BP" value="${copy.BP}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BQ" value="${copy.BQ}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BR" value="${copy.BR}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BS" value="${copy.BS}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BT" value="${copy.BT}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BU" value="${copy.BU}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BV" value="${copy.BV}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BW" value="${copy.BW}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BX" value="${copy.BX}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BYY" value="${copy.BYY}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="BZ" value="${copy.BZ}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CA" value="${copy.CA}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CB" value="${copy.CB}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CC" value="${copy.CC}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CD" value="${copy.CD}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CE" value="${copy.CE}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CF" value="${copy.CF}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CG" value="${copy.CG}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CH" value="${copy.CH}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CI" value="${copy.CI}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CJ" value="${copy.CJ}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CK" value="${copy.CK}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CL" value="${copy.CL}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CM" value="${copy.CM}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CN" value="${copy.CN}" class="input" style="background: transparent">
+                        </td>
+                        <td><input name="CO" type="text" value="${copy.CO}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CP" value="${copy.CP}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CQ" value="${copy.CQ}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CR" value="${copy.CR}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CS" value="${copy.CS}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CT" value="${copy.CT}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CU" value="${copy.CU}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CV" value="${copy.CV}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CW" value="${copy.CW}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CX" value="${copy.CX}" class="input" style="background: transparent">
+                        </td>
+                        <td><input type="text" name="CX" value="${copy.CV}" class="input" style="background: transparent">
+                        </td>
+                    </tr>
+                </form>
+            </c:forEach>
 
+        </tfoot>
         </tbody>
-        <%--<c:forEach items="${copy1Info}" var="copy">
-            <form action="copyUpdate" method="post">
-                <tr>
-                    <td hidden="hidden"><input type="text" name="id" value="${copy.id}"></td>
-                    <td><input type="text" name="quanXian" value="${copy.quanXian}" class="input"
-                               style="background: transparent"></td>
-                    <td><input type="text" name="B" value="${copy.b}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="C" value="${copy.c}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="D" value="${copy.d}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="E" value="${copy.e}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="F" value="${copy.f}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="G" value="${copy.g}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="H" value="${copy.h}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="I" value="${copy.i}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="J" value="${copy.j}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="K" value="${copy.k}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="L" value="${copy.l}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="M" value="${copy.m}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="N" value="${copy.n}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="O" value="${copy.o}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="P" value="${copy.p}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="Q" value="${copy.q}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="R" value="${copy.r}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="S" value="${copy.s}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="T" value="${copy.t}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="U" value="${copy.u}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="V" value="${copy.v}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="W" value="${copy.w}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="X" value="${copy.x}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="Y" value="${copy.y}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="Z" value="${copy.z}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AA" value="${copy.AA}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AB" value="${copy.AB}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AC" value="${copy.AC}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AD" value="${copy.AD}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AE" value="${copy.AE}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AF" value="${copy.AF}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AG" value="${copy.AG}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AH" value="${copy.AH}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AI" value="${copy.AI}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AJ" value="${copy.AJ}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AK" value="${copy.AK}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AL" value="${copy.AL}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AM" value="${copy.AM}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AN" value="${copy.AN}" class="input" style="background: transparent">
-                    </td>
-                    <td><input name="AO" type="text" value="${copy.AO}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AP" value="${copy.AP}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AQ" value="${copy.AQ}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AR" value="${copy.AR}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="ASS" value="${copy.ASS}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AT" value="${copy.AT}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AU" value="${copy.AU}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AV" value="${copy.AV}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AW" value="${copy.AW}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AX" value="${copy.AX}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AY" value="${copy.AY}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="AZ" value="${copy.AZ}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BA" value="${copy.BA}" class="input" style="background: transparent">
-                    </td>
-                    <td style="color: #ffffff;"><input type="text" name="BB" value="${copy.BB}" class="input"
-                                                       style="background: transparent"></td>
-                    <td><input type="text" name="BC" value="${copy.BC}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BD" value="${copy.BD}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BE" value="${copy.BE}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BF" value="${copy.BF}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BG" value="${copy.BG}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BH" value="${copy.BH}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BI" value="${copy.BI}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BJ" value="${copy.BJ}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BK" value="${copy.BK}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BL" value="${copy.BL}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BM" value="${copy.BM}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BN" value="${copy.BN}" class="input" style="background: transparent">
-                    </td>
-                    <td><input name="BO" type="text" value="${copy.BO}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BP" value="${copy.BP}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BQ" value="${copy.BQ}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BR" value="${copy.BR}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BS" value="${copy.BS}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BT" value="${copy.BT}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BU" value="${copy.BU}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BV" value="${copy.BV}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BW" value="${copy.BW}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BX" value="${copy.BX}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BYY" value="${copy.BYY}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="BZ" value="${copy.BZ}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CA" value="${copy.CA}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CB" value="${copy.CB}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CC" value="${copy.CC}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CD" value="${copy.CD}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CE" value="${copy.CE}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CF" value="${copy.CF}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CG" value="${copy.CG}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CH" value="${copy.CH}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CI" value="${copy.CI}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CJ" value="${copy.CJ}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CK" value="${copy.CK}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CL" value="${copy.CL}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CM" value="${copy.CM}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CN" value="${copy.CN}" class="input" style="background: transparent">
-                    </td>
-                    <td><input name="CO" type="text" value="${copy.CO}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CP" value="${copy.CP}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CQ" value="${copy.CQ}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CR" value="${copy.CR}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CS" value="${copy.CS}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CT" value="${copy.CT}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CU" value="${copy.CU}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CV" value="${copy.CV}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CW" value="${copy.CW}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CX" value="${copy.CX}" class="input" style="background: transparent">
-                    </td>
-                </tr>
-            </form>
-        </c:forEach>--%>
+
     </table>
 <%--    <a href="workbench.jsp" style="color: white;font-size: 18px">返回主页</a>--%>
 </div>
@@ -359,6 +367,7 @@
     })
     arr = []
     $('input').change('input', function () {
+        console.log("123")
         let newvalue = this.value;
         let td = this.parentElement;
         let tr = td.parentElement;
@@ -390,8 +399,38 @@
         })
     })
 
-    $('#selectPower').click(function(){
+    function myChange(b){
+        var newvalue = b.value;
+        var td = b.parentElement;
+        var tr = td.parentElement;
+        var firsttd = tr.firstElementChild;
+        var firstinput = firsttd.firstElementChild;
+        var id = firstinput.value;
+        var column = b.name;
 
+        arr.push({
+            id: id,
+            newvalue: newvalue,
+            column: column
+        })
+
+        $.ajax({
+            type: 'post',
+            url: 'copyUpdate',
+            data: {
+                jsonData: JSON.stringify(arr)
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data)
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    }
+
+    $('#selectPower').click(function(){
         $.ajax({
             type: 'post',
             url: 'chooseUserName',
@@ -399,13 +438,15 @@
                 chooseName:$('#putUser').val()
             },
             success: function (result) {
+                $("#hide").remove();
                 console.log(result)
                 //转换为javascript对象
                 var user = eval('('+result+')');
                 var strcontent ="";
 
                 for(var i=0;i<user.length;i++){
-                    strcontent+="<td>"+user[i].B+"</td><td>"+user[i].quanXian+"</td><td>"+user[i].C+"</td><td>"+user[i].D+"</td><td>"+user[i].E+"</td><td>"+user[i].E+"</td><td>"+user[i].F+"</td><td>"+user[i].G+"</td><td>"+user[i].H+"</td><td>"+user[i].I+"</td><td>"+user[i].J+"</td><td>"+user[i].K+"</td><td>"+user[i].L+"</td><td>"+user[i].M+"</td><td>"+user[i].N+"</td><td>"+user[i].O+"</td><td>"+user[i].P+"</td><td>"+user[i].Q+"</td><td>"+user[i].R+"</td><td>"+user[i].S+"</td><td>"+user[i].T+"</td><td>"+user[i].U+"</td><td>"+user[i].V+"</td><td>"+user[i].W+"</td><td>"+user[i].X+"</td><td>"+user[i].Y+"</td><td>"+user[i].Z+"</td><td>"+user[i].AA+"</td><td>"+user[i].AB+"</td><td>"+user[i].AC+"</td><td>"+user[i].AD+"</td><td>"+user[i].AE+"</td><td>"+user[i].AF+"</td><td>"+user[i].AG+"</td><td>"+user[i].AH+"</td><td>"+user[i].AI+"</td><td>"+user[i].AJ+"</td><td>"+user[i].AK+"</td><td>"+user[i].AL+"</td><td>"+user[i].AM+"</td><td>"+user[i].AN+"</td><td>"+user[i].AO+"</td><td>"+user[i].AP+"</td><td>"+user[i].AQ+"</td><td>"+user[i].AR+"</td><td>"+user[i].ASS+"</td><td>"+user[i].AT+"</td><td>"+user[i].AU+"</td><td>"+user[i].AV+"</td><td>"+user[i].AW+"</td><td>"+user[i].AX+"</td><td>"+user[i].AY+"</td><td>"+user[i].AZ+"</td><td>"+user[i].BA+"</td><td>"+user[i].BB+"</td><td>"+user[i].BC+"</td><td>"+user[i].BD+"</td><td>"+user[i].BE+"</td><td>"+user[i].BF+"</td><td>"+user[i].BG+"</td><td>"+user[i].BH+"</td><td>"+user[i].BI+"</td><td>"+user[i].BJ+"</td><td>"+user[i].BK+"</td><td>"+user[i].BL+"</td><td>"+user[i].BM+"</td><td>"+user[i].BN+"</td><td>"+user[i].BO+"</td><td>"+user[i].BP+"</td><td>"+user[i].BQ+"</td><td>"+user[i].BR+"</td><td>"+user[i].BS+"</td><td>"+user[i].BT+"</td><td>"+user[i].BU+"</td><td>"+user[i].BV+"</td><td>"+user[i].BW+"</td><td>"+user[i].BX+"</td><td>"+user[i].BYY+"</td><td>"+user[i].BZ+"</td><td>"+user[i].CA+"</td><td>"+user[i].CB+"</td><td>"+user[i].CC+"</td><td>"+user[i].CD+"</td><td>"+user[i].CE+"</td><td>"+user[i].CF+"</td><td>"+user[i].CG+"</td><td>"+user[i].CH+"</td><td>"+user[i].CI+"</td><td>"+user[i].CJ+"</td><td>"+user[i].CK+"</td><td>"+user[i].CL+"</td><td>"+user[i].CM+"</td><td>"+user[i].CN+"</td><td>"+user[i].CO+"</td><td>"+user[i].CP+"</td><td>"+user[i].CQ+"</td><td>"+user[i].CR+"</td><td>"+user[i].CS+"</td><td>"+user[i].CT+"</td><td>"+user[i].CU+"</td><td>"+user[i].CV+"</td><td>"+user[i].CW+"</td><td>"+user[i].CX+"</td>"
+                    // strcontent+="<td hidden=\"hidden\"><input value="+user[i].id+"></input></td><td>"+user[i].B+"</td><td>"+user[i].quanXian+"</td><td><input onblur='danji()' value= "+user[i].C+" ></input></td><td><input value= "+user[i].D+"></input></td><td><input value= "+user[i].E+"></input></td><td><input value= "+user[i].E+"></input></td><td><input value= "+user[i].F+"></input></td><td><input value= "+user[i].G+"></input></td><td><input value= "+user[i].H+"></input></td><td><input value= "+user[i].I+"></input></td><td><input value= "+user[i].J+"></input></td><td><input value= "+user[i].K+"></input></td><td><input value= "+user[i].L+"></input></td><td>"+user[i].M+"</td><td>"+user[i].N+"</td><td>"+user[i].O+"</td><td>"+user[i].P+"</td><td>"+user[i].Q+"</td><td>"+user[i].R+"</td><td>"+user[i].S+"</td><td>"+user[i].T+"</td><td>"+user[i].U+"</td><td>"+user[i].V+"</td><td>"+user[i].W+"</td><td>"+user[i].X+"</td><td>"+user[i].Y+"</td><td>"+user[i].Z+"</td><td>"+user[i].AA+"</td><td>"+user[i].AB+"</td><td>"+user[i].AC+"</td><td>"+user[i].AD+"</td><td>"+user[i].AE+"</td><td>"+user[i].AF+"</td><td>"+user[i].AG+"</td><td>"+user[i].AH+"</td><td>"+user[i].AI+"</td><td>"+user[i].AJ+"</td><td>"+user[i].AK+"</td><td>"+user[i].AL+"</td><td>"+user[i].AM+"</td><td>"+user[i].AN+"</td><td>"+user[i].AO+"</td><td>"+user[i].AP+"</td><td>"+user[i].AQ+"</td><td>"+user[i].AR+"</td><td>"+user[i].ASS+"</td><td>"+user[i].AT+"</td><td>"+user[i].AU+"</td><td>"+user[i].AV+"</td><td>"+user[i].AW+"</td><td>"+user[i].AX+"</td><td>"+user[i].AY+"</td><td>"+user[i].AZ+"</td><td>"+user[i].BA+"</td><td>"+user[i].BB+"</td><td>"+user[i].BC+"</td><td>"+user[i].BD+"</td><td>"+user[i].BE+"</td><td>"+user[i].BF+"</td><td>"+user[i].BG+"</td><td>"+user[i].BH+"</td><td>"+user[i].BI+"</td><td>"+user[i].BJ+"</td><td>"+user[i].BK+"</td><td>"+user[i].BL+"</td><td>"+user[i].BM+"</td><td>"+user[i].BN+"</td><td>"+user[i].BO+"</td><td>"+user[i].BP+"</td><td>"+user[i].BQ+"</td><td>"+user[i].BR+"</td><td>"+user[i].BS+"</td><td>"+user[i].BT+"</td><td>"+user[i].BU+"</td><td>"+user[i].BV+"</td><td>"+user[i].BW+"</td><td>"+user[i].BX+"</td><td>"+user[i].BYY+"</td><td>"+user[i].BZ+"</td><td>"+user[i].CA+"</td><td>"+user[i].CB+"</td><td>"+user[i].CC+"</td><td>"+user[i].CD+"</td><td>"+user[i].CE+"</td><td>"+user[i].CF+"</td><td>"+user[i].CG+"</td><td>"+user[i].CH+"</td><td>"+user[i].CI+"</td><td>"+user[i].CJ+"</td><td>"+user[i].CK+"</td><td>"+user[i].CL+"</td><td>"+user[i].CM+"</td><td>"+user[i].CN+"</td><td>"+user[i].CO+"</td><td>"+user[i].CP+"</td><td>"+user[i].CQ+"</td><td>"+user[i].CR+"</td><td>"+user[i].CS+"</td><td>"+user[i].CT+"</td><td>"+user[i].CU+"</td><td>"+user[i].CV+"</td><td>"+user[i].CW+"</td><td>"+user[i].CX+"</td>"
+                    strcontent+="<tr><td hidden=\"hidden\"><input name=\"id\" readonly=\"readonly\" value="+user[i].id+"></input></td><td><input readonly=\"readonly\" name=\"quanxian\" value="+user[i].quanXian+"></input></td><td><input readonly=\"readonly\" name=\"B\" value="+user[i].B+"></input></td><td><input onblur=\"myChange(this)\" name=\"C\" value="+user[i].C+"></input></td><td><input onblur = \"myChange(this)\" name=\"D\" value="+user[i].D+"></input></td><td><input onblur = \"myChange(this)\" name=\"E\" value="+user[i].E+"></input></td><td><input name=\"F\"  onblur = \"myChange(this)\" value="+user[i].F+"></input></td><td><input onblur = \"myChange(this)\" name=\"G\" value="+user[i].G+"></input></td><td><input onblur = \"myChange(this)\" name=\"H\" value="+user[i].H+"></input></td><td><input onblur = \"myChange(this)\" name=\"I\" value="+user[i].I+"></input></td><td><input onblur = \"myChange(this)\" name=\"J\" value="+user[i].J+"></input></td><td><input onblur = \"myChange(this)\" name=\"K\" value="+user[i].K+"></input></td><td><input onblur = \"myChange(this)\" name=\"L\" value="+user[i].L+"></input></td><td><input onblur = \"myChange(this)\" name=\"M\" value="+user[i].M+"></input></td><td><input onblur = \"myChange(this)\" name=\"N\" value="+user[i].N+"></input></td><td><input onblur = \"myChange(this)\" name=\"O\" value="+user[i].O+"></input></td><td><input onblur = \"myChange(this)\" name=\"P\" value="+user[i].P+"></input></td><td><input onblur = \"myChange(this)\" name=\"Q\" value="+user[i].Q+"></input></td><td><input onblur = \"myChange(this)\" name=\"R\" value="+user[i].R+"></input></td><td><input onblur = \"myChange(this)\" name=\"S\" value="+user[i].S+"></input></td><td><input onblur = \"myChange(this)\" name=\"T\" value="+user[i].T+"></input></td><td><input onblur = \"myChange(this)\" name=\"U\" value="+user[i].U+"></input></td><td><input onblur = \"myChange(this)\" name=\"V\" value="+user[i].V+"></input></td><td><input onblur = \"myChange(this)\" name=\"W\" value="+user[i].W+"></input></td><td><input onblur = \"myChange(this)\" name=\"X\" value="+user[i].X+"></input></td><td><input onblur = \"myChange(this)\" name=\"Y\" value="+user[i].Y+"></input></td><td><input onblur = \"myChange(this)\" name=\"Z\" value="+user[i].Z+"></input></td><td><input onblur = \"myChange(this)\" name=\"AA\" value="+user[i].AA+"></input></td><td><input onblur = \"myChange(this)\" name=\"AB\" value="+user[i].AB+"></input></td><td><input onblur = \"myChange(this)\" name=\"AC\" value="+user[i].AC+"></input></td><td><input onblur = \"myChange(this)\" name=\"AD\" value="+user[i].AD+"></input></td><td><input onblur = \"myChange(this)\" name=\"AE\" value="+user[i].AE+"></input></td><td><input onblur = \"myChange(this)\" name=\"AF\" value="+user[i].AF+"></input></td><td><input onblur = \"myChange(this)\" name=\"AG\" value="+user[i].AG+"></input></td><td><input onblur = \"myChange(this)\" name=\"AH\" value="+user[i].AH+"></input></td><td><input onblur = \"myChange(this)\" name=\"AI\" value="+user[i].AI+"></input></td><td><input onblur = \"myChange(this)\" name=\"AJ\" value="+user[i].AJ+"></input></td><td><input onblur = \"myChange(this)\" name=\"AK\" value="+user[i].AK+"></input></td><td><input onblur = \"myChange(this)\" name=\"AL\" value="+user[i].AL+"></input></td><td><input onblur = \"myChange(this)\" name=\"AM\" value="+user[i].AM+"></input></td><td><input onblur = \"myChange(this)\" name=\"AN\" value="+user[i].AN+"></input></td><td><input onblur = \"myChange(this)\" name=\"AO\" value="+user[i].AO+"></input></td><td><input onblur = \"myChange(this)\" name=\"AP\" value="+user[i].AP+"></input></td><td><input onblur = \"myChange(this)\" name=\"AQ\" value="+user[i].AQ+"></input></td><td><input onblur = \"myChange(this)\" name=\"AR\" value="+user[i].AR+"></input></td><td><input onblur = \"myChange(this)\" name=\"ASS\" value="+user[i].ASS+"></input></td><td><input onblur = \"myChange(this)\" name=\"AT\" value="+user[i].AT+"></input></td><td><input onblur = \"myChange(this)\" name=\"AU\" value="+user[i].AU+"></input></td><td><input onblur = \"myChange(this)\" name=\"AV\" value="+user[i].AV+"></input></td><td><input onblur = \"myChange(this)\" name=\"AW\" value="+user[i].AW+"></input></td><td><input onblur = \"myChange(this)\" name=\"AX\" value="+user[i].AX+"></input></td><td><input onblur = \"myChange(this)\" name=\"AY\" value="+user[i].AY+"></input></td><td><input onblur = \"myChange(this)\" name=\"AZ\" value="+user[i].AZ+"></input></td><td><input onblur = \"myChange(this)\" name=\"BA\" value="+user[i].BA+"></input></td><td><input onblur = \"myChange(this)\" name=\"BB\" value="+user[i].BB+"></input></td><td><input onblur = \"myChange(this)\" name=\"BC\" value="+user[i].BC+"></input></td><td><input onblur = \"myChange(this)\" name=\"BD\" value="+user[i].BD+"></input></td><td><input onblur = \"myChange(this)\" name=\"BE\" value="+user[i].BE+"></input></td><td><input onblur = \"myChange(this)\" name=\"BF\" value="+user[i].BF+"></input></td><td><input onblur = \"myChange(this)\" name=\"BG\" value="+user[i].BG+"></input></td><td><input onblur = \"myChange(this)\" name=\"HB\" value="+user[i].BH+"></input></td><td><input onblur = \"myChange(this)\" name=\"BI\" value="+user[i].BI+"></input></td><td><input onblur = \"myChange(this)\" name=\"BJ\" value="+user[i].BJ+"></input></td><td><input onblur = \"myChange(this)\" name=\"BK\" value="+user[i].BK+"></input></td><td><input onblur = \"myChange(this)\" name=\"BL\" value="+user[i].BL+"></input></td><td><input onblur = \"myChange(this)\" name=\"BM\" value="+user[i].BM+"></input></td><td><input onblur = \"myChange(this)\" name=\"BN\" value="+user[i].BN+"></input></td><td><input onblur = \"myChange(this)\" name=\"BO\" value="+user[i].BO+"></input></td><td><input onblur = \"myChange(this)\" name=\"BP\" value="+user[i].BP+"></input></td><td><input onblur = \"myChange(this)\" name=\"BQ\" value="+user[i].BQ+"></input></td><td><input onblur = \"myChange(this)\" name=\"BR\" value="+user[i].BR+"></input></td><td><input onblur = \"myChange(this)\" name=\"BS\" value="+user[i].BS+"></input></td><td><input onblur = \"myChange(this)\" name=\"BT\" value="+user[i].BT+"></input></td><td><input onblur = \"myChange(this)\" name=\"BU\" value="+user[i].BU+"></input></td><td><input onblur = \"myChange(this)\" name=\"BV\" value="+user[i].BV+"></input></td><td><input onblur = \"myChange(this)\" name=\"BW\" value="+user[i].BW+"></input></td><td><input onblur = \"myChange(this)\" name=\"BX\" value="+user[i].BX+"></input></td><td><input onblur = \"myChange(this)\" name=\"BYY\" value="+user[i].BYY+"></input></td><td><input onblur = \"myChange(this)\" name=\"BZ\" value="+user[i].BZ+"></input></td><td><input onblur = \"myChange(this)\" name=\"CA\" value="+user[i].CA+"></input></td><td><input onblur = \"myChange(this)\" name=\"CB\" value="+user[i].CB+"></input></td><td><input onblur = \"myChange(this)\" name=\"CC\" value="+user[i].CC+"></input></td><td><input onblur = \"myChange(this)\" name=\"CD\" value="+user[i].CD+"></input></td><td><input onblur = \"myChange(this)\" name=\"CE\" value="+user[i].CE+"></input></td><td><input onblur = \"myChange(this)\" name=\"CF\" value="+user[i].CF+"></input></td><td><input onblur = \"myChange(this)\" name=\"CG\" value="+user[i].CG+"></input></td><td><input onblur = \"myChange(this)\" name=\"CH\" value="+user[i].CH+"></input></td><td><input onblur = \"myChange(this)\" name=\"CI\" value="+user[i].CI+"></input></td><td><input onblur = \"myChange(this)\" name=\"CJ\" value="+user[i].CJ+"></input></td><td><input onblur = \"myChange(this)\" name=\"CK\" value="+user[i].CK+"></input></td><td><input onblur = \"myChange(this)\" name=\"CL\" value="+user[i].CL+"></input></td><td><input onblur = \"myChange(this)\" name=\"CM\" value="+user[i].CM+"></input></td><td><input onblur = \"myChange(this)\" name=\"CN\" value="+user[i].CN+"></input></td><td><input onblur = \"myChange(this)\" name=\"CO\" value="+user[i].CO+"></input></td><td><input onblur = \"myChange(this)\" name=\"CP\" value="+user[i].CP+"></input></td><td><input onblur = \"myChange(this)\" name=\"CQ\" value="+user[i].CQ+"></input></td><td><input onblur = \"myChange(this)\" name=\"CR\" value="+user[i].CR+"></input></td><td><input onblur = \"myChange(this)\" name=\"CS\" value="+user[i].CS+"></input></td><td><input onblur = \"myChange(this)\" name=\"CT\" value="+user[i].CT+"></input></td><td><input onblur = \"myChange(this)\" name=\"CU\" value="+user[i].CU+"></input></td><td><input onblur = \"myChange(this)\" name=\"CV\" value="+user[i].CV+"></input></td></tr>"
                 }
 
                 $("#contentrenYuan").html(strcontent);

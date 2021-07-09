@@ -80,7 +80,6 @@
                         <%--<button id="getAll" style="margin-right: -100px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">获取数据</button>--%>
                     </div>
                     <table border="1" class="table-condensed">
-
                         <thead style="text-align: center">
                             <td>ID</td><td>人员</td><td>公司</td><td>A</td> <td>B</td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> <td>G</td> <td>H</td> <td>I</td> <td>J</td> <td>K</td> <td>L</td> <td>M</td> <td>N</td> <td>O</td> <td>P</td> <td>Q</td> <td>R</td> <td>S</td> <td>T</td> <td>U</td> <td>V</td> <td>W</td> <td>X</td> <td>Y</td> <td>Z</td>
                             <td>AA</td> <td>AB</td> <td>AC</td> <td>AD</td> <td>AE</td> <td>AF</td> <td>AG</td> <td>AH</td> <td>AI</td> <td>AJ</td> <td>AK</td> <td>AL</td> <td>AM</td> <td>AN</td> <td>AO</td> <td>AP</td> <td>AQ</td> <td>AR</td> <td>ASS</td> <td>AT</td> <td>AU</td> <td>AV</td> <td>AW</td> <td>AX</td> <td>AY</td> <td>AZ</td>
@@ -405,8 +404,10 @@ $('tbody input').focus(function (){
            url="renYuanRegister.jsp";
        }else if(language=="人员管理"){
            url="renYuan";
+           //url="renYuanManagement.jsp";
        }else if(language=="人员规定"){
-           url="renYuanRegulations.jsp";
+           //url="renYuanRegulations.jsp";
+           url="copy";
        }else if(language=="人员柱状图"){
            url="renYuanInit";
        }else if(language=="人员柱状图"){
