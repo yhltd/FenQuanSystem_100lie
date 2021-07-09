@@ -121,7 +121,8 @@
                         var user = eval('('+result+')');
                         var strcontent ="";
                         for(var i=0;i<user.length;i++){
-                            strcontent+="<td hidden=\"hidden\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" value= "+user[i].id+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"gongSi\" class=\"input\" value="+user[i].B+"></input></td><td name=\"user\" style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"user\" class=\"input\" value="+user[i].C+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"name\" class=\"input\" value="+user[i].D+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" name=\"pwd\" value="+user[i].E+"></input></td><td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a>  </td><br>"
+                            //strcontent+="<td hidden=\"hidden\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" value= "+user[i].id+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"gongSi\" class=\"input\" value="+user[i].B+"></input></td><td name=\"user\" style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"user\" class=\"input\" value="+user[i].C+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"name\" class=\"input\" value="+user[i].D+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" name=\"pwd\" value="+user[i].E+"></input></td><td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a>  </td><br>"
+                            strcontent+="<tr><td hidden=\"hidden\"><input name=\"id\" readonly=\"readonly\" value="+user[i].id+"></input></td><td><input readonly=\"readonly\" name=\"gongSi\" value="+user[i].B+"></input></td><td><input onblur=\"myChange(this)\" name=\"user\" value="+user[i].C+"></input></td><td><input onblur = \"myChange(this)\" name=\"name\" value="+user[i].D+"></input></td><td><input onblur = \"myChange(this)\" name=\"pwd\" value="+user[i].E+"></td> <td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a></tr>"
                         }
                         //<input form="myform" type="submit" value="修改" class="btn-success">
                         $("#content2").html(strcontent);
@@ -166,6 +167,47 @@
                 }
             })
         })
+
+        function myChange(b){
+            arr = []
+            // let newvalue = this.value;
+            // let td = this.parentElement;
+            // let tr = td.parentElement;
+            // let firsttd = tr.firstElementChild;
+            // let firstinput = firsttd.firstElementChild
+            // let id = firstinput.value;
+            // let column = this.name;
+
+            var newvalue = b.value;
+            var td = b.parentElement;
+            var tr = td.parentElement;
+            var firsttd = tr.firstElementChild;
+            var firstinput = firsttd.firstElementChild;
+            var id = firstinput.value;
+            var column = b.name;
+
+            arr.push({
+                id: id,
+                newvalue:newvalue,
+                column: column,
+            })
+            console.log(arr)
+
+            $.ajax({
+                type: 'post',
+                url: 'updateRenYuan',
+                data: {
+                    jsonData: JSON.stringify(arr)
+                },
+                dataType: 'json',
+                success: function(data){
+                    console.log(data)
+                },
+                error: function(err){
+                    console.log(err)
+                }
+            })
+        }
     </script>
 </body>
 
