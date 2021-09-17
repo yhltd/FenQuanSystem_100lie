@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>util.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern><!--/*对所有请求和响应都过滤-->
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>gongSi</servlet-name>
+        <servlet-class>servlet.GongSiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gongSi</servlet-name>
+        <url-pattern>/gongSi</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>renYuan</servlet-name>
+        <servlet-class>servlet.RenYuanInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>renYuan</servlet-name>
+        <url-pattern>/renYuan</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>renYuanAjax</servlet-name>
+        <servlet-class>servlet.RenYuanInfoAjaxServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>renYuanAjax</servlet-name>
+        <url-pattern>/renYuanAjax</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>renYuanInit</servlet-name>
+        <servlet-class>servlet.RenYuanInitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>renYuanInit</servlet-name>
+        <url-pattern>/renYuanInit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>useRenYuan</servlet-name>
+        <servlet-class>servlet.RenYuanUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>useRenYuan</servlet-name>
+        <url-pattern>/useRenYuan</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RenYuanSelcet</servlet-name>
+        <servlet-class>servlet.RenYuanSelcetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RenYuanSelcet</servlet-name>
+        <url-pattern>/RenYuanSelcet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>delteRenYuan</servlet-name>
+        <servlet-class>servlet.RenYuanUseDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delteRenYuan</servlet-name>
+        <url-pattern>/delteRenYuan</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>copy</servlet-name>
+        <servlet-class>servlet.CopyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>copy</servlet-name>
+        <url-pattern>/copy</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>chooseUserName</servlet-name>
+        <servlet-class>servlet.ChooseRenYuanServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>chooseUserName</servlet-name>
+        <url-pattern>/chooseUserName</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>register</servlet-name>
+        <servlet-class>servlet.RenYuanRegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateRenYuan</servlet-name>
+        <servlet-class>servlet.RenYuanUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateRenYuan</servlet-name>
+        <url-pattern>/updateRenYuan</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteRenYuan</servlet-name>
+        <servlet-class>servlet.RenYuanDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteRenYuan</servlet-name>
+        <url-pattern>/deleteRenYuan</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>gongSiUpdate</servlet-name>
+        <servlet-class>servlet.GongSiUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gongSiUpdate</servlet-name>
+        <url-pattern>/gongSiUpdate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>copyUpdate</servlet-name>
+        <servlet-class>servlet.CopyUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>copyUpdate</servlet-name>
+        <url-pattern>/copyUpdate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>gongSiRegister</servlet-name>
+        <servlet-class>servlet.GongSiRegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gongSiRegister</servlet-name>
+        <url-pattern>/gongSiRegister</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>gongSiDelete</servlet-name>
+        <servlet-class>servlet.GongSiDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gongSiDelete</servlet-name>
+        <url-pattern>/gongSiDelete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>gongSiChart</servlet-name>
+        <servlet-class>servlet.GongSiChartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gongSiChart</servlet-name>
+        <url-pattern>/gongSiChart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RenYuanChart</servlet-name>
+        <servlet-class>servlet.RenYuanChartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RenYuanChart</servlet-name>
+        <url-pattern>/RenYuanChart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RenYuanAllChart</servlet-name>
+        <servlet-class>servlet.RenYuanAllChartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RenYuanAllChart</servlet-name>
+        <url-pattern>/RenYuanAllChart</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>workbenchGLY</servlet-name>
+        <servlet-class>servlet.WorkbenchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workbenchGLY</servlet-name>
+        <url-pattern>/workbenchGLY</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>workbenchGetData</servlet-name>
+        <servlet-class>servlet.WorkbenchToDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workbenchGetData</servlet-name>
+        <url-pattern>/workbenchGetData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>workbenchUpdate</servlet-name>
+        <servlet-class>servlet.WorkbenchUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workbenchUpdate</servlet-name>
+        <url-pattern>/workbenchUpdate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WorkbenchCancel</servlet-name>
+        <servlet-class>servlet.WorkbenchCancelUseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WorkbenchCancel</servlet-name>
+        <url-pattern>/WorkbenchCancel</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>WorkbenchInputPower</servlet-name>
+        <servlet-class>servlet.WorkbenchPowerInputServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WorkbenchInputPower</servlet-name>
+        <url-pattern>/WorkbenchInputPower</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>WorkbenchManyUpdate</servlet-name>
+        <servlet-class>servlet.WorkbenchManyUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WorkbenchManyUpdate</servlet-name>
+        <url-pattern>/WorkbenchManyUpdate</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>workbenchYG</servlet-name>
+        <servlet-class>servlet.WorkBenchYGServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workbenchYG</servlet-name>
+        <url-pattern>/workbenchYG</url-pattern>
+    </servlet-mapping>
+<!--    WorkbenchForTime-->
+    <servlet>
+        <servlet-name>workbenchTime</servlet-name>
+        <servlet-class>servlet.WorkbenchForTimeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workbenchTime</servlet-name>
+        <url-pattern>/workbenchTime</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addWorkbench</servlet-name>
+        <servlet-class>servlet.WorkbenchAddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addWorkbench</servlet-name>
+        <url-pattern>/addWorkbench</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getGongsSiName</servlet-name>
+        <servlet-class>servlet.LoginGSNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getGongsSiName</servlet-name>
+        <url-pattern>/getGongsSiName</url-pattern>
+    </servlet-mapping>
+
+
+
+
+</web-app>

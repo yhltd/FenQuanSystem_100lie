@@ -6,6 +6,7 @@ public class RenYuan {
     private String C;
     private String D;
     private String E;
+    private String renyuan_id;
 
     public int getId() {
         return id;
@@ -47,10 +48,19 @@ public class RenYuan {
         E = e;
     }
 
+    public String getRenyuan_id() {
+        return renyuan_id;
+    }
+
+    public void setRenyuan_id(String renyuan_id) {
+        this.renyuan_id = renyuan_id;
+    }
+
     @Override
     public String toString() {
         return "RenYuan{" +
                 "id=" + id +
+                ", renyuan_id='" + renyuan_id + '\'' +
                 ", B='" + B + '\'' +
                 ", C='" + C + '\'' +
                 ", D='" + D + '\'' +

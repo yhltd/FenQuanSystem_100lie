@@ -5,7 +5,9 @@ import javaBean.RenYuan;
 import util.DBCoon;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RenYuanDaoImp implements RenYuanDao{
@@ -120,6 +122,7 @@ public class RenYuanDaoImp implements RenYuanDao{
                 ry.setC(rs.getString("C"));
                 ry.setD(rs.getString("D"));
                 ry.setE(rs.getString("E"));
+                ry.setRenyuan_id(rs.getString("renyuan_id"));
                 renyuanList.add(ry);
             }
         }catch (Exception e){
@@ -146,6 +149,7 @@ public class RenYuanDaoImp implements RenYuanDao{
                 ry.setC(rs.getString("C"));
                 ry.setD(rs.getString("D"));
                 ry.setE(rs.getString("E"));
+                ry.setRenyuan_id(rs.getString("renyuan_id"));
                 renyuanList.add(ry);
             }
         }catch (Exception e){
@@ -162,12 +166,23 @@ public class RenYuanDaoImp implements RenYuanDao{
     public boolean register(RenYuan renYuan) {
         try {
             DBCoon.init();
-            sql="insert into baitaoquanxian_renyun(B,C,D,E)"+"values(?,?,?,?)";
-            Object[] args = {renYuan.getB(),renYuan.getC(),renYuan.getD(),renYuan.getE()};
-            int i = DBCoon.addUpdDel(sql,args);
-            if (i>0){
+            Date date = new Date();//获取当前的日期
+            SimpleDateFormat df = new SimpleDateFormat("yyyymmddhhmmss");
+            String bianhao = df.format(date);
+            sql = "insert into baitaoquanxian_renyun(B,C,D,E,renyuan_id)" + " values(?,?,?,?,?)";
+            Object[] args = {renYuan.getB(), renYuan.getC(), renYuan.getD(), renYuan.getE(),bianhao};
+            int i = DBCoon.addUpdDel(sql, args);
+            if (i > 0) {
                 flag = true;
                 System.out.println("注册成功");
+            }
+
+            sql = "insert into baitaoquanxian_copy1(quanxian,B,renyuan_id)" + "values(?,?,?)";
+            Object[] args2 = {renYuan.getB(), renYuan.getC(),bianhao};
+            int j = DBCoon.addUpdDel(sql, args2);
+            if (j > 0) {
+                flag = true;
+                System.out.println("人员规定注册成功");
             }
         }catch (Exception e) {
             e.printStackTrace();
@@ -205,6 +220,27 @@ public class RenYuanDaoImp implements RenYuanDao{
             sql = "delete from baitaoquanxian_renyun where id = ?";
             Object[] args = {id};
             int i = DBCoon.addUpdDel(sql,args);
+            if (i>0){
+                flag=true;
+                System.out.println("删除成功");
+            }
+        }catch (Exception e) {
+            System.out.println("删除失败");
+            e.printStackTrace();
+        }finally {
+            DBCoon.close();
+        }
+        return flag;
+    }
+
+
+    @Override
+    public boolean delete2(String renyuan_id) {
+        try {
+            DBCoon.init();
+            sql = "delete from baitaoquanxian_copy1 where renyuan_id = '" + renyuan_id.replace(",","") + "'";
+            Object[] args = {renyuan_id};
+            int i = DBCoon.addUpdDel(sql);
             if (i>0){
                 flag=true;
                 System.out.println("删除成功");
