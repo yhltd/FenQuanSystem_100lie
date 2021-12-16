@@ -8,7 +8,7 @@
 
 <html>
 <head>
-    <title>人员规定</title>
+    <title>人员权限规定</title>
 </head>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -22,7 +22,7 @@
 <%--<body background="img/bed9ce9cea513a6a5c5ee082d608860a.jpg">--%>
 <body >
 <div style="text-align: center">
-    <h3 style="text-align: center">人员规定</h3>
+    <h3 style="text-align: center">人员权限规定</h3>
     输入姓名：<input type="text" name="user" id="putUser" required style="text-align: left">
     <button id="selectPower" style="padding-right: 5px;background-color:#9acfea;;border-radius: 7px;border-color: #9acfea;text-align: left" >查询</button>
 

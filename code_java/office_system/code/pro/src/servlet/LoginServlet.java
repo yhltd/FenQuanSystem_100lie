@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
                     c2.setMaxAge(10*24*60*60);
                     resp.addCookie(c2);
                     System.out.println(qx+"登录成功");
-                    req.getRequestDispatcher("workbenchGLY").forward(req, resp);
+                    req.getRequestDispatcher("gongzuotai.jsp").forward(req, resp);
                 }else {
                     System.out.println("blu");
                     Cookie c1=new Cookie("loginAct",D);
@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
                     resp.addCookie(c2);
 
                     System.out.println(qx+"登录成功");
-                    req.getRequestDispatcher("workbenchGLY").forward(req, resp);
+                    req.getRequestDispatcher("gongzuotai.jsp").forward(req, resp);
                 }
             }else{
                 if (isRem!=null){
@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
                     c2.setMaxAge(10*24*60*60);
                     resp.addCookie(c2);
                     System.out.println(qx+"登录成功");
-                    req.getRequestDispatcher("workbenchYG").forward(req, resp);
+                    req.getRequestDispatcher("gongzuotai.jsp").forward(req, resp);
                 }else {
                     System.out.println("blu");
                     Cookie c1=new Cookie("loginAct",D);
@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
                     Cookie c2=new Cookie("loginPwd",E);
                     c2.setMaxAge(0);
                     System.out.println(qx+"登录成功");
-                    req.getRequestDispatcher("workbenchYG").forward(req, resp);
+                    req.getRequestDispatcher("gongzuotai.jsp").forward(req, resp);
                 }
             }
         }else {

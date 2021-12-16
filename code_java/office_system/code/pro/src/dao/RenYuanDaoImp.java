@@ -182,7 +182,7 @@ public class RenYuanDaoImp implements RenYuanDao{
             int j = DBCoon.addUpdDel(sql, args2);
             if (j > 0) {
                 flag = true;
-                System.out.println("人员规定注册成功");
+                System.out.println("人员权限规定注册成功");
             }
         }catch (Exception e) {
             e.printStackTrace();

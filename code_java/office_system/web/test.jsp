@@ -14,7 +14,8 @@
 <html>
 
   <head>
-    <title>Title</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
 
   </head>
   <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>

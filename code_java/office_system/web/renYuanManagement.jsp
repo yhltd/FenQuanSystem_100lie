@@ -10,7 +10,8 @@
 
 <head>
 
-    <title>人员管理</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
     <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -28,15 +29,16 @@
         margin-left: 20px;
     }*/
 </style>--%>
-    <div style="text-align: center">
-        <h3 style="text-align: center;margin-right: 50px">人员管理</h3>
+        <h3 style="margin-left: 14px;margin-right: 50px">人员管理</h3>
+        <div style="margin-left: 14px">
+
         <span id="content234" style="width: 150px;height: 30px">
             <input id="inp" style="display: none" value="${GongSi}"/>
             请选择姓名：
         </span>
         <input  type="button"  value="查询" id="but1" style="border-color:#9acfea; background-color:#9acfea; width: 50px;height: 30px">
         <p>*此页面数据为实时修改，编辑后自动保存</p>
-        <table border="1" class="table-condensed"  style="margin-left: auto;margin-right: auto;">
+        <table border="1" class="table-condensed"  >
             <thead style="text-align: center">
                 <td >公司</td>
                 <td >姓名</td>

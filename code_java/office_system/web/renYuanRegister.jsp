@@ -13,28 +13,53 @@
 <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <html>
 <head>
-    <title>人员注册</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
+<%--    <script type="text/javascript">--%>
+<%--        function $(id)--%>
+<%--        {--%>
+<%--            return document.getElementById(id);--%>
+<%--        }--%>
+<%--        function clearDiv()--%>
+<%--        {--%>
+<%--            // var nodes = $('div1').childNodes;--%>
+<%--            // for(var i = 0 ; i < nodes.length ; i++)--%>
+<%--            // {--%>
+<%--            //     if(nodes[i].type == 'text')--%>
+<%--            //     {--%>
+<%--            //         nodes[i].value = '';--%>
+<%--            //     }--%>
+<%--            // }--%>
+<%--            // $(':input','#myform')--%>
+<%--            //     .not(':button, :reset, :hidden')--%>
+<%--            //     .val('')--%>
+<%--            //     .removeAttr('checked')--%>
+<%--            //     .removeAttr('selected');--%>
+<%--            $('input').val('')--%>
+<%--        }--%>
+
+<%--    </script>--%>
 </head>
 <%--<body background="img/9465fee2dc55cfd019c45a9858076f25.jpg">--%>
 <body >
-    <div class="div">
-        <h3>人员添加</h3>
+    <div class="div" >
+        <h3 style="font-family: 微软雅黑">&nbsp;&nbsp;人员添加</h3>
         <form action="register" method="post">
             <table class="table" >
                 <tr>
-                    <td>输入公司：<input type="text" name="gongSi" required></td>
+                    <td><span>&nbsp;&nbsp;输入公司：</span><input type="text" id="text1" name="gongSi" required></td>
                 </tr>
                 <tr>
-                    <td>输入姓名：<input type="text" name="user" required></td>
+                    <td><span>&nbsp;&nbsp;输入姓名：</span><input type="text" id="text2" name="user" required></td>
                 </tr>
                 <tr>
-                    <td>输入账号：<input type="text" name="name" required></td>
+                    <td><span>&nbsp;&nbsp;输入账号：</span><input type="text" id="text3" name="name" required></td>
                 </tr>
                 <tr>
-                    <td>输入密码：<input type="text" name="pwd" required></td>
+                    <td><span>&nbsp;&nbsp;输入密码：</span><input type="text" id="text4" name="pwd" required></td>
                 </tr>
                 <tr>
-                    <td colspan="2"> <input type="submit" value="提交" class="btn-primary" style="background-color: #9acfea;border-color:#9acfea;  width: 285px"></td>
+                    <td colspan="2"> &nbsp;&nbsp;<input type="submit" value="提交" class="btn-primary" style="background-color: #9acfea;border-color:#9acfea;  width: 148px">  <input type="reset" value="清空" class="btn-primary"  style="background-color: #9acfea;border-color:#9acfea;  width: 148px"></td>
                 </tr>
             </table>
         </form>

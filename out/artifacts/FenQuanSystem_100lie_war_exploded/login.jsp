@@ -23,12 +23,13 @@
 
 <html>
 <head>
-    <title>登录</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
 </head>
 <body background="img/63f5201199ee3b6e7d6218e54a81ba86.jpg">
     <div class="div">
         <form action="login" method="post" id="myform">
-            <h3 style="color: black;font-size: 50px;font-weight:bold">云合未来分权在线管理系统</h3>
+            <h3 style="color: white;font-size: 50px;font-weight:bold" ><img src="img/logo.png" style="height: 55px;width: 55px"> 云合未来分权编辑系统</h3>
             <h4 style="color: white">Control Function Online System.YHLTD</h4>
             <table class="table" style="text-align: center;width: 80%;margin: auto">
                 <tr>
@@ -50,10 +51,10 @@
                 <tr>
                     <td>
                         <c:if test="${not empty cookie.loginAct and not empty cookie.loginPwd}">
-                            &nbsp;&nbsp;<input  type="checkbox" name="isRem" id="isRem" checked="true" class="input" >十天内免登陆
+                            &nbsp;&nbsp;<input type="checkbox" name="isRem" id="isRem" checked="true" class="input" ><span style="color: white">  十天内免登陆</span>
                         </c:if>
                         <c:if test="${empty cookie.loginAct or empty cookie.loginPwd}">
-                            &nbsp;&nbsp;<input  type="checkbox" name="isRem" id="isRem"  class="input" >十天内免登陆
+                            &nbsp;&nbsp;<input type="checkbox" name="isRem" id="isRem"  class="input" ><span style="color: white">  十天内免登陆</span>
                         </c:if>
                     </td>
                 </tr>
@@ -64,6 +65,19 @@
                 </tr>
             </table>
         </form>
+        <h2></h2>
+        <h2></h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <a href="http://yhocn.cn/" style="font-size: medium;color: #fdfdfd">
+            云合未来计算机技术有限公司 © Copyright 2018-2030 技术支持：信息技术中心 联系电话：16619776280
+            云合未来计算机技术有限公司 技术支持 www.yhocn.cn</a>
 
     </div>
 </body>

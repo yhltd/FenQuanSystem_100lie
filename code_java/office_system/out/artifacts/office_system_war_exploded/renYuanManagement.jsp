@@ -51,12 +51,13 @@
                 <c:forEach  items="${renyuanInfo}" var="ry" >
                     <form action="updateRenYuan" method="post" id="myform">
                         <tr>
-                            <td hidden="hidden"><input type="text" name="id" value="${ry.id}" class="input"></td>
+                            <td hidden="hidden"><input type="text" name="id" value="${ry.id}" class="input">
+                                <input type="text" name="renyuan_id" value="${ry.renyuan_id}" class="input"></td>
                             <td ><input type="text" name="gongSi" value="${ry.b}" class="input" style="background: transparent"></td>
                             <td ><input type="text" name="user" value="${ry.c}" class="input" style="background: transparent"></td>
                             <td ><input type="text" name="name" value="${ry.d}" class="input" style="background: transparent"></td>
                             <td ><input type="text" name="pwd" value="${ry.e}" class="input" style="background: transparent"></td>
-                            <td><a href="deleteRenYuan?id=${ry.id}" >删除</a>   </td>
+                            <td><a href="deleteRenYuan?id=${ry.id}&renyuan_id=${ry.renyuan_id}," >删除</a>   </td>
 <%--                            <a href="updateRenYuan?id=${ry.id}&gongSi=${ry.b}&user=${ry.c}&name=${ry.d}&pwd=${ry.e}" >修改</a>--%>
 <%--                            <input style="border-color:#9acfea; background-color: #9acfea" type="submit" value="修改" class="btn-success">--%>
 <%--                            &user=--%>

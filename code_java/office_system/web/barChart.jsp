@@ -12,13 +12,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <title>柱状图</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
     <script type="text/javascript" src="static/echarts/echarts.min.js"></script>
     <script type="text/javascript" src="static/jquery/jquery.min.js"></script>
 </head>
 <body>
 <%--为echarts准备一个dom--%>
-    <div style="width: 100%; height: 400px; overflow-x: scroll">
+    <div style="width: 100%; height: 400px; overflow-x: scroll;margin-left: 14px">
         <div id="main" style="width: 3000px;height: 100%"></div>
     </div>
 
@@ -99,7 +100,7 @@
 
         myChart.setOption({
             title: {
-                text: "公司柱状图",
+                text: "",
                 textStyle:{
                     color:'#000000', //颜色
                     fontStyle:'normal', //风格
@@ -109,6 +110,9 @@
                     align:'center' //水平对齐
                 },
             },
+            grid:{
+               left:'14px'
+            },
             tooltip: {
                 trigger: "axis",
                 axisPointer: {
@@ -116,6 +120,7 @@
                 }
             },
             xAxis: {
+
                 nameTextStyle: {
                     fontSize:15,
                     color:'#000000', //颜色

@@ -3,7 +3,9 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/code_java/office_system/web/gongzuotai.jsp" value="file://$PROJECT_DIR$/code_java/office_system/web" />
         <entry key="file://$PROJECT_DIR$/code_java/office_system/web/login.jsp" value="file://$PROJECT_DIR$/code_java/office_system/web" />
+        <entry key="file://$PROJECT_DIR$/code_java/office_system/web/static/css" value="file://$PROJECT_DIR$/code_java/office_system/web" />
       </map>
     </option>
   </component>

@@ -31,14 +31,14 @@
     <div data-options="region:'west',split:true" title="" style="width:230px">
       <div class="easyui-accordion" data-options="fit:true,border:false">
         <div title="公司" style="padding:10px;">
-          <a href="gongSiRegister.jsp" style="color: black">公司添加</a><br>
+<%--          <a href="gongSiRegister.jsp" style="color: black">公司添加</a><br>--%>
           <a href="gongSi" style="color: black">公司规定</a><br>
           <a href="barChart.jsp" style="color: black">公司柱状图</a><br>
         </div>
         <div title="人员" data-options="selected:true" style="padding:10px;">
           <a href="renYuanRegister.jsp" style="color: black">人员添加</a><br>
           <a href="renYuan" style="color: black">人员管理</a><br>
-          <a href="copy" style="color: black">人员规定</a><br>
+          <a href="copy" style="color: black">人员权限规定</a><br>
           <a href="renyuanChart.jsp" style="color: black">人员柱状图</a><br>
         </div>
         <div title="操作" style="padding:10px">

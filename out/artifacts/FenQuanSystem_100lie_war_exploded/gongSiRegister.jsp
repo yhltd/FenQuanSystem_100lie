@@ -12,7 +12,8 @@
 <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <html>
 <head>
-    <title>添加公司</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
 </head>
 <%--<body background="img/ca4bf2a0431a3bb635d539f3e8f3ebe0.jpg">--%>
 <body>

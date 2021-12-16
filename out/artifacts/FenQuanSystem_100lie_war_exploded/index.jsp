@@ -20,7 +20,8 @@
 <link rel="stylesheet" type="text/css" href="static/easyui/demo/demo.css"><!--这是easyui图标demo样式-->
 <html>
 <head>
-  <title>index</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
 </head>
 <body>
   <h2>公司管理系统</h2>
@@ -38,7 +39,7 @@
         <div title="人员" data-options="selected:true" style="padding:10px;">
           <a href="renYuanRegister.jsp" style="color: black">人员添加</a><br>
           <a href="renYuan" style="color: black">人员管理</a><br>
-          <a href="copy" style="color: black">人员规定</a><br>
+          <a href="copy" style="color: black">人员权限规定</a><br>
           <a href="renyuanChart.jsp" style="color: black">人员柱状图</a><br>
         </div>
         <div title="操作" style="padding:10px">

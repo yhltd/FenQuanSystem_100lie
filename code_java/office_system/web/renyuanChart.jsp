@@ -21,17 +21,18 @@
   <link rel="stylesheet" type="text/css" href="static/easyui/demo/demo.css"><!--这是easyui图标demo样式-->
 
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-  <title>柱状图</title>
+  <link rel="shortcut icon" href="img/logo.png" />
+  <title>云合未来分权编辑系统</title>
   <script type="text/javascript" src="static/echarts/echarts.min.js"></script>
   <script type="text/javascript" src="static/jquery/jquery.min.js"></script>
 </head>
 <body >
 
-<a href="workbench.jsp" style="font-size: 30px;color: black">工作台</a>
-<div style="border: 1px ;margin-bottom: auto;margin-right: 20px">
+<a href="workbench.jsp" style="font-size: 30px;color: black;margin-left: 14px">人员柱状图</a>
+<div style="border: 1px ;height:35px;margin-right: 20px;margin-left: 14px">
 
 <%--  <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;background-color: #e7e7e7;border: 1px;color: white;margin-left: 30%">--%>
-  <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;width: 150px;background-color: #9acfea;color: black;margin-left: 40%">
+  <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;height:30px;width: 150px;background-color: #9acfea;color: black;margin-left: 14px">
     <c:forEach items="${renyuanInit}" var="username">
       <option>${username}</option>
     </c:forEach>
@@ -41,11 +42,11 @@
         <option>${username}</option>
       </select>--%>
 
-  <button id="select_renyuan" style="background-color: #9acfea; border-color:#9acfea;font-size: 20px;border-radius: 7px"> 查  询  </button>
+  <button id="select_renyuan" style="background-color: #9acfea; border-color:#9acfea;font-size: 20px;border-radius: 7px;height:35px"> 查  询  </button>
 </div><br><br>
 
-<div style="width: 100%; height: 400px; overflow-x: scroll">
-  <div id="main" style="width: 3000px;height: 100%"></div>
+<div style="width: 100%; height: 400px; overflow-x: scroll;margin-left: 14px">
+  <div id="main" style="width: 3000px;height: 100%;"></div>
 </div>
 <script type="text/javascript">
   /*$(function (){
@@ -95,7 +96,7 @@
 
     renyuanChart.setOption({
       title: {
-        text: "人员柱状图",
+        text: "",
         textStyle:{
           color:'#000000', //颜色
           fontStyle:'normal', //风格
@@ -104,6 +105,9 @@
           fontSize:20, //大小
           align:'center' //水平对齐
         },
+      },
+      grid:{
+        left:'14px'
       },
       tooltip: {
         trigger: "axis",
@@ -293,7 +297,7 @@
         renyuanChart.setOption({
 
           title: {
-            text: "人员柱状图",
+            text: "",
             textStyle:{
               color:'#000000', //颜色
               fontStyle:'normal', //风格

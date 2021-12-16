@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="static/css/regulations.css"/>
     <script src="static/jquery/jquery.min.js"></script>
     <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <title>公司规定</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
 </head>
 <body >
     <%--background="img/ba668ebbf140a440821ae93daadb9089.jpg"--%>

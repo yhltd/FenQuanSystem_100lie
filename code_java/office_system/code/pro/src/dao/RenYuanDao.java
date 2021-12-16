@@ -35,7 +35,7 @@ public interface  RenYuanDao {
 
     /*获取前台传递的id删除人员*/
     public boolean delete(int id);
-    /*获取前台传递的人员id删除人员规定*/
+    /*获取前台传递的人员id删除人员权限规定*/
     public boolean delete2(String renyuan_id);
     /*获取列使用数量*/
     public int getRowCount(String column,String B,String user);

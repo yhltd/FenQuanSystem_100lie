@@ -22,56 +22,60 @@
 
 <html>
 <head>
-    <title>主页</title>
+<%--    <link rel="shortcut icon" href="img/logo.jpg" />--%>
+<%--    <title>云合未来分权编辑系统</title>--%>
 </head>
 <body>
     <%--background="img/b99b47d72f4862c3367aea38418795b9.jpg"--%>
-    <div style="float: right;margin-right: 100px;margin-bottom: 0px;padding-bottom: 0px">
-        <a href="renYuan" style="text-align: right;font-size: medium;color: black">用户:${userName}</a><br>
-        <span style="font-size: medium">公司:${GongSi}</span><br>
-        <a href="logout">退出</a>
-    </div>
-    <img src="img/20201124113000.jpg" style="width: 80px;height: 70px;float: left;margin-left: 50px;margin-bottom: 0px"/>
-    <h2 style="margin-top: 25px;padding-left: 30px">公司管理系统</h2>
+<%--    <div style="float: right;margin-right: 100px;margin-bottom: 0px;padding-bottom: 0px">--%>
+<%--        <a href="renYuan" style="text-align: right;font-size: medium;color: black">用户:${userName}</a><br>--%>
+<%--        <span style="font-size: medium">公司:${GongSi}</span><br>--%>
+<%--        <a href="logout">退出</a>--%>
+<%--    </div>--%>
+<%--    <img src="img/20201124113000.jpg" style="width: 80px;height: 70px;float: left;margin-left: 50px;margin-bottom: 0px"/>--%>
+<%--    <h2 style="margin-top: 25px;padding-left: 30px">公司管理系统</h2>--%>
     <div class="easyui-layout" style="width:1200px;height:550px;">
-        <div data-options="region:'west',split:true" title="" style="width:230px">
-            <div class="easyui-accordion" data-options="fit:true,border:false">
-                <div title="公司" data-options="iconCls:'icon-reload',selected:true" style="padding:10px">
-<%--                    <a href="gongSiRegister.jsp" style="color: black">公司添加</a><br>--%>
-<%--                       &lt;%&ndash; <a href="#gstj" id="tt2" style="color: black">公司添加</a><br>&ndash;%&gt;--%>
-<%--                    <a href="gongSi" style="color: black">公司规定</a><br>--%>
-<%--                    <a href="barChart.jsp" style="color: black">公司柱状图</a><br>--%>
-<%--                    <a href="javascript:void(0)" onclick="showcontent('公司添加')"><p style="font-size: 17px">公司添加</p></a>--%>
-                    <a href="javascript:void(0)" onclick="showcontent('公司规定')"><p style="font-size: 17px">公司规定</p></a>
-                    <a href="javascript:void(0)" onclick="showcontent('公司柱状图')"><p style="font-size: 17px">公司柱状图</p></a>
-                </div>
-                <div title="人员" data-options="iconCls:'icon-reload'" style="padding:10px;">
-<%--                    <a href="renYuanRegister.jsp" style="color: black">人员添加</a><br>--%>
-<%--                    <a href="renYuan" style="color: black">人员管理</a><br>--%>
-<%--                    <a href="renYuanRegulations.jsp" style="color: black">人员规定</a><br>--%>
-<%--                    <a href="renYuanInit" style="color: black">人员柱状图</a><br>--%>
-    <%----%>
-                    <a href="javascript:void(0)" onclick="showcontent('人员添加')"><p style="font-size: 17px">人员添加</p></a><br>
-                    <a href="javascript:void(0)" onclick="showcontent('人员管理')"><p style="font-size: 17px">人员管理</p></a><br>
-                    <a href="javascript:void(0)" onclick="showcontent('人员规定')"><p style="font-size: 17px">人员规定</p></a><br>
-                    <a href="javascript:void(0)" onclick="showcontent('人员柱状图')"><p style="font-size: 17px">人员柱状图</p></a><br>
+<%--        <div data-options="region:'west',split:true" title="" style="width:230px">--%>
+<%--            <div class="easyui-accordion" data-options="fit:true,border:false">--%>
 
-                </div>
-                <div title="操作" data-options="iconCls:'icon-reload'" style="padding:10px">
-<%--                    <a href="useRenYuan" style="color: black">人员使用情况</a><br>--%>
-<%--                    &lt;%&ndash;<a href="test.jsp" style="color: black">测试</a><br>&ndash;%&gt;--%>
-<%--                    <a href="logout" id="logout" style="color: black">退出</a><br>--%>
-                    <a href="javascript:void(0)" onclick="showcontent('人员使用情况')"><p style="font-size: 17px">人员使用情况</p></a><br>
-                    <a href="logout" id="logout"><p style="font-size: 17px">退出</p></a><br>
-                </div>
-            </div>
-        </div>
-        <div data-options="region:'center',title:'主页',iconCls:'icon-ok'" style="margin-right: 10px">
-            <div id="test" class="easyui-tabs" data-options="fit:true,border:false,plain:true">
-                <div  title="工作台" style="border: 1px solid #5bc0de;  height: 580px;width: 1000px;float: left;text-align: center">
+<%--                <div title="公司"  data-options="iconCls:'icon-reload',selected:true" style="padding:10px">--%>
+<%--&lt;%&ndash;                    <a href="gongSiRegister.jsp" style="color: black">公司添加</a><br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                       &lt;%&ndash; <a href="#gstj" id="tt2" style="color: black">公司添加</a><br>&ndash;%&gt;&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <a href="gongSi" style="color: black">公司规定</a><br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <a href="barChart.jsp" style="color: black">公司柱状图</a><br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <a href="javascript:void(0)" onclick="showcontent('公司添加')"><p style="font-size: 17px">公司添加</p></a>&ndash;%&gt;--%>
+<%--                    <a href="javascript:void(0)" onclick="showcontent('公司规定')"><p style="font-size: 17px"><img src="img/gs2.png" style="height: 16px;width: 16px">公司规定</p></a>--%>
+<%--                    <a href="javascript:void(0)" onclick="showcontent('公司柱状图')"><p style="font-size: 17px"><img src="img/gs3.png" style="height: 16px;width: 16px">公司柱状图</p></a>--%>
+<%--                    <a href="javascript:void(0)" onclick="showcontent('工作台')"><p style="font-size: 17px"><img src="img/gs3.png" style="height: 16px;width: 16px">工作台</p></a>--%>
+<%--                </div>--%>
+<%--                <div title="人员" data-options="iconCls:'icon-man'" style="padding:10px;">--%>
+<%--&lt;%&ndash;                    <a href="renYuanRegister.jsp" style="color: black">人员添加</a><br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <a href="renYuan" style="color: black">人员管理</a><br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <a href="renYuanRegulations.jsp" style="color: black">人员权限规定</a><br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <a href="renYuanInit" style="color: black">人员柱状图</a><br>&ndash;%&gt;--%>
+<%--    &lt;%&ndash;&ndash;%&gt;--%>
+<%--                    <a href="javascript:void(0)" onclick="showcontent('人员添加')"><p style="font-size: 17px"><img src="img/ry2.png" style="height: 16px;width: 16px">人员添加</p></a>--%>
+<%--                    <a href="javascript:void(0)" onclick="showcontent('人员管理')"><p style="font-size: 17px"><img src="img/ry3.png" style="height: 16px;width: 16px">人员管理</p></a>--%>
+<%--                    <a href="javascript:void(0)" onclick="showcontent('人员权限规定')"><p style="font-size: 17px"><img src="img/ry4.png" style="height: 16px;width: 16px">人员权限规定</p></a>--%>
+<%--                    <a href="javascript:void(0)" onclick="showcontent('人员柱状图')"><p style="font-size: 17px"><img src="img/ry5.png" style="height: 16px;width: 16px">人员柱状图</p></a>--%>
+
+<%--                </div>--%>
+<%--                <div title="操作" data-options="iconCls:'icon-search'" style="padding:10px">--%>
+<%--&lt;%&ndash;                    <a href="useRenYuan" style="color: black">人员使用情况</a><br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    &lt;%&ndash;<a href="test.jsp" style="color: black">测试</a><br>&ndash;%&gt;&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <a href="logout" id="logout" style="color: black">退出</a><br>&ndash;%&gt;--%>
+<%--                    <a href="javascript:void(0)" onclick="showcontent('人员使用情况')"><p style="font-size: 17px"><img src="img/cz2.png" style="height: 16px;width: 16px">人员使用情况</p></a>--%>
+<%--                    <a href="logout" id="logout"><p style="font-size: 17px"><img src="img/cz3.png" style="height: 16px;width: 16px">退出</p></a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div data-options="region:'center',title:'主页',iconCls:'icon-ok'" style="margin-right: 10px">--%>
+<%--            <div id="test" class="easyui-tabs" data-options="fit:true,border:false,plain:true">--%>
+                <div  title="工作台" style="border: 1px solid #5bc0de;  height: 580px;width: 1000px;float: left">
+                    <h6>   </h6>
                     <div style="user-select: none; ">
-                        <input id="isLot" type="checkbox"/>
-                        <label for="isLot" style="padding-right: 5px;">是否即时保存</label>
+                        <input id="isLot" type="checkbox" style="margin-left: 14px"/>
+                        <label for="isLot" style="padding-right: 5px">是否即时保存</label>
                         <button id="sav" style="padding-right: 5px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">保存</button>
                         开始日期：<input class="easyui-datebox" name="begindate" id="begindate" data-options="formatter:myformatter,parser:myparser"></input>
                         结束日期：<input class="easyui-datebox" name="enddate" id="enddate" data-options="formatter:myformatter,parser:myparser"></input>
@@ -79,8 +83,9 @@
                         <button id="insert"  style=" padding-right: 5px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">添加</button>
                         <%--<button id="getAll" style="margin-right: -100px;background-color: #9acfea;border-radius: 7px;border-color: #9acfea">获取数据</button>--%>
                     </div>
-                    <table border="1" class="table-condensed">
-                        <thead style="text-align: center">
+                    <h6>   </h6>
+                    <table border="1" class="table-condensed" style="margin-left: 14px">
+                        <thead style="text-align: center;font-weight: bold">
                             <td>ID</td><td>人员</td><td>公司</td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> <td>G</td> <td>H</td> <td>I</td> <td>J</td> <td>K</td> <td>L</td> <td>M</td> <td>N</td> <td>O</td> <td>P</td> <td>Q</td> <td>R</td> <td>S</td> <td>T</td> <td>U</td> <td>V</td> <td>W</td> <td>X</td> <td>Y</td> <td>Z</td>
                             <td>AA</td> <td>AB</td> <td>AC</td> <td>AD</td> <td>AE</td> <td>AF</td> <td>AG</td> <td>AH</td> <td>AI</td> <td>AJ</td> <td>AK</td> <td>AL</td> <td>AM</td> <td>AN</td> <td>AO</td> <td>AP</td> <td>AQ</td> <td>AR</td> <td>ASS</td> <td>AT</td> <td>AU</td> <td>AV</td> <td>AW</td> <td>AX</td> <td>AY</td> <td>AZ</td>
                             <td>BA</td> <td>BB</td> <td>BC</td> <td>BD</td> <td>BE</td> <td>BF</td> <td>BG</td> <td>BH</td> <td>BI</td> <td>BJ</td> <td>BK</td> <td>BL</td> <td>BM</td> <td>BN</td> <td>BO</td> <td>BP</td> <td>BQ</td> <td>BR</td> <td>BS</td> <td>BT</td> <td>BU</td> <td>BV</td> <td>BW</td> <td>BX</td> <td>BYY</td> <td>BZ</td>
@@ -98,7 +103,7 @@
 
                         </tfoot>
                     </table>
-
+<%--                    <span>总条数：</span>--%>
                         <%--<c:forEach items="${wkInfo}" var="wk">
                             <tr>
                                 <td hidden="hidden"><input type="text" name="id" value="${wk.id}"></td>
@@ -129,7 +134,7 @@
 <%--                <div title="公司柱状图" data-options="href:'barChart.jsp'" style="padding:10px; "></div>--%>
 <%--                <div title="人员添加" data-options="href:'renYuanRegister.jsp'" style="padding:10px;"></div>--%>
 <%--                <div title="人员管理" data-options="href:'renYuan'" style="padding:10px; "></div>--%>
-<%--                <div title="人员规定" data-options="href:'renYuanRegulations.jsp'" style="padding:10px; "></div>--%>
+<%--                <div title="人员权限规定" data-options="href:'renYuanRegulations.jsp'" style="padding:10px; "></div>--%>
 <%--                <div title="人员柱状图" data-options="href:'renYuanInit'"  style="padding:10px; ">--%>
 
 
@@ -137,17 +142,16 @@
 
 <%--                    </div>--%>
                 </div>
-                <div title="人员使用情况" data-options="href:'useRenYuan'" style="padding:10px; "></div>
-               <%-- <div title="测试" data-options="href:'test.jsp'" style="padding:10px; background-color: #99CCFF;"></div>--%>
+<%--                <div title="人员使用情况" data-options="href:'useRenYuan'" style="padding:10px; "></div>--%>
+<%--               &lt;%&ndash; <div title="测试" data-options="href:'test.jsp'" style="padding:10px; background-color: #99CCFF;"></div>&ndash;%&gt;--%>
 
 
-<%--                <div title="人员管理" data-options="href:'renYuan'" style="padding:10px"></div>--%>
-<%--                <div title="人员规定" data-options="href:'copy'" style="padding:10px"></div>--%>
+<%--&lt;%&ndash;                <div title="人员管理" data-options="href:'renYuan'" style="padding:10px"></div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <div title="人员权限规定" data-options="href:'copy'" style="padding:10px"></div>&ndash;%&gt;--%>
 
 
-            </div>
-        </div>
-    </div>
+<%--            </div>--%>
+<%--        </div>--%>
 </body>
 <script>
    /* $('#tt2').click({
@@ -405,7 +409,7 @@ $('tbody input').focus(function (){
        }else if(language=="人员管理"){
            url="renYuan";
            //url="renYuanManagement.jsp";
-       }else if(language=="人员规定"){
+       }else if(language=="人员权限规定"){
            //url="renYuanRegulations.jsp";
            url="copy";
        }else if(language=="人员柱状图"){
@@ -506,6 +510,7 @@ $('tbody input').focus(function (){
 
 /*根据日期查询数据*/
     $('#selectDate').click(function (){
+        var  a1=1;
        /* /内容发生改变，失去焦点时触发
         $('tbody input').blur(function (){
             var a=1;
