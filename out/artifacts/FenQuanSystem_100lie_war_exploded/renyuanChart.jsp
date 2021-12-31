@@ -29,25 +29,31 @@
 <body >
 
 <a href="workbench.jsp" style="font-size: 30px;color: black;margin-left: 14px">人员柱状图</a>
-<div style="border: 1px ;height:35px;margin-right: 20px;margin-left: 14px">
+<div style="border: 1px ;height:35px;margin-right: 20px;margin-left: 14px;">
 
-<%--  <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;background-color: #e7e7e7;border: 1px;color: white;margin-left: 30%">--%>
+  <%--  <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;background-color: #e7e7e7;border: 1px;color: white;margin-left: 30%">--%>
   <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;height:30px;width: 150px;background-color: #9acfea;color: black;margin-left: 14px">
     <c:forEach items="${renyuanInit}" var="username">
       <option>${username}</option>
     </c:forEach>
   </select>
-    <%--<div id="content"></div>--%>
-     <%-- <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;width: 150px;background-color: #9acfea;color: black;margin-left: 40%">
-        <option>${username}</option>
-      </select>--%>
+  <%--<div id="content"></div>--%>
+  <%-- <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;width: 150px;background-color: #9acfea;color: black;margin-left: 40%">
+     <option>${username}</option>
+   </select>--%>
 
   <button id="select_renyuan" style="background-color: #9acfea; border-color:#9acfea;font-size: 20px;border-radius: 7px;height:35px"> 查  询  </button>
+  <div style="margin-top: 1%">
+    <span>合计：</span>
+    <span id="heji1">0</span>
+  </div>
+
 </div><br><br>
 
-<div style="width: 100%; height: 400px; overflow-x: scroll;margin-left: 14px">
-  <div id="main" style="width: 3000px;height: 100%;"></div>
-</div>
+<%--<div style="width: 100%; height: 400px; overflow-x: scroll;margin-left: 14px">--%>
+<%--  --%>
+<%--</div>--%>
+<div id="main1" style="width: 3000px;height: 100%;margin-left:-23%"></div>
 <script type="text/javascript">
   /*$(function (){
     var a=1;
@@ -81,131 +87,134 @@
       }
     })
   })*/
-  var renyuanChart = echarts.init(document.getElementById('main'));
-  renyuanChart.showLoading();
-  $.get('RenYuanChart').done(function (data) {
-    renyuanChart.hideLoading();
-    data = JSON.parse(data);
-
-    var columns = []
-    var values = []
-    for (let col in data){
-      columns.push(col);
-      values.push(data[col])
-    }
-
-    renyuanChart.setOption({
-      title: {
-        text: "",
-        textStyle:{
-          color:'#000000', //颜色
-          fontStyle:'normal', //风格
-          fontWeight:'normal', //粗细
-          fontFamily:'Microsoft yahei', //字体
-          fontSize:20, //大小
-          align:'center' //水平对齐
-        },
-      },
-      grid:{
-        left:'14px'
-      },
-      tooltip: {
-        trigger: "axis",
-        axisPointer: {
-          type: "shadow"
-        }
-      },
-      xAxis: {
-        nameTextStyle: {
-          fontSize:15,
-          color:'#000000', //颜色
-        },
-        name: '列',
-        type: 'category',
-        data: columns,
-        axisLine:{
-          lineStyle:{
-            color:'#000000',
-            width:2,//这里是为了突出显示加上的
-          }
-        },
-
-      },
-      yAxis: {
-        nameTextStyle: {
-          fontSize:15,
-          color:'#000000', //颜色
-        },
-        axisLine:{
-          lineStyle:{
-            color:'#000000',
-            width:2,//这里是为了突出显示加上的
-          }
-        },
-        name: '数量',
-        type: 'value'
-      },
-      series: [{
-        name: '${GongSi}',
-        type: 'bar',//柱状图
-        data: values,
-        itemStyle: {
-          normal: {
-            color: "#F4422C",//折线点的颜色
-          }
-        },
-      }],
-
-      <%--title: {--%>
-      <%--  text: '人员柱状图'--%>
-      <%--},--%>
-      <%--legend: {--%>
-      <%--  type: 'plain',--%>
-      <%--  data:['${userName}']--%>
-      <%--},--%>
-      <%--grid: {--%>
-      <%--  containLabel: 'true',--%>
-      <%--  left: 10,--%>
-      <%--  bottom: 10,--%>
-      <%--  right: 10,--%>
-      <%--},--%>
-      <%--tooltip: {--%>
-      <%--  trigger: "axis",--%>
-      <%--  axisPointer: {--%>
-      <%--    type: "shadow"--%>
-      <%--  }--%>
-      <%--},--%>
-      <%--xAxis:{--%>
-      <%--  type: 'category',--%>
-      <%--  data: columns--%>
-      <%--},--%>
-      <%--yAxis: {--%>
-      <%--  type: 'value'--%>
-      <%--},--%>
-      <%--series: {--%>
-      <%--  name: '${userName}',--%>
-      <%--  data: values,--%>
-      <%--  type: 'bar',--%>
-      <%--  label: {--%>
-      <%--    show: "true",--%>
-      <%--    // position: "top"--%>
-      <%--    position: "bottom"--%>
-      <%--  }--%>
-      <%--},--%>
-    });
 
 
-    <%--myChartPie.setOption({--%>
-    <%--  series: [{--%>
-    <%--    name: '${userName}',--%>
-    <%--    data: values,columns,--%>
-    <%--    type: 'pie',--%>
-    <%--    radius: '55%',--%>
+  //进入页面后的柱状图（暂时注掉）
+  var renyuanChart = echarts.init(document.getElementById('main1'));
+  <%--renyuanChart.showLoading();--%>
+  <%--$.get('RenYuanChart').done(function (data) {--%>
+  <%--  renyuanChart.hideLoading();--%>
+  <%--  data = JSON.parse(data);--%>
+  <%--  console.log(data)--%>
+  <%--  var columns = []--%>
+  <%--  var values = []--%>
+  <%--  for (let col in data){--%>
+  <%--    columns.push(col);--%>
+  <%--    values.push(data[col])--%>
+  <%--  }--%>
 
-    <%--  }]--%>
-    <%--});--%>
+  <%--  renyuanChart.setOption({--%>
+  <%--    title: {--%>
+  <%--      text: "",--%>
+  <%--      textStyle:{--%>
+  <%--        color:'#000000', //颜色--%>
+  <%--        fontStyle:'normal', //风格--%>
+  <%--        fontWeight:'normal', //粗细--%>
+  <%--        fontFamily:'Microsoft yahei', //字体--%>
+  <%--        fontSize:20, //大小--%>
+  <%--        align:'center' //水平对齐--%>
+  <%--      },--%>
+  <%--    },--%>
+  <%--    grid:{--%>
+  <%--      left:'14px'--%>
+  <%--    },--%>
+  <%--    tooltip: {--%>
+  <%--      trigger: "axis",--%>
+  <%--      axisPointer: {--%>
+  <%--        type: "shadow"--%>
+  <%--      }--%>
+  <%--    },--%>
+  <%--    xAxis: {--%>
+  <%--      nameTextStyle: {--%>
+  <%--        fontSize:15,--%>
+  <%--        color:'#000000', //颜色--%>
+  <%--      },--%>
+  <%--      name: '列',--%>
+  <%--      type: 'category',--%>
+  <%--      data: columns,--%>
+  <%--      axisLine:{--%>
+  <%--        lineStyle:{--%>
+  <%--          color:'#000000',--%>
+  <%--          width:2,//这里是为了突出显示加上的--%>
+  <%--        }--%>
+  <%--      },--%>
 
-  });
+  <%--    },--%>
+  <%--    yAxis: {--%>
+  <%--      nameTextStyle: {--%>
+  <%--        fontSize:15,--%>
+  <%--        color:'#000000', //颜色--%>
+  <%--      },--%>
+  <%--      axisLine:{--%>
+  <%--        lineStyle:{--%>
+  <%--          color:'#000000',--%>
+  <%--          width:2,//这里是为了突出显示加上的--%>
+  <%--        }--%>
+  <%--      },--%>
+  <%--      name: '数量',--%>
+  <%--      type: 'value'--%>
+  <%--    },--%>
+  <%--    series: [{--%>
+  <%--      name: '${GongSi}',--%>
+  <%--      type: 'bar',//柱状图--%>
+  <%--      data: values,--%>
+  <%--      itemStyle: {--%>
+  <%--        normal: {--%>
+  <%--          color: "#F4422C",//折线点的颜色--%>
+  <%--        }--%>
+  <%--      },--%>
+  <%--    }],--%>
+
+  <%--title: {--%>
+  <%--  text: '人员柱状图'--%>
+  <%--},--%>
+  <%--legend: {--%>
+  <%--  type: 'plain',--%>
+  <%--  data:['${userName}']--%>
+  <%--},--%>
+  <%--grid: {--%>
+  <%--  containLabel: 'true',--%>
+  <%--  left: 10,--%>
+  <%--  bottom: 10,--%>
+  <%--  right: 10,--%>
+  <%--},--%>
+  <%--tooltip: {--%>
+  <%--  trigger: "axis",--%>
+  <%--  axisPointer: {--%>
+  <%--    type: "shadow"--%>
+  <%--  }--%>
+  <%--},--%>
+  <%--xAxis:{--%>
+  <%--  type: 'category',--%>
+  <%--  data: columns--%>
+  <%--},--%>
+  <%--yAxis: {--%>
+  <%--  type: 'value'--%>
+  <%--},--%>
+  <%--series: {--%>
+  <%--  name: '${userName}',--%>
+  <%--  data: values,--%>
+  <%--  type: 'bar',--%>
+  <%--  label: {--%>
+  <%--    show: "true",--%>
+  <%--    // position: "top"--%>
+  <%--    position: "bottom"--%>
+  <%--  }--%>
+  <%--},--%>
+  //});
+
+
+  <%--myChartPie.setOption({--%>
+  <%--  series: [{--%>
+  <%--    name: '${userName}',--%>
+  <%--    data: values,columns,--%>
+  <%--    type: 'pie',--%>
+  <%--    radius: '55%',--%>
+
+  <%--  }]--%>
+  <%--});--%>
+
+  //});
 
   <%--var myChart = echarts.init(document.getElementById('main'));--%>
   <%-- myChart.showLoading();--%>
@@ -290,10 +299,14 @@
         data = JSON.parse(result);
         var columns = []
         var values = []
+        var heji=0;
         for (let col in data){
           columns.push(col);
-          values.push(data[col])
+          values.push(data[col]);
+          heji=heji+data[col];
         }
+        var span=document.getElementById("heji1")
+        span.innerText=heji;
         renyuanChart.setOption({
 
           title: {

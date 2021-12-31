@@ -33,24 +33,25 @@ public class GongSiChartServlet extends HttpServlet {
         GongSiDao gongSiDao = new GongSiDaoImp();
         String B = (String) httpSession.getAttribute("GongSi");
         List alphabet = new ArrayList();
-        Map<String,Integer> map = new TreeMap<>();
+        Map<String,Integer> map = new LinkedHashMap<>();
         String column ;
 
         int rowCount;
         alphabet = cu.getColumn();
         for (int i = 0;i<alphabet.size();i++){
-           column = String.valueOf(alphabet.get(i));
-           if(column.equals("CW") ){
-               break;
-           }else if (column.equals("AS")){
-               column = "ASS";
-               rowCount = gongSiDao.getRowCount(column,B);
-           }else if (column.equals("BY") ){
-               column = "BYY";
-               rowCount = gongSiDao.getRowCount(column,B);
-           }else{
-               rowCount = gongSiDao.getRowCount(column,B);
-           }
+            column = String.valueOf(alphabet.get(i));
+//           if(column.equals("CW") ){
+//               break;
+//           }else if (column.equals("AS")){
+//               column = "ASS";
+//               rowCount = gongSiDao.getRowCount(column,B);
+//           }else if (column.equals("BY") ){
+//               column = "BYY";
+//               rowCount = gongSiDao.getRowCount(column,B);
+//           }else{
+//               rowCount = gongSiDao.getRowCount(column,B);
+//           }
+            rowCount = gongSiDao.getRowCount(column,B);
             map.put(column,rowCount);
         }
         for (String key:map.keySet()){

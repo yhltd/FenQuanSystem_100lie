@@ -19,9 +19,15 @@
 </head>
 <body>
 <%--为echarts准备一个dom--%>
-    <div style="width: 100%; height: 400px; overflow-x: scroll;margin-left: 14px">
-        <div id="main" style="width: 3000px;height: 100%"></div>
-    </div>
+<div style="margin:1%">
+    <span>合计：</span>
+    <span id="heji">0</span>
+</div>
+
+<div id="main" style="width: 3000px;height: 100%"></div>
+<%--    <div style="width: 100%; height: 400px; overflow-x: scroll;margin-left: 14px">--%>
+<%--        --%>
+<%--    </div>--%>
 
 <%--    <a href="workbench.jsp">工作台</a>--%>
 <script type="text/javascript">
@@ -90,11 +96,14 @@
 
         var columns = [] //["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AW","AZ","BA","BB","BC","BD","BE","BF","BG","BG","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ","CA","CB","CC","CD","CE","CF","CG","CH","CI","CJ","CK","CL","CM","CN","CO","CP","CQ","CR","CS","CT","CU","CV"]
         var values = []
+        var span=document.getElementById("heji");
+        var heji=0
         for (let col in data){
-             columns.push(col);
+            columns.push(col);
             values.push(data[col])
+            heji=heji+data[col]
         }
-
+        span.innerText=heji;
         //console.log(columns)
 
 
@@ -111,7 +120,7 @@
                 },
             },
             grid:{
-               left:'14px'
+                left:'14px'
             },
             tooltip: {
                 trigger: "axis",
@@ -198,7 +207,6 @@
             <%--        position: "bottom"--%>
             <%--    }--%>
             <%--}]--%>
-
         });
     });
 </script>

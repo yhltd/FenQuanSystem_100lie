@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class RenYuanAllChartServlet extends HttpServlet {
     private  static final long serialVersionUID=1L;
@@ -34,7 +31,7 @@ public class RenYuanAllChartServlet extends HttpServlet {
         String B = (String) httpSession.getAttribute("GongSi");
         String user = req.getParameter("username");
         List alphabet = new ArrayList();
-        Map<String,Integer> map = new TreeMap<>();
+        Map<String,Integer> map = new LinkedHashMap<>();
         String column ;
         int rowCount;
         alphabet = cu.getColumn();

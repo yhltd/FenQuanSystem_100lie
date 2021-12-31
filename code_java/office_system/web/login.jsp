@@ -34,6 +34,7 @@
             <table class="table" style="text-align: center;width: 80%;margin: auto">
                 <tr>
                     <td>
+
                         <div id="content"></div>
 
                     </td>
@@ -76,8 +77,8 @@
         <br>
 
         <a href="http://yhocn.cn/" style="font-size: medium;color: #fdfdfd">
-            云合未来计算机技术有限公司 © Copyright 2018-2030 技术支持：信息技术中心 联系电话：16619776280
-            云合未来计算机技术有限公司 技术支持 www.yhocn.cn</a>
+            云合未来计算机技术有限公司 © Copyright 2018-2030 版权所有 All rights reserved 联系电话：16619776280
+             技术支持 www.yhocn.cn</a>
 
     </div>
 </body>
