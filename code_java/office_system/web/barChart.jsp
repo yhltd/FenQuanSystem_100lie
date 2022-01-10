@@ -20,6 +20,7 @@
 <body>
 <%--为echarts准备一个dom--%>
 <div style="margin:1%">
+    <p style="font-size: 30px;color: black;">公司柱状图</p>
     <span>合计：</span>
     <span id="heji">0</span>
 </div>
@@ -120,7 +121,7 @@
                 },
             },
             grid:{
-                left:'14px'
+                left:'40px'
             },
             tooltip: {
                 trigger: "axis",
@@ -165,7 +166,7 @@
                 data: values,
                 itemStyle: {
                     normal: {
-                        color: "#F4422C",//折线点的颜色
+                        color: "#f4422c",//折线点的颜色
                     }
                 },
             }],

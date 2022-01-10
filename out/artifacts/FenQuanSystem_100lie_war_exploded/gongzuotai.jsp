@@ -65,7 +65,8 @@
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <img src="img/yyh.png" style="height: 40px;width: 40px">
-    <a href="renYuan" style="text-align: right;font-size: medium;color: #0f0f0f">用户:${userName}</a>
+    <span style="font-size: medium;color: #0f0f0f">用户:${userName}</span>
+<%--    <a href="renYuan" style="text-align: right;font-size: medium;color: #0f0f0f">用户:${userName}</a>--%>
     <span>&nbsp;</span>
     <img src="img/ggs.png" style="height: 40px;width: 40px">
     <span style="font-size: medium;color: #0f0f0f">公司:${GongSi}</span>

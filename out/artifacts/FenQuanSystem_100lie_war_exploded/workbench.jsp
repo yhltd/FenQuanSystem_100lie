@@ -34,7 +34,7 @@
 <%--    </div>--%>
 <%--    <img src="img/20201124113000.jpg" style="width: 80px;height: 70px;float: left;margin-left: 50px;margin-bottom: 0px"/>--%>
 <%--    <h2 style="margin-top: 25px;padding-left: 30px">公司管理系统</h2>--%>
-<div class="easyui-layout" style="width:1200px;height:550px;">
+<%--<div class="easyui-layout" style="width:1200px;height:550px;">--%>
     <%--        <div data-options="region:'west',split:true" title="" style="width:230px">--%>
     <%--            <div class="easyui-accordion" data-options="fit:true,border:false">--%>
 
@@ -151,7 +151,7 @@
 
 
     <%--            </div>--%>
-</div>
+<%--</div>--%>
 
 <script>
 

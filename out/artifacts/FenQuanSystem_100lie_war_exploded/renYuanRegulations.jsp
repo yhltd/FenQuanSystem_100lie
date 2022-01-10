@@ -130,10 +130,10 @@
         <td>CT</td>
         <td>CU</td>
         <td>CV</td>
-        <td>CW</td>
-        <td>CX</td>
-        <td>CV</td>
-        <td>操作</td>
+<%--        <td>CW</td>--%>
+<%--        <td>CX</td>--%>
+<%--        <td>CV</td>--%>
+<%--        <td>操作</td>--%>
         </thead>
         <tbody id="contentrenYuan">
         <tfoot id="hide">
@@ -341,12 +341,12 @@
                     </td>
                     <td><input type="text" name="CV" value="${copy.CV}" class="input" style="background: transparent">
                     </td>
-                    <td><input type="text" name="CW" value="${copy.CW}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CX" value="${copy.CX}" class="input" style="background: transparent">
-                    </td>
-                    <td><input type="text" name="CX" value="${copy.CV}" class="input" style="background: transparent">
-                    </td>
+<%--                    <td><input type="text" name="CW" value="${copy.CW}" class="input" style="background: transparent">--%>
+<%--                    </td>--%>
+<%--                    <td><input type="text" name="CX" value="${copy.CX}" class="input" style="background: transparent">--%>
+<%--                    </td>--%>
+<%--                    <td><input type="text" name="CX" value="${copy.CV}" class="input" style="background: transparent">--%>
+<%--                    </td>--%>
                 </tr>
             </form>
         </c:forEach>

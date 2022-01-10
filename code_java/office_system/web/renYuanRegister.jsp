@@ -47,7 +47,7 @@
         <form action="register" method="post">
             <table class="table" >
                 <tr>
-                    <td><span>&nbsp;&nbsp;输入公司：</span><input type="text" id="text1" name="gongSi" required></td>
+                    <td><span>&nbsp;&nbsp;输入公司：</span><input type="text" readonly="readonly" id="text1" name="gongSi" required value="${GongSi}" ></td>
                 </tr>
                 <tr>
                     <td><span>&nbsp;&nbsp;输入姓名：</span><input type="text" id="text2" name="user" required></td>

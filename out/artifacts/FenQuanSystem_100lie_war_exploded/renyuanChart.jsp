@@ -28,7 +28,8 @@
 </head>
 <body >
 
-<a href="workbench.jsp" style="font-size: 30px;color: black;margin-left: 14px">人员柱状图</a>
+<%--<a href="workbench.jsp" style="font-size: 30px;color: black;margin-left: 14px">人员柱状图</a>--%>
+<span style="font-size: 30px;color: black;margin-left: 14px">人员柱状图</span>
 <div style="border: 1px ;height:35px;margin-right: 20px;margin-left: 14px;">
 
   <%--  <select class="easyui-combobox width" name="username" id="username" style="font-size: 20px;background-color: #e7e7e7;border: 1px;color: white;margin-left: 30%">--%>
@@ -53,7 +54,7 @@
 <%--<div style="width: 100%; height: 400px; overflow-x: scroll;margin-left: 14px">--%>
 <%--  --%>
 <%--</div>--%>
-<div id="main1" style="width: 3000px;height: 100%;margin-left:-23%"></div>
+<div id="main1" style="width: 3000px;height: 100%;"></div>
 <script type="text/javascript">
   /*$(function (){
     var a=1;
@@ -320,6 +321,9 @@
               align:'center' //水平对齐
             },
           },
+            grid:{
+                left:'40px'
+            },
           tooltip: {
             trigger: "axis",
             axisPointer: {
