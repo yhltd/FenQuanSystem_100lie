@@ -422,11 +422,17 @@ $('tbody input').focus(function (){
             url="useRenYuan";
         }
 
-        $('#test').tabs('add',{
-            title:language,
-            href:url,
-            closable:true
-        })
+        if ($("#test").tabs("exists", language)){
+            $("#test").tabs("select", language);
+        }else{
+            $('#test').tabs('add', {
+                title: language,
+                href: url,
+                closable: true
+            })
+        }
+
+
 
 
     }
@@ -834,6 +840,8 @@ $('tbody input').focus(function (){
              }
          })
      })*/
+
+
 
 </script>
 

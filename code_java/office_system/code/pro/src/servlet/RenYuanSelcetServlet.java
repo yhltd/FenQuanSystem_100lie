@@ -23,16 +23,21 @@ public class RenYuanSelcetServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
         String user= req.getParameter("username");
+        String gongSi= req.getParameter("gongSi");
         Gson gson = new Gson();
 
         RenYuanDao ryd=new RenYuanDaoImp();
-        List<RenYuan> renyuanInfo= ryd.renyuanSelct(user);
+        List<RenYuan> renyuanInfo= ryd.renyuanSelct(user,gongSi);
 
 
 
         String result = gson.toJson(renyuanInfo);
         System.out.println("result");
         resp.getWriter().write(result);
+
+
+
+
       /*  req.setAttribute("renyuanInfo",renyuanInfo);
         System.out.println("显示成功");
         req.getRequestDispatcher("/renYuanManagement.jsp").forward(req, resp);*/

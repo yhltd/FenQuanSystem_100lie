@@ -135,11 +135,11 @@ public class RenYuanDaoImp implements RenYuanDao{
     }
 
     @Override
-    public List<RenYuan> renyuanSelct(String username) {
+    public List<RenYuan> renyuanSelct(String username,String gongSi) {
         List<RenYuan>renyuanList=new ArrayList<>();
         try {
             DBCoon.init();
-            String sql="select*from baitaoquanxian_renyun where C = '" + username + "'";
+            String sql="select*from baitaoquanxian_renyun where C like '%" + username + "%' and B='" + gongSi + "'";
             ResultSet rs=DBCoon.getInfo(sql);
             System.out.println("获取用户信息成功");
             while(rs.next()){

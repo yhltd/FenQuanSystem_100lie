@@ -20,7 +20,8 @@
 <link rel="stylesheet" type="text/css" href="static/easyui/demo/demo.css"><!--这是easyui图标demo样式-->
 <html>
 <head>
-  <title>index</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
 </head>
 <body>
   <h2>公司管理系统</h2>
@@ -68,5 +69,5 @@
     </div>
   </div>
 
-</body>
+<%--</body>--%>
 </html>

@@ -10,7 +10,8 @@
 
 <head>
 
-    <title>人员管理</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
     <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -28,15 +29,16 @@
         margin-left: 20px;
     }*/
 </style>--%>
-    <div style="text-align: center">
-        <h3 style="text-align: center;margin-right: 50px">人员管理</h3>
+        <h3 style="margin-left: 14px;margin-right: 50px">人员管理</h3>
+        <div style="margin-left: 14px">
+
         <span id="content234" style="width: 150px;height: 30px">
             <input id="inp" style="display: none" value="${GongSi}"/>
             请选择姓名：
         </span>
         <input  type="button"  value="查询" id="but1" style="border-color:#9acfea; background-color:#9acfea; width: 50px;height: 30px">
         <p>*此页面数据为实时修改，编辑后自动保存</p>
-        <table border="1" class="table-condensed"  style="margin-left: auto;margin-right: auto;">
+        <table border="1" class="table-condensed"  >
             <thead style="text-align: center">
                 <td >公司</td>
                 <td >姓名</td>
@@ -57,7 +59,7 @@
                             <td ><input type="text" name="user" value="${ry.c}" class="input" style="background: transparent"></td>
                             <td ><input type="text" name="name" value="${ry.d}" class="input" style="background: transparent"></td>
                             <td ><input type="text" name="pwd" value="${ry.e}" class="input" style="background: transparent"></td>
-                            <td><a href="deleteRenYuan?id=${ry.id}&renyuan_id=${ry.renyuan_id}," >删除</a>   </td>
+                            <td><a class="delete" href="deleteRenYuan?id=${ry.id}&renyuan_id=${ry.renyuan_id}," >删除</a>   </td>
 <%--                            <a href="updateRenYuan?id=${ry.id}&gongSi=${ry.b}&user=${ry.c}&name=${ry.d}&pwd=${ry.e}" >修改</a>--%>
 <%--                            <input style="border-color:#9acfea; background-color: #9acfea" type="submit" value="修改" class="btn-success">--%>
 <%--                            &user=--%>
@@ -70,6 +72,7 @@
 <%--        <a href="workbench.jsp" style="color: black;font-size: 18px">返回主页</a>--%>
     </div>
     <script>
+        debugger;
         var gongsi=$("#inp").val();
         console.log(gongsi);
         $(function (){
@@ -113,7 +116,8 @@
                     type: 'post',
                     url:'RenYuanSelcet',
                     data:{
-                        username: sel
+                        username: sel,
+                        gongSi:gongsi
                     },
 
                     success:function (result){
@@ -123,11 +127,39 @@
                         var strcontent ="";
                         for(var i=0;i<user.length;i++){
                             //strcontent+="<td hidden=\"hidden\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" value= "+user[i].id+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"gongSi\" class=\"input\" value="+user[i].B+"></input></td><td name=\"user\" style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"user\" class=\"input\" value="+user[i].C+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"name\" class=\"input\" value="+user[i].D+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" name=\"pwd\" value="+user[i].E+"></input></td><td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a>  </td><br>"
-                            strcontent+="<tr><td hidden=\"hidden\"><input name=\"id\" readonly=\"readonly\" value="+user[i].id+"></input></td><td><input readonly=\"readonly\" name=\"gongSi\" value="+user[i].B+"></input></td><td><input onblur=\"myChange(this)\" name=\"user\" value="+user[i].C+"></input></td><td><input onblur = \"myChange(this)\" name=\"name\" value="+user[i].D+"></input></td><td><input onblur = \"myChange(this)\" name=\"pwd\" value="+user[i].E+"></td> <td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a></tr>"
+                            strcontent+="<tr><td hidden=\"hidden\"><input name=\"id\" readonly=\"readonly\" value="+user[i].id+"></input></td><td><input readonly=\"readonly\" name=\"gongSi\" value="+user[i].B+"></input></td><td><input onblur=\"myChange(this)\" name=\"user\" value="+user[i].C+"></input></td><td><input onblur = \"myChange(this)\" name=\"name\" value="+user[i].D+"></input></td><td><input onblur = \"myChange(this)\" name=\"pwd\" value="+user[i].E+"></td> <td><a href=\"deleteRenYuan?id="+user[i].id+ "&renyuan_id="+user[i].renyuan_id +"\" style=\"\">删除</a></tr>"
                         }
                         //<input form="myform" type="submit" value="修改" class="btn-success">
                         $("#content2").html(strcontent);
                         $("#hidfoot").remove();
+
+                        jQuery.fn.extend({
+                            href2ajax: function (fn){
+                                $(this).click(function(){
+                                    $.ajax({
+                                        url: this.href,
+                                        error: function(XMLHttpRequest, textStatus, errorThrown){
+                                            alert('错误');
+                                        },
+                                        success: function(data){
+                                            try{
+                                                refresh();
+                                                alert('删除成功');
+                                            }catch(exception){
+                                                alert('错误');
+                                            }
+                                        }
+                                    });
+                                    return false;
+                                });
+                            }
+                        });
+
+                        $('a:contains("删除")').href2ajax();
+
+
+
+
                     },error:function () {
                         alert("error!");
                     }
@@ -209,6 +241,91 @@
                 }
             })
         }
+
+
+
+        jQuery.fn.extend({
+            href2ajax: function (fn){
+                $(this).click(function(){
+                    $.ajax({
+                        url: this.href,
+                        error: function(XMLHttpRequest, textStatus, errorThrown){
+                            alert('错误');
+                        },
+                        success: function(data){
+                            try{
+                                refresh();
+                                alert('删除成功');
+                            }catch(exception){
+                                alert('错误');
+                            }
+                        }
+                    });
+                    return false;
+                });
+            }
+        });
+
+        $('a:contains("删除")').href2ajax();
+
+
+        function refresh(){
+            let sel=''
+            console.log(gongsi);
+            var a=1;
+
+            $.ajax({
+                type: 'post',
+                url:'RenYuanSelcet',
+                data:{
+                    username: sel,
+                    gongSi:gongsi
+                },
+
+                success:function (result){
+                    console.log(result)
+                    //转换为javascript对象
+                    var user = eval('('+result+')');
+                    var strcontent ="";
+                    for(var i=0;i<user.length;i++){
+                        //strcontent+="<td hidden=\"hidden\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" value= "+user[i].id+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"gongSi\" class=\"input\" value="+user[i].B+"></input></td><td name=\"user\" style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"user\" class=\"input\" value="+user[i].C+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" name=\"name\" class=\"input\" value="+user[i].D+"></input></td><td style=\"color: black\"><input style=\"background: transparent\" form=\"myform\" class=\"input\" name=\"pwd\" value="+user[i].E+"></input></td><td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"color: black\">删除</a>  </td><br>"
+                        strcontent+="<tr><td hidden=\"hidden\"><input name=\"id\" readonly=\"readonly\" value="+user[i].id+"></input></td><td><input readonly=\"readonly\" name=\"gongSi\" value="+user[i].B+"></input></td><td><input onblur=\"myChange(this)\" name=\"user\" value="+user[i].C+"></input></td><td><input onblur = \"myChange(this)\" name=\"name\" value="+user[i].D+"></input></td><td><input onblur = \"myChange(this)\" name=\"pwd\" value="+user[i].E+"></td> <td><a href=\"deleteRenYuan?id="+user[i].id+"\" style=\"\">删除</a></tr>"
+                    }
+                    //<input form="myform" type="submit" value="修改" class="btn-success">
+                    $("#content2").html(strcontent);
+                    $("#hidfoot").remove();
+
+
+                    jQuery.fn.extend({
+                        href2ajax: function (fn){
+                            $(this).click(function(){
+                                $.ajax({
+                                    url: this.href,
+                                    error: function(XMLHttpRequest, textStatus, errorThrown){
+                                        alert('错误');
+                                    },
+                                    success: function(data){
+                                        try{
+                                            refresh();
+                                            alert('删除成功');
+                                        }catch(exception){
+                                            alert('错误');
+                                        }
+                                    }
+                                });
+                                return false;
+                            });
+                        }
+                    });
+
+                    $('a:contains("删除")').href2ajax();
+
+                },error:function () {
+                    alert("error!");
+                }
+            });
+        }
+
     </script>
 </body>
 

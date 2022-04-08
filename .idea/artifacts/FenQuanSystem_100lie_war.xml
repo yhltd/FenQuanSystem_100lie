@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="FenQuanSystem_100lie:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/FenQuanSystem_100lie_war</output-path>
+    <root id="archive" name="FenQuanSystem_100lie_war.war">
+      <element id="artifact" artifact-name="FenQuanSystem_100lie:war exploded" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/web/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

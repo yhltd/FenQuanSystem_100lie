@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="FenQuanSystem_100lie:war2">
+    <output-path>$PROJECT_DIR$/out/artifacts/FenQuanSystem_100lie_war2</output-path>
+    <root id="archive" name="FenQuanSystem_100lie_war.war">
+      <element id="dir-copy" path="$PROJECT_DIR$/code_java/office_system/web" />
+    </root>
+  </artifact>
+</component>

@@ -285,7 +285,7 @@
     <servlet-mapping>
         <servlet-name>addWorkbench</servlet-name>
         <url-pattern>/addWorkbench</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>renYuanAjax
 
     <servlet>
         <servlet-name>getGongsSiName</servlet-name>

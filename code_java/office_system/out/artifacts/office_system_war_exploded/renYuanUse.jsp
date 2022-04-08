@@ -15,7 +15,8 @@
 
 <html>
 <head>
-  <title>使用人员</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
 </head>
 <body style="background-color: #31708f" >
 <%--<div id="div1" style=" width:100%;height:100%; ">--%>
@@ -26,15 +27,16 @@
             hight:100%;
         }*/
     </style>--%>
-    <div style="text-align: center">
-        <h3 style="margin-right: 50px">使用人员</h3>
-        <div style="margin-left: 0px">
+    <div >
+        <h3 style="margin-right: 50px;margin-left: 14px">使用人员</h3>
+        <div style="margin-left: 14px">
             <%--<a href="workbench.jsp" style="color: black;font-size: 18px">返回主页</a>--%>
             <%--<a href="useRenYuan" style="color: black;font-size: 18px">刷新</a>--%>
-            <input type="text" id="delete"name="delete"  placeholder = "请输入要删除的列!!!">
+            <input type="text" id="delete"name="delete"  placeholder = "请输入要删除的列!">
             <button onclick="deleteRenYuan()" style="border-color:#9acfea;background-color:#9acfea;border-radius: 7px;">删除</button>
         </div>
-        <table border="1" class="table-condensed" id="gsTable"  >
+        <h6>   </h6>
+        <table border="1" class="table-condensed" id="gsTable" style="margin-left: 14px " >
             <tr style="text-align: center">
                 <td>公司名称</td><td>A</td><td>B</td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> <td>G</td> <td>H</td> <td>I</td> <td>J</td> <td>K</td> <td>L</td> <td>M</td> <td>N</td> <td>O</td> <td>P</td> <td>Q</td> <td>R</td> <td>S</td> <td>T</td> <td>U</td> <td>V</td> <td>W</td> <td>X</td> <td>Y</td> <td>Z</td>
                 <td>AA</td> <td>AB</td> <td>AC</td> <td>AD</td> <td>AE</td> <td>AF</td> <td>AG</td> <td>AH</td> <td>AI</td> <td>AJ</td> <td>AK</td> <td>AL</td> <td>AM</td> <td>AN</td> <td>AO</td> <td>AP</td> <td>AQ</td> <td>AR</td> <td>ASS</td> <td>AT</td> <td>AU</td> <td>AV</td> <td>AW</td> <td>AX</td> <td>AY</td> <td>AZ</td>

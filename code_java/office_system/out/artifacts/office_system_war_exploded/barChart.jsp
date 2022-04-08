@@ -12,15 +12,23 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <title>柱状图</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>云合未来分权编辑系统</title>
     <script type="text/javascript" src="static/echarts/echarts.min.js"></script>
     <script type="text/javascript" src="static/jquery/jquery.min.js"></script>
 </head>
 <body>
 <%--为echarts准备一个dom--%>
-    <div style="width: 100%; height: 400px; overflow-x: scroll">
-        <div id="main" style="width: 3000px;height: 100%"></div>
-    </div>
+<div style="margin:1%">
+    <p style="font-size: 30px;color: black;">公司柱状图</p>
+    <span>合计：</span>
+    <span id="heji">0</span>
+</div>
+
+<div id="main" style="width: 3000px;height: 100%"></div>
+<%--    <div style="width: 100%; height: 400px; overflow-x: scroll;margin-left: 14px">--%>
+<%--        --%>
+<%--    </div>--%>
 
 <%--    <a href="workbench.jsp">工作台</a>--%>
 <script type="text/javascript">
@@ -89,17 +97,20 @@
 
         var columns = [] //["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AW","AZ","BA","BB","BC","BD","BE","BF","BG","BG","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ","CA","CB","CC","CD","CE","CF","CG","CH","CI","CJ","CK","CL","CM","CN","CO","CP","CQ","CR","CS","CT","CU","CV"]
         var values = []
+        var span=document.getElementById("heji");
+        var heji=0
         for (let col in data){
-             columns.push(col);
+            columns.push(col);
             values.push(data[col])
+            heji=heji+data[col]
         }
-
+        span.innerText=heji;
         //console.log(columns)
 
 
         myChart.setOption({
             title: {
-                text: "公司柱状图",
+                text: "",
                 textStyle:{
                     color:'#000000', //颜色
                     fontStyle:'normal', //风格
@@ -109,6 +120,9 @@
                     align:'center' //水平对齐
                 },
             },
+            grid:{
+                left:'40px'
+            },
             tooltip: {
                 trigger: "axis",
                 axisPointer: {
@@ -116,6 +130,7 @@
                 }
             },
             xAxis: {
+
                 nameTextStyle: {
                     fontSize:15,
                     color:'#000000', //颜色
@@ -151,7 +166,7 @@
                 data: values,
                 itemStyle: {
                     normal: {
-                        color: "#F4422C",//折线点的颜色
+                        color: "#f4422c",//折线点的颜色
                     }
                 },
             }],
@@ -193,7 +208,6 @@
             <%--        position: "bottom"--%>
             <%--    }--%>
             <%--}]--%>
-
         });
     });
 </script>

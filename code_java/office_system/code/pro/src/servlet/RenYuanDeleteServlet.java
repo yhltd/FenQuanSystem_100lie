@@ -28,7 +28,7 @@ public class RenYuanDeleteServlet extends HttpServlet {
         if(ryd.delete(RenYuanId)){
             ryd.delete2(renyuan_id);
             /*站内转发：请求转发到searchAll的servlet*/
-            req.getRequestDispatcher("workbench.jsp").forward(req, resp);
+//            req.getRequestDispatcher("workbench.jsp").forward(req, resp);
         }
     }
 }
