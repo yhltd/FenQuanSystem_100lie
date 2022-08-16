@@ -5,7 +5,7 @@
     <title>登陆页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <script type="text/javascript" src="javascript/Jquery.js"></script>
+    <script type="text/javascript" src="js/Jquery.js"></script>
     <!--bootstrap-->
     <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-4.5.0-dist/icons/bootstrap-icons.css">
@@ -13,20 +13,28 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
-    <script type="text/javascript" src="javascript/main.js"></script>
-    <script type="text/javascript" src="javascript/index.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
 </head>
 <body class="log-image" style="padding-top: 60px;margin: 0">
 <div class="row justify-content-center">
     <div class="col-md-7" style="margin: 0;font-weight: bold;text-align: center;color: #fff;font-size: 3rem;">
-        100列协同办公系统
+        云合分权编辑系统
     </div>
 </div>
 <div class="row justify-content-center" style="margin-top: 100px">
     <div class="panel col-md-5" style="background-color: #4d96e0;">
         <div class="panel-main">
             <form id="login-form">
+                <div class="form-group">
+                    <label for="company">公司</label>
+                    <select id="company" name="company" type="text" class="form-control" autocomplete="off" required>
+                    </select>
+                    <div class="invalid-feedback">
+                        请输入公司！
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="username">用户名</label>
                     <input id="username" name="username" type="text" class="form-control" autocomplete="off" required>
