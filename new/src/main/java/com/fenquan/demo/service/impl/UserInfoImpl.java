@@ -27,6 +27,11 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper, UserInfo> implemen
     }
 
     @Override
+    public List<UserInfo> get_renyuan_List(String company) {
+        return userInfoMapper.get_renyuan_List(company);
+    }
+
+    @Override
     public Map<String, Object> login(String username, String password,String company) {
         //条件构造器
         QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
@@ -49,4 +54,37 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper, UserInfo> implemen
         }
         return null;
     }
+
+    @Override
+    public List<UserInfo> queryC(String query) {return userInfoMapper.queryC(query);}
+
+    @Override
+    public List<UserInfo> queryC_Inquire(String company,String query) {
+        return userInfoMapper.queryC_Inquire(company,query);
+    }
+
+    @Override
+    public UserInfo add(UserInfo userInfo) {return this.save(userInfo) ? userInfo : null;}
+
+    @Override
+    public boolean addcopy(String company, String B,String renyuan_id) {
+        return userInfoMapper.addcopy(company,B,renyuan_id);
+    }
+
+    @Override
+    public boolean update(UserInfo userInfo) {
+        return this.updateById(userInfo);
+    }
+
+    @Override
+    public boolean delete(List<Integer> idList) {return removeByIds(idList);}
+
+    @Override
+    public boolean delete_quanxian(List<Integer> quanxianList) {return removeByIds(quanxianList);}
+
+    @Override
+    public boolean deletecopy(List<Integer> renyuanid) {return removeByIds(renyuanid);}
+
+
+
 }

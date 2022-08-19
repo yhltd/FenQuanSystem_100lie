@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工作台使用状态</title>
+    <script type="text/javascript" src="../js/Jquery.js"></script>
+
+    <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-4.5.0-dist/icons/bootstrap-icons.css">
+    <script type="text/javascript" src="../bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
+
+    <!--bootstrap-table-->
+    <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap-table.css">
+    <script type="text/javascript" src="../bootstrap-4.5.0-dist/js/bootstrap-table.js"></script>
+    <script type="text/javascript" src="../bootstrap-4.5.0-dist/js/bootstrap-table-zh-CN.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-4.5.0-dist/js/colResizable-1.6.js"></script>
+    <script type="text/javascript" src="../bootstrap-4.5.0-dist/js/bootstrap-table-resizable.js"></script>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/use_state.js"></script>
+</head>
+
+<body class="pt-2">
+
+<div id="table-toolbar">
+    <div class="btn-group" role="group">
+        <button id="refresh-btn" class="btn btn-primary">
+            <i class="bi bi-arrow-clockwise icon"></i>
+            刷新
+        </button>
+        <a class="btn btn-primary" style="color: white;padding-top: 8px">当前页：工作台使用状态</a>
+    </div>
+</div>
+<div id="upd_1" class="alert alert-success alert-dismissible" hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+    <strong>成功!</strong>
+</div>
+<div id="upd_2" class="alert alert-danger alert-dismissible"  hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+    <strong>失败!</strong>
+</div>
+
+<div class="table-div border-top">
+    <table id="useStateTable1"></table>
+    <table id="useStateTable2"></table>
+    <table id="useStateTable3"></table>
+    <table id="useStateTable4"></table>
+</div>
+
+</body>

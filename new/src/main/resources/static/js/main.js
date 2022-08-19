@@ -79,6 +79,12 @@ function setForm(params, el) {
                 return false;
             }
         })
+        $(el + ' select').each(function (index, select) {
+            if ($(select).attr('name') == param) {
+                $(select).val(params[param]);
+                return false;
+            }
+        })
     }
 }
 

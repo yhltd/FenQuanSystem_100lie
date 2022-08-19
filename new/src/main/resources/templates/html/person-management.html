@@ -7,6 +7,7 @@
     <script type="text/javascript" src="../js/Jquery.js"></script>
     <script type="text/javascript" src="../js/jquerysession.js"></script>
 
+
     <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-4.5.0-dist/icons/bootstrap-icons.css">
     <script type="text/javascript" src="../bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap-tagsinput.css">
 
     <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/person-management.js"></script>
 </head>
 
 <body class="pt-2">
@@ -76,13 +78,38 @@
             <div class="modal-body">
                 <form id="add-form" class="needs-validation">
                     <div class="form-group">
-                        <label for="add-type">分类</label>
-                        <input id="add-type" name="type" type="text" class="form-control" autocomplete="off" readonly="readonly">
+                        <label for="add_C">姓名</label>
+                        <input id="add_C" name="C" type="text" class="form-control" autocomplete="off" style="width:100%">
                     </div>
                     <div class="form-group">
-                        <label for="add-label1">标签</label>
-                        <input id="add-label1" name="label1" type="text" class="form-control" autocomplete="off" data-role="tagsinput" style="width:100%">
+                        <label for="add_D">账号</label>
+                        <input id="add_D" name="D" type="text" class="form-control" autocomplete="off" style="width:100%">
                     </div>
+                    <div class="form-group">
+                        <label for="add_E">密码</label>
+                        <input id="add_E" name="E" type="text" class="form-control" autocomplete="off" style="width:100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="add_zhuangtai">账号状态</label>
+<!--                        <input id="add_zhuangtai" name="zhuangtai" type="text" class="form-control" autocomplete="off"  style="width:100%">-->
+                        <select id="add_zhuangtai" name="viewName1" class="form-control">
+                            <option  value="正常">正常</option>
+                            <option  value="锁死">锁死</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="add_email">邮箱</label>
+                        <input id="add_email" name="email" type="text" class="form-control" autocomplete="off"  style="width:100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="add_phone">电话</label>
+                        <input id="add_phone" name="phone" type="text" class="form-control" autocomplete="off"  style="width:100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="add_bianhao">员工编号</label>
+                        <input id="add_bianhao" name="bianhao" type="text" class="form-control" autocomplete="off"  style="width:100%">
+                    </div>
+
                 </form>
             </div>
             <div class="border-top" style="padding: 15px;">
@@ -113,13 +140,45 @@
                     <div class="form-group">
                         <input id="id" name="id" type="hidden">
                     </div>
-                    <div class="form-group">
-                        <label for="update-type">分类</label>
+                    <!--<div class="form-group">
+                        <label for="update-type">公司</label>
                         <input id="update-type" name="type" type="text" class="form-control" autocomplete="off" readonly="readonly">
                     </div>
                     <div class="form-group">
                         <label for="update-label1">标签</label>
                         <input id="update-label1" name="label1" type="text" class="form-control" autocomplete="off" style="width:100%">
+                    </div>-->
+                    <div class="form-group">
+                        <label for="update-C">姓名</label>
+                        <input id="update-C" name="c" type="text" class="form-control" autocomplete="off" style="width:100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-D">账号</label>
+                        <input id="update-D" name="d" type="text" class="form-control" autocomplete="off" style="width:100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-E">密码</label>
+                        <input id="update-E" name="e" type="text" class="form-control" autocomplete="off" style="width:100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-zhuangtai">账号状态</label>
+<!--                        <input id="update-zhuangtai" name="zhuangtai" type="text" class="form-control" autocomplete="off" style="width:100%">-->
+                        <select id="update-zhuangtai" name="zhuangtai" class="form-control">
+                            <option value="正常">正常</option>
+                            <option value="锁死">锁死</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-email">邮箱</label>
+                        <input id="update-email" name="email" type="text" class="form-control" autocomplete="off" style="width:100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-phone">电话</label>
+                        <input id="update-phone" name="phone" type="text" class="form-control" autocomplete="off" style="width:100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-bianhao">员工编号</label>
+                        <input id="update-bianhao" name="bianhao" type="text" class="form-control" autocomplete="off" style="width:100%">
                     </div>
                 </form>
             </div>

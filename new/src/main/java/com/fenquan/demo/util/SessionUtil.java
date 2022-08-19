@@ -24,7 +24,7 @@ public class SessionUtil {
     public static boolean checkToken(HttpSession session) {
         Object token = session.getAttribute("token");
         Object power = session.getAttribute("power");
-        return StringUtils.isNotNull(token) && StringUtils.isNotNull(power);
+        return StringUtils.isNotNull(token);
         //return StringUtils.isNotNull(token);
     }
 
@@ -51,7 +51,8 @@ public class SessionUtil {
      * @return 获取data
      */
     public static String getToken(HttpSession session) {
-        return checkToken(session) ? session.getAttribute("token").toString() : StringUtils.EMPTY;
+//        return checkToken(session) ? session.getAttribute("token").toString() : StringUtils.EMPTY;
+        return StringUtils.cast(session.getAttribute("token"));
     }
 
 //    public static List<UserPower> getPower(HttpSession session){

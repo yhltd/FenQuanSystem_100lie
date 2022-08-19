@@ -779,6 +779,7 @@ $('tbody input').focus(function (){
 
     };
     console.log(arr2);
+
     $("#sav").click(function (){
         debugger;
         let tId;

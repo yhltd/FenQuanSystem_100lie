@@ -24,22 +24,48 @@ public class UserInfo {
     /**
      * 姓名
      */
-    private String C;
+    private String c;
 
     /**
      * 账号
      */
-    private String D;
+    private String d;
 
     /**
      * 密码
      */
-    private String E;
+    private String e;
+
+
+    /**
+     * 账号状态
+     */
+    private String zhuangtai;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 电话
+     */
+    private String phone;
+
+    /**
+     * 编号
+     */
+    private String bianhao;
 
     /**
      * 编号，用于关联人员权限规定
      */
     private String renyuanId;
+
+    /**
+     * 权限表id
+     */
+    private String quanxian_id;
 
 
 
