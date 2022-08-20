@@ -23,10 +23,6 @@ $(function () {
         getList();
     })
 
-    window.onresize = function(){
-        chart.resize();
-    }
-
 })
 
 function columnUpd(id,column){

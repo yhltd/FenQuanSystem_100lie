@@ -7,24 +7,8 @@ function getList() {
     }, false, '', function (res) {
         if (res.code == 200) {
             setTable(res.data);
-            $('#menuSettingsTable').colResizable({
-                liveDrag:true,
-                gripInnerHtml:"<div class='grip'></div>",
-                draggingClass:"dragging",
-                resizeMode:'fit'
-            });
-            $('#labelTable').bootstrapTable('hideColumn', 'renyuan_id');
-            $('#labelTable').bootstrapTable('hideColumn', 'b');
         }
     })
-}
-
-function guid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = Math.random() * 16 | 0,
-            v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
 }
 
 
@@ -51,20 +35,6 @@ $(function () {
         })
     })
 
-    // $("#select-btn2").click(function () {
-    //     var query=$('#query').val()
-    //     $ajax({
-    //         type: 'post',
-    //         url: '/user/preciseQueryList',
-    //         data:{
-    //             query:query
-    //         }
-    //     }, false, '', function (res) {
-    //         if (res.code == 200) {
-    //             setTable(res.data);
-    //         }
-    //     })
-    // })
 
     $("#refresh-btn").click(function () {
         getList();
@@ -297,20 +267,22 @@ function setTable(data) {
                 formatter: function (value, row, index) {
                     return index + 1;
                 }
-            }, {
-                field: 'b',
-                title: '公司',
-                align: 'center',
-                sortable: true,
-                width: 150,
-                formatter:function(value, row , index){
-                    if(value == null || value == ''){
-                        value = '-'
-                    }
-                    return "<div title='"+value+"'; style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100%;word-wrap:break-all;word-break:break-all;' href='javascript:edit(\""+row.id+"\",true)'>"+value+"</div>";
-                }
-
-            }, {
+            },
+            // {
+            //     field: 'b',
+            //     title: '公司',
+            //     align: 'center',
+            //     sortable: true,
+            //     width: 150,
+            //     formatter:function(value, row , index){
+            //         if(value == null || value == ''){
+            //             value = '-'
+            //         }
+            //         return "<div title='"+value+"'; style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100%;word-wrap:break-all;word-break:break-all;' href='javascript:edit(\""+row.id+"\",true)'>"+value+"</div>";
+            //     }
+            //
+            // },
+            {
                 field: 'c',
                 title: '姓名',
                 align: 'center',
@@ -346,9 +318,10 @@ function setTable(data) {
                     }
                     return "<div title='"+value+"'; style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100%;word-wrap:break-all;word-break:break-all;' href='javascript:edit(\""+row.id+"\",true)'>"+value+"</div>";
                 }
-            },{
-                field: 'renyuan_id',
-                title: '人员权限id关联',
+            }
+            ,{
+                field: 'bumen',
+                title: '部门',
                 align: 'center',
                 sortable: true,
                 width: 150,
@@ -358,7 +331,8 @@ function setTable(data) {
                     }
                     return "<div title='"+value+"'; style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100%;word-wrap:break-all;word-break:break-all;' href='javascript:edit(\""+row.id+"\",true)'>"+value+"</div>";
                 }
-            },{
+            }
+            ,{
                 field: 'zhuangtai',
                 title: '账号状态',
                 align: 'center',
@@ -396,7 +370,7 @@ function setTable(data) {
                 }
             },{
                 field: 'bianhao',
-                title: '编号',
+                title: '员工编号',
                 align: 'center',
                 sortable: true,
                 width: 150,

@@ -63,9 +63,14 @@ public class UserInfo {
     private String renyuanId;
 
     /**
+     * 部门
+     */
+    private String bumen;
+
+    /**
      * 权限表id
      */
-    private String quanxian_id;
+    private String quanxianId;
 
 
 
