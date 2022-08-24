@@ -46,4 +46,10 @@ public interface IDepartmentService {
      * @return 是否删除成功
      */
     boolean delete(List<Integer> idList);
+
+
+    /**
+     * 部门表查询
+     */
+    List<Department> querbumen(String company);
 }

@@ -38,6 +38,7 @@ public interface IUserInfoService {
      * 登录查询
      */
     List<UserInfo> queryC(String company);
+
     /**
      * 登录查询
      */

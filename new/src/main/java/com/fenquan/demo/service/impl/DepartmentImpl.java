@@ -39,4 +39,9 @@ public class DepartmentImpl extends ServiceImpl<DepartmentMapper, Department> im
     public boolean delete(List<Integer> idList) {
         return removeByIds(idList);
     }
+
+    @Override
+    public List<Department> querbumen(String company) {
+        return departmentMapper.querbumen(company);
+    }
 }

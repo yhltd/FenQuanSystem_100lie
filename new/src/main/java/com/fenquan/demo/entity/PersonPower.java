@@ -403,7 +403,7 @@ public class PersonPower {
     /**
      * BW权限
      */
-    private String BY;
+    private String BYY;
 
     /**
      * BX权限

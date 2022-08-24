@@ -11,11 +11,33 @@ function getList() {
     })
 }
 
+function querbumen() {
+    $ajax({
+        type: 'post',
+        url: '/user/querbumen',
+    }, false, '', function (res) {
+        if (res.code == 200) {
+            console.log(res.data)
+            var list = res.data
+            var xiala = ""
+            for(var i=0; i<list.length; i++){
+                if(list[i].departmentName != '' && list[i].departmentName != undefined){
+                    xiala = '<option value="' + list[i].departmentName + '">' + list[i].departmentName + '</option>'
+                }
+                $("#add_bumen").append(xiala);
+                $("#update-bumen").append(xiala);
+            }
+        }
+    })
+}
+
 
 
 $(function () {
     //刷新
     getList();
+
+    querbumen();
 
     $("#select-btn").click(function () {
         var query=$('#query').val()

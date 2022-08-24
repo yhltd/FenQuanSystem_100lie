@@ -1,9 +1,13 @@
 
 package com.fenquan.demo.util;
 
+import com.fenquan.demo.entity.CompanyPower;
+import com.fenquan.demo.entity.Department;
+import com.fenquan.demo.entity.PersonPower;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Session工具类
@@ -39,11 +43,23 @@ public class SessionUtil {
         session.setAttribute("token", data);
     }
 
-//    public static void setPower(HttpSession session, List<UserPower> userPower){
-//        //设置session过期时间
-//        session.setMaxInactiveInterval(MAX_INTERVAL);
-//        session.setAttribute("power", userPower);
-//    }
+    public static void setPower(HttpSession session, List<Department> userPower){
+        //设置session过期时间
+        session.setMaxInactiveInterval(MAX_INTERVAL);
+        session.setAttribute("power", userPower);
+    }
+
+    public static void setGongSiPower(HttpSession session, List<CompanyPower> companyPower){
+        //设置session过期时间
+        session.setMaxInactiveInterval(MAX_INTERVAL);
+        session.setAttribute("companyPower", companyPower);
+    }
+
+    public static void setRenYuanPower(HttpSession session, List<PersonPower> personPower){
+        //设置session过期时间
+        session.setMaxInactiveInterval(MAX_INTERVAL);
+        session.setAttribute("personPower", personPower);
+    }
 
     /**
      * get
@@ -55,9 +71,17 @@ public class SessionUtil {
         return StringUtils.cast(session.getAttribute("token"));
     }
 
-//    public static List<UserPower> getPower(HttpSession session){
-//        return StringUtils.cast(session.getAttribute("power"));
-//    }
+    public static List<Department> getPower(HttpSession session){
+        return StringUtils.cast(session.getAttribute("power"));
+    }
+
+    public static List<CompanyPower> getGongSiPower(HttpSession session){
+        return StringUtils.cast(session.getAttribute("companyPower"));
+    }
+
+    public static List<PersonPower> getRenYuanPower(HttpSession session){
+        return StringUtils.cast(session.getAttribute("personPower"));
+    }
 
     /**
      * 删除某个键

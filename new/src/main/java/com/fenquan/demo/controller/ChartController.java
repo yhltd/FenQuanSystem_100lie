@@ -21,6 +21,10 @@ public class ChartController {
 
     @RequestMapping("/getGongSiList")
     public ResultInfo getGongSiList(HttpSession session) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("公司数据分析")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             String token = SessionUtil.getToken(session);
             String[] token_list = token.split(",");
@@ -37,6 +41,10 @@ public class ChartController {
 
     @RequestMapping("/queryGongSiList")
     public ResultInfo queryGongSiList(HttpSession session,String start_date,String stop_date) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("公司数据分析")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             String token = SessionUtil.getToken(session);
             String[] token_list = token.split(",");
@@ -53,6 +61,10 @@ public class ChartController {
 
     @RequestMapping("/queryRenYuanList")
     public ResultInfo queryRenYuanList(HttpSession session,String name,String start_date,String stop_date) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("人员数据分析")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             String token = SessionUtil.getToken(session);
             String[] token_list = token.split(",");

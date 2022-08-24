@@ -7,8 +7,9 @@ import lombok.Data;
 
 
 @Data
-@TableName("baitaoquanxian_gongsi")
-public class CompanyPower {
+@TableName("baitaoquanxian")
+public class WorkBench {
+
     /**
      * id自增列
      */
@@ -16,507 +17,523 @@ public class CompanyPower {
     private Integer id;
 
     /**
+     * 人员
+     */
+    private String 人员;
+
+    /**
      * 公司
+     */
+    private String 公司;
+
+    /**
+     * 日期
+     */
+    private String 日期;
+
+    /**
+     * 最后修改日期
+     */
+    private String a最后修改日期;
+
+    /**
+     * A列
+     */
+    private String A;
+
+    /**
+     * B列
      */
     private String B;
 
     /**
-     * A权限
+     * C列
      */
     private String C;
 
     /**
-     * B权限
+     * D列
      */
     private String D;
 
     /**
-     * C权限
+     * E列
      */
     private String E;
 
     /**
-     * D权限
+     * F列
      */
     private String F;
 
     /**
-     * E权限
+     * G列
      */
     private String G;
 
     /**
-     * F权限
+     * H列
      */
     private String H;
 
     /**
-     * G权限
+     * I列
      */
     private String I;
 
     /**
-     * H权限
+     * J列
      */
     private String J;
 
     /**
-     * I权限
+     * K列
      */
     private String K;
 
     /**
-     * J权限
+     * L列
      */
     private String L;
 
     /**
-     * K权限
+     * M列
      */
     private String M;
 
     /**
-     * L权限
+     * N列
      */
     private String N;
 
     /**
-     * M权限
+     * O列
      */
     private String O;
 
     /**
-     * N权限
+     * P列
      */
     private String P;
 
     /**
-     * O权限
+     * Q列
      */
     private String Q;
 
     /**
-     * P权限
+     * R列
      */
     private String R;
 
     /**
-     * Q权限
+     * S列
      */
     private String S;
 
     /**
-     * R权限
+     * T列
      */
     private String T;
 
     /**
-     * S权限
+     * U列
      */
     private String U;
 
     /**
-     * T权限
+     * V列
      */
     private String V;
 
     /**
-     * U权限
+     * W列
      */
     private String W;
 
     /**
-     * V权限
+     * X列
      */
     private String X;
 
     /**
-     * W权限
+     * Y列
      */
     private String Y;
 
     /**
-     * X权限
+     * Z列
      */
     private String Z;
 
     /**
-     * Y权限
+     * AA列
      */
     private String AA;
 
     /**
-     * Z权限
+     * AB列
      */
     private String AB;
 
     /**
-     * AA权限
+     * AC列
      */
     private String AC;
 
     /**
-     * AB权限
+     * AD列
      */
     private String AD;
 
     /**
-     * AC权限
+     * AE列
      */
     private String AE;
 
     /**
-     * AD权限
+     * AF列
      */
     private String AF;
 
     /**
-     * AE权限
+     * AG列
      */
     private String AG;
 
     /**
-     * AF权限
+     * AH列
      */
     private String AH;
 
     /**
-     * AG权限
+     * AI列
      */
     private String AI;
 
     /**
-     * AH权限
+     * AJ列
      */
     private String AJ;
 
     /**
-     * AI权限
+     * AK列
      */
     private String AK;
 
     /**
-     * AJ权限
+     * AL列
      */
     private String AL;
 
     /**
-     * AK权限
+     * AM列
      */
     private String AM;
 
     /**
-     * AL权限
+     * AN列
      */
     private String AN;
 
     /**
-     * AM权限
+     * AO列
      */
     private String AO;
 
     /**
-     * AN权限
+     * AP列
      */
     private String AP;
 
     /**
-     * AO权限
+     * AQ列
      */
     private String AQ;
 
     /**
-     * AP权限
+     * AR列
      */
     private String AR;
 
     /**
-     * AQ权限
+     * AS列
      */
     private String ASS;
 
     /**
-     * AR权限
+     * AT列
      */
     private String AT;
 
     /**
-     * AS权限
+     * AU列
      */
     private String AU;
 
     /**
-     * AT权限
+     * AV列
      */
     private String AV;
 
     /**
-     * AU权限
+     * AW列
      */
     private String AW;
 
     /**
-     * AV权限
+     * AX列
      */
     private String AX;
 
     /**
-     * AW权限
+     * AY列
      */
     private String AY;
 
     /**
-     * AX权限
+     * AZ列
      */
     private String AZ;
 
     /**
-     * AY权限
+     * BA列
      */
     private String BA;
 
     /**
-     * AZ权限
+     * BB列
      */
     private String BB;
 
     /**
-     * BA权限
+     * BC列
      */
     private String BC;
 
     /**
-     * BB权限
+     * BD列
      */
     private String BD;
 
     /**
-     * BC权限
+     * BE列
      */
     private String BE;
 
     /**
-     * BD权限
+     * BF列
      */
     private String BF;
 
     /**
-     * BE权限
+     * BG列
      */
     private String BG;
 
     /**
-     * BF权限
+     * BH列
      */
     private String BH;
 
     /**
-     * BG权限
+     * BI列
      */
     private String BI;
 
     /**
-     * BH权限
+     * BJ列
      */
     private String BJ;
 
     /**
-     * BI权限
+     * BK列
      */
     private String BK;
 
     /**
-     * BJ权限
+     * BL列
      */
     private String BL;
 
     /**
-     * BK权限
+     * BM列
      */
     private String BM;
 
     /**
-     * BL权限
+     * BN列
      */
     private String BN;
 
     /**
-     * BM权限
+     * BO列
      */
     private String BO;
 
     /**
-     * BN权限
+     * BP列
      */
     private String BP;
 
     /**
-     * BO权限
+     * BQ列
      */
     private String BQ;
 
     /**
-     * BP权限
+     * BR列
      */
     private String BR;
 
     /**
-     * BQ权限
+     * BS列
      */
     private String BS;
 
     /**
-     * BR权限
+     * BT列
      */
     private String BT;
 
     /**
-     * BS权限
+     * BU列
      */
     private String BU;
 
     /**
-     * BT权限
+     * BV列
      */
     private String BV;
 
     /**
-     * BU权限
+     * BW列
      */
     private String BW;
 
     /**
-     * BV权限
+     * BX列
      */
     private String BX;
 
     /**
-     * BW权限
+     * BY列
      */
     private String BYY;
 
     /**
-     * BX权限
+     * BZ列
      */
     private String BZ;
 
     /**
-     * BY权限
+     * CA列
      */
     private String CA;
 
     /**
-     * BZ权限
+     * CB列
      */
     private String CB;
 
     /**
-     * CA权限
+     * CC列
      */
     private String CC;
 
     /**
-     * CB权限
+     * CD列
      */
     private String CD;
 
     /**
-     * CC权限
+     * CE列
      */
     private String CE;
 
     /**
-     * CD权限
+     * CF列
      */
     private String CF;
 
     /**
-     * CE权限
+     * CG列
      */
     private String CG;
 
     /**
-     * CF权限
+     * CH列
      */
     private String CH;
 
     /**
-     * CG权限
+     * CI列
      */
     private String CI;
 
     /**
-     * CH权限
+     * CJ列
      */
     private String CJ;
 
     /**
-     * CI权限
+     * CK列
      */
     private String CK;
 
     /**
-     * CJ权限
+     * CL列
      */
     private String CL;
 
     /**
-     * CK权限
+     * CM列
      */
     private String CM;
 
     /**
-     * CL权限
+     * CN列
      */
     private String CN;
 
     /**
-     * CM权限
+     * CO列
      */
     private String CO;
 
     /**
-     * CN权限
+     * CP列
      */
     private String CP;
 
     /**
-     * CO权限
+     * CQ列
      */
     private String CQ;
 
     /**
-     * CP权限
+     * CR列
      */
     private String CR;
 
     /**
-     * CQ权限
+     * CS列
      */
     private String CS;
 
     /**
-     * CR权限
+     * CT列
      */
     private String CT;
 
     /**
-     * CS权限
+     * CU列
      */
     private String CU;
 
     /**
-     * CT权限
+     * CV列
      */
     private String CV;
 
-    /**
-     * CU权限
-     */
-    private String CW;
-
-    /**
-     * CV权限
-     */
-    private String CX;
 }

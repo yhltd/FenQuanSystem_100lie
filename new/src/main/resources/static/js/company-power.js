@@ -4,11 +4,16 @@ function getList() {
         url: '/company_power/getList',
     }, false, '', function (res) {
         if (res.code == 200) {
-            console.log(res.data)
-            setTable1(res.data);
-            setTable2(res.data);
-            setTable3(res.data);
-            setTable4(res.data);
+            if(res.msg == '无权限'){
+                alert('无权限');
+            }else{
+                console.log(res.data)
+                setTable1(res.data);
+                setTable2(res.data);
+                setTable3(res.data);
+                setTable4(res.data);
+            }
+
         }
     })
 }
@@ -41,6 +46,8 @@ function columnUpd(id,column){
             var obj = ""
             if(res.msg == '修改成功'){
                 obj = document.getElementById("upd_1");
+            }else if(res.msg == '无权限'){
+                obj = document.getElementById("upd_3");
             }else{
                 obj = document.getElementById("upd_2");
             }

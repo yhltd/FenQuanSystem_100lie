@@ -21,6 +21,10 @@ public class PersonPowerController {
 
     @RequestMapping("/getList")
     public ResultInfo getList(HttpSession session) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("人员权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             String token = SessionUtil.getToken(session);
             String[] token_list = token.split(",");
@@ -37,6 +41,10 @@ public class PersonPowerController {
 
     @RequestMapping("/queryList")
     public ResultInfo queryList(HttpSession session,String query) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("人员权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             String token = SessionUtil.getToken(session);
             String[] token_list = token.split(",");
@@ -54,6 +62,10 @@ public class PersonPowerController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(HttpSession session,String column,int id,String this_value) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isUpdate("人员权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             if (iPersonPowerService.update(column,id,this_value)) {
                 return ResultInfo.success("修改成功",column);

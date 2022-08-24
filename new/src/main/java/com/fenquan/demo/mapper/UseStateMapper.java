@@ -17,4 +17,7 @@ public interface UseStateMapper extends BaseMapper<UseState> {
 
     @Update("update baitaoquanxian_copy2 set ${column} = '' where id=#{id}")
     boolean update(String column,int id);
+
+    @Update("update baitaoquanxian_copy2 set ${column} = #{name} where 公司=#{company}")
+    boolean updateName(String column,String company,String name);
 }

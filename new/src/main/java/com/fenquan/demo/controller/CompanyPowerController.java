@@ -20,6 +20,10 @@ public class CompanyPowerController {
 
     @RequestMapping("/getList")
     public ResultInfo queryList(HttpSession session) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("工作台权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             String token = SessionUtil.getToken(session);
             String[] token_list = token.split(",");
@@ -37,6 +41,10 @@ public class CompanyPowerController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(HttpSession session,String column,int id,String this_value) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isUpdate("工作台权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             if (iCompanyPowerService.update(column,id,this_value)) {
                 return ResultInfo.success("修改成功",column);

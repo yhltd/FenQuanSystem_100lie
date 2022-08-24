@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>人员管理</title>
+    <title>工作台</title>
     <script type="text/javascript" src="../js/Jquery.js"></script>
     <script type="text/javascript" src="../js/jquerysession.js"></script>
 
@@ -24,15 +24,21 @@
     <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap-tagsinput.css">
 
     <script type="text/javascript" src="../js/main.js"></script>
-    <script type="text/javascript" src="../js/department.js"></script>
+    <script type="text/javascript" src="../js/workbench.js"></script>
 </head>
 
 <body class="pt-2">
 <div class="top-toolbar row">
-    <div class="col-md-3 mb-2">
+    <div class="col-md-2 mb-2">
+        <select id="this_column" type="text" class="form-control">
+            <option value="日期" selected="selected">添加日期</option>
+            <option value="a最后修改日期">最后修改日期</option>
+        </select>
+    </div>
+    <div class="col-md-2 mb-2">
         <input id="start_date" type="date" class="form-control" placeholder="开始日期" autocomplete="off">
     </div>
-    <div class="col-md-3 mb-2">
+    <div class="col-md-2 mb-2">
         <input id="stop_date" type="date" class="form-control" placeholder="结束日期" autocomplete="off">
     </div>
     <div class="col-md-2 mb-2">
@@ -57,8 +63,18 @@
             <i class="bi bi-trash icon"></i>
             删除
         </button>
-        <a id="biaoqian" class="btn btn-primary" style="color: white;padding-top: 8px">当前页：人员管理</a>
+        <a id="biaoqian" class="btn btn-primary" style="color: white;padding-top: 8px">当前页：工作台</a>
     </div>
+</div>
+
+<div id="upd_1" class="alert alert-success alert-dismissible" hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+    <strong>保存成功!</strong>
+</div>
+<div id="upd_2" class="alert alert-danger alert-dismissible"  hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+    <strong>保存失败!</strong>
+</div>
+<div id="upd_3" class="alert alert-danger alert-dismissible"  hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+    <strong>无权限!</strong>
 </div>
 
 <div class="table-div border-top">

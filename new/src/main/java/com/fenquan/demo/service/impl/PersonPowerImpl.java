@@ -28,4 +28,7 @@ public class PersonPowerImpl extends ServiceImpl<PersonPowerMapper, PersonPower>
     public boolean update(String column,int id,String this_value) {
         return personPowerMapper.update(column,id,this_value);
     }
+
+    @Override
+    public boolean deletecopy(List<Integer> quanxianList) {return removeByIds(quanxianList);}
 }

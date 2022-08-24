@@ -155,7 +155,7 @@ function setTable(data) {
         classes: 'table table-hover table table-bordered',
         idField: 'id',
         pagination: true,
-        pageSize : 15,//单页记录数
+        pageSize : 20,//单页记录数
         clickToSelect: true,
         locale: 'zh-CN',
         toolbar: '#table-toolbar',

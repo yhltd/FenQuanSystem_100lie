@@ -1,7 +1,13 @@
 package com.fenquan.demo.service.impl;
 
 
+import com.fenquan.demo.entity.CompanyPower;
+import com.fenquan.demo.entity.Department;
+import com.fenquan.demo.entity.PersonPower;
 import com.fenquan.demo.entity.UserInfo;
+import com.fenquan.demo.mapper.CompanyPowerMapper;
+import com.fenquan.demo.mapper.DepartmentMapper;
+import com.fenquan.demo.mapper.PersonPowerMapper;
 import com.fenquan.demo.mapper.UserInfoMapper;
 import com.fenquan.demo.service.IUserInfoService;
 
@@ -20,6 +26,15 @@ import java.util.Map;
 public class UserInfoImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements IUserInfoService {
     @Autowired
     UserInfoMapper userInfoMapper;
+
+    @Autowired
+    DepartmentMapper departmentMapper;
+
+    @Autowired
+    CompanyPowerMapper companyPowerMapper;
+
+    @Autowired
+    PersonPowerMapper personPowerMapper;
 
     @Override
     public List<UserInfo> get_select_List() {
@@ -41,15 +56,23 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper, UserInfo> implemen
         queryWrapper.eq("D", username);
         //密码
         queryWrapper.eq("E", password);
+        //状态
+        queryWrapper.eq("zhuangtai", "正常");
         //获取User
         UserInfo userInfo = this.getOne(queryWrapper);
         //如果不为空
         String data = StringUtils.EMPTY;
         if (StringUtils.isNotNull(userInfo)) {
             //转JSON
+            List<Department> powerList = departmentMapper.queryList(userInfo.getB(),userInfo.getBumen());
+            List<CompanyPower> companyPowerList = companyPowerMapper.getList(userInfo.getB());
+            List<PersonPower> personPowerList = personPowerMapper.getListById(userInfo.getRenyuanId());
             data = GsonUtil.toJson(userInfo);
             Map<String, Object> map = new HashMap<>();
             map.put("token", data);
+            map.put("power",powerList);
+            map.put("companyPower",companyPowerList);
+            map.put("personPower",personPowerList);
             return map;
         }
         return null;
@@ -84,7 +107,5 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper, UserInfo> implemen
 
     @Override
     public boolean deletecopy(List<Integer> renyuanid) {return removeByIds(renyuanid);}
-
-
 
 }

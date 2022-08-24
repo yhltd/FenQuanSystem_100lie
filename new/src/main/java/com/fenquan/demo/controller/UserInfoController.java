@@ -1,6 +1,9 @@
 package com.fenquan.demo.controller;
 
+import com.fenquan.demo.entity.Department;
 import com.fenquan.demo.entity.UserInfo;
+import com.fenquan.demo.service.IDepartmentService;
+import com.fenquan.demo.service.IPersonPowerService;
 import com.fenquan.demo.service.IUserInfoService;
 import com.fenquan.demo.util.*;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +25,13 @@ public class UserInfoController{
     @Autowired
     IUserInfoService iUserInfoService;
 
+    @Autowired
+    IPersonPowerService iPersonPowerService;
 
+    @Autowired
+    IDepartmentService iDepartmentService;
+
+    //登录页面公司下拉查询
     @RequestMapping("/get_select_List")
     public ResultInfo queryList() {
         try {
@@ -35,6 +44,7 @@ public class UserInfoController{
         }
     }
 
+    //查询人员下拉列表
     @RequestMapping("/get_renyuan_List")
     public ResultInfo get_renyuan_List(HttpSession session) {
         try {
@@ -51,6 +61,8 @@ public class UserInfoController{
         }
     }
 
+
+    //登录
     @RequestMapping("/login")
     public ResultInfo login(HttpSession session, String username, String password, String company) {
         try {
@@ -60,9 +72,12 @@ public class UserInfoController{
             //为Null则查询不到
             if (StringUtils.isEmpty(map)) {
                 SessionUtil.remove(session, "token");
-                return ResultInfo.error(-1, "用户名密码错误");
+                return ResultInfo.error(-1, "用户名密码错误或账号被锁定");
             } else {
                 SessionUtil.setToken(session, map.get("token").toString());
+                SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+                SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+                SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
                 String token = SessionUtil.getToken(session);
                 String[] token_list = token.split(",");
                 token_list = token_list[1].split("\"");
@@ -78,10 +93,14 @@ public class UserInfoController{
     }
 
     /*
-     *登录查询
+     *人员信息页面刷新
      * */
     @RequestMapping("/queryC")
     public ResultInfo queryC(HttpSession session){
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("人员管理")) {
+            return ResultInfo.error(401, "无权限");
+        }
         String token = SessionUtil.getToken(session);
         String[] token_list = token.split(",");
         token_list = token_list[1].split("\"");
@@ -96,10 +115,14 @@ public class UserInfoController{
     }
 
     /*
-     *查询
+     *人员信息页面条件查询
      * */
     @RequestMapping("/queryC_Inquire")
     public ResultInfo queryC_Inquire(HttpSession session,String query){
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("人员管理")) {
+            return ResultInfo.error(401, "无权限");
+        }
         String token = SessionUtil.getToken(session);
         String[] token_list = token.split(",");
         token_list = token_list[1].split("\"");
@@ -119,6 +142,10 @@ public class UserInfoController{
      * */
     @RequestMapping("/add")
     public ResultInfo add(String add_C,String add_D,String add_E,String add_zhuangtai,String add_email,String add_phone,String add_bianhao ,HttpSession session){
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isAdd("人员管理")) {
+            return ResultInfo.error(401, "无权限");
+        }
         Random ran = new Random(System.currentTimeMillis());
         ran.nextLong();
         String token = SessionUtil.getToken(session);
@@ -158,6 +185,10 @@ public class UserInfoController{
      * */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(@RequestBody String menuSettingsJson ,HttpSession session){
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isUpdate("人员管理")) {
+            return ResultInfo.error(401, "无权限");
+        }
         UserInfo userInfo = null;
         try{
             userInfo = DecodeUtil.decodeToJson(menuSettingsJson, UserInfo.class);
@@ -182,8 +213,9 @@ public class UserInfoController{
         GsonUtil gsonUtil = new GsonUtil(GsonUtil.toJson(map));
         List<Integer> idList = GsonUtil.toList(gsonUtil.get("idList"), Integer.class);
         List<Integer> quanxianList = GsonUtil.toList(gsonUtil.get("quanxianList"), Integer.class);
+
         try{
-            if (iUserInfoService.delete(idList) && iUserInfoService.deletecopy(quanxianList)) {
+            if (iUserInfoService.delete(idList) && iPersonPowerService.deletecopy(quanxianList)) {
                 return ResultInfo.success("删除成功", idList);
             } else {
                 return ResultInfo.success("删除失败", idList);
@@ -192,6 +224,24 @@ public class UserInfoController{
             e.printStackTrace();
             log.error("删除失败：{}", e.getMessage());
             return ResultInfo.error("删除失败");
+        }
+    }
+
+    /*
+     *列表部门查询
+     * */
+    @RequestMapping("/querbumen")
+    public ResultInfo querbumen(HttpSession session){
+        String token = SessionUtil.getToken(session);
+        String[] token_list = token.split(",");
+        token_list = token_list[1].split("\"");
+        String login_company = token_list[3];
+        try {
+            List<Department> querbumen=iDepartmentService.querbumen(login_company);
+            return ResultInfo.success("查询成功!",querbumen);
+        }catch (Exception e){
+            log.error("查询失败：{}",e.getMessage());
+            return ResultInfo.error("错误!");
         }
     }
 

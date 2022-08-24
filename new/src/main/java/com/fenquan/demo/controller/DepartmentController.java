@@ -21,6 +21,10 @@ public class DepartmentController {
 
     @RequestMapping("/getList")
     public ResultInfo getList(HttpSession session) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("部门权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             String token = SessionUtil.getToken(session);
             String[] token_list = token.split(",");
@@ -37,6 +41,10 @@ public class DepartmentController {
 
     @RequestMapping("/queryList")
     public ResultInfo queryList(HttpSession session,String department) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("部门权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         try {
             String token = SessionUtil.getToken(session);
             String[] token_list = token.split(",");
@@ -59,6 +67,10 @@ public class DepartmentController {
      */
     @RequestMapping("/add")
     public ResultInfo add(@RequestBody HashMap map, HttpSession session) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isAdd("部门权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         GsonUtil gsonUtil = new GsonUtil(GsonUtil.toJson(map));
         try {
             Department department = GsonUtil.toEntity(gsonUtil.get("addUserInfo"), Department.class);
@@ -90,6 +102,10 @@ public class DepartmentController {
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(@RequestBody String menuSettingsJson,HttpSession session) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isUpdate("部门权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         Department department = null;
         try {
             department = DecodeUtil.decodeToJson(menuSettingsJson, Department.class);
@@ -114,6 +130,10 @@ public class DepartmentController {
      */
     @RequestMapping("/delete")
     public ResultInfo delete(@RequestBody HashMap map,HttpSession session) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isDelete("部门权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
         GsonUtil gsonUtil = new GsonUtil(GsonUtil.toJson(map));
         List<Integer> idList = GsonUtil.toList(gsonUtil.get("idList"), Integer.class);
         try {

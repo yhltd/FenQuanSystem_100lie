@@ -14,6 +14,9 @@ public interface PersonPowerMapper extends BaseMapper<PersonPower> {
     @Select("select * from baitaoquanxian_copy1 where quanxian=#{company}")
     List<PersonPower> getList(String company);
 
+    @Select("select * from baitaoquanxian_copy1 where renyuan_id=#{id}")
+    List<PersonPower> getListById(String id);
+
     @Select("select * from baitaoquanxian_copy1 where quanxian=#{company} and B like '%'+#{query}+'%'")
     List<PersonPower> queryList(String company,String query);
 

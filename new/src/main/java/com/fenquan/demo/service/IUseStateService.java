@@ -22,4 +22,9 @@ public interface IUseStateService {
      */
     boolean update(String column,int id);
 
+    /**
+     * 占用
+     */
+    boolean updateName(String column,String company,String name);
+
 }

@@ -29,4 +29,12 @@ public interface IPersonPowerService {
      */
     boolean update(String column,int id,String this_value);
 
+    /**
+     * 删除
+     *
+     * @param quanxianList 根据id集合删除
+     * @return 是否删除成功
+     */
+    boolean deletecopy(List<Integer> quanxianList);
+
 }
