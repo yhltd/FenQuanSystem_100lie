@@ -15,6 +15,8 @@ function getList() {
 
 
 
+
+
 $(function () {
 
     //刷新
@@ -24,7 +26,30 @@ $(function () {
     $("#refresh-btn").click(function () {
         getList();
     })
-    
+
+    $("#relieve_limit").click(function (){
+        if (confirm("确认解除所有列的占用状态吗?")){
+            $ajax({
+                type: 'post',
+                url: '/use_state/update_all',
+            }, false, '', function (res) {
+                if (res.code == 200) {
+                    var obj = ""
+                    if(res.msg == '修改成功'){
+                        obj = document.getElementById("upd_1");
+                    }else{
+                        obj = document.getElementById("upd_2");
+                    }
+                    obj.hidden = false
+                    setTimeout(function(){
+                        obj.hidden = true
+                    },3000);
+                    getList();
+                }
+            })
+        }
+    })
+
 
 })
 

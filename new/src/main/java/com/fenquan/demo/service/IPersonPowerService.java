@@ -22,6 +22,13 @@ public interface IPersonPowerService {
      *
      * @return 信息集合
      */
+    List<PersonPower> get_divide(String company, String chashanquanxian);
+
+    /**
+     * 查询人员权限
+     *
+     * @return 信息集合
+     */
     List<PersonPower> queryList(String company,String query);
 
     /**
@@ -29,12 +36,19 @@ public interface IPersonPowerService {
      */
     boolean update(String column,int id,String this_value);
 
+//    /**
+//     * 删除
+//     *
+//     * @param quanxianList 根据id集合删除
+//     * @return 是否删除成功
+//     */
+//    boolean deletecopy(List<Integer> quanxianList);
+
     /**
      * 删除
      *
-     * @param quanxianList 根据id集合删除
+     * @param idList 根据id集合删除
      * @return 是否删除成功
      */
-    boolean deletecopy(List<Integer> quanxianList);
-
+    boolean delete(String renyuan_id);
 }

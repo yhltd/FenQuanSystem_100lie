@@ -81,6 +81,7 @@ $(function () {
         var add_email = $('#add_email').val();
         var add_phone = $('#add_phone').val();
         var add_bianhao = $('#add_bianhao').val();
+        var add_bumen = $('#add_bumen').val();
         if(add_C==""||add_D==""||add_E==""||add_zhuangtai==""){
             alert("姓名,账号，密码，账号状态都不能为空");
         }else{
@@ -95,6 +96,7 @@ $(function () {
                     add_email:add_email,
                     add_phone:add_phone,
                     add_bianhao:add_bianhao,
+                    add_bumen:add_bumen,
                 },
             }, false, '', function (res) {
                 alert(res.msg)
@@ -200,23 +202,19 @@ $(function () {
                 alert('请选择要删除的数据！')
                 return;
             }
-            let idList = [];
-            let quanxianList = [];
+            let renyuan_id = ""
             $.each(rows, function (index, row) {
-                idList.push(row.data.id)
-                quanxianList.push(row.data.quanxianId)
+                renyuan_id = row.data.renyuanId
             })
+
             $ajax({
                 type: 'post',
                 url: '/user/delete',
-                data: JSON.stringify({
-                    idList: idList,
-                    quanxianList: quanxianList,
-                }),
-                dataType: 'json',
-                contentType: 'application/json;charset=utf-8'
+                data: {
+                    renyuan_id: renyuan_id,
+                }
             }, false, '', function (res) {
-                alert(res.msg);
+                alert(res.msg)
                 if (res.code == 200) {
                     getList();
                 }
@@ -267,7 +265,7 @@ function setTable(data) {
     if ($('#labelTable').html != '') {
         $('#labelTable').bootstrapTable('load', data);
     }
-
+    var count = 0;
     $('#labelTable').bootstrapTable({
         data: data,
         sortStable: true,
@@ -404,6 +402,7 @@ function setTable(data) {
                 }
             }
         ],
+
         onClickRow: function (row, el) {
             let isSelect = $(el).hasClass('selected')
             if (isSelect) {
@@ -411,6 +410,16 @@ function setTable(data) {
             } else {
                 $(el).addClass('selected')
             }
+            // count += 1;
+            // if (count <= 1 ) {
+            //     $(el).addClass('selected')
+            //
+            // }else{
+            //     $(el).removeClass('selected')
+            // }
+            // window.setInterval(function(){count = 0;},1000);
         }
+
     })
+
 }

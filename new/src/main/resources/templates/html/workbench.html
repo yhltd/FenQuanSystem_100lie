@@ -65,6 +65,11 @@
         </button>
         <a id="biaoqian" class="btn btn-primary" style="color: white;padding-top: 8px">当前页：工作台</a>
     </div>
+    <button id="one_click_export" class="btn btn-primary" style="margin-left: 50px">
+        <i class="  icon"></i>
+        一键导出
+    </button>
+
 </div>
 
 <div id="upd_1" class="alert alert-success alert-dismissible" hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
@@ -103,6 +108,40 @@
         </div>
     </div>
 </div>
+
+
+<!--    查询公式信息窗体-->
+<div id="show-gongshi-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg" style="max-width: 1200px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">公式信息</div>
+            </div>
+            <div class="modal-body">
+                <table id="show-table-gongshi"></table>
+            </div>
+            <div class="border-top" style="padding: 15px;">
+                <button id="gongshi-submit-btn" type="button" class="btn btn-primary">
+                    <i class="bi bi-plus-square icon"></i>
+                    新增
+                </button>
+                <button id="gongshi-update-btn" type="button" class="btn btn-primary">
+                    <i class="bi bi-plus-square icon"></i>
+                    修改
+                </button>
+                <button id="gongshi-delete-btn" type="button" class="btn btn-primary">
+                    <i class="bi bi-trash icon"></i>
+                    删除
+                </button>
+                <button id="gongshi-close-btn" type="button" class="btn btn-primary left-margin">
+                    <i class="bi bi-x-circle icon"></i>
+                    关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>

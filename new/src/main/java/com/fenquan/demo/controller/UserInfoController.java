@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -141,13 +143,15 @@ public class UserInfoController{
      *添加
      * */
     @RequestMapping("/add")
-    public ResultInfo add(String add_C,String add_D,String add_E,String add_zhuangtai,String add_email,String add_phone,String add_bianhao ,HttpSession session){
+    public ResultInfo add(String add_C,String add_D,String add_E,String add_zhuangtai,String add_email,String add_phone,String add_bianhao,String add_bumen,String chashanquanxian ,HttpSession session){
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isAdd("人员管理")) {
             return ResultInfo.error(401, "无权限");
         }
-        Random ran = new Random(System.currentTimeMillis());
-        ran.nextLong();
+//        Random ran = new Random(System.currentTimeMillis());
+//        ran.nextLong();
+        DateTimeFormatter fmt= DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
+        String newsNo= LocalDateTime.now().format(fmt);
         String token = SessionUtil.getToken(session);
         String[] token_list = token.split(",");
         token_list = token_list[1].split("\"");
@@ -158,14 +162,16 @@ public class UserInfoController{
             iuser.setC(add_C);
             iuser.setD(add_D);
             iuser.setE(add_E);
-            iuser.setRenyuanId(ran.toString());
+            iuser.setRenyuanId(newsNo);
             iuser.setZhuangtai(add_zhuangtai);
             iuser.setBianhao(add_bianhao);
             iuser.setEmail(add_email);
             iuser.setPhone(add_phone);
+            iuser.setBumen(add_bumen);
+            String a= "查询";
+            String b= "修改";
             iuser = iUserInfoService.add(iuser);
-
-            if (StringUtils.isNotNull(iuser) && iUserInfoService.addcopy(login_company,add_C,ran.toString())) {
+            if (StringUtils.isNotNull(iuser) && iUserInfoService.addcopy(login_company,add_C,newsNo,a)&& iUserInfoService.addcopy(login_company,add_C,newsNo,b)) {
                 return ResultInfo.success("添加成功", iuser);
             } else {
                 return ResultInfo.success("添加失败", null);
@@ -209,16 +215,15 @@ public class UserInfoController{
      *删除
      * */
     @RequestMapping("/delete")
-    public ResultInfo delete(@RequestBody HashMap map , HttpSession session){
-        GsonUtil gsonUtil = new GsonUtil(GsonUtil.toJson(map));
-        List<Integer> idList = GsonUtil.toList(gsonUtil.get("idList"), Integer.class);
-        List<Integer> quanxianList = GsonUtil.toList(gsonUtil.get("quanxianList"), Integer.class);
-
+    public ResultInfo delete(HttpSession session,String renyuan_id){
+//        GsonUtil gsonUtil = new GsonUtil(GsonUtil.toJson(map));
+       //List<Integer> renyuan_id = GsonUtil.toList(gsonUtil.get("renyuan_id"), Integer.class);
+//        List<Integer> quanxianList = GsonUtil.toList(gsonUtil.get("quanxianList"), Integer.class);
         try{
-            if (iUserInfoService.delete(idList) && iPersonPowerService.deletecopy(quanxianList)) {
-                return ResultInfo.success("删除成功", idList);
+            if (iUserInfoService.delete(renyuan_id) && iUserInfoService.deletecopy(renyuan_id)) {
+                return ResultInfo.success("删除成功", renyuan_id);
             } else {
-                return ResultInfo.success("删除失败", idList);
+                return ResultInfo.success("删除失败", renyuan_id);
             }
         }catch (Exception e){
             e.printStackTrace();

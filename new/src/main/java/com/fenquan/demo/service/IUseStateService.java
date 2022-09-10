@@ -23,6 +23,11 @@ public interface IUseStateService {
     boolean update(String column,int id);
 
     /**
+     * 解除所有占用
+     */
+    boolean update_all(String company);
+
+    /**
      * 占用
      */
     boolean updateName(String column,String company,String name);

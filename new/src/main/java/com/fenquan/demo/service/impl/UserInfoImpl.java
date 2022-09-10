@@ -90,8 +90,8 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper, UserInfo> implemen
     public UserInfo add(UserInfo userInfo) {return this.save(userInfo) ? userInfo : null;}
 
     @Override
-    public boolean addcopy(String company, String B,String renyuan_id) {
-        return userInfoMapper.addcopy(company,B,renyuan_id);
+    public boolean addcopy(String company, String B,String renyuan_id,String chashanquanxian) {
+        return userInfoMapper.addcopy(company,B,renyuan_id,chashanquanxian);
     }
 
     @Override
@@ -100,12 +100,12 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper, UserInfo> implemen
     }
 
     @Override
-    public boolean delete(List<Integer> idList) {return removeByIds(idList);}
+    public boolean delete(String renyuan_id) {return userInfoMapper.delete(renyuan_id);}
 
     @Override
-    public boolean delete_quanxian(List<Integer> quanxianList) {return removeByIds(quanxianList);}
+    public boolean delete_quanxian(List<Integer> renyuan_id) {return removeByIds(renyuan_id);}
 
     @Override
-    public boolean deletecopy(List<Integer> renyuanid) {return removeByIds(renyuanid);}
+    public boolean deletecopy(String renyuan_id) {return userInfoMapper.deletecopy(renyuan_id);}
 
 }

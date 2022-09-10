@@ -39,6 +39,26 @@ public class PersonPowerController {
         }
     }
 
+    @RequestMapping("/get_divide")
+    public ResultInfo get_divide(HttpSession session,String inquire_revise) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        if (!powerUtil.isSelect("人员权限设置")) {
+            return ResultInfo.error(401, "无权限");
+        }
+        try {
+            String token = SessionUtil.getToken(session);
+            String[] token_list = token.split(",");
+            token_list = token_list[1].split("\"");
+            String login_company = token_list[3];
+            List<PersonPower> get_divide = iPersonPowerService.get_divide(login_company,inquire_revise);
+            return ResultInfo.success("获取成功", get_divide);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("获取失败：{}", e.getMessage());
+            return ResultInfo.error("错误!");
+        }
+    }
+
     @RequestMapping("/queryList")
     public ResultInfo queryList(HttpSession session,String query) {
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);

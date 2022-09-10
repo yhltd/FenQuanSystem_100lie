@@ -52,7 +52,7 @@ public interface IUserInfoService {
     /**
      * 添加baitaoquanxian_copy1表
      */
-    boolean addcopy(String company, String B,String renyuan_id);
+    boolean addcopy(String company, String B,String renyuan_id,String chashanquanxian);
 
     /**
      * 修改
@@ -65,7 +65,7 @@ public interface IUserInfoService {
      * @param idList 根据id集合删除
      * @return 是否删除成功
      */
-    boolean delete(List<Integer> idList);
+    boolean delete(String renyuan_id);
 
     /**
      * 删除
@@ -73,12 +73,12 @@ public interface IUserInfoService {
      * @param quanxianList 根据id集合删除
      * @return 是否删除成功
      */
-    boolean delete_quanxian(List<Integer> quanxianList);
+    boolean delete_quanxian(List<Integer> renyuan_id);
     /**
      * 删除
      *
      * @param idListcopy 根据id集合删除
      * @return 是否删除成功
      */
-    boolean deletecopy(List<Integer> idListcopy);
+    boolean deletecopy(String renyuan_id);
 }

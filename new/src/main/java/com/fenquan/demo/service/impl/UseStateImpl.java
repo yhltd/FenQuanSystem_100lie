@@ -27,6 +27,11 @@ public class UseStateImpl extends ServiceImpl<UseStateMapper, UseState> implemen
     }
 
     @Override
+    public boolean update_all(String company) {
+        return useStateMapper.update_all(company);
+    }
+
+    @Override
     public boolean updateName(String column,String company,String name) {
         return useStateMapper.updateName(column,company,name);
     }

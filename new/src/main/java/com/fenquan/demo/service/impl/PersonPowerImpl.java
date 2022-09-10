@@ -20,6 +20,11 @@ public class PersonPowerImpl extends ServiceImpl<PersonPowerMapper, PersonPower>
     }
 
     @Override
+    public List<PersonPower> get_divide(String company,String chashanquanxian) {
+        return personPowerMapper.get_divide(company,chashanquanxian);
+    }
+
+    @Override
     public List<PersonPower> queryList(String company,String query) {
         return personPowerMapper.queryList(company,query);
     }
@@ -28,7 +33,15 @@ public class PersonPowerImpl extends ServiceImpl<PersonPowerMapper, PersonPower>
     public boolean update(String column,int id,String this_value) {
         return personPowerMapper.update(column,id,this_value);
     }
+//
+//    @Override
+//    public boolean deletecopy(String renyuan_id) {
+//        return false;
+//    }
 
     @Override
-    public boolean deletecopy(List<Integer> quanxianList) {return removeByIds(quanxianList);}
+    public boolean delete(String renyuan_id) {return removeById(renyuan_id);}
+
+//    @Override
+//    public boolean deletecopy(String renyuan_id) {return removeById(renyuan_id);}
 }

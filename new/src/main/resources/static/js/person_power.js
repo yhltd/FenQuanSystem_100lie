@@ -10,7 +10,21 @@ function getList() {
     })
 }
 
-
+function get_divide() {
+    let inquire_revise = $('#inquire_revise').val();
+    $ajax({
+        type: 'post',
+        url: '/person_power/get_divide',
+        data: {
+            inquire_revise: inquire_revise,
+        }
+    }, false, '', function (res) {
+        if (res.code == 200) {
+            console.log(res.data)
+            setTable(res.data);
+        }
+    })
+}
 
 $(function () {
 
@@ -21,6 +35,11 @@ $(function () {
     $("#refresh-btn").click(function () {
         getList();
     })
+
+    $("#inquire_revise").change(function () {
+        get_divide();
+    })
+
 
     $("#select-btn").click(function () {
         var query=$('#query').val()
@@ -36,6 +55,7 @@ $(function () {
             }
         })
     })
+
 
 
 
@@ -105,6 +125,12 @@ function setTable(data) {
                 sortable: true,
                 width: 120,
             }, {
+                field: 'chashanquanxian',
+                title: '权限类型',
+                align: 'center',
+                sortable: true,
+                width: 100,
+            },{
                 field: 'c',
                 title: 'A',
                 align: 'center',

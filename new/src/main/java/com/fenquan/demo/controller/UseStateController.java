@@ -76,6 +76,31 @@ public class UseStateController {
         }
     }
 
+
+    //解除说有
+    @RequestMapping(value = "/update_all", method = RequestMethod.POST)
+    public ResultInfo update_all(HttpSession session) {
+        PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
+        String token = SessionUtil.getToken(session);
+        String[] token_list = token.split(",");
+        token_list = token_list[1].split("\"");
+        String company = token_list[3];
+        if (!powerUtil.isUpdate("工作台使用状态")) {
+            return ResultInfo.error(401, "无权限");
+        }
+        try {
+            if (iUseStateService.update_all(company)) {
+                return ResultInfo.success("修改成功",company);
+            } else {
+                return ResultInfo.success("修改失败",company);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("修改失败：{}", e.getMessage());
+            return ResultInfo.error("修改失败");
+        }
+    }
+
     //占用工作台列
     @RequestMapping(value = "/updateName", method = RequestMethod.POST)
     public ResultInfo updateName(HttpSession session,String column) {

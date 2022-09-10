@@ -529,4 +529,9 @@ public class PersonPower {
      * CV权限
      */
     private String CX;
+
+    /**
+     * chashanquanxian权限
+     */
+    private String chashanquanxian;
 }
