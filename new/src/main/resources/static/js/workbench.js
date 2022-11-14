@@ -98,6 +98,31 @@ $(function () {
     getName();
     getList();
 
+    var this_str = ""
+    var gongshi_list = JSON.parse($.session.get('gongshi_list'))
+    for(var i=0; i<gongshi_list.length; i++){
+        if(gongshi_list[i].thiscolumn.toUpperCase() != '' && gongshi_list[i].thiscolumn.toUpperCase() != null) {
+            var panduan = true
+            var this_arr = this_str.split(",")
+            for(var j=0; j<this_arr.length; j++){
+                if(gongshi_list[i].thiscolumn.toUpperCase() == this_arr[j]){
+                    panduan = false
+                }
+            }
+            if(panduan){
+                if(this_str != ''){
+                    this_str = this_str + "," + gongshi_list[i].thiscolumn.toUpperCase()
+                }else{
+                    this_str = gongshi_list[i].thiscolumn.toUpperCase()
+                }
+            }
+
+        }
+    }
+
+    if(this_str != ''){
+        alert("列 " + this_str + " 有设置公式");
+    }
 
     //点击刷新按钮
     $("#refresh-btn").click(function () {
