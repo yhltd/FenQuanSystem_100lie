@@ -948,6 +948,10 @@ function setTable(data) {
                         data[index].c = value
                     }
 
+                    if(isNaN(value)){
+                        value = ''
+                    }
+
                     if (JSON.parse($.session.get('companyPower'))[0].e == "√" && JSON.parse($.session.get('personPower'))[0].e == "√") {
                         return '<input id="C' + row.id + '" onfocus="javascript:columnUse(' + '\'C\'' + ')" onblur="javascript:columnUseRefresh(' + '\'C\'' + ')" oninput="javascript:columnUpd(' + row.id + ',' + '\'C\'' + ')" value="' + value + '" class="form-control"  >'
                     } else {
