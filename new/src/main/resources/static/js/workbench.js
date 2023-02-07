@@ -525,7 +525,7 @@ function setTable(data) {
     $('#workBenchTable').bootstrapTable({
         data: data,
         sortStable: true,
-        classes: 'table',
+        classes: 'table table-hover text-nowrap table table-bordered',
         idField: 'id',
         pagination: true,
         pageSize: 15,//单页记录数
@@ -534,6 +534,8 @@ function setTable(data) {
         toolbar: '#table-toolbar',
         toolbarAlign: 'left',
         theadClasses: "thead-light",//这里设置表头样式
+        style: 'table-layout:fixed',
+        height: document.body.clientHeight * 0.85,
         columns: [
             {
                 field: '',

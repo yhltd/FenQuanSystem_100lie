@@ -87,25 +87,39 @@ $(function () {
         }else{
             $ajax({
                 type: 'post',
-                url: '/user/add',
-                data: {
-                    add_C:add_C,
-                    add_D:add_D,
-                    add_E:add_E,
-                    add_zhuangtai:add_zhuangtai,
-                    add_email:add_email,
-                    add_phone:add_phone,
-                    add_bianhao:add_bianhao,
-                    add_bumen:add_bumen,
-                },
-            }, false, '', function (res) {
-                alert(res.msg)
-                if (res.code == 200) {
-                    $('#add-form')[0].reset();
-                    getList();
-                    $('#add-close-btn').click();
+                url: '/user/queryC_Inquire',
+                data:{
+                    query:add_C
                 }
+            }, false, '', function (res) {
+                if (res.code == 200) {
+                    if(res.data != ""){
+                        alert("姓名重复！");
+                    }else{
+                        $ajax({
+                            type: 'post',
+                            url: '/user/add',
+                            data: {
+                                add_C:add_C,
+                                add_D:add_D,
+                                add_E:add_E,
+                                add_zhuangtai:add_zhuangtai,
+                                add_email:add_email,
+                                add_phone:add_phone,
+                                add_bianhao:add_bianhao,
+                                add_bumen:add_bumen,
+                            },
+                        }, false, '', function (res) {
+                            alert(res.msg)
+                            if (res.code == 200) {
+                                $('#add-form')[0].reset();
+                                getList();
+                                $('#add-close-btn').click();
+                            }
 
+                        })
+                    }
+                }
             })
         }
 
