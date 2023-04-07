@@ -124,6 +124,7 @@ $(function () {
         alert("列 " + this_str + " 有设置公式");
     }
 
+
     //点击刷新按钮
     $("#refresh-btn").click(function () {
         getList();
