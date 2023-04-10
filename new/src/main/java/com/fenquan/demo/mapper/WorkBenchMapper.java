@@ -1,15 +1,19 @@
 package com.fenquan.demo.mapper;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.fenquan.demo.entity.WorkBench;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
+@DS("druid")
 public interface WorkBenchMapper extends BaseMapper<WorkBench> {
 
     @Select("select * from baitaoquanxian where 公司=#{company} order by 日期 desc")

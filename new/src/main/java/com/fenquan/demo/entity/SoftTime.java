@@ -1,0 +1,33 @@
+package com.fenquan.demo.entity;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("control_soft_time")
+public class SoftTime {
+    /**
+     * id
+     */
+    private Integer _id;
+
+    /**
+     * 软件到期时间
+     */
+    private String endtime;
+
+    /**
+     * 是否买断
+     */
+    private String mark1;
+
+    /**
+     * 服务器到期时间
+     */
+    private String mark2;
+
+    /**
+     * 数据库容量
+     */
+    private String mark4;
+}

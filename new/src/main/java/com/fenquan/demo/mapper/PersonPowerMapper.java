@@ -1,5 +1,6 @@
 package com.fenquan.demo.mapper;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.fenquan.demo.entity.PersonPower;
 import com.fenquan.demo.entity.UserInfo;
@@ -7,10 +8,13 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
+@DS("druid")
 public interface PersonPowerMapper extends BaseMapper<PersonPower> {
 
     @Select("select * from baitaoquanxian_copy1 where quanxian=#{company}")

@@ -1,9 +1,11 @@
 package com.fenquan.demo.controller;
 
 import com.fenquan.demo.entity.Department;
+import com.fenquan.demo.entity.SoftTime;
 import com.fenquan.demo.entity.UserInfo;
 import com.fenquan.demo.service.IDepartmentService;
 import com.fenquan.demo.service.IPersonPowerService;
+import com.fenquan.demo.service.ISoftTimeService;
 import com.fenquan.demo.service.IUserInfoService;
 import com.fenquan.demo.util.*;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -26,6 +29,9 @@ public class UserInfoController{
 
     @Autowired
     IUserInfoService iUserInfoService;
+
+    @Autowired
+    ISoftTimeService iSoftTimeService;
 
     @Autowired
     IPersonPowerService iPersonPowerService;
@@ -69,8 +75,24 @@ public class UserInfoController{
     public ResultInfo login(HttpSession session, String username, String password, String company) {
         try {
             //获取user
+            SessionUtil.remove(session, "token");
+            Map<String, Object> quanxian_map = iSoftTimeService.getList(company);
+            if (StringUtils.isEmpty(quanxian_map)) {
+                return ResultInfo.error(-1, "工具到期，请联系我公司续费。");
+            }else{
+                String token = quanxian_map.get("token").toString();
+                String[] token_list = token.split(",");
+                String[] endtime_list = token_list[0].split("\"");
+                String endtime = endtime_list[3];
+                String[] mark1_list = token_list[1].split("\"");
+                String mark1 = mark1_list[3];
+                String[] mark2_list = token_list[2].split("\"");
+                String mark2 = mark2_list[3];
+                String[] mark4_list = token_list[3].split("\"");
+                String mark4 = mark4_list[3];
+//                String pushtime = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            }
             Map<String, Object> map = iUserInfoService.login(username, password, company);
-            UserInfo userInfo=new UserInfo();
             //为Null则查询不到
             if (StringUtils.isEmpty(map)) {
                 SessionUtil.remove(session, "token");

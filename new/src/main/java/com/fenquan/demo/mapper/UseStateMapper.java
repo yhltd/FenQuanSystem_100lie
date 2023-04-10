@@ -1,15 +1,19 @@
 package com.fenquan.demo.mapper;
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.fenquan.demo.entity.CompanyPower;
 import com.fenquan.demo.entity.UseState;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 
 @Mapper
+@Repository
+@DS("druid")
 public interface UseStateMapper extends BaseMapper<UseState> {
 
     @Select("select * from baitaoquanxian_copy2 where 公司=#{company}")

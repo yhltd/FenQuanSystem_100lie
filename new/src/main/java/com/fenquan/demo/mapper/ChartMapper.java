@@ -4,10 +4,15 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.fenquan.demo.entity.Chart;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import com.baomidou.dynamic.datasource.annotation.DS;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
+@DS("druid")
+
 public interface ChartMapper extends BaseMapper<Chart> {
 
     @Select("select sum(case when isnull(A,'') !='' then 1 else 0 end ) as A,sum(case when isnull(B,'') !='' then 1 else 0 end ) as B,sum(case when isnull(C,'') !='' then 1 else 0 end ) as C,sum(case when isnull(D,'') !='' then 1 else 0 end ) as D,sum(case when isnull(E,'') !='' then 1 else 0 end ) as E,sum(case when isnull(F,'') !='' then 1 else 0 end ) as F,sum(case when isnull(G,'') !='' then 1 else 0 end ) as G,sum(case when isnull(H,'') !='' then 1 else 0 end ) as H,sum(case when isnull(I,'') !='' then 1 else 0 end ) as I,sum(case when isnull(J,'') !='' then 1 else 0 end ) as J,sum(case when isnull(K,'') !='' then 1 else 0 end ) as K,sum(case when isnull(L,'') !='' then 1 else 0 end ) as L,sum(case when isnull(M,'') !='' then 1 else 0 end ) as M,sum(case when isnull(N,'') !='' then 1 else 0 end ) as N,sum(case when isnull(O,'') !='' then 1 else 0 end ) as O,sum(case when isnull(P,'') !='' then 1 else 0 end ) as P,sum(case when isnull(Q,'') !='' then 1 else 0 end ) as Q,sum(case when isnull(R,'') !='' then 1 else 0 end ) as R,sum(case when isnull(S,'') !='' then 1 else 0 end ) as S,sum(case when isnull(T,'') !='' then 1 else 0 end ) as T,sum(case when isnull(U,'') !='' then 1 else 0 end ) as U,sum(case when isnull(V,'') !='' then 1 else 0 end ) as V,sum(case when isnull(W,'') !='' then 1 else 0 end ) as W,sum(case when isnull(X,'') !='' then 1 else 0 end ) as X,sum(case when isnull(Y,'') !='' then 1 else 0 end ) as Y,sum(case when isnull(Z,'') !='' then 1 else 0 end ) as Z,sum(case when isnull(AA,'') !='' then 1 else 0 end ) as AA,sum(case when isnull(AB,'') !='' then 1 else 0 end ) as AB,sum(case when isnull(AC,'') !='' then 1 else 0 end ) as AC,sum(case when isnull(AD,'') !='' then 1 else 0 end ) as AD,sum(case when isnull(AE,'') !='' then 1 else 0 end ) as AE,sum(case when isnull(AF,'') !='' then 1 else 0 end ) as AF,sum(case when isnull(AG,'') !='' then 1 else 0 end ) as AG,sum(case when isnull(AH,'') !='' then 1 else 0 end ) as AH,sum(case when isnull(AI,'') !='' then 1 else 0 end ) as AI,sum(case when isnull(AJ,'') !='' then 1 else 0 end ) as AJ,sum(case when isnull(AK,'') !='' then 1 else 0 end ) as AK,sum(case when isnull(AL,'') !='' then 1 else 0 end ) as AL" +
