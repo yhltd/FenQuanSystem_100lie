@@ -93,7 +93,7 @@ $(function () {
                 }
             }, false, '', function (res) {
                 if (res.code == 200) {
-                    if(res.data != ""){
+                    if(res.data.length > 0){
                         alert("姓名重复！");
                     }else{
                         $ajax({

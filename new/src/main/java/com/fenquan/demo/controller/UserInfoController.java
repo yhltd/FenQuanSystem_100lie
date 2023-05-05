@@ -16,10 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 
 @Slf4j
@@ -83,14 +80,28 @@ public class UserInfoController{
                 String token = quanxian_map.get("token").toString();
                 String[] token_list = token.split(",");
                 String[] endtime_list = token_list[0].split("\"");
-                String endtime = endtime_list[3];
+                String endtime = endtime_list[3].replaceAll(" ", "");
                 String[] mark1_list = token_list[1].split("\"");
-                String mark1 = mark1_list[3];
+                String mark1 = mark1_list[3].replaceAll(" ", "");
                 String[] mark2_list = token_list[2].split("\"");
-                String mark2 = mark2_list[3];
+                String mark2 = mark2_list[3].replaceAll(" ", "");
                 String[] mark4_list = token_list[3].split("\"");
-                String mark4 = mark4_list[3];
-//                String pushtime = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+                String mark4 = mark4_list[3].replaceAll(" ", "");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                if(!mark1.equals("a8xd2s")){
+                    Date enddate = sdf.parse(endtime);
+                    Date fuwudate = sdf.parse(mark2);
+                    Date now = new Date();
+                    String this_time = sdf.format(now);
+                    now = sdf.parse(this_time);
+                    if(now.getTime() > enddate.getTime()){
+                        return ResultInfo.error(-1, "工具到期，请联系我公司续费");
+                    }
+                    if(now.getTime() > fuwudate.getTime()){
+                        return ResultInfo.error(-1, "服务器到期，请联系我公司续费");
+                    }
+                }
+//
             }
             Map<String, Object> map = iUserInfoService.login(username, password, company);
             //为Null则查询不到
