@@ -196,9 +196,15 @@ function setTableSelection(tableEl, rowIndex, isSelect) {
 $(function () {
     $('#out-a').click(function(){
         window.location.href = '/';
+        location.reload()
+    })
+    $('#out-aa').click(function(){
+        window.location.href = '/';
+        location.reload()
     })
 
     $('#refresh_btn').click(function(){
+        window.location.href = '/';
         location.reload();
     })
 
