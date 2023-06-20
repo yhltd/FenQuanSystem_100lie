@@ -10,21 +10,21 @@ function getList() {
     })
 }
 
-function get_divide() {
-    let inquire_revise = $('#inquire_revise').val();
-    $ajax({
-        type: 'post',
-        url: '/person_power/get_divide',
-        data: {
-            inquire_revise: inquire_revise,
-        }
-    }, false, '', function (res) {
-        if (res.code == 200) {
-            console.log(res.data)
-            setTable(res.data);
-        }
-    })
-}
+// function get_divide() {
+//     let inquire_revise = $('#inquire_revise').val();
+//     $ajax({
+//         type: 'post',
+//         url: '/person_power/get_divide',
+//         data: {
+//             inquire_revise: inquire_revise,
+//         }
+//     }, false, '', function (res) {
+//         if (res.code == 200) {
+//             console.log(res.data)
+//             setTable(res.data);
+//         }
+//     })
+// }
 
 $(function () {
 
@@ -36,18 +36,21 @@ $(function () {
         getList();
     })
 
-    $("#inquire_revise").change(function () {
-        get_divide();
-    })
+    // $("#inquire_revise").change(function () {
+    //     get_divide();
+    // })
 
 
     $("#select-btn").click(function () {
         var query=$('#query').val()
+        var inquire_revise = $('#inquire_revise').val()
+        console.log(inquire_revise)
         $ajax({
             type: 'post',
             url: '/person_power/queryList',
             data:{
-                query:query
+                query:query,
+                inquire_revise:inquire_revise
             }
         }, false, '', function (res) {
             if (res.code == 200) {

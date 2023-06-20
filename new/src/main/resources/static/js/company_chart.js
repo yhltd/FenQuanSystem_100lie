@@ -33,6 +33,12 @@ $(function () {
         if(stop_date == ''){
             stop_date = '2100-12-31'
         }
+
+        if(start_date > stop_date){
+            alert("起始日期不能晚于结束日期")
+            return;
+        }
+
         $ajax({
             type: 'post',
             url: '/chart/queryGongSiList',

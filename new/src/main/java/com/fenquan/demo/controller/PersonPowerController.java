@@ -60,7 +60,7 @@ public class PersonPowerController {
     }
 
     @RequestMapping("/queryList")
-    public ResultInfo queryList(HttpSession session,String query) {
+    public ResultInfo queryList(HttpSession session,String query,String inquire_revise) {
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("人员权限设置")) {
             return ResultInfo.error(401, "无权限");
@@ -70,7 +70,7 @@ public class PersonPowerController {
             String[] token_list = token.split(",");
             token_list = token_list[1].split("\"");
             String login_company = token_list[3];
-            List<PersonPower> select_list = iPersonPowerService.queryList(login_company,query);
+            List<PersonPower> select_list = iPersonPowerService.queryList(login_company,query,inquire_revise);
             return ResultInfo.success("获取成功", select_list);
         } catch (Exception e) {
             e.printStackTrace();

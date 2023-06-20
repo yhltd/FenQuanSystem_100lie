@@ -22,7 +22,7 @@ function getList(){
     var stop_date = $('#stop_date').val()
     var name = $('#name').val()
     if(start_date == ''){
-        start_date = '1900-1-1'
+        start_date = '1900-01-01'
     }
     if(stop_date == ''){
         stop_date = '2100-12-31'
@@ -31,6 +31,12 @@ function getList(){
         alert('未选择姓名');
         return;
     }
+
+    if(start_date > stop_date){
+        alert("起始日期不能晚于结束日期")
+        return;
+    }
+
     $ajax({
         type: 'post',
         url: '/chart/queryRenYuanList',

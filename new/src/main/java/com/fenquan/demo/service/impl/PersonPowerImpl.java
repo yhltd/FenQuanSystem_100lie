@@ -25,8 +25,8 @@ public class PersonPowerImpl extends ServiceImpl<PersonPowerMapper, PersonPower>
     }
 
     @Override
-    public List<PersonPower> queryList(String company,String query) {
-        return personPowerMapper.queryList(company,query);
+    public List<PersonPower> queryList(String company,String query,String inquire_revise) {
+        return personPowerMapper.queryList(company,query,inquire_revise);
     }
 
     @Override

@@ -29,7 +29,7 @@ public interface IPersonPowerService {
      *
      * @return 信息集合
      */
-    List<PersonPower> queryList(String company,String query);
+    List<PersonPower> queryList(String company,String query,String inquire_revise);
 
     /**
      * 修改人员对应列的权限
