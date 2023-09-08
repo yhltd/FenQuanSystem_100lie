@@ -15,5 +15,5 @@ public interface ISoftTimeService {
      *
      * @return 信息集合
      */
-    Map<String,Object> getList(String company);
+    List<SoftTime> getList(String company);
 }

@@ -17,6 +17,13 @@ public interface IUserInfoService {
     List<UserInfo> get_select_List();
 
     /**
+     * 查询账号数量
+     *
+     * @return 信息集合
+     */
+    List<UserInfo> getUserNum(String company);
+
+    /**
      * 查询人员下拉
      *
      * @return 信息集合
@@ -62,7 +69,7 @@ public interface IUserInfoService {
     /**
      * 删除
      *
-     * @param idList 根据id集合删除
+     * @param renyuan_id 根据id集合删除
      * @return 是否删除成功
      */
     boolean delete(String renyuan_id);
@@ -70,14 +77,14 @@ public interface IUserInfoService {
     /**
      * 删除
      *
-     * @param quanxianList 根据id集合删除
+     * @param renyuan_id 根据id集合删除
      * @return 是否删除成功
      */
     boolean delete_quanxian(List<Integer> renyuan_id);
     /**
      * 删除
      *
-     * @param idListcopy 根据id集合删除
+     * @param renyuan_id 根据id集合删除
      * @return 是否删除成功
      */
     boolean deletecopy(String renyuan_id);

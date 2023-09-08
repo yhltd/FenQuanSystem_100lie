@@ -3,7 +3,10 @@ package com.fenquan.demo.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
+
+@Data
 @TableName("control_soft_time")
 public class SoftTime {
     /**
@@ -25,6 +28,11 @@ public class SoftTime {
      * 服务器到期时间
      */
     private String mark2;
+
+    /**
+     * 允许创建账号数量
+     */
+    private String mark3;
 
     /**
      * 数据库容量

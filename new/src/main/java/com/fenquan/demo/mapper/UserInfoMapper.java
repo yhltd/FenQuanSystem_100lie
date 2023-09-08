@@ -20,6 +20,9 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
     @Select("select B from baitaoquanxian_renyun GROUP BY B")
     List<UserInfo> get_select_List();
 
+    @Select("select COUNT(id) as id from baitaoquanxian_renyun where B = #{company}")
+    List<UserInfo> getUserNum(String company);
+
     @Select("select C from baitaoquanxian_renyun where B=#{company} GROUP BY C")
     List<UserInfo> get_renyuan_List(String company);
 

@@ -63,6 +63,7 @@ $(function () {
                 }
             }, false, '', function (res) {
                 alert(res.msg)
+                console.log(res.data)
                 if (res.code > 0) {
                     window.location.href = "html/main.html";
                 }

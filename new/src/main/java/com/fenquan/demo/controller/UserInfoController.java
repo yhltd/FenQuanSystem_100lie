@@ -71,24 +71,45 @@ public class UserInfoController{
     @RequestMapping("/login")
     public ResultInfo login(HttpSession session, String username, String password, String company) {
         try {
+            String endtime = "";
+            String mark1 = "";
+            String mark2 = "";
+            String mark3 = "";
+            String mark4 = "";
             //获取user
             SessionUtil.remove(session, "token");
-            Map<String, Object> quanxian_map = iSoftTimeService.getList(company);
-            if (StringUtils.isEmpty(quanxian_map)) {
+            List<SoftTime> softTime = iSoftTimeService.getList(company);
+            if (softTime.size() == 0) {
                 return ResultInfo.error(-1, "工具到期，请联系我公司续费。");
             }else{
-                String token = quanxian_map.get("token").toString();
-                String[] token_list = token.split(",");
-                String[] endtime_list = token_list[0].split("\"");
-                String endtime = endtime_list[3].replaceAll(" ", "");
-                String[] mark1_list = token_list[1].split("\"");
-                String mark1 = mark1_list[3].replaceAll(" ", "");
-                String[] mark2_list = token_list[2].split("\"");
-                String mark2 = mark2_list[3].replaceAll(" ", "");
-                String[] mark4_list = token_list[3].split("\"");
-                String mark4 = mark4_list[3].replaceAll(" ", "");
+                if(softTime.get(0).getEndtime() != null){
+                    endtime = softTime.get(0).getEndtime().trim();
+                }
+                if(softTime.get(0).getMark1() != null){
+                    mark1 = softTime.get(0).getMark1().trim();
+                }
+                if(softTime.get(0).getMark2() != null){
+                    mark2 = softTime.get(0).getMark2().trim();
+                }
+                if(softTime.get(0).getMark3() != null){
+                    mark3 = softTime.get(0).getMark3().trim();
+                    if(mark3 != ""){
+                        mark3 = mark3.split(":")[1];
+                        mark3 = mark3.replace("(","");
+                        mark3 = mark3.replace(")","");
+                    }
+                }
+                if(softTime.get(0).getMark4() != null){
+                    mark4 = softTime.get(0).getMark4().trim();
+                }
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
                 if(!mark1.equals("a8xd2s")){
+                    if(endtime == ""){
+                        return ResultInfo.error(-1, "工具到期，请联系我公司续费");
+                    }
+                    if(mark2 == ""){
+                        return ResultInfo.error(-1, "服务器到期，请联系我公司续费");
+                    }
                     Date enddate = sdf.parse(endtime);
                     Date fuwudate = sdf.parse(mark2);
                     Date now = new Date();
@@ -113,11 +134,12 @@ public class UserInfoController{
                 SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
                 SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
                 SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
+                SessionUtil.setUserNum(session, StringUtils.cast(mark3));
                 String token = SessionUtil.getToken(session);
                 String[] token_list = token.split(",");
                 token_list = token_list[1].split("\"");
                 String login_company = token_list[3];
-                return ResultInfo.success("登陆成功", null);
+                return ResultInfo.success("登陆成功", mark3);
             }
         } catch (Exception e) {
             log.error("登陆失败：{}", e.getMessage());
@@ -183,12 +205,22 @@ public class UserInfoController{
         }
 //        Random ran = new Random(System.currentTimeMillis());
 //        ran.nextLong();
+
         DateTimeFormatter fmt= DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
         String newsNo= LocalDateTime.now().format(fmt);
         String token = SessionUtil.getToken(session);
         String[] token_list = token.split(",");
         token_list = token_list[1].split("\"");
         String login_company = token_list[3];
+        String userNum = SessionUtil.getUserNum(session);
+        if(userNum != ""){
+            int num = Integer.parseInt(userNum);
+            List<UserInfo> NumList = iUserInfoService.getUserNum(login_company);
+            int thisNum = NumList.get(0).getId();
+            if(thisNum >= num){
+                return ResultInfo.error("已有账号数量过多，请删除无用账号后再试", null);
+            }
+        }
         UserInfo iuser = new UserInfo();
         try{
             iuser.setB(login_company);
@@ -207,7 +239,7 @@ public class UserInfoController{
             if (StringUtils.isNotNull(iuser) && iUserInfoService.addcopy(login_company,add_C,newsNo,a)&& iUserInfoService.addcopy(login_company,add_C,newsNo,b)) {
                 return ResultInfo.success("添加成功", iuser);
             } else {
-                return ResultInfo.success("添加失败", null);
+                return ResultInfo.error("添加失败", null);
             }
         }catch (Exception e){
             e.printStackTrace();

@@ -27,25 +27,8 @@ public class SoftTimeImpl extends ServiceImpl<SoftTimeMapper, SoftTime> implemen
 //    }
 
     @Override
-    public Map<String, Object> getList(String company) {
-        //条件构造器
-        QueryWrapper<SoftTime> queryWrapper = new QueryWrapper<>();
-        //公司
-        queryWrapper.eq("name", company);
-        //账号
-        queryWrapper.eq("soft_name", "分权");
-        //获取User
-        SoftTime controlSoftTime = this.getOne(queryWrapper);
-        //如果不为空
-        String data = StringUtils.EMPTY;
-        if (StringUtils.isNotNull(controlSoftTime)) {
-            //转JSON
-            data = GsonUtil.toJson(controlSoftTime);
-            Map<String, Object> map = new HashMap<>();
-            map.put("token", data);
-            return map;
-        }
-        return null;
+    public List<SoftTime> getList(String company) {
+        return softTimeMapper.getList(company);
     }
 
 }

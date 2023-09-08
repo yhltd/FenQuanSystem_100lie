@@ -61,6 +61,12 @@ public class SessionUtil {
         session.setAttribute("personPower", personPower);
     }
 
+    public static void setUserNum(HttpSession session, String data) {
+        //设置session过期时间
+        session.setMaxInactiveInterval(MAX_INTERVAL);
+        session.setAttribute("userNum", data);
+    }
+
     /**
      * get
      * @param session session对象
@@ -81,6 +87,10 @@ public class SessionUtil {
 
     public static List<PersonPower> getRenYuanPower(HttpSession session){
         return StringUtils.cast(session.getAttribute("personPower"));
+    }
+
+    public static String getUserNum(HttpSession session){
+        return StringUtils.cast(session.getAttribute("userNum"));
     }
 
     /**
