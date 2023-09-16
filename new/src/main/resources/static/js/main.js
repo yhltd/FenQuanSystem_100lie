@@ -192,8 +192,54 @@ function setTableSelection(tableEl, rowIndex, isSelect) {
     })
 }
 
+function getUrlParams(key) {
+    var url = window.location.search.substr(1);
+    if (url == '') {
+        return false;
+    }
+    var paramsArr = url.split('&');
+    for (var i = 0; i < paramsArr.length; i++) {
+        var combina = paramsArr[i].split("=");
+        if (combina[0] == key) {
+            return combina[1];
+        }
+    }
+    return false;
+};
+
 
 $(function () {
+    var user = getUrlParams("user")
+    console.log(user)
+
+    if(user!=false){
+        $ajax({
+            type: 'post',
+            url: '/jiami/jiemiGet',
+            data:{
+                text:user
+            }
+        }, false, '', function (res) {
+            console.log(res)
+            var company = res.split("`")[0]
+            var username = res.split("`")[1]
+            var password = res.split("`")[2]
+            $ajax({
+                type: 'post',
+                url: '/user/login',
+                data:{
+                    username:username,
+                    password:password,
+                    company:company
+                }
+            }, false, '', function (res) {
+                if (res.code == 200) {
+
+                }
+            })
+        })
+    }
+
     $('#out-a').click(function(){
         window.location.href = '/';
         location.reload()

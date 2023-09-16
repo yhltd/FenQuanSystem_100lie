@@ -1,4 +1,5 @@
 
+
 function getList() {
     $('#query').val('')
     $ajax({
@@ -164,6 +165,40 @@ $(function () {
         }
         $('#update-modal').modal('show');
         setForm(rows[0].data, '#update-form');
+    })
+
+    $('#qr-btn').click(function () {
+        let rows = getTableSelection('#labelTable')
+        if (rows.length > 1 || rows.length == 0) {
+            alert('请选择一条数据生成');
+            return;
+        }
+        console.log(rows[0].data)
+        var thisStr = rows[0].data.b + "`" + rows[0].data.d + "`" + rows[0].data.e
+        console.log(thisStr)
+        $ajax({
+            type: 'post',
+            url: '/jiami/jiamiGet',
+            data:{
+                text:thisStr
+            }
+        }, false, '', function (res) {
+            console.log(res)
+            var url = window.top.location.href + "?user=" + res
+            console.log(url)
+            var qrcode_container = document.getElementById('qrcode');
+            // 生成二维码
+            var qrcode = new QRCode(qrcode_container, {
+                text: url, // 二维码中的内容
+                width: 200, // 二维码的宽度
+                height: 200, // 二维码的高度
+                colorDark: "#000000", // 二维码的颜色
+                colorLight: "#ffffff", // 二维码的背景色
+            });
+            var base64_qrcode = qrcode_container.firstChild.toDataURL("image/png");
+            console.log(base64_qrcode)
+            downloadFileByBase64(rows[0].data.c+".png",base64_qrcode.split(",")[1])
+        })
     })
 
     //修改弹窗点击关闭按钮
@@ -436,4 +471,85 @@ function setTable(data) {
 
     })
 
+}
+
+
+function dataURLtoBlob(dataurl, name) {//name:文件名
+    var mime = name.substring(name.lastIndexOf('.') + 1)//后缀名
+    var bstr = atob(dataurl), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], {type: mime});
+}
+
+function downloadFile(url, name = '默认文件名') {
+    var a = document.createElement("a")//创建a标签触发点击下载
+    a.setAttribute("href", url)//附上
+    a.setAttribute("download", name);
+    a.setAttribute("target", "_blank");
+    let clickEvent = document.createEvent("MouseEvents");
+    clickEvent.initEvent("click", true, true);
+    a.dispatchEvent(clickEvent);
+}
+
+//主函数
+function downloadFileByBase64(name, base64) {
+    var myBlob = dataURLtoBlob(base64, name);
+    var myUrl = URL.createObjectURL(myBlob);
+    downloadFile(myUrl, name)
+}
+
+//获取后缀
+function getType(file) {
+    var filename = file;
+    var index1 = filename.lastIndexOf(".");
+    var index2 = filename.length;
+    var type = filename.substring(index1 + 1, index2);
+    return type;
+}
+
+//根据文件后缀 获取base64前缀不同
+function getBase64Type(type) {
+    switch (type) {
+        case 'data:text/plain;base64':
+            return 'txt';
+        case 'data:application/msword;base64':
+            return 'doc';
+        case 'data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64':
+            return 'docx';
+        case 'data:application/vnd.ms-excel;base64':
+            return 'xls';
+        case 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64':
+            return 'xlsx';
+        case 'data:application/pdf;base64':
+            return 'pdf';
+        case 'data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64':
+            return 'pptx';
+        case 'data:application/vnd.ms-powerpoint;base64':
+            return 'ppt';
+        case 'data:image/png;base64':
+            return 'png';
+        case 'data:image/jpeg;base64':
+            return 'jpg';
+        case 'data:image/gif;base64':
+            return 'gif';
+        case 'data:image/svg+xml;base64':
+            return 'svg';
+        case 'data:image/x-icon;base64':
+            return 'ico';
+        case 'data:image/bmp;base64':
+            return 'bmp';
+    }
+}
+
+function base64ToBlob(code) {
+    code = code.replace(/[\n\r]/g, '');
+    const raw = window.atob(code);
+    const rawLength = raw.length;
+    const uInt8Array = new Uint8Array(rawLength);
+    for (let i = 0; i < rawLength; ++i) {
+        uInt8Array[i] = raw.charCodeAt(i)
+    }
+    return new Blob([uInt8Array], {type: 'application/pdf'})
 }
