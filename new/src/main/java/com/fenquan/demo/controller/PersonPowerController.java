@@ -1,7 +1,9 @@
 package com.fenquan.demo.controller;
 
 import com.fenquan.demo.entity.PersonPower;
+import com.fenquan.demo.entity.UserInfo;
 import com.fenquan.demo.service.IPersonPowerService;
+import com.fenquan.demo.service.IUserInfoService;
 import com.fenquan.demo.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 
 @Slf4j
@@ -17,10 +20,18 @@ import java.util.List;
 public class PersonPowerController {
 
     @Autowired
+    IUserInfoService iUserInfoService;
+
+    @Autowired
     IPersonPowerService iPersonPowerService;
 
     @RequestMapping("/getList")
     public ResultInfo getList(HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("人员权限设置")) {
             return ResultInfo.error(401, "无权限");
@@ -41,6 +52,11 @@ public class PersonPowerController {
 
     @RequestMapping("/get_divide")
     public ResultInfo get_divide(HttpSession session,String inquire_revise) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("人员权限设置")) {
             return ResultInfo.error(401, "无权限");
@@ -61,6 +77,11 @@ public class PersonPowerController {
 
     @RequestMapping("/queryList")
     public ResultInfo queryList(HttpSession session,String query,String inquire_revise) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("人员权限设置")) {
             return ResultInfo.error(401, "无权限");
@@ -82,6 +103,11 @@ public class PersonPowerController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(HttpSession session,String column,int id,String this_value) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isUpdate("人员权限设置")) {
             return ResultInfo.error(401, "无权限");

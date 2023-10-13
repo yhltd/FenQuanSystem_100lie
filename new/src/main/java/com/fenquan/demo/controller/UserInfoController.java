@@ -154,6 +154,11 @@ public class UserInfoController{
      * */
     @RequestMapping("/queryC")
     public ResultInfo queryC(HttpSession session){
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("人员管理")) {
             return ResultInfo.error(401, "无权限");
@@ -176,6 +181,11 @@ public class UserInfoController{
      * */
     @RequestMapping("/queryC_Inquire")
     public ResultInfo queryC_Inquire(HttpSession session,String query){
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("人员管理")) {
             return ResultInfo.error(401, "无权限");
@@ -199,6 +209,11 @@ public class UserInfoController{
      * */
     @RequestMapping("/add")
     public ResultInfo add(String add_C,String add_D,String add_E,String add_zhuangtai,String add_email,String add_phone,String add_bianhao,String add_bumen,String chashanquanxian ,HttpSession session){
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isAdd("人员管理")) {
             return ResultInfo.error(401, "无权限");
@@ -256,11 +271,15 @@ public class UserInfoController{
      * */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(@RequestBody String menuSettingsJson ,HttpSession session){
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isUpdate("人员管理")) {
             return ResultInfo.error(401, "无权限");
         }
-        UserInfo userInfo = null;
         try{
             userInfo = DecodeUtil.decodeToJson(menuSettingsJson, UserInfo.class);
             if (iUserInfoService.update(userInfo)) {

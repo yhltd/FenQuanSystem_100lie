@@ -184,7 +184,7 @@ $(function () {
             }
         }, false, '', function (res) {
             console.log(res)
-            var url = window.top.location.href + "?user=" + res
+            var url = window.top.location.href.replace("/html/main.html","") + "?user=" + res
             console.log(url)
             var qrcode_container = document.getElementById('qrcode');
             // 生成二维码

@@ -59,7 +59,6 @@ function getRenYuanList() {
                     this_list2.push(
                         res.data[i]
                     )
-
                     for (let key in res.data[i]) {
                         console.log(key)
                         if(res.data[i][key] != '√'){
@@ -69,8 +68,130 @@ function getRenYuanList() {
 
                 }
             }
+            var column_obj = {
+                a: 'c',
+                b: 'd',
+                c: 'e',
+                d: 'f',
+                e: 'g',
+                f: 'h',
+                g: 'i',
+                h: 'j',
+                i: 'k',
+                j: 'l',
+                k: 'm',
+                l: 'n',
+                m: 'o',
+                n: 'p',
+                o: 'q',
+                p: 'r',
+                q: 's',
+                r: 't',
+                s: 'u',
+                t: 'v',
+                u: 'w',
+                v: 'x',
+                w: 'y',
+                x: 'z',
+                y: 'aa',
+                z: 'ab',
+                aa: 'ac',
+                ab: 'ad',
+                ac: 'ae',
+                ad: 'af',
+                ae: 'ag',
+                af: 'ah',
+                ag: 'ai',
+                ah: 'aj',
+                ai: 'ak',
+                aj: 'al',
+                ak: 'am',
+                al: 'an',
+                am: 'ao',
+                an: 'ap',
+                ao: 'aq',
+                ap: 'ar',
+                aq: 'as',
+                ar: 'at',
+                as: 'au',
+                at: 'av',
+                au: 'aw',
+                av: 'ax',
+                aw: 'ay',
+                ax: 'az',
+                ay: 'ba',
+                az: 'bb',
+                ba: 'bc',
+                bb: 'bd',
+                bc: 'be',
+                bd: 'bf',
+                be: 'bg',
+                bf: 'bh',
+                bg: 'bi',
+                bh: 'bj',
+                bi: 'bk',
+                bj: 'bl',
+                bk: 'bm',
+                bl: 'bn',
+                bm: 'bo',
+                bn: 'bp',
+                bo: 'bq',
+                bp: 'br',
+                bq: 'bs',
+                br: 'bt',
+                bs: 'bu',
+                bt: 'bv',
+                bu: 'bw',
+                bv: 'bx',
+                bw: 'by',
+                bx: 'bz',
+                by: 'ca',
+                bz: 'cb',
+                ca: 'cc',
+                cb: 'cd',
+                cc: 'ce',
+                cd: 'cf',
+                ce: 'cg',
+                cf: 'ch',
+                cg: 'ci',
+                ch: 'cj',
+                ci: 'ck',
+                cj: 'cl',
+                ck: 'cm',
+                cl: 'cn',
+                cm: 'co',
+                cn: 'cp',
+                co: 'cq',
+                cp: 'cr',
+                cq: 'cs',
+                cr: 'ct',
+                cs: 'cu',
+                ct: 'cv',
+                cu: 'cw',
+                cv: 'cx',
+                cw: 'cy',
+                cx: 'dz',
+                cy: 'da',
+                cz: 'db',
+            }
             $.session.set('personPower', JSON.stringify(this_list))
             $.session.set('personSelect', JSON.stringify(this_list2))
+            console.log(JSON.parse($.session.get('personPower')))
+            var power_list = this_list
+            var gongshi_list = JSON.parse($.session.get('gongshi_list'))
+            for(var i=0; i<gongshi_list.length; i++){
+                console.log(gongshi_list[i].thiscolumn.toLowerCase())
+                if(gongshi_list[i].thiscolumn.toLowerCase() != '' && gongshi_list[i].thiscolumn.toLowerCase() != null) {
+                    if(column_obj[gongshi_list[i].thiscolumn.toLowerCase()] == 'as'){
+                        power_list[0].ass = ""
+                    }else if(column_obj[gongshi_list[i].thiscolumn.toLowerCase()] == 'by'){
+                        power_list[0].byy = ""
+                    }else{
+                        power_list[0][column_obj[gongshi_list[i].thiscolumn.toLowerCase()]] = ""
+                    }
+                }
+            }
+            $.session.set('personPower', JSON.stringify(power_list))
         }
     })
 }

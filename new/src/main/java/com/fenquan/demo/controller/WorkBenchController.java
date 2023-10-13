@@ -1,9 +1,7 @@
 package com.fenquan.demo.controller;
 
-import com.fenquan.demo.entity.CompanyPower;
-import com.fenquan.demo.entity.Department;
-import com.fenquan.demo.entity.PersonPower;
-import com.fenquan.demo.entity.WorkBench;
+import com.fenquan.demo.entity.*;
+import com.fenquan.demo.service.IUserInfoService;
 import com.fenquan.demo.service.IWorkBenchService;
 import com.fenquan.demo.util.*;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Slf4j
@@ -21,20 +20,24 @@ import java.util.List;
 public class WorkBenchController {
 
     @Autowired
+    IUserInfoService iUserInfoService;
+
+    @Autowired
     IWorkBenchService iWorkBenchService;
 
     @RequestMapping("/getList")
     public ResultInfo getList(HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("工作台")) {
             return ResultInfo.error(401, "无权限");
         }
         try {
-            String token = SessionUtil.getToken(session);
-            String[] token_list = token.split(",");
-            token_list = token_list[1].split("\"");
-            String login_company = token_list[3];
-            List<WorkBench> select_list = iWorkBenchService.getList(login_company);
+            List<WorkBench> select_list = iWorkBenchService.getList(userInfo.getB());
             return ResultInfo.success("获取成功", select_list);
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,16 +48,17 @@ public class WorkBenchController {
 
     @RequestMapping("/queryList")
     public ResultInfo queryList(HttpSession session,String start_date,String stop_date,String column) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("工作台")) {
             return ResultInfo.error(401, "无权限");
         }
         try {
-            String token = SessionUtil.getToken(session);
-            String[] token_list = token.split(",");
-            token_list = token_list[1].split("\"");
-            String login_company = token_list[3];
-            List<WorkBench> select_list = iWorkBenchService.queryList(login_company,start_date,stop_date,column);
+            List<WorkBench> select_list = iWorkBenchService.queryList(userInfo.getB(),start_date,stop_date,column);
             return ResultInfo.success("获取成功", select_list);
         } catch (Exception e) {
             e.printStackTrace();
@@ -112,6 +116,11 @@ public class WorkBenchController {
      * */
     @RequestMapping("/add")
     public ResultInfo add(HttpSession session,String today){
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isAdd("工作台")) {
             return ResultInfo.error(401, "无权限");
@@ -141,6 +150,11 @@ public class WorkBenchController {
     //删除
     @RequestMapping("/delete")
     public ResultInfo delete(@RequestBody HashMap map, HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map1 = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map1.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map1.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map1.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isDelete("工作台")) {
             return ResultInfo.error(401, "无权限");
@@ -165,6 +179,11 @@ public class WorkBenchController {
     //修改数据
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(HttpSession session,String column,String value,int id,String time) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isUpdate("工作台使用状态")) {
             return ResultInfo.error(401, "无权限");

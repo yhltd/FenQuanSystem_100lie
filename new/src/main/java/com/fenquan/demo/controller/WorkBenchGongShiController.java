@@ -1,7 +1,9 @@
 package com.fenquan.demo.controller;
 import com.fenquan.demo.entity.Department;
 import com.fenquan.demo.entity.PersonPower;
+import com.fenquan.demo.entity.UserInfo;
 import com.fenquan.demo.entity.WorkBench_GongShi;
+import com.fenquan.demo.service.IUserInfoService;
 import com.fenquan.demo.service.IWorkBenchGongShiService;
 import com.fenquan.demo.util.*;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Slf4j
@@ -19,11 +22,19 @@ import java.util.List;
 public class WorkBenchGongShiController {
 
     @Autowired
+    IUserInfoService iUserInfoService;
+
+    @Autowired
     IWorkBenchGongShiService iWorkBenchGongShiService;
 
 
     @RequestMapping("/getList")
     public ResultInfo getList(HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("工作台公式设置")) {
             return ResultInfo.error(401, "无权限");
@@ -44,6 +55,11 @@ public class WorkBenchGongShiController {
 
     @RequestMapping("/getList2")
     public ResultInfo getList2(HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
 //        if (!powerUtil.isSelect("工作台公式设置")) {
 //            return ResultInfo.error(401, "无权限");
@@ -65,6 +81,11 @@ public class WorkBenchGongShiController {
 
     @RequestMapping("/queryList")
     public ResultInfo queryList(HttpSession session,String query) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("工作台公式设置")) {
             return ResultInfo.error(401, "无权限");
@@ -91,6 +112,11 @@ public class WorkBenchGongShiController {
      */
     @RequestMapping("/add")
     public ResultInfo add(@RequestBody HashMap map, HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map1 = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map1.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map1.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map1.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isAdd("工作台公式设置")) {
             return ResultInfo.error(401, "无权限");
@@ -126,6 +152,11 @@ public class WorkBenchGongShiController {
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(@RequestBody String menuSettingsJson,HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isUpdate("工作台公式设置")) {
             return ResultInfo.error(401, "无权限");
@@ -154,6 +185,11 @@ public class WorkBenchGongShiController {
      */
     @RequestMapping("/delete")
     public ResultInfo delete(@RequestBody HashMap map,HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map1 = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map1.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map1.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map1.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isDelete("工作台公式设置")) {
             return ResultInfo.error(401, "无权限");

@@ -1,7 +1,9 @@
 package com.fenquan.demo.controller;
 
 import com.fenquan.demo.entity.CompanyPower;
+import com.fenquan.demo.entity.UserInfo;
 import com.fenquan.demo.service.ICompanyPowerService;
+import com.fenquan.demo.service.IUserInfoService;
 import com.fenquan.demo.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +11,27 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 
 @Slf4j
 @RestController
 @RequestMapping("/company_power")
 public class CompanyPowerController {
+
+    @Autowired
+    IUserInfoService iUserInfoService;
+
     @Autowired
     ICompanyPowerService iCompanyPowerService;
 
     @RequestMapping("/getList")
     public ResultInfo queryList(HttpSession session) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isSelect("工作台权限设置")) {
             return ResultInfo.error(401, "无权限");
@@ -41,6 +53,11 @@ public class CompanyPowerController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResultInfo update(HttpSession session,String column,int id,String this_value) {
+        UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
+        Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
+        SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
+        SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));
+        SessionUtil.setRenYuanPower(session, StringUtils.cast(map.get("personPower")));
         PowerUtil powerUtil = PowerUtil.getPowerUtil(session);
         if (!powerUtil.isUpdate("工作台权限设置")) {
             return ResultInfo.error(401, "无权限");

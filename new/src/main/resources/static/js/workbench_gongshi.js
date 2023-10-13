@@ -47,6 +47,26 @@ $(function () {
     //新增弹窗里点击提交按钮
     $("#add-submit-btn").click(function () {
         let params = formToJson("#add-form")
+        var this_column = params.thiscolumn
+        var gongshi = params.gongshi
+        var lie = ""
+        for(var i=1; i<=gongshi.length; i++){
+            var this_str = gongshi.substring(i-1,i)
+            var this_asc = gongshi.charCodeAt(i-1)
+            if((this_asc >= 65 && this_asc <= 90) || (this_asc >= 97 && this_asc <= 122)){
+                lie = lie + this_str
+            }else{
+                if(lie != ""){
+                    if(lie.toUpperCase() == this_column.toUpperCase()){
+                        alert("列公式不能含有自身")
+                        return;
+                    }
+                }
+                lie = ""
+            }
+        }
+        return;
+
         if (checkForm('#add-form')) {
             $ajax({
                 type: 'post',
@@ -90,6 +110,24 @@ $(function () {
         var msg = confirm("确认要修改吗？")
         if (msg) {
             let params = formToJson('#update-form');
+            var this_column = params.thiscolumn
+            var gongshi = params.gongshi
+            var lie = ""
+            for(var i=1; i<=gongshi.length; i++){
+                var this_str = gongshi.substring(i-1,i)
+                var this_asc = gongshi.charCodeAt(i-1)
+                if((this_asc >= 65 && this_asc <= 90) || (this_asc >= 97 && this_asc <= 122)){
+                    lie = lie + this_str
+                }else{
+                    if(lie != ""){
+                        if(lie.toUpperCase() == this_column.toUpperCase()){
+                            alert("列公式不能含有自身")
+                            return;
+                        }
+                    }
+                    lie = ""
+                }
+            }
             if (checkForm('#update-form')) {
                 $ajax({
                     type: 'post',
