@@ -65,7 +65,7 @@ $(function () {
                 lie = ""
             }
         }
-        return;
+        // return;
 
         if (checkForm('#add-form')) {
             $ajax({

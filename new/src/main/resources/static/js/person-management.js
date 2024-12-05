@@ -1,7 +1,7 @@
 
 
 function getList() {
-    $('#query').val('')
+    // $('#query').val('')
     $ajax({
         type: 'post',
         url: '/user/queryC',
