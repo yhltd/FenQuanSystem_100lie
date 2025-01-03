@@ -26,214 +26,256 @@
     <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript" src="../js/person-management.js"></script>
 </head>
+<body>
+<div class="announcement-container">
+    <div class="announcement-text">
+        本产品针对系统办公，数据共享，分权限编辑做出了很好的对策。采用数据库的形式保存数据，使广大用户的数据传输速度、安全提供了保障。系统采用人性化设计，充分考虑操作者的实用性，即使不是专业人员也能轻易掌握，全部采用目前市场上成熟，领先的技术，系统设计安全可靠系统提供其它应用系统接口，可方便的将其它应用系统集成进来。  </div>
+</div>
+<div id="carouselExampleIndicators" class="lunbotu slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="../img/AE.png" alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../img/AJ.png" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../img/AK.png" alt="Third slide">
+        </div>
+    </div>
 
-<body class="pt-2">
-<div class="top-toolbar row">
-    <div class="col-md-3 mb-2">
-        <input id="query" type="text" class="form-control" placeholder="姓名" autocomplete="off">
-    </div>
-    <div class="col-md-2 mb-2">
-        <button id="select-btn" class="btn btn-primary">
-            <i class="bi bi-search icon"></i>
-            查询
-        </button>
-    </div>
 </div>
 
-<div id="qrcode" style="display: none"></div>
+<div class="pt-2">
+    <div class=" row" style=background-color:#ffffff>
+        <div class="col-md-3 mb-2">
+            <input id="query" type="text" class="form-control" placeholder="姓名" autocomplete="off">
+        </div>
+        <div class="col-md-9 mb-2">
 
-<div id="table-toolbar">
+            <button id="select-btn" class="btn btn-primary rounded-pill">
+                <i class="bi bi-search icon"></i>
+                查询
+            </button>
+            <button id="qr-btn" class="btn btn-info  my-button-margin rounded-pill" style="margin-left:2px">
+                <i class="bi bi-arrow-down-square icon"></i>
+                下载二维码
+            </button>
+            <a id="biaoqian" style="padding-top: 8px;margin-left: 350px; font-size: 20px; font-weight:bold">当前页：人员管理</a>
+            </div>
+        </div>
+
+        <!--    <div>-->
+        <!--        <a id="biaoqian" class="btn btn-primary btn-info" style="color: white;padding-top: 8px">当前页：人员管理</a>-->
+        <!--    </div>-->
+    </div>
+<!--    <div style="background-color: #ffffff">-->
+<!--        <h1 style="font-size:2rem; text-align: center; color: #000000; white-space: nowrap; max-width: 100%; margin: 0px;">欢 迎 使 用 云 合 分 权 编 辑</h1>-->
+<!--    </div>-->
     <div class="btn-group" role="group">
-        <button id="refresh-btn" class="btn btn-primary">
+        <button id="refresh-btn" class="btn btn-success  my-button-margin rounded-pill">
             <i class="bi bi-arrow-clockwise icon"></i>
             刷新
         </button>
-        <button id="add-btn" class="btn btn-primary">
+        <button id="add-btn" class="btn btn-primary  my-button-margin rounded-pill">
             <i class="bi bi-plus-square icon"></i>
             新增
         </button>
-        <button id="update-btn" class="btn btn-primary">
+        <button id="update-btn" class="btn btn-warning  my-button-margin rounded-pill">
             <i class="bi bi-pencil-square icon"></i>
             修改
         </button>
-        <button id="delete-btn" class="btn btn-primary">
+        <button id="delete-btn" class="btn btn-danger  my-button-margin rounded-pill">
             <i class="bi bi-trash icon"></i>
             删除
         </button>
-        <button id="qr-btn" class="btn btn-primary">
-            <i class="bi bi-arrow-down-square icon"></i>
-            下载二维码
-        </button>
-        <a id="biaoqian" class="btn btn-primary" style="color: white;padding-top: 8px">当前页：人员管理</a>
     </div>
-</div>
+    <div id="qrcode" style="display: none">
 
-<div class="table-div border-top">
-    <table id="labelTable"></table>
-</div>
+    </div>
 
-<div id="add-modal" class="modal fade" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">录入</div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="add-form" class="needs-validation">
-                    <div class="form-group">
-                        <label for="add_C">姓名</label>
-                        <input id="add_C" name="C" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="add_D">账号</label>
-                        <input id="add_D" name="D" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="add_E">密码</label>
-                        <input id="add_E" name="E" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="add_zhuangtai">账号状态</label>
-                        <!--                        <input id="add_zhuangtai" name="zhuangtai" type="text" class="form-control" autocomplete="off"  style="width:100%">-->
-                        <select id="add_zhuangtai" name="viewName1" class="form-control">
-                            <option  value="正常">正常</option>
-                            <option  value="锁死">锁死</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="add_bumen">部门</label>
-                        <select id="add_bumen" name="bumen" type="text" class="form-control" autocomplete="off" required>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="add_email">邮箱</label>
-                        <input id="add_email" name="email" type="text" class="form-control" autocomplete="off"  style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="add_phone">电话</label>
-                        <input id="add_phone" name="phone" type="text" class="form-control" autocomplete="off"  style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="add_bianhao">员工编号</label>
-                        <input id="add_bianhao" name="bianhao" type="text" class="form-control" autocomplete="off"  style="width:100%">
-                    </div>
+    <div id="table-toolbar">
 
-                </form>
-            </div>
-            <div class="border-top" style="padding: 15px;">
-                <button id="add-submit-btn" type="button" class="btn btn-primary">
-                    <i class="bi bi-arrow-bar-up icon"></i>
-                    提交
-                </button>
-                <button id="add-close-btn" type="button" class="btn btn-primary left-margin">
-                    <i class="bi bi-x-circle icon"></i>
-                    关闭
-                </button>
+        <div>
+
+            <!--    <div class="text-end">-->
+            <!--        <a id="biaoqian" class="btn btn-primary" style="color: white;padding-top: 8px">当前页：人员管理</a>-->
+            <!--    </div>-->
+        </div>
+    </div>
+
+    <div class="table-div border-top">
+        <table id="labelTable"></table>
+    </div>
+
+    <div id="add-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">录入</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-form" class="needs-validation">
+                        <div class="form-group">
+                            <label for="add_C">姓名</label>
+                            <input id="add_C" name="C" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="add_D">账号</label>
+                            <input id="add_D" name="D" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="add_E">密码</label>
+                            <input id="add_E" name="E" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="add_zhuangtai">账号状态</label>
+                            <!--                        <input id="add_zhuangtai" name="zhuangtai" type="text" class="form-control" autocomplete="off"  style="width:100%">-->
+                            <select id="add_zhuangtai" name="viewName1" class="form-control">
+                                <option  value="正常">正常</option>
+                                <option  value="锁死">锁死</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="add_bumen">部门</label>
+                            <select id="add_bumen" name="bumen" type="text" class="form-control" autocomplete="off" required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="add_email">邮箱</label>
+                            <input id="add_email" name="email" type="text" class="form-control" autocomplete="off"  style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="add_phone">电话</label>
+                            <input id="add_phone" name="phone" type="text" class="form-control" autocomplete="off"  style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="add_bianhao">员工编号</label>
+                            <input id="add_bianhao" name="bianhao" type="text" class="form-control" autocomplete="off"  style="width:100%">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="border-top" style="padding: 15px;">
+                    <button id="add-submit-btn" type="button" class="btn btn-primary">
+                        <i class="bi bi-arrow-bar-up icon"></i>
+                        提交
+                    </button>
+                    <button id="add-close-btn" type="button" class="btn btn-primary left-margin">
+                        <i class="bi bi-x-circle icon"></i>
+                        关闭
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="update-modal" class="modal fade" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">编辑</div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="update-form" class="needs-validation">
-                    <div class="form-group">
-                        <input id="id" name="id" type="hidden">
-                    </div>
-                    <!--<div class="form-group">
-                        <label for="update-type">公司</label>
-                        <input id="update-type" name="type" type="text" class="form-control" autocomplete="off" readonly="readonly">
-                    </div>
-                    <div class="form-group">
-                        <label for="update-label1">标签</label>
-                        <input id="update-label1" name="label1" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>-->
-                    <div class="form-group">
-                        <label for="update-C">姓名</label>
-                        <input id="update-C" name="c" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="update-D">账号</label>
-                        <input id="update-D" name="d" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="update-E">密码</label>
-                        <input id="update-E" name="e" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="update-zhuangtai">账号状态</label>
-                        <!--                        <input id="update-zhuangtai" name="zhuangtai" type="text" class="form-control" autocomplete="off" style="width:100%">-->
-                        <select id="update-zhuangtai" name="zhuangtai" class="form-control">
-                            <option value="正常">正常</option>
-                            <option value="锁死">锁死</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="update-bumen">部门</label>
-                        <select id="update-bumen" name="bumen" type="text" class="form-control" autocomplete="off" required>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="update-email">邮箱</label>
-                        <input id="update-email" name="email" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="update-phone">电话</label>
-                        <input id="update-phone" name="phone" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                    <div class="form-group">
-                        <label for="update-bianhao">员工编号</label>
-                        <input id="update-bianhao" name="bianhao" type="text" class="form-control" autocomplete="off" style="width:100%">
-                    </div>
-                </form>
-            </div>
-            <div class="border-top" style="padding: 15px;">
-                <button id="update-submit-btn" type="button" class="btn btn-primary">
-                    <i class="bi bi-arrow-bar-up icon"></i>
-                    提交
-                </button>
-                <button id="update-close-btn" type="button" class="btn btn-primary left-margin">
-                    <i class="bi bi-x-circle icon"></i>
-                    关闭
-                </button>
+    <div id="update-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">编辑</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="update-form" class="needs-validation">
+                        <div class="form-group">
+                            <input id="id" name="id" type="hidden">
+                        </div>
+                        <!--<div class="form-group">
+                            <label for="update-type">公司</label>
+                            <input id="update-type" name="type" type="text" class="form-control" autocomplete="off" readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <label for="update-label1">标签</label>
+                            <input id="update-label1" name="label1" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>-->
+                        <div class="form-group">
+                            <label for="update-C">姓名</label>
+                            <input id="update-C" name="c" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="update-D">账号</label>
+                            <input id="update-D" name="d" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="update-E">密码</label>
+                            <input id="update-E" name="e" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="update-zhuangtai">账号状态</label>
+                            <!--                        <input id="update-zhuangtai" name="zhuangtai" type="text" class="form-control" autocomplete="off" style="width:100%">-->
+                            <select id="update-zhuangtai" name="zhuangtai" class="form-control">
+                                <option value="正常">正常</option>
+                                <option value="锁死">锁死</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="update-bumen">部门</label>
+                            <select id="update-bumen" name="bumen" type="text" class="form-control" autocomplete="off" required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="update-email">邮箱</label>
+                            <input id="update-email" name="email" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="update-phone">电话</label>
+                            <input id="update-phone" name="phone" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                        <div class="form-group">
+                            <label for="update-bianhao">员工编号</label>
+                            <input id="update-bianhao" name="bianhao" type="text" class="form-control" autocomplete="off" style="width:100%">
+                        </div>
+                    </form>
+                </div>
+                <div class="border-top" style="padding: 15px;">
+                    <button id="update-submit-btn" type="button" class="btn btn-primary">
+                        <i class="bi bi-arrow-bar-up icon"></i>
+                        提交
+                    </button>
+                    <button id="update-close-btn" type="button" class="btn btn-primary left-margin">
+                        <i class="bi bi-x-circle icon"></i>
+                        关闭
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="delete-modal" class="modal fade" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">提示</div>
-            </div>
-            <div id="delete-modal-body" class="modal-body">
-                确定删除吗？
-            </div>
-            <div class="border-top" style="padding: 15px;">
-                <button id="delete-submit-btn" type="button" class="btn btn-primary">
-                    <i class="bi bi-arrow-bar-up icon"></i>
-                    确定
-                </button>
-                <button id="delete-close-btn" type="button" class="btn btn-primary left-margin">
-                    <i class="bi bi-x-circle icon"></i>
-                    取消
-                </button>
+    <div id="delete-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">提示</div>
+                </div>
+                <div id="delete-modal-body" class="modal-body">
+                    确定删除吗？
+                </div>
+                <div class="border-top" style="padding: 15px;">
+                    <button id="delete-submit-btn" type="button" class="btn btn-primary">
+                        <i class="bi bi-arrow-bar-up icon"></i>
+                        确定
+                    </button>
+                    <button id="delete-close-btn" type="button" class="btn btn-primary left-margin">
+                        <i class="bi bi-x-circle icon"></i>
+                        取消
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+</div>
 </body>
 </html>

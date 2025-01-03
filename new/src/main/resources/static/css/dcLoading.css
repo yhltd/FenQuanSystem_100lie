@@ -1,7 +1,8 @@
 .dc-loding{
     width: 150px;
     height: 150px;
-    border: 1px solid #f2f2f2;
+    border: 1px solid #409EFF;
+    /*f2f2f2*/
     border-radius: 2px;
     display: flex;
     justify-content: center;
@@ -10,7 +11,8 @@
 .dc-loding-item{
     height: 50%;
     width: 10px;
-    background-color: #409EFF;
+    background-color: #343a40;
+    /*409EFF*/
     margin: 0 2px;
 }
 .dc-loding-item:nth-of-type(1){

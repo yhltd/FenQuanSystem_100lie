@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <html lang="en">
 <head>
@@ -34,11 +34,13 @@
         }
     </style>
 </head>
+
 <body style="padding-left: 180px;margin: 0" class="row">
-<nav class="navbar navbar-dark  bg-dark" style="width: 100%;height:100%;position: absolute;top: 0;left: 0;">
+<!--bg-dark-->
+<nav class="navbar navbar-dark" style="width: 100%;height:100%;position: absolute;top: 0;left: 0;background-color: #000000">
     <ul class="navbar-nav mr-auto">
         <!--href="main.html"-->
-        <span class="navbar-brand" style="font-size: 1rem;line-height: 30px">
+        <span class="navbar-brand" style="font-size: 1rem;line-height: 30px; color: #ffffff">
 <!--            <img src="../img/logo.png" width="20" height="20" class="d-inline-block align-top rounded" alt=""/>-->
             <img src="../img/1.png" width="30px" height="30px" style="margin-top: -10px">
             分权编辑系统
@@ -51,12 +53,18 @@
                 <div style="width: 5px;height: 5px;display: inline-block"></div>
                 公司
             </a>
-            <div class="dropdown-menu" aria-labelledby="dataNavbarDropdown" style="width:15%;font-size: 14px">
-                <a class="dropdown-item" data-src="workbench.html"><img src="../img/工具(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>工作台</a>
-                <a class="dropdown-item" data-src="workbench_gongshi.html"><img src="../img/新员工(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>工作台公式设置</a>
-                <a class="dropdown-item" data-src="company-power.html"><img src="../img/文档.png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>工作台权限设置</a>
-                <a class="dropdown-item" data-src="department.html"><img src="../img/福利(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>部门权限设置</a>
-                <a class="dropdown-item" data-src="company_chart.html"><img src="../img/数据(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>公司数据分析</a>
+            <div class="dropdown-menu" aria-labelledby="dataNavbarDropdown" style="width:15%;font-size: 14px;background-color: #ffffff">
+                <div style="background-color: #ffffff">
+                    <a class="dropdown-item" data-src="workbench.html"><img src="../img/工具(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>工作台</a>
+
+                    <a class="dropdown-item" data-src="workbench_gongshi.html"><img src="../img/新员工(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>工作台公式设置</a>
+
+                    <a class="dropdown-item" data-src="company-power.html"><img src="../img/文档.png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>工作台权限设置</a>
+
+                    <a class="dropdown-item" data-src="department.html"><img src="../img/福利(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>部门权限设置</a>
+
+                    <a class="dropdown-item" data-src="company_chart.html"><img src="../img/数据(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>公司数据分析</a>
+                </div>
             </div>
         </li>
 
@@ -82,16 +90,15 @@
             <div class="dropdown-menu" aria-labelledby="dataNavbarDropdown" style="width:15%;font-size: 14px">
                 <a class="dropdown-item" data-src="use_state.html"><img src="../img/福利(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>工作台使用状态</a>
                 <a class="dropdown-item" data-src="云合分权编辑系统_使用说明.rar"><img src="../img/福利(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>使用说明</a>
-                 <a class="dropdown-item" id="out-aa" data-src="" href="../index.html"><img src="../img/关闭 (1)(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>退出</a>
+                <a class="dropdown-item" id="out-aa" data-src="" href="../index.html"><img src="../img/关闭 (1)(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>退出</a>
             </div>
         </li>
-
-        <li class="nav-item">
-            <a class="nav-link" data-src="app-debug.apk" >
-                <img src="../img/福利(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>
-                下载APP
-            </a>
-        </li>
+            <li class="nav-item">
+                <a class="nav-link" data-src="app-debug.apk" >
+                    <img src="../img/福利(1).png" width="20px" height="20px" style="margin-top: -4px"> <div style="width: 5px;height: 5px;display: inline-block"></div>
+                    下载APP
+                </a>
+            </li>
 
         <li class="nav-item">
             <a class="nav-link" data-src="分权编辑系统（20230618）.xlsm" >

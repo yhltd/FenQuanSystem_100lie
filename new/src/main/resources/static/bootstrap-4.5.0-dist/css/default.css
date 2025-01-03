@@ -28,9 +28,10 @@
 .tabs ul li.ui-state-active.ui-tabs-active a,
 .tabs ul li.ui-state-active.ui-tabs-active span,
 .tabs ul li.ui-state-active.ui-tabs-active{
-    /*border-top:3px solid red!important;*/
-    background: #39aef5!important;
-    border-bottom: 2px solid #39aef5!important;
+    border-top:3px solid red!important;
+    /*39aef5*/
+    background: #6c757d!important;
+    border-bottom: 2px solid #6c757d!important;/*39aef5*/
     color:#ddd!important;
 }
 .tabs ul li.ui-state-active.ui-tabs-active a:hover,

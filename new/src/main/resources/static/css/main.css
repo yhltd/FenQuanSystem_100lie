@@ -1,7 +1,7 @@
 html,body,#main{
     width: 100%;
     height: 100%;
-    background-color: #f2f2f2;
+    background-color: #ffffff;
 }
 .alerts{
     position: fixed;
@@ -42,7 +42,7 @@ a{
     margin: 0 auto;
 }
 .panel{
-    border: 1px solid #ebeef5;
+    border: 1px solid #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +51,8 @@ a{
 .panel-header{
     width: 100%;
     padding: 18px 20px;
-    border-bottom: 1px solid #ebeef5;
+    border-bottom: 1px solid #ffffff;
+    /*ebeef5*/
     font-weight: 600;
     font-size: 1.1rem;
 }
@@ -79,15 +80,30 @@ a{
     background-color: #fff;
     margin: 0;
     border-radius: 2px;
-    box-shadow: 0 0 2px rgba(0,0,0,.5);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     padding-top: .5rem;
+    border-top: none;
 }
+.lunbotu{
+    width: 1100px;
+    max-width: none;
+    height: 80px;
+    transform: translateX(50px);
+    overflow: hidden;
+    margin-left: -65px;
+}
+.carousel-item img {
+    width: 100%;
+    height: auto; /* 让高度自动调整 */
+    /*object-fit: cover; !* 保持图片比例并填充容器 *!*/
+}
+
 .table-div{
     width: 100%;
     background-color: #fff;
     margin-top: .5rem;
     padding: .5rem;
-    box-shadow: 0 0 2px rgba(0,0,0,.5);
+    box-shadow: 0 0 2px rgb(255, 255, 255);
     border-radius: 2px;
 }
 #table-toolbar{
@@ -97,6 +113,22 @@ a{
     align-items: center;
     justify-content: space-between;
 }
+/*#biaoqian {*/
+/*    margin-right: 100px; !* 根据需要调整间距大小 *!*/
+/*}*/
+
+.button-container {
+    /* 这个容器类不是必需的，但它可以帮助您组织CSS选择器并应用特定的样式到按钮组 */
+}
+
+.my-button-margin:not(:last-child) {
+    margin-right: 10px; /* 设置除了最后一个按钮之外的所有按钮的右边距 */
+}
+.link-as-button {
+    display: inline-block; /* 确保链接像按钮一样显示 */
+    text-decoration: none; /* 移除下划线 */
+    /* 其他样式可以放在这里，或者继续使用内联样式 */
+}
 table{
     table-layout: fixed;
     transition: .3s;
@@ -104,6 +136,7 @@ table{
 }
 .form-control{
     color: #000;
+    /*#000*/
 }
 .table thead th{
     border: none;
@@ -120,7 +153,7 @@ table{
 }
 .modal-body::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #ffffff;
 }
 .modal-body::-webkit-scrollbar-track {
     background-color: #ffffff;
@@ -137,15 +170,31 @@ table{
     no-repeat:背景图片不平铺
     repeat:背景图片平铺
      */
-    background: url("../img/backgroundImage.jpg") center fixed;
-    background-size: cover;
+    background: url("../img/2.png") center fixed;
+    background-size: cover; /* 根据需要调整背景图像大小 */
+    background-image: url('../img/2.png');
+    background-position: center;/* 背景图像居中 */
+    background-image: url('../img/2.png');
 }
+/* 使轮播图容器更大 */
+.carousel {
+    width: 800px;
+    max-width: none;
+    height: auto;
+    transform: translateX(50px);
+}
+/* 确保图片填充整个轮播图项 */
+.carousel-item img {
+    width: 100%; /* 图片宽度将填充其父容器 */
+    height: auto; /* 高度将基于宽度自动调整，以保持宽高比 */
+}
+
 .log-image{
-    background: url("../img/111.jpg") center fixed;
+    background: url("../img/2.png") center fixed;
     background-size: cover;
 }
 .stamp-a{
-    color: grey;
+    color: #808080;
     font-size: 12px;
     text-align: center;
 }
@@ -153,4 +202,36 @@ table{
 .table-head {
     color: #4d96e0;
     height: 100px;
+    /*4d96e0*/
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.announcement-container {
+    position: relative;
+    /*width: 100%;*/
+    height: 40px; /* 根据需要调整高度 */
+    line-height: 40px; /* 与高度相同，以垂直居中文字 */
+    background-color: #ffffff; /* 背景颜色 */
+    overflow: hidden; /* 隐藏溢出部分 */
+}
+
+.announcement-text {
+    position: absolute;
+    white-space: nowrap; /* 防止文字换行 */
+    animation: scrollAnnouncement 28s linear infinite 0s; /* 动画设置 */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@keyframes scrollAnnouncement {
+    0% {
+        transform: translateX(100%); /* 从右侧开始 */
+    }
+    100% {
+        transform: translateX(-100%); /* 到左侧结束，然后重新开始循环 */
+    }
 }

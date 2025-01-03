@@ -46,7 +46,8 @@
 	color: #666666;
 }
 .bTabs .nav-tabs li.active a {
-	color: #227AD7;
+	color: #6c757d;
+	/*227AD7*/
 	font-weight: bold;
 }
 .bTabs .nav-tabs li.active a button.navTabsCloseBtn{
