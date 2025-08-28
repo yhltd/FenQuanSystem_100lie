@@ -152,21 +152,21 @@ function setTable(data) {
     $('#departmentTable').bootstrapTable({
         data: data,
         sortStable: true,
-        classes: 'table table-hover table table-bordered',
+        classes: 'table table-hover table table-bordered gradient-table',
         idField: 'id',
         pagination: true,
         pageSize : 20,//单页记录数
         clickToSelect: true,
         locale: 'zh-CN',
         toolbar: '#table-toolbar',
-        toolbarAlign: 'left',
-        theadClasses: "thead-light",//这里设置表头样式
+        toolbarAlign: '',
+        theadClasses: "",//这里设置表头样式
         columns: [
             {
                 field: 'id',
                 title: '序号',
                 align: 'center',
-                width: 50,
+                width: 60,
                 formatter: function (value, row, index) {
                     return index + 1;
                 }

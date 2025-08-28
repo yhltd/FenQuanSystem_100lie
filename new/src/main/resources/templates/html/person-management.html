@@ -27,89 +27,107 @@
     <script type="text/javascript" src="../js/person-management.js"></script>
 </head>
 <body>
-<div class="announcement-container">
-    <div class="announcement-text">
-        本产品针对系统办公，数据共享，分权限编辑做出了很好的对策。采用数据库的形式保存数据，使广大用户的数据传输速度、安全提供了保障。系统采用人性化设计，充分考虑操作者的实用性，即使不是专业人员也能轻易掌握，全部采用目前市场上成熟，领先的技术，系统设计安全可靠系统提供其它应用系统接口，可方便的将其它应用系统集成进来。  </div>
-</div>
-<div id="carouselExampleIndicators" class="lunbotu slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="../img/AE.png" alt="First slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="../img/AJ.png" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="../img/AK.png" alt="Third slide">
+<div class="first">
+    <div class="announcement-container">
+        <div class="announcement-text text-color">
+            本产品针对系统办公，数据共享，分权限编辑做出了很好的对策。采用数据库的形式保存数据，使广大用户的数据传输速度、安全提供了保障。系统采用人性化设计，充分考虑操作者的实用性，即使不是专业人员也能轻易掌握，全部采用目前市场上成熟，领先的技术，系统设计安全可靠系统提供其它应用系统接口，可方便的将其它应用系统集成进来。
         </div>
     </div>
 
-</div>
 
-<div class="pt-2">
-    <div class=" row" style=background-color:#ffffff>
-        <div class="col-md-3 mb-2">
-            <input id="query" type="text" class="form-control" placeholder="姓名" autocomplete="off">
-        </div>
-        <div class="col-md-9 mb-2">
-
-            <button id="select-btn" class="btn btn-primary rounded-pill">
-                <i class="bi bi-search icon"></i>
-                查询
-            </button>
-            <button id="qr-btn" class="btn btn-info  my-button-margin rounded-pill" style="margin-left:2px">
-                <i class="bi bi-arrow-down-square icon"></i>
-                下载二维码
-            </button>
-            <a id="biaoqian" style="padding-top: 8px;margin-left: 350px; font-size: 20px; font-weight:bold">当前页：人员管理</a>
-            </div>
+    <div class="time-bar">
+        <div class="time-display">
+            <i class="bi bi-calendar icon"></i>
+            <span class="time-text" id="current-date">2025年8月15日 星期五</span>
+            <i class="bi bi-clock icon"></i>
+            <span class="time-text" id="current-time">14:31:33</span>
         </div>
 
-        <!--    <div>-->
-        <!--        <a id="biaoqian" class="btn btn-primary btn-info" style="color: white;padding-top: 8px">当前页：人员管理</a>-->
-        <!--    </div>-->
+        <div class="session-time">
+            <i class="bi bi-hourglass-split icon"></i>
+            <span class="time-text">已使用: <span id="session-timer">00:00:00</span></span>
+        </div>
     </div>
-<!--    <div style="background-color: #ffffff">-->
-<!--        <h1 style="font-size:2rem; text-align: center; color: #000000; white-space: nowrap; max-width: 100%; margin: 0px;">欢 迎 使 用 云 合 分 权 编 辑</h1>-->
+</div>
+<!--<div id="carouselExampleIndicators" class="lunbotu slide" data-ride="carousel">-->
+<!--    <ol class="carousel-indicators">-->
+<!--        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
+<!--        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
+<!--        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
+<!--    </ol>-->
+<!--    <div class="carousel-inner">-->
+<!--        <div class="carousel-item active">-->
+<!--            <img class="d-block w-100" src="../img/AE.png" alt="First slide">-->
+<!--        </div>-->
+<!--        <div class="carousel-item">-->
+<!--            <img class="d-block w-100" src="../img/AJ.png" alt="Second slide">-->
+<!--        </div>-->
+<!--        <div class="carousel-item">-->
+<!--            <img class="d-block w-100" src="../img/AK.png" alt="Third slide">-->
+<!--        </div>-->
 <!--    </div>-->
+
+<!--</div>-->
+
+<div id="table-toolbar" style=" display: flex; justify-content: space-between">
     <div class="btn-group" role="group">
-        <button id="refresh-btn" class="btn btn-success  my-button-margin rounded-pill">
+        <a id="biaoqian" class="btn btn-color" href="#"
+           style="padding-top: 8px;margin-left: 0; font-size: 20px; font-weight:bold">当前页：人员管理</a>
+
+        <button id="refresh-btn" class="btn btn-color">
             <i class="bi bi-arrow-clockwise icon"></i>
             刷新
         </button>
-        <button id="add-btn" class="btn btn-primary  my-button-margin rounded-pill">
+        <button id="add-btn" class="btn btn-color">
             <i class="bi bi-plus-square icon"></i>
             新增
         </button>
-        <button id="update-btn" class="btn btn-warning  my-button-margin rounded-pill">
+        <button id="update-btn" class="btn btn-color">
             <i class="bi bi-pencil-square icon"></i>
             修改
         </button>
-        <button id="delete-btn" class="btn btn-danger  my-button-margin rounded-pill">
+        <button id="delete-btn" class="btn btn-color-delete">
             <i class="bi bi-trash icon"></i>
             删除
         </button>
     </div>
+
+    <div class=" row select" >
+        <div class="ipt">
+            <input id="query" type="text" class="form-control" placeholder="姓名" autocomplete="off">
+        </div>
+        <div >
+            <button id="select-btn" class="btn btn-color">
+                <i class="bi bi-search icon"></i>
+                查询
+            </button>
+            <button id="qr-btn" class="btn btn-color">
+                <i class="bi bi-arrow-down-square icon"></i>
+                下载二维码
+            </button>
+
+            </div>
+        </div>
+</div>
+        <!--    <div>-->
+        <!--        <a id="biaoqian" class="btn btn-primary btn-info" style="color: white;padding-top: 8px">当前页：人员管理</a>-->
+        <!--    </div>-->
+
+<!--    <div style="background-color: #ffffff">-->
+<!--        <h1 style="font-size:2rem; text-align: center; color: #000000; white-space: nowrap; max-width: 100%; margin: 0px;">欢 迎 使 用 云 合 分 权 编 辑</h1>-->
+<!--    </div>-->
+
     <div id="qrcode" style="display: none">
 
     </div>
 
-    <div id="table-toolbar">
-
-        <div>
 
             <!--    <div class="text-end">-->
             <!--        <a id="biaoqian" class="btn btn-primary" style="color: white;padding-top: 8px">当前页：人员管理</a>-->
             <!--    </div>-->
-        </div>
-    </div>
 
-    <div class="table-div border-top">
+
+    <div class="table-div bg-img">
         <table id="labelTable"></table>
     </div>
 
@@ -278,4 +296,33 @@
 
 </div>
 </body>
+<script>
+    // 初始化时间显示
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('current-date').textContent =
+            `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 ${['日', '一', '二', '三', '四', '五', '六'][now.getDay()]}曜日`;
+        document.getElementById('current-time').textContent =
+            `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+    }
+
+    // 会话计时器
+    let startTime = Date.now();
+
+    function updateSessionTime() {
+        const elapsed = Date.now() - startTime;
+        const hours = Math.floor(elapsed / 3600000);
+        const minutes = Math.floor((elapsed % 3600000) / 60000);
+        const seconds = Math.floor((elapsed % 60000) / 1000);
+
+        document.getElementById('session-timer').textContent =
+            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // 启动定时器
+    updateTime();
+    updateSessionTime();
+    setInterval(updateTime, 1000);
+    setInterval(updateSessionTime, 1000);
+</script>
 </html>

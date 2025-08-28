@@ -27,147 +27,197 @@
     <script type="text/javascript" src="../js/workbench.js"></script>
 </head>
 <body>
-<div class="announcement-container">
-    <div class="announcement-text">
-        本产品针对系统办公，数据共享，分权限编辑做出了很好的对策。采用数据库的形式保存数据，使广大用户的数据传输速度、安全提供了保障。系统采用人性化设计，充分考虑操作者的实用性，即使不是专业人员也能轻易掌握，全部采用目前市场上成熟，领先的技术，系统设计安全可靠系统提供其它应用系统接口，可方便的将其它应用系统集成进来。</div>
-</div>
-<div id="carouselExampleIndicators" class="lunbotu slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="../img/AE.png" alt="First slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="../img/AJ.png" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="../img/AK.png" alt="Third slide">
+<div class="first">
+    <div class="announcement-container">
+        <div class="announcement-text text-color">
+            本产品针对系统办公，数据共享，分权限编辑做出了很好的对策。采用数据库的形式保存数据，使广大用户的数据传输速度、安全提供了保障。系统采用人性化设计，充分考虑操作者的实用性，即使不是专业人员也能轻易掌握，全部采用目前市场上成熟，领先的技术，系统设计安全可靠系统提供其它应用系统接口，可方便的将其它应用系统集成进来。
         </div>
     </div>
 
+
+    <div class="time-bar">
+        <div class="time-display">
+            <i class="bi bi-calendar icon"></i>
+            <span class="time-text" id="current-date">2025年8月15日 星期五</span>
+            <i class="bi bi-clock icon"></i>
+            <span class="time-text" id="current-time">14:31:33</span>
+        </div>
+
+        <div class="session-time">
+            <i class="bi bi-hourglass-split icon"></i>
+            <span class="time-text">已使用: <span id="session-timer">00:00:00</span></span>
+        </div>
+    </div>
 </div>
-<div class="pt-2" style="background-color:#ffffff ">
-    <div class="row" style=background-color:#ffffff;>
-        <div class="col-md-2 mb-2">
+<!--<div id="carouselExampleIndicators" class="lunbotu slide" data-ride="carousel">-->
+<!--    <div class="carousel-inner">-->
+<!--        <div class="carousel-item active">-->
+<!--            <img class="d-block w-100" src="../img/AE.png" alt="First slide">-->
+<!--        </div>-->
+<!--        <div class="carousel-item">-->
+<!--            <img class="d-block w-100" src="../img/AJ.png" alt="Second slide">-->
+<!--        </div>-->
+<!--        <div class="carousel-item">-->
+<!--            <img class="d-block w-100" src="../img/AK.png" alt="Third slide">-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+
+
+<!--    <div style="background-color: #ffffff">-->
+<!--        <h1 style="font-size:2rem; text-align: center; color: #000000; white-space: nowrap; max-width: 100%; margin: 0px;">欢 迎 使 用 云 合 分 权 编 辑 </h1>-->
+<!--    </div>-->
+<div id="table-toolbar" style=" display: flex; justify-content: space-between">
+    <div class="btn-group" role="group">
+        <a id="biaoqian" class="btn btn-color" href="#"
+           style="padding-top: 8px;margin-left: 0; font-size: 20px; font-weight:bold">当前页：工作台</a>
+
+        <button id="refresh-btn" class="btn btn-color  ">
+            <i class="bi bi-arrow-clockwise icon"></i>
+            <a href="workbench.html" style='color:black' style='text-decoration: none'>刷新</a>
+
+        </button>
+        <button id="add-btn" class="btn btn-color  ">
+            <i class="bi bi-plus-square icon"></i>
+            新增
+        </button>
+
+        <button id="delete-btn" class="btn btn-color-delete  ">
+            <i class="bi bi-trash icon"></i>
+            删除
+        </button>
+        <button id="one_click_export" class="btn btn-color ">
+            <i class="  icon"></i>
+            一键导出
+        </button>
+    </div>
+
+    <div class="row select">
+        <div class="ipt">
             <select id="this_column" type="text" class="form-control">
                 <option value="日期" selected="selected">添加日期</option>
                 <option value="a最后修改日期">最后修改日期</option>
             </select>
         </div>
-        <div class="col-md-2 mb-2">
+        <div class="ipt">
             <input id="start_date" type="date" class="form-control" placeholder="开始日期" autocomplete="off">
         </div>
-        <div class="col-md-2 mb-2">
+        <div class="ipt">
             <input id="stop_date" type="date" class="form-control" placeholder="结束日期" autocomplete="off">
         </div>
-        <div class="col-md-6 mb-2">
-            <button id="select-btn" class="btn btn-primary rounded-pill">
+
+        <div>
+            <button id="select-btn" class="btn btn-color">
                 <i class="bi bi-search icon"></i>
                 查询
             </button>
-            <a id="biaoqian" style="padding-top: 8px;margin-left: 237px; font-size: 20px; font-weight:bold">当前页：工作台</a>
         </div>
     </div>
-<!--    <div style="background-color: #ffffff">-->
-<!--        <h1 style="font-size:2rem; text-align: center; color: #000000; white-space: nowrap; max-width: 100%; margin: 0px;">欢 迎 使 用 云 合 分 权 编 辑 </h1>-->
-<!--    </div>-->
-    <div style=background-color:#ffffff;>
-        <div class="btn-group" role="group">
-            <button id="refresh-btn" class="btn btn-success  my-button-margin rounded-pill">
-                <i class="bi bi-arrow-clockwise icon"></i>
-                <a href="workbench.html" style='color:white' style='text-decoration: none'>刷新</a>
+</div>
 
-            </button>
-            <button id="add-btn" class="btn btn-primary  my-button-margin rounded-pill">
-                <i class="bi bi-plus-square icon"></i>
-                新增
-            </button>
 
-            <button id="delete-btn" class="btn btn-danger  my-button-margin rounded-pill">
-                <i class="bi bi-trash icon"></i>
-                删除
-            </button>
-            <button id="one_click_export" class="btn btn-info  my-button-margin rounded-pill" style="margin-left: 5px">
-                <i class="  icon"></i>
-                一键导出
-            </button>
-        </div>
+<div id="upd_1" class="alert alert-success alert-dismissible" hidden="hidden"
+     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+    <strong>保存成功!</strong>
+</div>
+<div id="upd_2" class="alert alert-danger alert-dismissible" hidden="hidden"
+     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+    <strong>保存失败!</strong>
+</div>
+<div id="upd_3" class="alert alert-danger alert-dismissible" hidden="hidden"
+     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+    <strong>无权限!</strong>
+</div>
 
-    </div>
+<div class="table-div  bg-img">
+    <table id="workBenchTable"></table>
+</div>
 
-    <div id="upd_1" class="alert alert-success alert-dismissible" hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
-        <strong>保存成功!</strong>
-    </div>
-    <div id="upd_2" class="alert alert-danger alert-dismissible"  hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
-        <strong>保存失败!</strong>
-    </div>
-    <div id="upd_3" class="alert alert-danger alert-dismissible"  hidden="hidden" style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
-        <strong>无权限!</strong>
-    </div>
-
-    <div class="table-div border-top">
-        <table id="workBenchTable" ></table>
-    </div>
-
-    <div id="delete-modal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="modal-title">提示</div>
-                </div>
-                <div id="delete-modal-body" class="modal-body">
-                    确定删除吗？
-                </div>
-                <div class="border-top" style="padding: 15px;">
-                    <button id="delete-submit-btn" type="button" class="btn btn-primary">
-                        <i class="bi bi-arrow-bar-up icon"></i>
-                        确定
-                    </button>
-                    <button id="delete-close-btn" type="button" class="btn btn-primary left-margin">
-                        <i class="bi bi-x-circle icon"></i>
-                        取消
-                    </button>
-                </div>
+<div id="delete-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">提示</div>
             </div>
-        </div>
-    </div>
-
-
-    <!--    查询公式信息窗体-->
-    <div id="show-gongshi-modal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-lg" style="max-width: 1200px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="modal-title">公式信息</div>
-                </div>
-                <div class="modal-body">
-                    <table id="show-table-gongshi"></table>
-                </div>
-                <div class="border-top" style="padding: 15px;">
-                    <button id="gongshi-submit-btn" type="button" class="btn btn-primary">
-                        <i class="bi bi-plus-square icon"></i>
-                        新增
-                    </button>
-                    <button id="gongshi-update-btn" type="button" class="btn btn-primary">
-                        <i class="bi bi-plus-square icon"></i>
-                        修改
-                    </button>
-                    <button id="gongshi-delete-btn" type="button" class="btn btn-primary">
-                        <i class="bi bi-trash icon"></i>
-                        删除
-                    </button>
-                    <button id="gongshi-close-btn" type="button" class="btn btn-primary left-margin">
-                        <i class="bi bi-x-circle icon"></i>
-                        关闭
-                    </button>
-                </div>
+            <div id="delete-modal-body" class="modal-body">
+                确定删除吗？
+            </div>
+            <div class="border-top" style="padding: 15px;">
+                <button id="delete-submit-btn" type="button" class="btn btn-primary">
+                    <i class="bi bi-arrow-bar-up icon"></i>
+                    确定
+                </button>
+                <button id="delete-close-btn" type="button" class="btn btn-primary left-margin">
+                    <i class="bi bi-x-circle icon"></i>
+                    取消
+                </button>
             </div>
         </div>
     </div>
 </div>
+
+
+<!--    查询公式信息窗体-->
+<div id="show-gongshi-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg" style="max-width: 1200px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">公式信息</div>
+            </div>
+            <div class="modal-body">
+                <table id="show-table-gongshi"></table>
+            </div>
+            <div class="border-top" style="padding: 15px;">
+                <button id="gongshi-submit-btn" type="button" class="btn btn-primary">
+                    <i class="bi bi-plus-square icon"></i>
+                    新增
+                </button>
+                <button id="gongshi-update-btn" type="button" class="btn btn-primary">
+                    <i class="bi bi-plus-square icon"></i>
+                    修改
+                </button>
+                <button id="gongshi-delete-btn" type="button" class="btn btn-primary">
+                    <i class="bi bi-trash icon"></i>
+                    删除
+                </button>
+                <button id="gongshi-close-btn" type="button" class="btn btn-primary left-margin">
+                    <i class="bi bi-x-circle icon"></i>
+                    关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
+<script>
+    // 初始化时间显示
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('current-date').textContent =
+            `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 ${['日', '一', '二', '三', '四', '五', '六'][now.getDay()]}曜日`;
+        document.getElementById('current-time').textContent =
+            `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+    }
+
+    // 会话计时器
+    let startTime = Date.now();
+
+    function updateSessionTime() {
+        const elapsed = Date.now() - startTime;
+        const hours = Math.floor(elapsed / 3600000);
+        const minutes = Math.floor((elapsed % 3600000) / 60000);
+        const seconds = Math.floor((elapsed % 60000) / 1000);
+
+        document.getElementById('session-timer').textContent =
+            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // 启动定时器
+    updateTime();
+    updateSessionTime();
+    setInterval(updateTime, 1000);
+    setInterval(updateSessionTime, 1000);
+</script>
 </html>

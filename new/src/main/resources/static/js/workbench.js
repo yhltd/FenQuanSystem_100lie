@@ -652,15 +652,15 @@ function setTable(data) {
     $('#workBenchTable').bootstrapTable({
         data: data,
         sortStable: true,
-        classes: 'table table-hover text-nowrap table table-bordered',
+        classes: 'table table-hover text-nowrap table table-bordered gradient-table',
         idField: 'id',
         pagination: true,
         pageSize: 15,//单页记录数
         clickToSelect: true,
         locale: 'zh-CN',
         toolbar: '#table-toolbar',
-        toolbarAlign: 'left',
-        theadClasses: "thead-light",//这里设置表头样式
+        toolbarAlign: '',
+        theadClasses: "",//这里设置表头样式
         style: 'table-layout:fixed',
         height: document.body.clientHeight * 0.85,
         columns: [

@@ -2,6 +2,14 @@ html,body,#main{
     width: 100%;
     height: 100%;
     background-color: #ffffff;
+    padding: 0;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin:0;
 }
 .alerts{
     position: fixed;
@@ -25,7 +33,7 @@ a{
 }
 .icon{
     width: 16px;
-    height: 16px;
+    height: 25px;
     vertical-align: .1rem;
 }
 .icon-hide{
@@ -42,7 +50,7 @@ a{
     margin: 0 auto;
 }
 .panel{
-    border: 1px solid #ffffff;
+    border: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +80,7 @@ a{
     opacity: 1;
 }
 #document > html{
-    padding: 0 10px;
+    padding: 0px;
 }
 .top-toolbar{
     width: 100%;
@@ -87,7 +95,7 @@ a{
 .lunbotu{
     width: 1100px;
     max-width: none;
-    height: 80px;
+    height: 61px;
     transform: translateX(50px);
     overflow: hidden;
     margin-left: -65px;
@@ -101,9 +109,9 @@ a{
 .table-div{
     width: 100%;
     background-color: #fff;
-    margin-top: .5rem;
+    margin-top: 0;
     padding: .5rem;
-    box-shadow: 0 0 2px rgb(255, 255, 255);
+    box-shadow: 0 0 0 rgb(255, 255, 255);
     border-radius: 2px;
 }
 #table-toolbar{
@@ -165,30 +173,38 @@ table{
     padding-top: 60px;
     margin: 0;
 }
-.bg-image{
-    /**
-    no-repeat:背景图片不平铺
-    repeat:背景图片平铺
-     */
-    background: url("../img/2.png") center fixed;
-    background-size: cover; /* 根据需要调整背景图像大小 */
-    background-image: url('../img/2.png');
-    background-position: center;/* 背景图像居中 */
-    background-image: url('../img/2.png');
-}
+/*.bg-image{*/
+/*    !***/
+/*    no-repeat:背景图片不平铺*/
+/*    repeat:背景图片平铺*/
+/*     *!*/
+/*    background: url("../img/2.png") center fixed;*/
+/*    background-size: cover; !* 根据需要调整背景图像大小 *!*/
+/*    background-image: url('../img/2.png');*/
+/*    background-position: center;!* 背景图像居中 *!*/
+/*    background-image: url('../img/2.png');*/
+/*}*/
 /* 使轮播图容器更大 */
-.carousel {
-    width: 800px;
-    max-width: none;
-    height: auto;
-    transform: translateX(50px);
+/*.carousel {*/
+/*    width: 100%;*/
+/*    max-width: none;*/
+/*    height: 100%;*/
+/*    !*transform: translateX(50px);*!*/
+/*}*/
+/*.carousel-item{*/
+/*    height: 100%;*/
+/*}*/
+/*.carousel-inner{*/
+/*    height: 100%;*/
+/*}*/
+/*!* 确保图片填充整个轮播图项 *!*/
+/*.carousel-item img {*/
+/*    width: 100%; !* 图片宽度将填充其父容器 *!*/
+/*    height: 100%; !* 高度将基于宽度自动调整，以保持宽高比 *!*/
+/*}*/
+.bg-image{
+    background:url("https://aisearch.cdn.bcebos.com/pic_create/2025-08-27/18/a57588b45f8529fd.jpg?x-bce-process=image/watermark,image_cGljX2NyZWF0ZS93YXRlcm1hcmsvYWlfd2F0ZXJtYXJrLnBuZw==,x_16,y_16");
 }
-/* 确保图片填充整个轮播图项 */
-.carousel-item img {
-    width: 100%; /* 图片宽度将填充其父容器 */
-    height: auto; /* 高度将基于宽度自动调整，以保持宽高比 */
-}
-
 .log-image{
     background: url("../img/2.png") center fixed;
     background-size: cover;
@@ -209,20 +225,27 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 }
-
+/* =================登录容器主样式===================== */
+.login-container {
+    width: 380px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: all 0.3s ease;
+}  /*============================================*/
 .announcement-container {
     position: relative;
     /*width: 100%;*/
     height: 40px; /* 根据需要调整高度 */
     line-height: 40px; /* 与高度相同，以垂直居中文字 */
-    background-color: #ffffff; /* 背景颜色 */
     overflow: hidden; /* 隐藏溢出部分 */
 }
 
 .announcement-text {
     position: absolute;
     white-space: nowrap; /* 防止文字换行 */
-    animation: scrollAnnouncement 28s linear infinite 0s; /* 动画设置 */
+    animation: scrollAnnouncement 35s linear infinite 0s; /* 动画设置 */
     font-weight: bold;
     font-size: 20px;
 }
@@ -235,3 +258,368 @@ body {
         transform: translateX(-100%); /* 到左侧结束，然后重新开始循环 */
     }
 }
+/*===================表格上部容器==============*/
+#table-toolbar{
+    opacity: 1;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* ====================== 查询组件布局 ====================== */
+/* 对select类进行弹性布局控制，实现特定对齐方式 */
+.select{
+    display: flex;
+    ;
+}
+/*调整输入框边距*/
+.ipt{
+    padding-right:2px;
+    cursor: pointer;
+}
+.ipt:hover{
+    cursor: pointer;
+}
+/* ====================== 退出和删除按钮颜色方案 ====================== */
+/* 基础状态样式 - 按钮默认外观 */
+.btn-color-delete{
+    color:#fff;
+    background-color: #ce3030;
+    border-color: #ce3030;
+}
+/* 悬停状态样式 - 鼠标悬停时的交互反馈 */
+.btn-color-delete:hover {
+    color: #fff;
+    background-color: #ff6d6d;
+    border-color: #ff6d6d;
+}/*================================*/
+/*============================普通按钮样式=====================================*/
+.btn-color{
+    color: #090909;
+    background-color: rgb(172,193,211);
+    border-color:rgb(172,193,211);
+}
+/*======悬停效果=========*/
+.btn-color:hover{
+    color: #fff;
+    background-color: rgb(192, 224, 250);
+    border-color: rgb(192, 224, 250);
+}
+
+/* ============================ 渐变表格样式 =========================== */
+.gradient-table {
+    /* 布局属性 */
+    width: 100%;            /* 占满父容器宽度 */
+    border-collapse: collapse; /* 合并单元格边框 */
+    overflow: hidden;       /* 隐藏溢出内容保证圆角效果 */
+
+    /* 视觉样式 */
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+
+    /* 背景 */
+    background: rgba(172,193,211, 0.85);
+}
+
+/* ====表头样式 ===== */
+.gradient-table thead {
+    /* 渐变背景（比主体更浓） */
+    background: linear-gradient(135deg,  #4361ee,  #3a0ca3);
+
+    /* 文字效果 */
+    color: white;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2); /* 文字阴影 */
+}
+.th-inner {
+    padding: 0.9rem .75rem !important
+}
+/* ===== 单元格基础样式 ===== */
+
+.gradient-table td {
+    padding: 1rem 1.4rem;
+    text-align: left;       /* 左对齐文本 */
+    border-bottom: 1px solid white; /* 半透明分割线 */
+    color: #090909;
+}
+
+/* ===== 悬停交互效果 ===== */
+.gradient-table tbody tr:hover {
+    /* 视觉变化 */
+    background: rgba(255,255,255,0.7) !important; /* 高亮背景 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;        /* 手型光标*/
+    transition: background 0.2s ease; /* 平滑过渡效果 */
+}
+
+/* 悬停时文字变化 */
+.gradient-table tbody tr:hover td {
+    color: #000000;
+    font-weight: 700; /* 加粗 */
+}
+
+/* ========================== 内联框架样式 ========================== */
+/* 最外部容器样式 - 作为整个页面的布局容器 */
+.outermost {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;        /* 启用弹性布局 */
+    justify-content: center;  /* 水平居中 */
+    align-items: center;  /* 垂直居中 */
+    background: #081325;
+    height: 100vh;
+}
+
+/* iframe包装容器 - 用于美化iframe的显示效果 */
+.iframe-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 7px 4px 7px 0 rgb(66,66,66);
+    border-radius: 17px;
+    overflow: hidden;     /* 隐藏溢出内容 */
+}
+
+/* iframe元素样式 */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
+
+
+
+/*==========================表格背景=========================*/
+.bg-img{
+    background-image: url("https://aisearch.cdn.bcebos.com/pic_create/2025-08-15/17/baa1521b376964c3.png?x-bce-process=image/watermark,image_cGljX2NyZWF0ZS93YXRlcm1hcmsvYWlfd2F0ZXJtYXJrLnBuZw==,x_16,y_16");
+    background-size: cover;
+}
+/*==============================侧边栏容器===================================*/
+/*侧边栏样式*/
+.sidebar {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background:linear-gradient(145deg, #081325, #415b72);
+    color: white;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    transition: all 0.3s ease;
+}
+
+
+/* 悬停状态 */
+.link-item:hover{
+    background: linear-gradient(135deg, #425ae8, #223edb);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/*=======链接按钮容器=======*/
+.link-item {
+    background: linear-gradient(135deg, #425ae8, #3b13a9);
+    color: aliceblue;
+    box-shadow: 0 0 0 ;
+    overflow: hidden;
+    position: relative;
+    width: 160px;
+    margin-top: 15px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    /*两侧三角形按钮*/
+    clip-path: polygon(
+            0% 0%,  /* 左上角内凹点 */
+            85% 0%,   /* 右上角内凹点 */
+            100% 50%, /* 右侧三角形顶点 */
+            85% 100%, /* 右下角内凹点 */
+            0% 100%, /* 左下角内凹点 */
+            15% 50%    /* 左侧三角形顶点 */
+    );
+}
+.link-exit{background: linear-gradient(135deg, #425ae8, #3b13a9);
+    color: aliceblue;
+    box-shadow: 0 0 0 ;
+    overflow: hidden;
+    position: relative;
+    width: 160px;
+    margin-top: 15px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    /*两侧三角形按钮*/
+    clip-path: polygon(
+            15% 0%,  /* 左上角内凹点 */
+            85% 0%,   /* 右上角内凹点 */
+            100% 50%, /* 右侧三角形顶点 */
+            85% 100%, /* 右下角内凹点 */
+            15% 100%, /* 左下角内凹点 */
+            0% 50%    /* 左侧三角形顶点 */
+    );}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100% !important;
+        height: auto;
+    }
+}/*====================================================*/
+/*================================时间栏容器====================================*/
+.first{
+    background: linear-gradient(135deg,  #4361ee,  #3a0ca3);
+    position: relative;
+    overflow: hidden
+}
+.time-bar {
+    width: 100%;
+    height: 10vh;
+    min-height: 60px;
+    /*background: linear-gradient(135deg,  #4361ee,  #3a0ca3);*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 14px 7px 6px rgba(4,0,255,0.46);
+    color: #f8f9fa;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.first::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 140%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.time-display, .session-time {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1;
+}
+
+.time-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+/*====================================================================*/
+/*=========================顶部播放字体颜色设置==========================*/
+.text-color{
+    color: rgb(255,255,255);
+}
+
+/*============================首页字体和按钮 ===================*/
+.shouye {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(255,255,255,0);
+    position: absolute;
+    top: 0; /* 垂直居中 */
+    left: 0; /* 水平偏移 */
+    z-index: 10; /* 高值确保在上层 */
+}
+/*标题容器*/
+.title-container {
+    height:20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/*字体格式*/
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+
+}
+/*按钮容器*/
+.link-group{
+    display: flex;
+    gap: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+/*按钮样式*/
+.circle-link {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #081325, #34495e);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    line-height: 150px;
+}
+/*按钮悬停效果*/
+.circle-link:hover{
+    /*transform: translateY(-5px);*/
+    /*box-shadow: 0 6px 12px rgba(0,0,0,0.3);*/
+
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2),
+    0 6px 12px rgba(0,0,0,0.1);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border-color: transparent;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: translateY(-5px) scale(1.05); }
+    100% { transform: translateY(-5px) scale(1.08); }
+}
+
+.circle-link:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at center,
+    rgba(255,255,255,0.8) 0%,
+    rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.circle-link:hover::after {
+    opacity: 1;
+}
+

@@ -69,14 +69,14 @@ function setTable1(data) {
     $('#companyPowerTable1').bootstrapTable({
         data: data,
         sortStable: true,
-        classes: 'table',
+        classes: 'table gradient-table',
         idField: 'id',
         pagination: false,
         clickToSelect: true,
         locale: 'zh-CN',
         toolbar: '#table-toolbar',
-        toolbarAlign: 'left',
-        theadClasses: "thead-light",//这里设置表头样式
+        toolbarAlign: '',
+        theadClasses: "",//这里设置表头样式
         columns: [
             // {
             //     field: '',
@@ -601,14 +601,14 @@ function setTable2(data) {
     $('#companyPowerTable2').bootstrapTable({
         data: data,
         sortStable: true,
-        classes: 'table',
+        classes: 'table gradient-table',
         idField: 'id',
         pagination: false,
         clickToSelect: true,
         locale: 'zh-CN',
         toolbar: '',
-        toolbarAlign: 'left',
-        theadClasses: "thead-light",//这里设置表头样式
+        toolbarAlign: '',
+        theadClasses: "",//这里设置表头样式
         columns: [
             // {
             //     field: '',
@@ -1134,14 +1134,14 @@ function setTable3(data) {
     $('#companyPowerTable3').bootstrapTable({
         data: data,
         sortStable: true,
-        classes: 'table',
+        classes: 'table gradient-table',
         idField: 'id',
         pagination: false,
         clickToSelect: true,
         locale: 'zh-CN',
         toolbar: '',
-        toolbarAlign: 'left',
-        theadClasses: "thead-light",//这里设置表头样式
+        toolbarAlign: '',
+        theadClasses: "",//这里设置表头样式
         columns: [
             // {
             //     field: '',
@@ -1666,14 +1666,14 @@ function setTable4(data) {
     $('#companyPowerTable4').bootstrapTable({
         data: data,
         sortStable: true,
-        classes: 'table',
+        classes: 'table gradient-table',
         idField: 'id',
         pagination: false,
         clickToSelect: true,
         locale: 'zh-CN',
         toolbar: '',
-        toolbarAlign: 'left',
-        theadClasses: "thead-light",//这里设置表头样式
+        toolbarAlign: '',
+        theadClasses: "",//这里设置表头样式
         columns: [
             // {
             //     field: '',

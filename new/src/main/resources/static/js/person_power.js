@@ -102,14 +102,14 @@ function setTable(data) {
     $('#personPowerTable').bootstrapTable({
         data: data,
         sortStable: true,
-        classes: 'table',
+        classes: 'table gradient-table',
         idField: 'id',
         pagination: false,
         clickToSelect: true,
         locale: 'zh-CN',
         toolbar: '#table-toolbar',
-        toolbarAlign: 'left',
-        theadClasses: "thead-light",//这里设置表头样式
+        toolbarAlign: '',
+        theadClasses: "",//这里设置表头样式
         style: 'table-layout:fixed',
         height: document.body.clientHeight * 0.85,
         columns: [

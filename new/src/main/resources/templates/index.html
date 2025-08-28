@@ -47,11 +47,11 @@
     </div>
 </div>
 <div class="row justify-content-center" style="margin-top: 30px">
-    <div class="panel col-md-5" style="background-color: rgba(77,150,224,0.3);">
-        <div class="panel-main">
+    <div class="panel col-md-5" style="background-color: rgba(77,150,224,0);">
+        <div class="panel-main login-container">
             <form id="login-form">
                 <div class="form-group">
-                    <label for="company" style="color: white">公司</label>
+                    <label for="company" style="color: black">公司</label>
                     <select id="company" name="company" type="text" class="form-control" autocomplete="off" required>
                     </select>
                     <div class="invalid-feedback">
@@ -59,14 +59,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="username" style="color: white">用户名</label>
+                    <label for="username" style="color:black">用户名</label>
                     <input id="username" name="username" type="text" class="form-control" autocomplete="off" required>
                     <div class="invalid-feedback">
                         请输入用户名！
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" style="color: white">密码</label>
+                    <label for="password" style="color: black">密码</label>
                     <input id="password" name="password" type="password" class="form-control" autocomplete="off" required>
                     <div class="invalid-feedback">
                         请输入密码！
@@ -75,9 +75,9 @@
                 
 
             </form>
-            <div style="margin-left: 100px">
-                <label for=""><input type="checkbox" id="check"><a style="color: white">7天免登陆</a></label>
-                <button id="submit-btn" class="btn btn-primary" style="width: 90px;margin-left: 100px">
+            <div style="display: flex;justify-content: space-between">
+                <label><input type="checkbox" id="check"><a style="color: black">7天免登陆</a></label>
+                <button id="submit-btn" class="btn btn-primary" style="width: 90px;margin-left: 0">
                     <i class="bi bi-person-fill icon"></i>
                     登陆
                 </button>
