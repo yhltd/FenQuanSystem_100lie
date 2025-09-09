@@ -130,6 +130,12 @@ public class UserInfoController{
                 SessionUtil.remove(session, "token");
                 return ResultInfo.error(-1, "用户名密码错误或账号被锁定");
             } else {
+                String companyName = company;
+                log.info("使用传入的company参数: {}", companyName);
+                session.setAttribute("companyName", companyName);
+                String sessionCompany = (String) session.getAttribute("companyName");
+                log.info("设置到session后的值: {}", sessionCompany);
+
                 SessionUtil.setToken(session, map.get("token").toString());
                 SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
                 SessionUtil.setGongSiPower(session, StringUtils.cast(map.get("companyPower")));

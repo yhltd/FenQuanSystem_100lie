@@ -99,12 +99,235 @@
             transform: rotateY(180deg);
             background-size: 100% 100%;
         }
+
+        .carousel-index {
+            width: var(--tankuan);
+            /*width: 300px;*/
+            position: fixed;
+            z-index: 9998;
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+            border: 3px solid white;
+            border-radius: 15px;
+            animation: smooth-drift 40s infinite ease-in-out;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        @keyframes smooth-drift {
+            0%, 100% {
+                transform: translate(5vw, 20vh);
+            }
+            25% {
+                transform: translate(40vw, 1vh);
+            }
+            50% {
+                transform: translate(65vw, 30vh);
+            }
+            75% {
+                transform: translate(30vw, 50vh);
+            }
+        }
+
+        .index-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            backface-visibility: hidden;
+        }
+
+        .marquee-container {
+            flex: 1;
+            max-width: 30%; /* 移除最大宽度限制 */
+            overflow: hidden;
+            margin: 0 10px;
+            position: relative;
+            height: 36px; /* 增加高度 */
+            background: linear-gradient(
+                    135deg,
+                    rgba(46, 139, 87, 0.3) 0%,
+                    rgba(60, 179, 113, 0.3) 30%,
+                    rgba(79, 206, 123, 0.3) 70%,
+                    rgba(102, 217, 143, 0.3) 100%
+            );
+            border-radius: 18px; /* 增加圆角 */
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(46, 139, 87, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .marquee-content {
+            color: white;
+            white-space: nowrap;
+            position: absolute;
+            animation: marquee 25s linear infinite; /* 减慢速度 */
+            font-size: 14px;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            padding-right: 50px; /* 增加右侧内边距 */
+            min-width: max-content; /* 确保内容完整显示 */
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .scrolling-container {
+            width: 200px; /* 增加宽度 */
+            height: 36px; /* 增加高度 */
+            overflow: hidden;
+            white-space: nowrap;
+            background: linear-gradient(
+                    135deg,
+                    rgba(46, 139, 87, 0.25) 0%,
+                    rgba(60, 179, 113, 0.25) 100%
+            );
+            border-radius: 18px; /* 增加圆角 */
+            position: relative;
+            /*float: center;*/
+            box-shadow: 0 2px 6px rgba(46, 139, 87, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .scrolling-text {
+            position: absolute;
+            right: 0;
+            color: white;
+            font-weight: 500;
+            padding: 8px 15px; /* 增加内边距 */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+            animation: scroll-text 10s linear infinite; /* 添加动画 */
+        }
+
+        @keyframes scroll-text {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+
+        #Iframe1 {
+            height:100%;
+        }
+
+        .clean-btn-div {
+            background-color: transparent;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border: 1px solid white;
+            font-size: 13px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            right: 0;
+            text-align: center;
+            margin: 10px;
+            transform: none;
+        }
+
+        .index-btn-div {
+            background-color: transparent;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border: 1px solid white;
+            font-size: 13px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            right: 0;
+            text-align: center;
+            margin: 10px;
+            transform: none;
+        }
+
+        .index-btn-div:hover {
+            cursor: pointer;
+        }
+
+        .clean-btn-div:hover {
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        .content-main{
+            width: 100%;
+            display: flex;
+        }
+        .content-left{
+            width: 15%;
+            background-color: #000000;
+        }
+        .content-right{
+            width: 85%;
+
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: var(--dinggao, 400px);
+            position: relative;
+            overflow: hidden;
+            margin-bottom:5px;
+
+        }
+
+        /* 轮播图片容器 */
+        .carousel-images {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* 轮播项样式 */
+        .carousel-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            z-index: 1;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
     </style>
 </head>
 
-<body style="padding-left: 180px;margin: 0" class="row">
-<!--bg-dark-->
-<nav class="navbar navbar-dark sidebar container" style="width: 100%;height:100%;position: absolute;top: 0;left: 0;background-color: #000000">
+<body style="margin: 0" class="row">
+<div class="carousel-container">
+    <button type="button" class="clean-btn-div" onclick="yinClick()">×</button>
+    <div class="carousel-images" id="carouselImages"></div>
+</div>
+
+<div class="carousel-index">
+    <button type="button" class="index-btn-div" onclick="tanClick()">×</button>
+    <div class="index-images">
+        <div class="index-item" id="Div1">
+            <img src="https://picsum.photos/id/13/800/500" alt="图5">
+        </div>
+    </div>
+</div>
+<div class="content-main">
+    <div class="content-left">
+<nav class="navbar navbar-dark sidebar container" >
     <div class="flex-container">
     <ul class="navbar-nav mr-auto content ">
         <!--href="main.html"-->
@@ -205,14 +428,13 @@
 
 
     </div>
-    <a  data-src="" style="color: white; position: fixed;bottom:2px">5.1.0.2</a>
+    <a  data-src="" style="color: white; position: fixed;bottom:2px">5.1.0.4</a>
 </nav>
-
-
-<div class="embed-responsive embed-responsive-1by1 h-100 outermost">
+    </div>
+<div class="embed-responsive embed-responsive-1by1 h-100 outermost content-right">
     <iframe id="iframe" class="embed-responsive-item iframe-wrapper" src="main-item.html"></iframe>
 </div>
-
+</div>
 
 </body>
 <script type="text/javascript">

@@ -20,8 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f1c3db8-e586-4235-8cb7-61373832aa9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/code_java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/code_java.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/java/com/fenquan/demo/controller/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/java/com/fenquan/demo/controller/ChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/static/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/company-power.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/company-power.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/company_chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/company_chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/department.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/department.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person-management.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person-management.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person_chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person_chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person_power.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person_power.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/use_state.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/use_state.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/workbench.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/workbench.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/workbench_gongshi.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/workbench_gongshi.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +71,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/office_system" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -67,19 +81,9 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="TomeeConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings>
@@ -427,6 +431,8 @@
       <workItem from="1622617352310" duration="6987000" />
       <workItem from="1622624553700" duration="986000" />
       <workItem from="1624939388744" duration="1338000" />
+      <workItem from="1756444678349" duration="38000" />
+      <workItem from="1756780686626" duration="14000" />
     </task>
     <servers />
   </component>
@@ -444,71 +450,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="97" y="0" width="1092" height="760" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622625530805">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state x="97" y="0" width="1092" height="760" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.760@0.0.1280.760" timestamp="1622625530805" />
-    <state x="123" y="0" key="#项目结构" timestamp="1622625530018">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state x="123" y="0" key="#项目结构/0.0.1280.760@0.0.1280.760" timestamp="1622625530018" />
-    <state x="420" y="134" key="FileChooserDialogImpl" timestamp="1624941986610">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state x="420" y="134" key="FileChooserDialogImpl/0.0.1280.760@0.0.1280.760" timestamp="1624941986610" />
-    <state width="690" height="195" key="GridCell.Tab.0.bottom" timestamp="1624941995080">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1624941995080" />
-    <state width="690" height="195" key="GridCell.Tab.0.center" timestamp="1624941995080">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1624941995080" />
-    <state width="690" height="195" key="GridCell.Tab.0.left" timestamp="1624941995079">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1624941995079" />
-    <state width="690" height="195" key="GridCell.Tab.0.right" timestamp="1624941995080">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1624941995080" />
-    <state width="690" height="195" key="GridCell.Tab.1.bottom" timestamp="1624941995081">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1624941995081" />
-    <state width="690" height="195" key="GridCell.Tab.1.center" timestamp="1624941995081">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1624941995081" />
-    <state width="690" height="195" key="GridCell.Tab.1.left" timestamp="1624941995080">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1624941995080" />
-    <state width="690" height="195" key="GridCell.Tab.1.right" timestamp="1624941995081">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1624941995081" />
-    <state width="690" height="195" key="GridCell.Tab.2.bottom" timestamp="1624941995082">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.2.bottom/0.0.1280.760@0.0.1280.760" timestamp="1624941995082" />
-    <state width="690" height="195" key="GridCell.Tab.2.center" timestamp="1624941995082">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.2.center/0.0.1280.760@0.0.1280.760" timestamp="1624941995082" />
-    <state width="690" height="195" key="GridCell.Tab.2.left" timestamp="1624941995082">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.2.left/0.0.1280.760@0.0.1280.760" timestamp="1624941995082" />
-    <state width="690" height="195" key="GridCell.Tab.2.right" timestamp="1624941995082">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="690" height="195" key="GridCell.Tab.2.right/0.0.1280.760@0.0.1280.760" timestamp="1624941995082" />
-    <state x="120" y="0" key="SettingsEditor" timestamp="1624939701306">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state x="120" y="0" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1624939701306" />
   </component>
 </project>

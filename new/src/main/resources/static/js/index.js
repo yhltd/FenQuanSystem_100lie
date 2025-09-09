@@ -1,4 +1,7 @@
+
+
 function get_select_List() {
+
     $ajax({
         type: 'post',
         url: '/user/get_select_List',
@@ -16,6 +19,8 @@ function get_select_List() {
         }
     })
 }
+
+
 
 
 
