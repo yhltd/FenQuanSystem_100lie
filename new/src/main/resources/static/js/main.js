@@ -74,11 +74,11 @@ function getList() {
 
             // 创建轮播图数据
             var carouselImages = [
-                { url: images[0].tptop2 || "https://picsum.photos/id/10/800/500", alt: "图1" },
-                { url: images[1].tptop3 || "https://picsum.photos/id/11/800/500", alt: "图2" },
-                { url: images[2].tptop4 || "https://picsum.photos/id/12/800/500", alt: "图3" },
-                { url: images[3].tptop5 || "https://picsum.photos/id/13/800/500", alt: "图4" },
-                { url: images[4].tptop6 || "https://picsum.photos/id/14/800/500", alt: "图5" }
+                { url: images[0].tptop2 , alt: "图1" },
+                { url: images[1].tptop3 , alt: "图2" },
+                { url: images[2].tptop4 , alt: "图3" },
+                { url: images[3].tptop5 , alt: "图4" },
+                { url: images[4].tptop6 , alt: "图5" }
             ];
 
             console.log(carouselImages, "轮播图图片数据");

@@ -203,7 +203,7 @@ table{
 /*    height: 100%; !* 高度将基于宽度自动调整，以保持宽高比 *!*/
 /*}*/
 .bg-image{
-    background:url("https://aisearch.cdn.bcebos.com/pic_create/2025-08-27/18/a57588b45f8529fd.jpg?x-bce-process=image/watermark,image_cGljX2NyZWF0ZS93YXRlcm1hcmsvYWlfd2F0ZXJtYXJrLnBuZw==,x_16,y_16");
+    background:url("../img/bg_image.png");
 }
 .log-image{
     background: url("../img/2.png") center fixed;
@@ -394,7 +394,7 @@ iframe {
 
 /*==========================表格背景=========================*/
 .bg-img{
-    background-image: url("https://aisearch.cdn.bcebos.com/pic_create/2025-08-15/17/baa1521b376964c3.png?x-bce-process=image/watermark,image_cGljX2NyZWF0ZS93YXRlcm1hcmsvYWlfd2F0ZXJtYXJrLnBuZw==,x_16,y_16");
+    background-image: url("../img/biaoge-bg.png");
     background-size: cover;
 }
 /*==============================侧边栏容器===================================*/
@@ -623,3 +623,32 @@ iframe {
     opacity: 1;
 }
 
+.slide {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.slide:nth-child(1) {
+    background-image: url('../img/lunbo-1.png');
+}
+.slide:nth-child(2) {
+    background-image: url('../img/lunbo-2.png');
+}
+.slide:nth-child(3) {
+    background-image: url('../img/lunbo-3.png');
+}
+.slide:nth-child(4) {
+    background-image: url('../img/lunbo-1.png');
+}
+
+.flip-box-front {
+    background-size: 100% 100%;
+    background-image: url("../img/kapian-1.png");
+}
+
+.flip-box-back {
+    background-image: url("../img/kapian-2.png");
+    transform: rotateY(180deg);
+    background-size: 100% 100%;
+}
