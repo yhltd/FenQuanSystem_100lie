@@ -25,4 +25,9 @@ public interface PushNewsMapper extends BaseMapper<PushNews> {
             "   AND (zhidate IS NULL OR GETUTCDATE() <= CONVERT(DATETIME, LEFT(zhidate, 10), 120)) " +
             ")")
     List<PushNews> getList(@Param("companyName") String companyName);
+
+    @Select("SELECT beizhu2,beizhu3 FROM product_pushnews " +
+            "WHERE xtname = '分权编辑系统' " +
+            "AND gsname = #{companyName} " )
+    List<PushNews> getLogin(@Param("companyName") String companyName);
 }

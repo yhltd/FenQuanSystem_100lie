@@ -652,3 +652,7 @@ iframe {
     transform: rotateY(180deg);
     background-size: 100% 100%;
 }
+
+.col-md-7{
+    justify-content: center
+}

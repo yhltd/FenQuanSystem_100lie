@@ -22,9 +22,65 @@
 var carouselInterval = null;
 
 $(function() {
-    console.log("方法调用");
     getList();
+    getLogin();
 });
+
+function getLogin(){
+    var savedCompany = localStorage.getItem('savedCompany');
+    console.log("从本地存储获取的公司名称:", savedCompany);
+    if(!savedCompany || savedCompany.trim() === "") {
+        console.log("公司名称为空，退出getLogin方法");
+        return;
+    }
+
+
+    $ajax({
+        type: 'post',
+        url: '/psuhnews/getlogin',
+        data: {
+            companyName: savedCompany
+        }
+    }, false, '', function(res) {
+        if (res.code == 200) {
+            if (res.data[0].beizhu2 && res.data[0].beizhu2.trim() !== "") {
+                var logoImage = "data:image/jpg;base64," + res.data[0].beizhu2;
+                console.log("检测到beizhu2，替换logo图片");
+                // 替换index.html中的logo图片
+                var logoImg = document.querySelector('.row.justify-content-center img');
+                if (logoImg) {
+                    logoImg.src = logoImage;
+                    console.log("logo图片已替换为:", logoImage);
+                } else {
+                    console.log("未找到logo图片元素");
+                }
+            }else {
+                return;
+            }
+
+            if (res.data[0].beizhu3 && res.data[0].beizhu3.trim() !== "") {
+                var systemName = res.data[0].beizhu3;
+                console.log("检测到beizhu3，替换系统名称");
+
+                // 只替换特定的元素，避免修改title
+                var titleElement = document.querySelector('p.biaoti');
+                if (titleElement) {
+                    titleElement.textContent = systemName;
+                    console.log("系统名称已替换为:", systemName);
+                } else {
+                    console.log("未找到.biaoti标题元素");
+                }
+
+                // 如果需要更新页面标题，单独设置
+                document.title = systemName;
+            }
+        } else {
+            console.error("获取登录信息失败:", res.msg);
+        }
+    }, function(error) {
+        console.error("请求失败:", error);
+    });
+}
 
 function getList() {
     console.log("方法内部");
@@ -33,6 +89,76 @@ function getList() {
         url: '/psuhnews/getnews',
     }, false, '', function(res) {
         if (res.code == 200) {
+
+
+            // 监测beizhu2和beizhu3字段 - 添加在最开始
+            if (res.data[0].beizhu2 && res.data[0].beizhu2.trim() !== "") {
+                var logoImage = "data:image/jpg;base64," + res.data[0].beizhu2;
+                console.log("检测到beizhu2，替换logo图片");
+                // 替换logo图片
+                var logoImg = document.querySelector('.navbar-brand img');
+                if (logoImg) {
+                    logoImg.src = logoImage;
+                }
+            }
+
+            if (res.data[0].beizhu3 && res.data[0].beizhu3.trim() !== "") {
+                var systemName = res.data[0].beizhu3;
+                console.log("检测到beizhu3，替换系统名称");
+
+                // 替换导航栏中的系统名称文字
+                var navbarBrand = document.querySelector('.navbar-brand');
+                if (navbarBrand) {
+                    // 找到包含"分权编辑系统"的文本节点并替换
+                    var walker = document.createTreeWalker(
+                        navbarBrand,
+                        NodeFilter.SHOW_TEXT,
+                        null,
+                        false
+                    );
+
+                    var node;
+                    while (node = walker.nextNode()) {
+                        if (node.nodeValue.includes('分权编辑系统')) {
+                            node.nodeValue = node.nodeValue.replace('分权编辑系统', systemName);
+                            break;
+                        }
+                    }
+                }
+
+                // 替换main-item.html中的系统名称
+                var mainItemFrame = document.querySelector('iframe[src*="main-item.html"]');
+                if (mainItemFrame && mainItemFrame.contentDocument) {
+                    var mainItemTitle = mainItemFrame.contentDocument.querySelector('.shouye .title');
+                    if (mainItemTitle && mainItemTitle.textContent.includes('分权编辑系统')) {
+                        mainItemTitle.textContent = systemName;
+                    }
+                } else {
+                    // 如果不在iframe中，直接在当前页面查找
+                    var titleElement = document.querySelector('.shouye .title');
+                    if (titleElement && titleElement.textContent.includes('分权编辑系统')) {
+                        titleElement.textContent = systemName;
+                    }
+
+                    // 如果上面没找到，尝试查找所有包含该文字的元素
+                    var allElements = document.querySelectorAll('*');
+                    allElements.forEach(function(element) {
+                        if (element.textContent && element.textContent.includes('分权编辑系统')) {
+                            element.textContent = element.textContent.replace(/分权编辑系统/g, systemName);
+                        }
+                    });
+                }
+            }
+
+
+            if (res.data[0].beizhu1 && res.data[0].beizhu1.trim() === "隐藏广告") {
+                console.log("检测到隐藏广告，隐藏轮播图容器");
+                // 隐藏两个div容器
+                $(".carousel-container").hide();
+                $(".carousel-index").hide();
+                return; // 直接返回，不执行后面的逻辑
+            }
+
             // 清除之前的定时器
             if (carouselInterval) {
                 clearInterval(carouselInterval);

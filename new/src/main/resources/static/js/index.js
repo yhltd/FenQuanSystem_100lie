@@ -21,12 +21,6 @@ function get_select_List() {
 }
 
 
-
-
-
-
-
-
 $(function () {
 
     get_select_List();

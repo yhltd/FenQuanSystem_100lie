@@ -21,4 +21,11 @@ public class PushNewsImpl extends ServiceImpl<PushNewsMapper, PushNews> implemen
         // 使用父类提供的 getBaseMapper() 方法获取 mapper
         return baseMapper.getList(companyName);
     }
+
+    @Override
+    @DS("db3")
+    public List<PushNews> getLogin(String companyName) {
+        // 使用父类提供的 getBaseMapper() 方法获取 mapper
+        return baseMapper.getLogin(companyName);
+    }
 }
