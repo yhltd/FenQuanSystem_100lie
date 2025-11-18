@@ -125,7 +125,7 @@
     function updateTime() {
         const now = new Date();
         document.getElementById('current-date').textContent =
-            `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 ${['日', '一', '二', '三', '四', '五', '六'][now.getDay()]}曜日`;
+            `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 星期${['日', '一', '二', '三', '四', '五', '六'][now.getDay()]}`;
         document.getElementById('current-time').textContent =
             `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
     }

@@ -117,16 +117,32 @@
 </div>
 
 
+<!--<div id="upd_1" class="alert alert-success alert-dismissible" hidden="hidden"-->
+<!--     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">-->
+<!--    <strong>保存成功!</strong>-->
+<!--</div>-->
+<!--<div id="upd_2" class="alert alert-danger alert-dismissible" hidden="hidden"-->
+<!--     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">-->
+<!--    <strong>保存失败!</strong>-->
+<!--</div>-->
+<!--<div id="upd_3" class="alert alert-danger alert-dismissible" hidden="hidden"-->
+<!--     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">-->
+<!--    <strong>无权限!</strong>-->
+<!--</div>-->
+
 <div id="upd_1" class="alert alert-success alert-dismissible" hidden="hidden"
-     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+     style=" position: fixed;top: 110px;right: 10px;z-index: 9999;opacity: 0.9;margin: 0;padding: 15px;
+            border-radius: 4px;background-color: #d4edda;border: 1px solid #c3e6cb;color: #155724;">
     <strong>保存成功!</strong>
 </div>
 <div id="upd_2" class="alert alert-danger alert-dismissible" hidden="hidden"
-     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+     style=" position: fixed;top: 110px;right: 10px;z-index: 9999;opacity: 0.9;margin: 0;padding: 15px;
+            border-radius: 4px;background-color: #d4edda;border: 1px solid #c3e6cb;color: #ee0224;">
     <strong>保存失败!</strong>
 </div>
 <div id="upd_3" class="alert alert-danger alert-dismissible" hidden="hidden"
-     style="float:right;margin-bottom: 0;margin-top: 20px;margin-right: 10px;">
+     style=" position: fixed;top: 110px;right: 10px;z-index: 9999;opacity: 0.9;margin: 0;padding: 15px;
+            border-radius: 4px;background-color: #d4edda;border: 1px solid #c3e6cb;color: #f3a706;">
     <strong>无权限!</strong>
 </div>
 
@@ -196,7 +212,7 @@
     function updateTime() {
         const now = new Date();
         document.getElementById('current-date').textContent =
-            `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 ${['日', '一', '二', '三', '四', '五', '六'][now.getDay()]}曜日`;
+            `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 星期${['日', '一', '二', '三', '四', '五', '六'][now.getDay()]}`;
         document.getElementById('current-time').textContent =
             `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
     }
