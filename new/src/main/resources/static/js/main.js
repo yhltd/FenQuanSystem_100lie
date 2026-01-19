@@ -38,44 +38,74 @@ function getLogin(){
     $ajax({
         type: 'post',
         url: '/psuhnews/getlogin',
-        data: {
+        data: JSON.stringify( {
             companyName: savedCompany
-        }
+        }),
     }, false, '', function(res) {
-        if (res.code == 200) {
-            if (res.data[0].beizhu2 && res.data[0].beizhu2.trim() !== "") {
-                var logoImage = "data:image/jpg;base64," + res.data[0].beizhu2;
-                console.log("检测到beizhu2，替换logo图片");
-                // 替换index.html中的logo图片
-                var logoImg = document.querySelector('.row.justify-content-center img');
-                if (logoImg) {
-                    logoImg.src = logoImage;
-                    console.log("logo图片已替换为:", logoImage);
-                } else {
-                    console.log("未找到logo图片元素");
-                }
-            }else {
-                return;
+    //     if (res.code == 200) {
+    //         if (res.data[0].beizhu2 && res.data[0].beizhu2.trim() !== "") {
+    //             var logoImage = "data:image/jpg;base64," + res.data[0].beizhu2;
+    //             console.log("检测到beizhu2，替换logo图片");
+    //             // 替换index.html中的logo图片
+    //             var logoImg = document.querySelector('.row.justify-content-center img');
+    //             if (logoImg) {
+    //                 logoImg.src = logoImage;
+    //                 console.log("logo图片已替换为:", logoImage);
+    //             } else {
+    //                 console.log("未找到logo图片元素");
+    //             }
+    //         }else {
+    //             return;
+    //         }
+    //
+    //         if (res.data[0].beizhu3 && res.data[0].beizhu3.trim() !== "") {
+    //             var systemName = res.data[0].beizhu3;
+    //             console.log("检测到beizhu3，替换系统名称");
+    //
+    //             // 只替换特定的元素，避免修改title
+    //             var titleElement = document.querySelector('p.biaoti');
+    //             if (titleElement) {
+    //                 titleElement.textContent = systemName;
+    //                 console.log("系统名称已替换为:", systemName);
+    //             } else {
+    //                 console.log("未找到.biaoti标题元素");
+    //             }
+    //
+    //             // 如果需要更新页面标题，单独设置
+    //             document.title = systemName;
+    //         }
+    //     } else {
+    //         console.error("获取登录信息失败:", res.msg);
+    //     }
+    // }, function(error) {
+    //     console.error("请求失败:", error);
+    // });
+        // 简单的数据验证
+        if (!res || !res.data || res.data.length === 0) {
+            console.log("没有获取到公司配置信息");
+            return;
+        }
+
+        // 如果是文本信息，直接输出或使用
+        if (res.data[0].beizhu2 && res.data[0].beizhu2.trim() !== "") {
+            var beizhu2Text = res.data[0].beizhu2;
+            console.log("beizhu2文本内容:", beizhu2Text);
+            // 这里可以根据需要显示文本，而不是当做图片
+            // 例如：设置到某个div中
+            // document.getElementById("someDiv").innerText = beizhu2Text;
+        }
+
+        if (res.data[0].beizhu3 && res.data[0].beizhu3.trim() !== "") {
+            var systemName = res.data[0].beizhu3;
+            console.log("系统名称:", systemName);
+
+            // 只替换系统名称，不要当成图片
+            var titleElement = document.querySelector('p.biaoti');
+            if (titleElement) {
+                titleElement.textContent = systemName;
             }
 
-            if (res.data[0].beizhu3 && res.data[0].beizhu3.trim() !== "") {
-                var systemName = res.data[0].beizhu3;
-                console.log("检测到beizhu3，替换系统名称");
-
-                // 只替换特定的元素，避免修改title
-                var titleElement = document.querySelector('p.biaoti');
-                if (titleElement) {
-                    titleElement.textContent = systemName;
-                    console.log("系统名称已替换为:", systemName);
-                } else {
-                    console.log("未找到.biaoti标题元素");
-                }
-
-                // 如果需要更新页面标题，单独设置
-                document.title = systemName;
-            }
-        } else {
-            console.error("获取登录信息失败:", res.msg);
+            document.title = systemName;
         }
     }, function(error) {
         console.error("请求失败:", error);
@@ -90,7 +120,19 @@ function getList() {
     }, false, '', function(res) {
         if (res.code == 200) {
 
+            // 数据验证
+            if (!res.data || res.data.length === 0) return;
 
+            // 如果是文本信息，直接输出
+            if (res.data[0].beizhu2 && res.data[0].beizhu2.trim() !== "") {
+                console.log("beizhu2文本内容:", res.data[0].beizhu2);
+                // 不要当成图片处理
+            }
+
+            if (res.data[0].beizhu3 && res.data[0].beizhu3.trim() !== "") {
+                var systemName = res.data[0].beizhu3;
+                console.log("系统名称:", systemName);}
+                // 只做文本替换
             // 监测beizhu2和beizhu3字段 - 添加在最开始
             if (res.data[0].beizhu2 && res.data[0].beizhu2.trim() !== "") {
                 var logoImage = "data:image/jpg;base64," + res.data[0].beizhu2;
@@ -551,9 +593,9 @@ $(function () {
         $ajax({
             type: 'post',
             url: '/jiami/jiemiGet',
-            data:{
+            data: JSON.stringify({
                 text:user
-            }
+            }),
         }, false, '', function (res) {
             console.log(res)
             var company = res.split("`")[0]
@@ -562,14 +604,20 @@ $(function () {
             $ajax({
                 type: 'post',
                 url: '/user/login',
-                data:{
+                data: JSON.stringify({
                     username:username,
                     password:password,
-                    company:company
-                }
+                    company:company,}),
+
             }, false, '', function (res) {
                 if (res.code == 200) {
-
+// 新增：存储公司信息到localStorage
+                    localStorage.setItem('savedCompany', company);
+                    localStorage.setItem('username', username);
+                    setTimeout(function() {
+                        console.log('刷新页面...');
+                        location.reload();
+                    }, 500);
                 }
             })
         })

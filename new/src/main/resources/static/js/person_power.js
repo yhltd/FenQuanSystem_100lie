@@ -33,6 +33,9 @@ $(function () {
 
     //点击刷新按钮
     $("#refresh-btn").click(function () {
+        var columnName = $("#query").val();
+        getList(columnName);  // 先使用当前值刷新
+        $("#query").val("");
         getList();
     })
 

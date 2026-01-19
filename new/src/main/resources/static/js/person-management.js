@@ -36,6 +36,9 @@ function querbumen() {
 
 $(function () {
     //刷新
+    var columnName = $("#query").val();
+    getList(columnName);  // 先使用当前值刷新
+    $("#query").val("");
     getList();
 
     querbumen();
@@ -60,6 +63,9 @@ $(function () {
 
 
     $("#refresh-btn").click(function () {
+        var columnName = $("#query").val();
+        getList(columnName);  // 先使用当前值刷新
+        $("#query").val("");
         getList();
     })
 
@@ -167,6 +173,39 @@ $(function () {
         setForm(rows[0].data, '#update-form');
     })
 
+    // $('#qr-btn').click(function () {
+    //     let rows = getTableSelection('#labelTable')
+    //     if (rows.length > 1 || rows.length == 0) {
+    //         alert('请选择一条数据生成');
+    //         return;
+    //     }
+    //     console.log(rows[0].data)
+    //     var thisStr = rows[0].data.b + "`" + rows[0].data.d + "`" + rows[0].data.e
+    //     console.log(thisStr)
+    //     $ajax({
+    //         type: 'post',
+    //         url: '../jiami/jiamiGet',
+    //         data:{
+    //             text:thisStr
+    //         }
+    //     }, false, '', function (res) {
+    //         console.log(res)
+    //         var url = window.top.location.href.replace("/html/main.html","") + "?user=" + res
+    //         console.log(url)
+    //         var qrcode_container = document.getElementById('qrcode');
+    //         // 生成二维码
+    //         var qrcode = new QRCode(qrcode_container, {
+    //             text: url, // 二维码中的内容
+    //             width: 200, // 二维码的宽度
+    //             height: 200, // 二维码的高度
+    //             colorDark: "#000000", // 二维码的颜色
+    //             colorLight: "#ffffff", // 二维码的背景色
+    //         });
+    //         var base64_qrcode = qrcode_container.firstChild.toDataURL("image/png");
+    //         console.log(base64_qrcode)
+    //         downloadFileByBase64(rows[0].data.c+".png",base64_qrcode.split(",")[1])
+    //     })
+    // })
     $('#qr-btn').click(function () {
         let rows = getTableSelection('#labelTable')
         if (rows.length > 1 || rows.length == 0) {
@@ -178,7 +217,7 @@ $(function () {
         console.log(thisStr)
         $ajax({
             type: 'post',
-            url: '/jiami/jiamiGet',
+            url: '../jiami/jiamiGet',
             data:{
                 text:thisStr
             }
@@ -187,20 +226,44 @@ $(function () {
             var url = window.top.location.href.replace("/html/main.html","") + "?user=" + res
             console.log(url)
             var qrcode_container = document.getElementById('qrcode');
+
+            // 清空之前的二维码
+            qrcode_container.innerHTML = "";
+
             // 生成二维码
             var qrcode = new QRCode(qrcode_container, {
-                text: url, // 二维码中的内容
-                width: 200, // 二维码的宽度
-                height: 200, // 二维码的高度
-                colorDark: "#000000", // 二维码的颜色
-                colorLight: "#ffffff", // 二维码的背景色
+                text: url,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
             });
-            var base64_qrcode = qrcode_container.firstChild.toDataURL("image/png");
-            console.log(base64_qrcode)
-            downloadFileByBase64(rows[0].data.c+".png",base64_qrcode.split(",")[1])
+
+            // 等待一会儿让二维码生成完成
+            setTimeout(function() {
+                // 方法1：先尝试firstChild
+                if (qrcode_container.firstChild && qrcode_container.firstChild.toDataURL) {
+                    var base64_qrcode = qrcode_container.firstChild.toDataURL("image/png");
+                    console.log(base64_qrcode)
+                    downloadFileByBase64(rows[0].data.c+".png",base64_qrcode.split(",")[1]);
+                }
+                // 方法2：如果firstChild不是canvas，找canvas元素
+                else {
+                    var canvas = qrcode_container.querySelector('canvas');
+                    if (canvas && canvas.toDataURL) {
+                        var base64_qrcode = canvas.toDataURL("image/png");
+                        console.log(base64_qrcode)
+                        downloadFileByBase64(rows[0].data.c+".png",base64_qrcode.split(",")[1]);
+                    }
+                    // 方法3：如果还不是，尝试其他方法
+                    else {
+                        console.error('无法获取二维码图像');
+                        alert('二维码生成失败，请重试');
+                    }
+                }
+            }, 300); // 等待300毫秒确保二维码渲染完成
         })
     })
-
     //修改弹窗点击关闭按钮
     $('#update-close-btn').click(function () {
         $('#update-form')[0].reset();
@@ -243,18 +306,55 @@ $(function () {
     })
 
     //点击删除按钮
+    // $('#delete-btn').click(function () {
+    //     var msg = confirm("确认要删除吗？")
+    //     if (msg) {
+    //         let rows = getTableSelection("#labelTable");
+    //         if (rows.length == 0) {
+    //             alert('请选择要删除的数据！')
+    //             return;
+    //         }
+    //         let renyuan_id = ""
+    //         $.each(rows, function (index, row) {
+    //             renyuan_id = row.data.renyuanId
+    //         })
+    //
+    //         $ajax({
+    //             type: 'post',
+    //             url: '/user/delete',
+    //             data: {
+    //                 renyuan_id: renyuan_id,
+    //             }
+    //         }, false, '', function (res) {
+    //             alert(res.msg)
+    //             if (res.code == 200) {
+    //                 getList();
+    //             }
+    //         })
+    //     }
+    // })旧
     $('#delete-btn').click(function () {
-        var msg = confirm("确认要删除吗？")
+        // 先检查是否选择了数据
+        let rows = getTableSelection("#labelTable");
+
+        if (rows.length == 0) {
+            alert('请选择一条数据进行删除！');
+            return;
+        }
+
+        // 可选：限制只能选择一条
+        if (rows.length > 1) {
+            alert('请只选择一条数据进行删除！');
+            return;
+        }
+
+        // 如果有选择数据，再弹出确认框
+        var msg = confirm("确认要删除选中的数据吗？");
         if (msg) {
-            let rows = getTableSelection("#labelTable");
-            if (rows.length == 0) {
-                alert('请选择要删除的数据！')
-                return;
-            }
-            let renyuan_id = ""
+            let renyuan_id = "";
             $.each(rows, function (index, row) {
-                renyuan_id = row.data.renyuanId
-            })
+                renyuan_id = row.data.renyuanId;
+            });
 
             $ajax({
                 type: 'post',
@@ -263,14 +363,13 @@ $(function () {
                     renyuan_id: renyuan_id,
                 }
             }, false, '', function (res) {
-                alert(res.msg)
+                alert(res.msg);
                 if (res.code == 200) {
                     getList();
                 }
-            })
+            });
         }
-    })
-
+    });
     //上传excel
     $('#upload-btn').click(function () {
         $('#file').trigger('click');

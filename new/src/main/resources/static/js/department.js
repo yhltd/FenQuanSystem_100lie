@@ -16,6 +16,9 @@ $(function () {
 
     //点击刷新按钮
     $("#refresh-btn").click(function () {
+        var columnName = $("#query").val();
+        getList(columnName);  // 先使用当前值刷新
+        $("#query").val("");
         getList();
     })
 
@@ -47,6 +50,14 @@ $(function () {
 
     //新增弹窗里点击提交按钮
     $("#add-submit-btn").click(function () {
+        // 验证部门名称
+        var deptName = $("#add-departmentName").val();
+        if (!deptName || deptName.trim() === "") {
+            alert("请填写部门名称");
+            $("#add-departmentName").focus(); // 聚焦到输入框
+            return false; // 阻止提交
+        }
+
         let params = formToJson("#add-form")
         console.log(params)
         if (checkForm('#add-form')) {
@@ -88,8 +99,17 @@ $(function () {
 
     //修改弹窗里点击提交按钮
     $('#update-submit-btn').click(function () {
-        var msg = confirm("确认要修改吗？")
+        var msg = confirm("确认要修改吗？");
         if (msg) {
+            // 获取部门名称
+            var departmentName = $("#update-departmentName").val();
+
+            // 验证部门名称是否为空
+            if (!departmentName || departmentName.trim() === "") {
+                alert("请填写部门名称");
+                return false; // 阻止继续执行
+                }
+
             let params = formToJson('#update-form');
             if (checkForm('#update-form')) {
                 $ajax({

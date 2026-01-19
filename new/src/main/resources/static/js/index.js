@@ -49,9 +49,31 @@ $(function () {
             setCookie("init", str, 7);
         }
     }
+    // $("#submit-btn").click(function () {
+    //     if(checkForm('#login-form')){
+    //         let params = formToJson('#login-form')
+    //         $ajax({
+    //             type: 'post',
+    //             url: 'user/login',
+    //             data: {
+    //                 company: params.company,
+    //                 username: params.username,
+    //                 password: params.password
+    //             }
+    //         }, false, '', function (res) {
+    //             alert(res.msg)
+    //             console.log(res.data)
+    //             if (res.code > 0) {
+    //                 window.location.href = "html/main.html";
+    //             }
+    //         })
+    //     }
+    // })
     $("#submit-btn").click(function () {
         if(checkForm('#login-form')){
             let params = formToJson('#login-form')
+            console.log('登录参数:', params);
+
             $ajax({
                 type: 'post',
                 url: 'user/login',
@@ -62,9 +84,22 @@ $(function () {
                 }
             }, false, '', function (res) {
                 alert(res.msg)
-                console.log(res.data)
+                console.log('登录响应:', res);
+
                 if (res.code > 0) {
-                    window.location.href = "html/main.html";
+                    // 保存公司信息到 localStorage
+                    localStorage.setItem('savedCompany', params.company);
+                    localStorage.setItem('username', params.username);
+
+                    console.log('保存到 localStorage:', {
+                        company: params.company,
+                        username: params.username
+                    });
+
+                    // 延迟跳转以确保保存完成
+                    setTimeout(function() {
+                        window.location.href = "html/main.html";
+                    }, 100);
                 }
             })
         }

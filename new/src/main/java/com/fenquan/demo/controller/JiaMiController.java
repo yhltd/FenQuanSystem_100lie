@@ -66,15 +66,15 @@ public class JiaMiController {
 
         return base64Encrypted;
     }
-
-    @RequestMapping("/jiemiGet")
-    public String jiemiGet(String text) throws Exception {
-        //秘钥(需要使用长度为16、24或32的字节数组作为AES算法的密钥，否则就会遇到java.security.InvalidKeyException异常)
-        String key="20230915IsMaimes";
-        //解密，获取明文
-        String text2 = AESDecryptDemo(text,key);
-
-        return text2;
-    }
+//
+//    @RequestMapping("/jiemiGet")
+//    public String jiemiGet(String text) throws Exception {
+//        //秘钥(需要使用长度为16、24或32的字节数组作为AES算法的密钥，否则就会遇到java.security.InvalidKeyException异常)
+//        String key="20230915IsMaimes";
+//        //解密，获取明文
+//        String text2 = AESDecryptDemo(text,key);
+//
+//        return text2;
+//    }
 
 }

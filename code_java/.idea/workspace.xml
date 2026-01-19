@@ -19,24 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1c3db8-e586-4235-8cb7-61373832aa9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/java/com/fenquan/demo/controller/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/java/com/fenquan/demo/controller/ChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/static/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/company-power.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/company-power.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/company_chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/company_chart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/department.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/department.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person-management.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person-management.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person_chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person_chart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person_power.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/person_power.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/use_state.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/use_state.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/workbench.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/workbench.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../new/src/main/resources/templates/html/workbench_gongshi.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/src/main/resources/templates/html/workbench_gongshi.html" afterDir="false" />
-    </list>
+    <list default="true" id="5f1c3db8-e586-4235-8cb7-61373832aa9f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../new" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -84,6 +67,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="TomeeConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings>
@@ -433,6 +427,7 @@
       <workItem from="1624939388744" duration="1338000" />
       <workItem from="1756444678349" duration="38000" />
       <workItem from="1756780686626" duration="14000" />
+      <workItem from="1767850373554" duration="965000" />
     </task>
     <servers />
   </component>

@@ -77,6 +77,10 @@ $(function () {
             alert('未选择姓名');
             return;
         }
+        if(start_date > stop_date){
+            alert("起始日期不能晚于结束日期")
+            return;
+        }
         $ajax({
             type: 'post',
             url: '/chart/queryRenYuanList',
@@ -92,11 +96,6 @@ $(function () {
             }
         })
     })
-
-
-
-
-
 })
 
 function chart_refresh(this_arr){

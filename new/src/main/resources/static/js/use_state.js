@@ -1,18 +1,65 @@
+console.log('=== use_state.js 开始加载 ===');
+
+// 检查是否有公司信息
+function checkCompanyInfo() {
+    var savedCompany = localStorage.getItem('savedCompany');
+    console.log('当前存储的公司:', savedCompany);
+
+    // 如果没有公司信息，尝试从URL获取
+    if (!savedCompany) {
+        console.log('没有找到公司信息，检查URL参数...');
+        var urlParams = new URLSearchParams(window.location.search);
+        var userParam = urlParams.get('user');
+
+        if (userParam) {
+            console.log('URL中有user参数，尝试解码...');
+            // 这里可以添加解码逻辑
+        }
+
+    }
+
+    return savedCompany;
+}
+
+// function getList() {
+//     $ajax({
+//         type: 'post',
+//         url: '/use_state/getList',
+//     }, false, '', function (res) {
+//         if (res.code == 200) {
+//             console.log(res.data)
+//             setTable1(res.data);
+//             setTable2(res.data);
+//             setTable3(res.data);
+//             setTable4(res.data);
+//         }
+//     })
+// }
 function getList() {
+    // 获取公司名称
+    var savedCompany = localStorage.getItem('savedCompany');
+    console.log('调用getList接口，公司名称:', savedCompany);
+
     $ajax({
         type: 'post',
         url: '/use_state/getList',
+        data: savedCompany ? JSON.stringify({ company: savedCompany }) : '{}', // 添加公司参数
+        contentType: 'application/json', // 确保发送JSON格式
     }, false, '', function (res) {
+        console.log('getList接口响应:', res);
         if (res.code == 200) {
-            console.log(res.data)
+            console.log('获取到数据:', res.data);
             setTable1(res.data);
             setTable2(res.data);
             setTable3(res.data);
             setTable4(res.data);
+        } else {
+            console.error('获取数据失败:', res.msg);
         }
+    }, function (error) {
+        console.error('请求失败:', error);
     })
 }
-
 
 
 
@@ -59,10 +106,10 @@ function columnUpd(id,column){
         $ajax({
             type: 'post',
             url: '/use_state/update',
-            data: {
+            data:  JSON.stringify({
                 column:column,
                 id:id
-            },
+            }),
         }, false, '', function (res) {
             // alert(res.msg);
             if (res.code == 200) {
