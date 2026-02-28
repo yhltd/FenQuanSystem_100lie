@@ -72,6 +72,11 @@ public class UserInfo {
      */
     private String quanxianId;
 
+    /**
+     * 上传文件
+     */
+    private String wenjian;
+
 
 
 }

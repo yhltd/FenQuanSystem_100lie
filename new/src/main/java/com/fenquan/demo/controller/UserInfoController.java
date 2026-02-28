@@ -214,7 +214,7 @@ public class UserInfoController{
      *添加
      * */
     @RequestMapping("/add")
-    public ResultInfo add(String add_C,String add_D,String add_E,String add_zhuangtai,String add_email,String add_phone,String add_bianhao,String add_bumen,String chashanquanxian ,HttpSession session){
+    public ResultInfo add(String add_C,String add_D,String add_E,String add_zhuangtai,String add_email,String add_phone,String add_bianhao,String add_bumen,String add_wenjian,String chashanquanxian ,HttpSession session){
         UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
         Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
         SessionUtil.setPower(session, StringUtils.cast(map.get("power")));
@@ -254,6 +254,7 @@ public class UserInfoController{
             iuser.setEmail(add_email);
             iuser.setPhone(add_phone);
             iuser.setBumen(add_bumen);
+            iuser.setWenjian(add_wenjian);
             String a= "查询";
             String b= "修改";
             iuser = iUserInfoService.add(iuser);
@@ -337,6 +338,22 @@ public class UserInfoController{
         }catch (Exception e){
             log.error("查询失败：{}",e.getMessage());
             return ResultInfo.error("错误!");
+        }
+    }
+
+    @PostMapping("/updatewenjian")
+    public ResultInfo updateWenjian(@RequestParam("up_id") Integer up_id,
+                                    @RequestParam("up_wenjian") String up_wenjian) {
+        try {
+            boolean success = iUserInfoService.updateWenjian(up_wenjian, up_id);
+            if (success) {
+                return ResultInfo.success("文件信息更新成功");
+            } else {
+                return ResultInfo.error("文件信息更新失败");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultInfo.error("系统错误：" + e.getMessage());
         }
     }
 

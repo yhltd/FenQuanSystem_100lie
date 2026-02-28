@@ -113,4 +113,15 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper, UserInfo> implemen
     @Override
     public boolean deletecopy(String renyuan_id) {return userInfoMapper.deletecopy(renyuan_id);}
 
+    @Override
+    public boolean updateWenjian(String up_wenjian, Integer up_id) {
+        try {
+            int result = userInfoMapper.updateWenjian(up_wenjian, up_id);
+            return result > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

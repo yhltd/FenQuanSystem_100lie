@@ -88,4 +88,6 @@ public interface IUserInfoService {
      * @return 是否删除成功
      */
     boolean deletecopy(String renyuan_id);
+
+    boolean updateWenjian(String up_wenjian, Integer up_id);
 }

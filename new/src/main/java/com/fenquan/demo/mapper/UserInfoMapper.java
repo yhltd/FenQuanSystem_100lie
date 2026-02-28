@@ -4,10 +4,7 @@ import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.fenquan.demo.entity.UserInfo;
 import com.fenquan.demo.entity.UserInfocopy;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -32,8 +29,8 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
     @Select("select * from baitaoquanxian_renyun where B=#{company} and C like '%'+#{query}+'%'")
     List<UserInfo> queryC_Inquire(String company ,String query);
 
-    @Insert("insert into baitaoquanxian_renyun(quanxian,B,C,D,E,renyuan_id,zhuangtai,email,phone,bianhao,bumen) values(company,B,add_C,add_E,renyuan_id,add_zhuangtai,add_email,add_phone,add_bianhao,add_bumen)")
-    List<UserInfocopy> add(String add_C, String add_D, String add_E,String renyuan_id, String add_zhuangtai, String add_email, String add_phone, String add_bianhao,String add_bumen);
+    @Insert("insert into baitaoquanxian_renyun(quanxian,B,C,D,E,renyuan_id,zhuangtai,email,phone,bianhao,bumen,wenjian) values(company,B,add_C,add_E,renyuan_id,add_zhuangtai,add_email,add_phone,add_bianhao,add_bumen,add_wenjian)")
+    List<UserInfocopy> add(String add_C, String add_D, String add_E,String renyuan_id, String add_zhuangtai, String add_email, String add_phone, String add_bianhao,String add_bumen,String add_wenjian);
 
     @Insert("insert into baitaoquanxian_copy1(quanxian,B,renyuan_id,chashanquanxian) values(#{company},#{B},#{renyuan_id},#{chashanquanxian})")
     boolean addcopy(String company, String B,String renyuan_id,String chashanquanxian);
@@ -43,4 +40,7 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
     @Delete("delete from baitaoquanxian_copy1 where renyuan_id =#{renyuan_id}")
     boolean deletecopy(String renyuan_id);
+
+    @Update("UPDATE baitaoquanxian_renyun SET wenjian = #{up_wenjian} WHERE id = #{up_id}")
+    int updateWenjian(@Param("up_wenjian") String up_wenjian, @Param("up_id") Integer up_id);
 }

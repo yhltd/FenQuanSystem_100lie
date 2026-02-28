@@ -79,6 +79,209 @@ $(function () {
         $('#add-modal').modal('hide');
     })
 
+    // 删除上传文件按钮点击事件 - 添加 async 关键字
+    $('#deup-btn').click(async function () {
+        let rows = getTableSelection('#labelTable');
+        if (rows.length != 1) {
+            alert('请选择一条用户记录');
+            return;
+        }
+
+        var userId = rows[0].data.id;
+        var userWenjian = rows[0].data.wenjian;
+
+        // 检查是否有文件
+        if (!userWenjian || userWenjian == '-') {
+            alert('该用户没有上传文件');
+            return;
+        }
+
+        // 确认删除
+        if (!confirm('确定要删除该文件吗？')) {
+            return;
+        }
+
+        // 提取文件名（移到外面，让整个函数都可以访问）
+        var fileName = userWenjian.split('/').pop().split('.')[0];
+        console.log('文件名:', fileName);
+
+        const params = new URLSearchParams({
+            order_number: fileName,
+            path: "/fenquan/"
+        });
+
+        // 显示删除中状态
+        $(this).prop('disabled', true);
+        $(this).text('删除中...');
+
+        // 尝试两种可能的端口
+        const endpoints = [
+            'https://yhocn.cn:9097/file/delete'
+        ];
+
+        let success = false;
+        let errorMessage = '所有接口都不可用';
+        let result;
+
+        // 尝试所有可能的端点
+        for (const baseUrl of endpoints) {
+            const url = `${baseUrl}?${params.toString()}`;
+            console.log('尝试请求URL:', url);
+
+            try {
+                // 先尝试POST
+                let response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                });
+
+                console.log('响应状态:', response.status);
+
+                $ajax({
+                    type: 'post',
+                    url: '/user/updatewenjian',
+                    data:{
+                        up_id:userId,
+                        up_wenjian:""
+                    }
+                }, false, '', function (res) {
+                    if (res.code == 200) {
+                        alert("删除成功！");
+                        getList();
+                    }
+                })
+
+                if (response.ok) {
+                    result = await response.json();
+                    success = true;
+                    break;
+                } else {
+                    // 尝试GET
+                    const getResponse = await fetch(url, {
+                        method: 'GET'
+                    });
+
+                    if (getResponse.ok) {
+                        result = await getResponse.json();
+                        console.log('GET删除成功:', result);
+                        success = true;
+                        break;
+                    } else {
+                        errorMessage = `服务器返回错误: ${getResponse.status} ${getResponse.statusText}`;
+                    }
+                }
+            } catch (error) {
+                console.log(`${baseUrl} 请求失败:`, error.message);
+                errorMessage = `网络请求失败: ${error.message}`;
+            }
+        }
+
+        // 恢复按钮状态
+        $(this).prop('disabled', false);
+        $(this).text('删除文件');
+
+        // 处理结果
+        if (success) {
+            // alert('文件删除成功');
+
+            // 可以在这里更新数据库中的 wenjian 字段为空
+            // updateUserFile(userId, '');
+
+            // 刷新列表
+            getList();
+        } else {
+            alert('文件删除失败：' + errorMessage);
+        }
+
+        return { success, result };
+    });
+
+    // 上传文件按钮点击事件
+    $('#upload-btn').click(function () {
+        // 先判断是否选中了用户
+        let rows = getTableSelection('#labelTable');
+        if (rows.length != 1) {
+            alert('请选择一条用户记录');
+            return;
+        }
+        // 触发文件选择
+        $('#file-upload').trigger('click');
+    });
+
+    $('#file-upload').change(function () {
+        let rows = getTableSelection('#labelTable');
+        if (rows.length != 1) {
+            alert('请选择一条用户记录');
+            $('#file-upload').val('');
+            return;
+        }
+
+        var file = this.files[0];
+        if (!file) {
+            return;
+        }
+
+        var userId = rows[0].data.id;
+        var userName = rows[0].data.c;
+
+        // 显示文件信息
+        console.log('用户:', userName, 'ID:', userId);
+        console.log('文件:', file.name, '大小:', file.size);
+
+        // 可以在这里处理文件，比如预览
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            console.log('文件内容已读取');
+        };
+        reader.readAsDataURL(file);
+
+
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('name', file.name);
+        formData.append('path', '/fenquan/');
+        formData.append('kongjian', '3');
+
+        $.ajax({
+            url: "https://yhocn.cn:9097/file/upload",
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                if (res.code === 200) {
+
+                    $ajax({
+                        type: 'post',
+                        url: '/user/updatewenjian',
+                        data:{
+                            up_id:userId,
+                            up_wenjian:"http://yhocn.cn:9088/fenquan/" + file.name
+                        }
+                    }, false, '', function (res) {
+                        if (res.code == 200) {
+                            alert("上传成功！");
+                            getList();
+                        }
+                    })
+
+                } else {
+                    reject("上传失败：" + (res.msg || "未知错误"));
+                }
+            },
+            error: function (xhr, status, error) {
+                reject("上传失败：" + error);
+            }
+        });
+
+
+        $('#file-upload').val('');
+    });
+
+
+
     //新增弹窗里点击提交按钮
     $("#add-submit-btn").click(function () {
         var add_C = $('#add_C').val();
@@ -115,6 +318,7 @@ $(function () {
                                 add_phone:add_phone,
                                 add_bianhao:add_bianhao,
                                 add_bumen:add_bumen,
+                                add_wenjian:"",
                             },
                         }, false, '', function (res) {
                             alert(res.msg)
@@ -547,6 +751,19 @@ function setTable(data) {
                         value = '-'
                     }
                     return "<div title='"+value+"'; style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100%;word-wrap:break-all;word-break:break-all;' href='javascript:edit(\""+row.id+"\",true)'>"+value+"</div>";
+                }
+            },{
+                field: 'wenjian',
+                title: '上传文件',
+                align: 'center',
+                sortable: true,
+                width: 300,
+                formatter:function(value, row , index){
+                    if(value == null || value == ''){
+                        value = '-'
+                    }
+                    return '<a href="' + value + '" target="_blank" title="' + value + '">' + value + '</a>';
+                    // return "<div title='"+value+"'; style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100%;word-wrap:break-all;word-break:break-all;' href='javascript:edit(\""+row.id+"\",true)'>"+value+"</div>";
                 }
             }
         ],
