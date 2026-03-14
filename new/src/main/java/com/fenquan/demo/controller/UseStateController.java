@@ -69,7 +69,10 @@ public class UseStateController {
 
     //解除占用工作台列
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResultInfo update(HttpSession session,String column,int id) {
+    public ResultInfo update(HttpSession session, @RequestBody Map<String, Object> request) {
+        String column = (String) request.get("column");
+        Integer id = ((Number) request.get("id")).intValue();
+
         UserInfo userInfo = GsonUtil.toEntity(SessionUtil.getToken(session), UserInfo.class);
         Map<String, Object> map = iUserInfoService.login(userInfo.getD(), userInfo.getE(), userInfo.getB());
         SessionUtil.setPower(session, StringUtils.cast(map.get("power")));

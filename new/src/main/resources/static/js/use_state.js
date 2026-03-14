@@ -106,6 +106,7 @@ function columnUpd(id,column){
         $ajax({
             type: 'post',
             url: '/use_state/update',
+            contentType: 'application/json',
             data:  JSON.stringify({
                 column:column,
                 id:id
