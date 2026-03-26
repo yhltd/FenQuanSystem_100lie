@@ -35,6 +35,9 @@ function querbumen() {
 
 
 $(function () {
+
+    var savedCompany = localStorage.getItem('savedCompany');
+    var storageSpaceKB = localStorage.getItem('storageSpace');
     //刷新
     var columnName = $("#query").val();
     getList(columnName);  // 先使用当前值刷新
@@ -79,6 +82,92 @@ $(function () {
         $('#add-modal').modal('hide');
     })
 
+    function checkTotalSpace(companyName, limitKB) {
+        return new Promise((resolve, reject) => {
+            // 并行请求数据库大小和文件夹大小
+            var dbRequest = $.ajax({
+                url: "/user/getCompanyTableSizes",
+                type: "GET",
+                data: { companyName: companyName }
+            });
+
+            var path = "/fenquan/" + companyName + "/";
+            var folderRequest = $.ajax({
+                url: "https://yhocn.cn:9097/file/getFolderSize",
+                type: 'GET',
+                data: { path: path }
+            });
+
+            $.when(dbRequest, folderRequest).done(function(dbRes, folderRes) {
+                var dbData = dbRes[0];
+                var folderData = folderRes[0];
+
+                // 检查数据库请求是否成功
+                if (dbData.code !== 200) {
+                    reject("获取数据库大小失败: " + (dbData.msg || "未知错误"));
+                    return;
+                }
+
+                var dbSizeKB = dbData.data.totalSizeKB;
+                var folderSizeKB = 0;
+
+                // 检查文件夹请求结果
+                if (folderData.code === 200) {
+                    // 文件夹存在，获取大小
+                    folderSizeKB = folderData.data.sizeBytes / 1024;
+                    console.log("文件夹大小:", folderSizeKB.toFixed(2), "KB");
+                } else if (folderData.code === 500 && folderData.msg === "文件夹不存在") {
+                    // 文件夹不存在，大小设为 0
+                    folderSizeKB = 0;
+                    console.log("文件夹不存在，大小设为 0 KB");
+                } else {
+                    // 其他错误，也设为 0 继续执行
+                    console.warn("获取文件夹大小失败:", folderData.msg);
+                    folderSizeKB = 0;
+                }
+
+                // 总使用空间（KB）
+                var totalUsedKB = dbSizeKB + folderSizeKB;
+
+                // 使用率
+                var usagePercent = (totalUsedKB / limitKB) * 100;
+
+                console.log("数据库大小:", dbSizeKB, "KB");
+                console.log("文件夹大小:", folderSizeKB.toFixed(2), "KB");
+                console.log("总使用:", totalUsedKB.toFixed(2), "KB", "(", usagePercent.toFixed(2), "%)");
+                console.log("限制:", limitKB, "KB", "(", (limitKB / 1024 / 1024).toFixed(2), "GB)");
+
+                var canUpload = true;
+                var message = "";
+
+                if (totalUsedKB >= limitKB * 1.1) {
+                    canUpload = false;
+                    message = "空间使用已超100%（" + usagePercent.toFixed(2) + "%），无法上传！";
+                    alert(message);
+                    $("#upload-btn").prop("disabled", true);
+                } else if (totalUsedKB >= limitKB * 0.9) {
+                    message = "空间使用已超90%（" + usagePercent.toFixed(2) + "%），请注意清理！";
+                    alert(message);
+                    $("#upload-btn").prop("disabled", false);
+                } else {
+                    $("#upload-btn").prop("disabled", false);
+                }
+
+                resolve({
+                    canUpload: canUpload,
+                    usagePercent: usagePercent,
+                    totalUsedKB: totalUsedKB,
+                    limitKB: limitKB
+                });
+
+            }).fail(function(err) {
+                console.error("获取空间信息失败:", err);
+                reject("请求失败");
+            });
+        });
+    }
+
+
     // 删除上传文件按钮点击事件 - 添加 async 关键字
     $('#deup-btn').click(async function () {
         let rows = getTableSelection('#labelTable');
@@ -105,9 +194,11 @@ $(function () {
         var fileName = userWenjian.split('/').pop().split('.')[0];
         console.log('文件名:', fileName);
 
+
+        path = "/fenquan/" + savedCompany + "/"
         const params = new URLSearchParams({
             order_number: fileName,
-            path: "/fenquan/"
+            path: path
         });
 
         // 显示删除中状态
@@ -210,7 +301,7 @@ $(function () {
         $('#file-upload').trigger('click');
     });
 
-    $('#file-upload').change(function () {
+    $('#file-upload').change(async function () {
         let rows = getTableSelection('#labelTable');
         if (rows.length != 1) {
             alert('请选择一条用户记录');
@@ -223,26 +314,51 @@ $(function () {
             return;
         }
 
+        // ========== 新增：文件大小验证（不能超过 500MB） ==========
+        var maxSizeMB = 500;
+        var maxSizeBytes = maxSizeMB * 1024 * 1024;  // 500MB 转换为字节
+        var fileSizeMB = file.size / (1024 * 1024);
+
+        if (file.size > maxSizeBytes) {
+            alert("文件大小超过限制！\n当前文件: " + fileSizeMB.toFixed(2) + " MB\n最大允许: " + maxSizeMB + " MB");
+            $('#file-upload').val('');
+            return;
+        }
+        console.log("文件大小验证通过:", fileSizeMB.toFixed(2), "MB /", maxSizeMB, "MB");
+        // ========== 文件大小验证结束 ==========
+
+        // 先检查空间
+        var canUpload = false;
+        try {
+            var result = await checkTotalSpace(savedCompany, storageSpaceKB);
+            canUpload = result.canUpload;
+        } catch (error) {
+            alert("空间检查失败: " + error);
+            $('#file-upload').val('');
+            return;
+        }
+
+        if (!canUpload) {
+            alert("空间不足，无法上传！");
+            $('#file-upload').val('');
+            return;
+        }
+
         var userId = rows[0].data.id;
         var userName = rows[0].data.c;
 
-        // 显示文件信息
+        var fileSizeKB = file.size / 1024;
         console.log('用户:', userName, 'ID:', userId);
-        console.log('文件:', file.name, '大小:', file.size);
+        console.log('文件:', file.name, '大小:', fileSizeMB.toFixed(2), "MB");
 
-        // 可以在这里处理文件，比如预览
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            console.log('文件内容已读取');
-        };
-        reader.readAsDataURL(file);
-
-
+        var path = "/fenquan/" + savedCompany + "/";
         var formData = new FormData();
         formData.append('file', file);
         formData.append('name', file.name);
-        formData.append('path', '/fenquan/');
-        formData.append('kongjian', '3');
+        formData.append('path', path);
+        // 后端期望的 kongjian 单位是 GB，需要转换
+        var storageSpaceGB = (storageSpaceKB / 1024 / 1024).toFixed(0);
+        formData.append('kongjian', storageSpaceGB);
 
         $.ajax({
             url: "https://yhocn.cn:9097/file/upload",
@@ -252,34 +368,32 @@ $(function () {
             contentType: false,
             success: function (res) {
                 if (res.code === 200) {
-
                     $ajax({
                         type: 'post',
                         url: '/user/updatewenjian',
-                        data:{
-                            up_id:userId,
-                            up_wenjian:"http://yhocn.cn:9088/fenquan/" + file.name
+                        data: {
+                            up_id: userId,
+                            up_wenjian: "http://yhocn.cn:9088/" + path + file.name
                         }
                     }, false, '', function (res) {
                         if (res.code == 200) {
                             alert("上传成功！");
                             getList();
+                            // 上传成功后重新检查空间
+                            checkTotalSpace(savedCompany, storageSpaceKB);
                         }
-                    })
-
+                    });
                 } else {
-                    reject("上传失败：" + (res.msg || "未知错误"));
+                    alert("上传失败：" + (res.msg || "未知错误"));
                 }
             },
             error: function (xhr, status, error) {
-                reject("上传失败：" + error);
+                alert("上传失败：" + error);
             }
         });
 
-
         $('#file-upload').val('');
     });
-
 
 
     //新增弹窗里点击提交按钮

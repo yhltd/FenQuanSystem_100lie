@@ -9,7 +9,7 @@ html,body,#main{
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin:0;
+    /*margin:0;*/
 }
 .alerts{
     position: fixed;

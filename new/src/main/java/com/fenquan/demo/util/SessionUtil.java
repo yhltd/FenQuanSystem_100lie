@@ -68,6 +68,20 @@ public class SessionUtil {
     }
 
     /**
+     * 存储存储空间限制
+     */
+    public static void setStorageSpace(HttpSession session, String storageSpace) {
+        session.setAttribute("storageSpace", storageSpace);
+    }
+
+    /**
+     * 获取存储空间限制
+     */
+    public static String getStorageSpace(HttpSession session) {
+        return (String) session.getAttribute("storageSpace");
+    }
+
+    /**
      * get
      * @param session session对象
      * @return 获取data

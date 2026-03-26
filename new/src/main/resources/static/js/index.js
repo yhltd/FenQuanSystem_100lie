@@ -91,6 +91,10 @@ $(function () {
                     localStorage.setItem('savedCompany', params.company);
                     localStorage.setItem('username', params.username);
 
+                    if (res.data && res.data.storageSpace) {
+                        localStorage.setItem('storageSpace', res.data.storageSpace);
+                    }
+
                     console.log('保存到 localStorage:', {
                         company: params.company,
                         username: params.username

@@ -38,4 +38,9 @@ public class SoftTime {
      * 数据库容量
      */
     private String mark4;
+
+    /**
+     * 登录是否包括该使用端
+     */
+    private String mark5;
 }
