@@ -626,12 +626,19 @@ function columnUseRefresh(column) {
             var this_list = res.data[0]
             if (this_list[column.toLowerCase()] != '' && this_list[column.toLowerCase()] == $.session.get('name')) {
                 $ajax({
+                    // type: 'post',
+                    // url: '/use_state/update',
+                    // data: {
+                    //     column: column,
+                    //     id: this_list['id']
+                    // },
                     type: 'post',
                     url: '/use_state/update',
-                    data: {
-                        column: column,
-                        id: this_list['id']
-                    },
+                    contentType: 'application/json',
+                    data:  JSON.stringify({
+                        column:column,
+                        id:id
+                    }),
                 }, false, '', function (res) {
                     // alert(res.msg);
                     if (res.code == 200) {
@@ -813,7 +820,10 @@ function setTable(data) {
                         value = eval(this_gongshi.toUpperCase())
                         data[index].a = value
                     }
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -945,7 +955,10 @@ function setTable(data) {
                         data[index].b = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -1077,7 +1090,10 @@ function setTable(data) {
                         data[index].c = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -1209,7 +1225,10 @@ function setTable(data) {
                         data[index].d = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -1341,7 +1360,10 @@ function setTable(data) {
                         data[index].e = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -1473,7 +1495,10 @@ function setTable(data) {
                         data[index].f = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -1605,7 +1630,10 @@ function setTable(data) {
                         data[index].g = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -1737,7 +1765,10 @@ function setTable(data) {
                         data[index].h = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -1869,7 +1900,10 @@ function setTable(data) {
                         data[index].i = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -2001,7 +2035,10 @@ function setTable(data) {
                         data[index].j = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -2133,7 +2170,10 @@ function setTable(data) {
                         data[index].k = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -2265,7 +2305,10 @@ function setTable(data) {
                         data[index].l = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -2397,10 +2440,12 @@ function setTable(data) {
                         data[index].m = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
-
                     if (JSON.parse($.session.get('companyPower'))[0].o == "√" && JSON.parse($.session.get('personPower'))[0].o == "√") {
                         return '<input id="M' + row.id + '" onfocus="javascript:columnUse(' + '\'M\'' + ')" onblur="javascript:columnUseRefresh(' + '\'M\'' + ')" oninput="javascript:columnUpd(' + row.id + ',' + '\'M\'' + ')" value="' + value + '" class="form-control"  >'
                     } else {
@@ -2529,7 +2574,10 @@ function setTable(data) {
                         data[index].n = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -2661,7 +2709,10 @@ function setTable(data) {
                         data[index].o = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -2793,7 +2844,10 @@ function setTable(data) {
                         data[index].p = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -2925,7 +2979,10 @@ function setTable(data) {
                         data[index].q = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -3057,7 +3114,10 @@ function setTable(data) {
                         data[index].r = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -3189,7 +3249,10 @@ function setTable(data) {
                         data[index].s = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -3321,7 +3384,10 @@ function setTable(data) {
                         data[index].t = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -3453,7 +3519,10 @@ function setTable(data) {
                         data[index].u = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -3585,7 +3654,10 @@ function setTable(data) {
                         data[index].v = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    //     value = ''
+                    // }
+                    if (value == null) {
                         value = ''
                     }
 
@@ -3717,7 +3789,8 @@ function setTable(data) {
                         data[index].w = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -3849,7 +3922,8 @@ function setTable(data) {
                         data[index].x = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -3981,7 +4055,8 @@ function setTable(data) {
                         data[index].y = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -4113,7 +4188,8 @@ function setTable(data) {
                         data[index].z = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -4245,7 +4321,8 @@ function setTable(data) {
                         data[index].aa = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -4377,7 +4454,8 @@ function setTable(data) {
                         data[index].ab = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -4509,7 +4587,8 @@ function setTable(data) {
                         data[index].ac = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -4641,7 +4720,8 @@ function setTable(data) {
                         data[index].ad = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -4773,7 +4853,8 @@ function setTable(data) {
                         data[index].ae = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -4905,7 +4986,8 @@ function setTable(data) {
                         data[index].af = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -5037,7 +5119,8 @@ function setTable(data) {
                         data[index].ag = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -5169,7 +5252,8 @@ function setTable(data) {
                         data[index].ah = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -5301,7 +5385,8 @@ function setTable(data) {
                         data[index].ai = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -5433,7 +5518,8 @@ function setTable(data) {
                         data[index].aj = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -5565,7 +5651,8 @@ function setTable(data) {
                         data[index].ak = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -5697,7 +5784,8 @@ function setTable(data) {
                         data[index].al = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -5829,7 +5917,8 @@ function setTable(data) {
                         data[index].am = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -5961,7 +6050,8 @@ function setTable(data) {
                         data[index].an = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -6093,7 +6183,8 @@ function setTable(data) {
                         data[index].ao = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -6225,7 +6316,8 @@ function setTable(data) {
                         data[index].ap = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -6357,7 +6449,8 @@ function setTable(data) {
                         data[index].aq = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -6489,7 +6582,8 @@ function setTable(data) {
                         data[index].ar = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -6621,7 +6715,8 @@ function setTable(data) {
                         data[index].ass = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -6753,7 +6848,8 @@ function setTable(data) {
                         data[index].at = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -6885,7 +6981,8 @@ function setTable(data) {
                         data[index].au = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -7017,7 +7114,8 @@ function setTable(data) {
                         data[index].av = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -7149,7 +7247,8 @@ function setTable(data) {
                         data[index].aw = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -7281,7 +7380,8 @@ function setTable(data) {
                         data[index].ax = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -7413,7 +7513,8 @@ function setTable(data) {
                         data[index].ay = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -7545,7 +7646,8 @@ function setTable(data) {
                         data[index].az = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -7677,7 +7779,8 @@ function setTable(data) {
                         data[index].ba = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -7809,7 +7912,8 @@ function setTable(data) {
                         data[index].bb = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -7941,7 +8045,8 @@ function setTable(data) {
                         data[index].bc = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -8073,7 +8178,8 @@ function setTable(data) {
                         data[index].bd = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -8205,7 +8311,8 @@ function setTable(data) {
                         data[index].be = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -8337,7 +8444,8 @@ function setTable(data) {
                         data[index].bf = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -8469,7 +8577,8 @@ function setTable(data) {
                         data[index].bg = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -8601,7 +8710,8 @@ function setTable(data) {
                         data[index].bh = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -8733,7 +8843,8 @@ function setTable(data) {
                         data[index].bi = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -8865,7 +8976,8 @@ function setTable(data) {
                         data[index].bj = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -8997,7 +9109,8 @@ function setTable(data) {
                         data[index].bk = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -9129,7 +9242,8 @@ function setTable(data) {
                         data[index].bl = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -9261,7 +9375,8 @@ function setTable(data) {
                         data[index].bm = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -9393,7 +9508,8 @@ function setTable(data) {
                         data[index].bn = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -9525,7 +9641,8 @@ function setTable(data) {
                         data[index].bo = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -9657,7 +9774,8 @@ function setTable(data) {
                         data[index].bp = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -9789,7 +9907,8 @@ function setTable(data) {
                         data[index].bq = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -9921,7 +10040,8 @@ function setTable(data) {
                         data[index].br = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -10053,7 +10173,8 @@ function setTable(data) {
                         data[index].bs = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -10185,7 +10306,8 @@ function setTable(data) {
                         data[index].bt = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -10317,7 +10439,8 @@ function setTable(data) {
                         data[index].bu = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -10449,7 +10572,8 @@ function setTable(data) {
                         data[index].bv = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -10581,7 +10705,8 @@ function setTable(data) {
                         data[index].bw = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -10713,7 +10838,8 @@ function setTable(data) {
                         data[index].bx = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -10845,7 +10971,8 @@ function setTable(data) {
                         data[index].byy = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -10977,7 +11104,8 @@ function setTable(data) {
                         data[index].bz = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -11109,12 +11237,13 @@ function setTable(data) {
                         data[index].ca = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
                     if (JSON.parse($.session.get('companyPower'))[0].cc == "√" && JSON.parse($.session.get('personPower'))[0].cc == "√") {
-                        return '<input id="CA' + row.id + '" onfocus="javascript:columnUse(' + '\'CA\'' + ')" onblur="javascript:columnUseRefresh(' + '\'CA\'' + ')" oninput="javascript:columnUpd(' + row.id + ',' + '\'A\'' + ')" value="' + value + '" class="form-control"  >'
+                        return '<input id="CA' + row.id + '" onfocus="javascript:columnUse(' + '\'CA\'' + ')" onblur="javascript:columnUseRefresh(' + '\'CA\'' + ')" oninput="javascript:columnUpd(' + row.id + ',' + '\'CA\'' + ')" value="' + value + '" class="form-control"  >'
                     } else {
                         return '<input value="' + value + '" class="form-control" readonly="readonly" >'
                     }
@@ -11241,7 +11370,8 @@ function setTable(data) {
                         data[index].cb = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -11373,7 +11503,8 @@ function setTable(data) {
                         data[index].cc = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -11505,7 +11636,8 @@ function setTable(data) {
                         data[index].cd = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -11637,7 +11769,8 @@ function setTable(data) {
                         data[index].ce = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -11769,7 +11902,8 @@ function setTable(data) {
                         data[index].cf = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -11901,7 +12035,8 @@ function setTable(data) {
                         data[index].cg = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -12033,7 +12168,8 @@ function setTable(data) {
                         data[index].ch = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -12165,7 +12301,8 @@ function setTable(data) {
                         data[index].ci = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -12297,7 +12434,8 @@ function setTable(data) {
                         data[index].cj = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -12429,7 +12567,8 @@ function setTable(data) {
                         data[index].ck = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -12561,7 +12700,8 @@ function setTable(data) {
                         data[index].cl = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
                     
@@ -12693,7 +12833,8 @@ function setTable(data) {
                         data[index].cm = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -12825,7 +12966,8 @@ function setTable(data) {
                         data[index].cn = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -12957,7 +13099,8 @@ function setTable(data) {
                         data[index].co = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -13089,7 +13232,8 @@ function setTable(data) {
                         data[index].cp = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -13221,7 +13365,8 @@ function setTable(data) {
                         data[index].cq = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -13353,7 +13498,8 @@ function setTable(data) {
                         data[index].cr = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -13485,7 +13631,8 @@ function setTable(data) {
                         data[index].cs = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -13617,7 +13764,8 @@ function setTable(data) {
                         data[index].ct = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -13749,7 +13897,8 @@ function setTable(data) {
                         data[index].cu = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
@@ -13881,7 +14030,8 @@ function setTable(data) {
                         data[index].cv = value
                     }
 
-                    if(isNaN(value)){
+                    // if(isNaN(value)){
+                    if (value == null) {
                         value = ''
                     }
 
