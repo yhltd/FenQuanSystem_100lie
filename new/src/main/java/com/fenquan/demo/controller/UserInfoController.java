@@ -257,7 +257,7 @@ public class UserInfoController{
         token_list = token_list[1].split("\"");
         String login_company = token_list[3];
         String userNum = SessionUtil.getUserNum(session);
-        if(userNum != ""){
+        if(userNum != null && !userNum.isEmpty()){
             int num = Integer.parseInt(userNum);
             List<UserInfo> NumList = iUserInfoService.getUserNum(login_company);
             int thisNum = NumList.get(0).getId();
